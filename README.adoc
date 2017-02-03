@@ -13,10 +13,13 @@ mvn wildfly-swarm:run
 ----
 . Second edit any less file in directory `src/main/resources/less`
 . Finally compile the application using:
++
 ----
  mvn compile
 ----
+TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`.
 
 The changes made to less files should be visible in running application `http://localhost:8080/showcase`
 
 NOTE: There is no need to stop and run the application again.
+
