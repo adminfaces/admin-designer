@@ -1,6 +1,5 @@
 = Admin Designer Toolkit
 
-
 The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[Admin theme^] and http://github.com/adminfaces/admin-template[Admin Template].
 
 
