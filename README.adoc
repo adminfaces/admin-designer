@@ -19,14 +19,14 @@ In application root directory:
 . First start the application by running the command:
 +
 ----
-mvnw wildfly-swarm:run
+mvnw wildfly-swarm:run (or mvnw.cmd wildfly-swarm:run)
 ----
 +
 . Second edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
 . Finally compile the application using:
 +
 ----
- mvnw compile
+ ./mvnw compile (or mvnw.cmd compile)
 ----
 TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`.
 
@@ -35,3 +35,5 @@ The changes made to less files should be visible in running application `http://
 NOTE: There is no need to stop and run the application again.
 
 When you are done you can get the theme in https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[src/main/webapp/resources/primefaces-admin^];
+
+You can see this workflow in the following video: https://www.youtube.com/watch?v=AGo03YqjyDM
