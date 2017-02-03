@@ -1,0 +1,17 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:cc="http://java.sun.com/jsf/composite">
+
+
+    <cc:interface>
+        <cc:attribute name="clear" shortDescription="Clears breadcrumb stack before adding current page." default="false"  />
+        <cc:attribute name="link" shortDescription="Page link to navigate when bread crumb is clicked. If not provided then JSF viewID will be used."  />
+        <cc:attribute name="title" required="true" shortDescription="Bread crumb title."  />
+    </cc:interface>
+
+    <cc:implementation>
+        <f:event type="preRenderView" listener="#{breadCrumbMB.add(cc.attrs.link, cc.attrs.title, cc.attrs.clear)}"/>
+    </cc:implementation>
+
+</ui:composition>

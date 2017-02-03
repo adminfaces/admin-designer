@@ -1,16 +1,18 @@
 = Admin Designer Toolkit
 
 
-The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[AdminFaces theme^].
+The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[Admin theme^] and http://github.com/adminfaces/admin-template[Admin Template].
 
 
 == What is it?
 
-This the same http://github.com/adminfaces/admin-showcase[Admin Showcase^] application with admin theme bundled inside (https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[see here^]) instead of being a project dependency. 
+This the same http://github.com/adminfaces/admin-showcase[Admin Showcase^] application with `admin template` and `admin theme` bundled inside (https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[see here^]) instead of being a project dependency.
 
 It uses http://wildfly-swarm.io/[Wildfly Swarm^] to run the `exploded` application so one can change the theme and see the modifications without needing to restart the application.  
 
+== Objectives
 
+The initial idea was to speed AdminFaces development but it turns out that it can easy `contributions` from non Java developers (like designers and frontend developers) as the project is about front end components and layout.
 
 == How it works
 
