@@ -1,0 +1,60 @@
+/* radio */
+
+.ui-state-highlight .ui-radiobutton-box .ui-icon {
+  background-image: url("#{resource['primefaces-admin:images/ui-icons_2e83ff_256x240.png']}");
+}
+
+div.ui-radiobutton-box {
+  &.ui-state-hover, &.ui-state-focus {
+    background: @hover-color;
+  }
+}
+
+.ui-radiobutton-box.ui-state-active,
+.ui-radiobutton-box.ui-state-focus.ui-state-active {
+  border: 1px solid @light-blue;
+  background: @light-blue;
+  color: #FFFFFF;
+}
+
+.ui-radiobutton-box.ui-state-active .ui-icon {
+  background-image: url("#{resource['primefaces-admin:images/ui-icons_ffffff_256x240.png']}");
+}
+
+body .ui-radiobutton .ui-radiobutton-box {
+  border: 1px solid @input-border-color;
+  -moz-transition: box-shadow 0.3s;
+  -o-transition: box-shadow 0.3s;
+  -webkit-transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  &.ui-state-active {
+    border-color: @light-blue;
+    background: @light-blue;
+    color: #fff;
+  }
+}
+
+span.ui-radiobutton-icon {
+  margin: 0;
+}
+
+
+div.ui-radiobutton {
+  margin: 3px 0;
+  width: 18px;
+  line-height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  .ui-radiobutton-box {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+div.ui-selectoneradio label {
+  margin-top: 2px;
+  font-weight: 500;
+}

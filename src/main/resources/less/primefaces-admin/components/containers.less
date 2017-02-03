@@ -1,0 +1,45 @@
+/* Component containers
+----------------------------------*/
+.ui-widget, div.wrapper {
+  font-family: @font-family-sans;
+}
+
+.ui-widget .ui-widget {
+  font-size: @font-size-base;
+}
+
+.ui-widget label {
+  font-weight: 500; /* some components use label (e.g checkbox) and we don't want them to be bold, only output labels */
+}
+
+.ui-widget .ui-outputlabel {
+  font-weight: 600;
+}
+
+body .ui-tabs-outline {
+  outline: none;
+}
+
+.ui-widget-content {
+  border: 1px solid @default-border-color;
+  background: #fff;
+  color: #222222;
+}
+
+.ui-widget-header {
+  color: #222222;
+  border: 1px solid @default-border-color;
+  background: #fff;
+  font-weight: 600;
+}
+.ui-widget-header .ui-icon {
+  opacity: .4;
+}
+
+.ui-widget-content a {
+  color: #222222;
+}
+
+.ui-widget-content, .ui-state-default, .ui-widget-header .ui-state-default {
+  color: @admin-text-color;
+}

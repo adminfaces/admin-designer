@@ -1,0 +1,22 @@
+= Admin Designer Toolkit
+
+
+The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[AdminFaces theme^].
+
+
+== How it works
+
+. First start the application by running the command:
++
+----
+mvn wildfly-swarm:run
+----
+. Second edit any less file in directory `src/main/resources/less`
+. Finally compile the application using:
+----
+ mvn compile
+----
+
+The changes made to less files should be visible in running application `http://localhost:8080/showcase`
+
+NOTE: There is no need to stop and run the application again.

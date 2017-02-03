@@ -1,0 +1,103 @@
+
+div.ui-growl {
+  padding: 0 0 0 0;
+  width: 20%;
+  min-width: 120px;
+  position: fixed;
+  left: 40%;
+  opacity: .95;
+  font-size: 1.2em;
+  text-align: center;
+  font-weight: 500;
+  z-index: 9999 !important;
+
+  .ui-growl-item-container {
+     opacity: .95;
+  }
+
+  @media (max-width: 633px) {
+    left: 37% !important;
+  }
+  @media (max-width: 561px) {
+    left: 35% !important;
+  }
+
+  @media (max-width: 455px) {
+    left: 33% !important;
+  }
+
+  @media (max-width: 341px) {
+    left: 30% !important;
+  }
+  @media (max-width: 273px) {
+    left: 25% !important;
+  }
+
+}
+
+div.ui-growl .ui-growl-item-container .ui-growl-message {
+  text-align: center;
+  padding-bottom: 0px;
+  padding-right: 0;
+  padding-top: 0;
+  width: 100%;
+  border: 0;
+}
+
+/* growl */
+
+div.ui-growl-item {
+  background-color: #A6D7EB;
+  border: 1px solid #6fabc3;
+}
+
+div.ui-growl-info > div.ui-growl-item {
+  color: #ffffff;
+  background-color: @aqua;
+  border-color: darken(@aqua, 10%);;
+}
+
+div.ui-growl-warn > div.ui-growl-item {
+  color: #ffffff;
+  background-color: @yellow;
+  border-color: darken(@yellow, 10%);;
+}
+
+div.ui-growl-error > div.ui-growl-item {
+  color: #ffffff;
+  border-color: darken(@red, 10%);
+  background-color: @red;
+}
+
+div.ui-growl-fatal > div.ui-growl-item {
+  color: #ffffff;
+  border-color: darken(@dark-red, 10%);
+  background-color: @dark-red;
+}
+
+span.ui-growl-image {
+  display: none;
+}
+
+.ui-growl div.ui-growl-icon-close {
+  background-image: none !important;
+  display: inline!important;
+  text-indent: 0;
+  &:before {
+    font-family: FontAwesome;
+    color: #fff;
+    display: inline !important;
+    top: 0px;
+    right: 3px;
+    cursor: pointer;
+    position: absolute;
+    font-size: @font-awesome-icon-size;
+    margin-left: 5px;
+    overflow: hidden;
+    content: "\f00d" !important;
+  }
+  &:hover:before {
+    color: @hover-icon-color;
+    opacity: 1;
+  }
+}

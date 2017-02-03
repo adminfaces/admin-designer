@@ -1,0 +1,121 @@
+/* messages */
+
+.ui-messages > div {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+}
+
+div.ui-message-error {
+  background-color: @red;
+  color: #fff;
+  min-height: 30px;
+}
+
+div.ui-messages-fatal {
+  border-color: darken(@dark-red, 10%);
+  background-color: @dark-red;
+}
+
+div.ui-messages-error {
+  border-color: darken(@red, 10%);
+  background-color: @red;
+}
+
+div.ui-messages-warn {
+  border-color: darken(@yellow, 10%);
+  background-color: @yellow;
+}
+
+div.ui-messages-info {
+  border-color: darken(@aqua, 10%);
+  background-color: @aqua;
+}
+
+.ui-messages ul {
+  margin: 0 !important;
+}
+
+.ui-messages span.ui-messages-info-icon,
+.ui-messages span.ui-messages-warn-icon,
+.ui-messages span.ui-messages-fatal-icon,
+.ui-messages span.ui-messages-error-icon {
+  display: none;
+}
+
+div.ui-messages-warn-summary,
+div.ui-messages-error-summary,
+div.ui-messages-info-summary {
+  margin-left: 0;
+  font-weight: 600;
+}
+
+span.ui-message-info-icon, span.ui-message-warn-icon, span.ui-message-error-icon, span.ui-message-fatal-icon {
+  width: 24px;
+}
+
+div.ui-message-icon-only {
+  width: 30px;
+  height: 30px;
+}
+
+div.ui-message-info, div.ui-message-error, div.ui-message-warn, div.ui-message-fatal {
+  padding: 3px 3px;
+}
+
+div.ui-messages ul {
+  text-align: center;
+}
+
+div.ui-messages .ui-icon {
+  background-image: url("#{resource['primefaces-admin:images/ui-icons_ffffff_256x240.png']}");
+  content: "\f06a"
+}
+
+span.ui-message-error-icon {
+  margin-left: 1px;
+  margin-right: 0;
+  margin-top: 0;
+  background-image: none;
+  &:before {
+    font-family: FontAwesome;
+    color: #fff;
+    position: relative;
+    font-size: 22px;
+    top: -5px;
+    overflow: hidden;
+    content: "\f06a" !important;
+  }
+   &:hover:before {
+    color: @hover-icon-color;
+  }
+}
+
+div.ui-messages span.ui-icon-close {
+  background-image: none !important;
+  display: inline;
+  &:before {
+    font-family: FontAwesome;
+    color: #fff;
+    display: inline !important;
+    position: relative;
+    font-size: @font-awesome-icon-size;
+    margin-left: 5px;
+    top: -5px;
+    overflow: hidden;
+    content: "\f00d" !important;
+  }
+  &:hover:before {
+    color: @hover-icon-color;
+  }
+}
+
+div.ui-messages .ui-messages-close {
+  width: 20px;
+  margin-right: -10px;
+  height: 0;
+  margin-top: -10px;
+}

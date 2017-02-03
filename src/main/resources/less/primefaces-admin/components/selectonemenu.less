@@ -1,0 +1,65 @@
+/*  SelectOneMenu */
+
+div.ui-selectonemenu .ui-selectonemenu-trigger, div.ui-selectonemenu-trigger .ui-state-focus {
+  border-color: #ffffff;
+}
+
+div.ui-selectonemenu-trigger {
+  &.ui-state-hover, &.ui-state-focus {
+    background: @hover-color;
+  }
+}
+
+.ui-selectcheckboxmenu.ui-state-focus .ui-selectcheckboxmenu-label,
+.ui-selectcheckboxmenu .ui-selectcheckboxmenu-label.ui-state-hover {
+  background-color: #ffffff;
+}
+
+div.ui-selectonemenu, div.ui-fluid div.ui-selectonemenu {
+  height: 34px;
+  display: block;
+  border-color: #d2d6de;
+  .border-left-radius(0px);
+  min-width: 150px; /* primefaces adds min-width: 328px; when on ui-state-exception */
+
+  > .ui-selectonemenu-trigger {
+    width: 30px;
+    padding: 3px 6px;
+    .border-left-radius(0px);
+  }
+
+  > .ui-selectonemenu-label {
+    padding: 6px;
+  }
+}
+
+ul.ui-selectlistbox-list > li.ui-selectlistbox-item {
+  padding: 3px 6px;
+}
+
+
+.ui-selectcheckboxmenu-header .ui-selectcheckboxmenu-close {
+  padding: 1px!important;
+}
+
+
+li.ui-selectcheckboxmenu-item div.ui-chkbox-box {
+  position: relative;
+  margin-top: -15px;
+}
+
+div.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger .ui-icon {
+    margin-top: 6px;
+}
+
+div.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
+  border-color: #ffffff;
+  &.ui-state-hover, &.ui-state-focus {
+    background: @hover-color;
+  }
+}
+
+div.ui-selectcheckboxmenu-header {
+  border: 0;
+  border-bottom: 1px solid @checkboxmenu-border-color;
+}
