@@ -4,18 +4,29 @@
 The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[AdminFaces theme^].
 
 
+== What is it?
+
+This the same http://github.com/adminfaces/admin-showcase[Admin Showcase^] application with admin theme bundled inside (https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[see here^]) instead of being a project dependency. 
+
+It uses http://wildfly-swarm.io/[Wildfly Swarm^] to run the `exploded` application so one can change the theme and see the modifications without needing to restart the application.  
+
+
+
 == How it works
+
+In application root directory:
 
 . First start the application by running the command:
 +
 ----
-mvn wildfly-swarm:run
+mvnw wildfly-swarm:run
 ----
-. Second edit any less file in directory `src/main/resources/less`
++
+. Second edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
 . Finally compile the application using:
 +
 ----
- mvn compile
+ mvnw compile
 ----
 TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`.
 
@@ -23,3 +34,4 @@ The changes made to less files should be visible in running application `http://
 
 NOTE: There is no need to stop and run the application again.
 
+When you are done you can get the theme in https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[src/main/webapp/resources/primefaces-admin^];
