@@ -4,6 +4,7 @@ import com.github.adminfaces.template.config.AdminConfig;
 import com.github.adminfaces.template.util.Constants;
 import org.omnifaces.config.WebXml;
 import org.omnifaces.util.Exceptions;
+import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import org.primefaces.context.RequestContext;
 import org.slf4j.Logger;

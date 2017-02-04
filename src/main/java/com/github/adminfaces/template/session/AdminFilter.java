@@ -1,7 +1,6 @@
-package com.github.adminfaces.template.filter;
+package com.github.adminfaces.template.session;
 
 import com.github.adminfaces.template.config.AdminConfig;
-import com.github.adminfaces.template.session.AdminSession;
 import com.github.adminfaces.template.util.Constants;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -92,7 +91,7 @@ public class AdminFilter implements Filter {
             } catch (FileNotFoundException e) {
                 ((HttpServletResponse)resp).sendError(404);
             }
-        } else  {
+        } else { //resource not skipped AND user not logged in
             request.setAttribute("logoff", "true");//let CustomExceptionHandler redirect to logon when user is not logged in
             request.setAttribute("queryString", request.getQueryString());
             chain.doFilter(req,resp);

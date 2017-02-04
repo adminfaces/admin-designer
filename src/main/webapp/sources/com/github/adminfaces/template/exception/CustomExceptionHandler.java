@@ -1,15 +1,14 @@
 package com.github.adminfaces.template.exception;
 
-import static com.github.adminfaces.template.util.Assert.has;
-import static javax.servlet.RequestDispatcher.ERROR_EXCEPTION;
-import static javax.servlet.RequestDispatcher.ERROR_EXCEPTION_TYPE;
-import static javax.servlet.RequestDispatcher.ERROR_MESSAGE;
-import static javax.servlet.RequestDispatcher.ERROR_REQUEST_URI;
-import static javax.servlet.RequestDispatcher.ERROR_STATUS_CODE;
-
-import java.io.FileNotFoundException;
-import java.net.URLEncoder;
-import java.util.Iterator;
+import com.github.adminfaces.template.config.AdminConfig;
+import com.github.adminfaces.template.util.Constants;
+import org.omnifaces.config.WebXml;
+import org.omnifaces.util.Exceptions;
+import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
+import org.primefaces.context.RequestContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.EJBException;
 import javax.faces.FacesException;
@@ -23,15 +22,12 @@ import javax.faces.event.PhaseId;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.FileNotFoundException;
+import java.net.URLEncoder;
+import java.util.Iterator;
 
-import com.github.adminfaces.template.config.AdminConfig;
-import com.github.adminfaces.template.util.Constants;
-import org.omnifaces.config.WebXml;
-import org.omnifaces.util.Exceptions;
-import org.omnifaces.util.Messages;
-import org.primefaces.context.RequestContext;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import static com.github.adminfaces.template.util.Assert.has;
+import static javax.servlet.RequestDispatcher.*;
 
 
 /**
@@ -90,7 +86,10 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
         final HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
 
-        if (request.getAttribute("logoff") != null && request.getAttribute("logoff").equals("true")) {
+        /* logoff request: send user to logon page and add current page (referer) to 'page' querystring
+        so we can send user back to the page after he logs in again.
+        */
+        if (request.getAttribute("logoff") != null && request.getAttribute("logoff").equals("true") || Faces.getSessionAttribute("logoff") != null && Faces.getSessionAttribute("logoff").equals("true")) {
             redirectToLogon(request, context);
         }
 
