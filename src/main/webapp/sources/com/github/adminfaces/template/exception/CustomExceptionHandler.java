@@ -89,7 +89,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
         /* logoff request: send user to logon page and add current page (referer) to 'page' querystring
         so we can send user back to the page after he logs in again.
         */
-        if (request.getAttribute("logoff") != null && request.getAttribute("logoff").equals("true") || Faces.getSessionAttribute("logoff") != null && Faces.getSessionAttribute("logoff").equals("true")) {
+        if (request.getAttribute("logoff") != null && request.getAttribute("logoff").equals("true")) {
             redirectToLogon(request, context);
         }
 
