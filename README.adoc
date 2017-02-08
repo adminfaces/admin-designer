@@ -45,7 +45,8 @@ In application root directory:
 ----
  ./mvnw compile (or mvnw.cmd compile)
 ----
-TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`.
+TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`. Or use a tool like http://brackets.io/[brackets^] with https://github.com/jdiehl/brackets-less-autocompile[less extension^] installed.
+
 
 The changes made to less files should be visible in running application `http://localhost:8080/showcase`
 
