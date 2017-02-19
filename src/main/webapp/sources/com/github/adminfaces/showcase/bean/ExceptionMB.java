@@ -1,5 +1,6 @@
 package com.github.adminfaces.showcase.bean;
 
+import com.github.adminfaces.template.exception.AccessDeniedException;
 import com.github.adminfaces.template.exception.BusinessException;
 import org.omnifaces.cdi.ViewScoped;
 
@@ -29,6 +30,10 @@ public class ExceptionMB implements Serializable {
 
     public void throwRuntime() {
         throw new RuntimeException("this is a runtime exception...");
+    }
+
+    public void throwAccessDenied() {
+        throw new AccessDeniedException("this is an access denied exception...");
     }
 
     public void throwViewExpired() {
