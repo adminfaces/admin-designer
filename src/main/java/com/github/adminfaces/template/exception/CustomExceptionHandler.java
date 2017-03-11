@@ -1,10 +1,10 @@
 package com.github.adminfaces.template.exception;
 
-import com.github.adminfaces.template.config.AdminConfig;
+import com.github.adminfaces.template.bean.AdminExceptionMB;
+import com.github.adminfaces.template.model.AdminException;
 import com.github.adminfaces.template.util.Constants;
 import org.omnifaces.config.WebXml;
 import org.omnifaces.util.Exceptions;
-import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import org.primefaces.context.RequestContext;
 import org.slf4j.Logger;
@@ -15,19 +15,15 @@ import javax.faces.FacesException;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExceptionHandler;
 import javax.faces.context.ExceptionHandlerWrapper;
-import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.PhaseId;
-import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
-import java.net.URLEncoder;
 import java.util.Iterator;
 
 import static com.github.adminfaces.template.util.Assert.has;
-import static javax.servlet.RequestDispatcher.*;
 
 
 /**
@@ -46,9 +42,6 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
         this.wrapped = exceptionHandler;
     }
 
-    @Inject
-    AdminConfig adminConfig;
-
     @Override
     public ExceptionHandler getWrapped() {
         return wrapped;
@@ -61,6 +54,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
         handleException(context);
         wrapped.handle();
     }
+
 
     /**
      * @param context
@@ -84,46 +78,8 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
             goToErrorPage(context, rootCause);
         }
 
-        final HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-
-        /* logoff request: send user to logon page and add current page (referer) to 'page' querystring
-        so we can send user back to the page after he logs in again.
-        */
-        if (request.getAttribute("logoff") != null && request.getAttribute("logoff").equals("true")) {
-            redirectToLogon(request, context);
-        }
-
     }
 
-    private void redirectToLogon(HttpServletRequest request, FacesContext context) {
-        ExternalContext externalContext = context.getExternalContext();
-        String logonPage = externalContext.getInitParameter(Constants.InitialParams.LOGIN_PAGE);
-        if (!has(logonPage)) {
-            logonPage = adminConfig != null ? adminConfig.getLoginPage() : Constants.DEFAULT_LOGIN_PAGE;
-        }
-        if (!logonPage.startsWith("/")) {
-            logonPage = "/" + logonPage;
-        }
-        try {
-            String referer = request.getHeader("Referer");
-            String recoveryUrlParams = "";
-            if (has(referer)) {
-                if (referer.contains("?")) {
-                    recoveryUrlParams = referer.substring(referer.lastIndexOf("?") + 1);
-                }
-            } else { //try to get params from queryString which was put by AdminFilter
-                recoveryUrlParams = (String) request.getAttribute("queryString");
-            }
-            StringBuilder recoveryUrl = new StringBuilder(context.getViewRoot().getViewId());
-            if (!"".equals(recoveryUrlParams)) {
-                recoveryUrl.append("?").append(recoveryUrlParams);
-            }
-            context.getExternalContext().redirect(externalContext.getRequestContextPath() + logonPage + "?page=" + URLEncoder.encode(recoveryUrl.toString(), "UTF-8"));
-
-        } catch (Exception e) {
-            logger.error("Could not redirect to " + logonPage, e);
-        }
-    }
 
     /**
      * @param context
@@ -141,12 +97,9 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
         }
 
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-        request.setAttribute(ERROR_EXCEPTION + "_stacktrace", e);
-        request.setAttribute(ERROR_EXCEPTION_TYPE, e.getClass());
-        request.setAttribute(ERROR_MESSAGE, e.getMessage());
-        request.setAttribute(ERROR_REQUEST_URI, request.getHeader("Referer"));
-        request.setAttribute(ERROR_STATUS_CODE, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-
+        AdminExceptionMB adminExceptionMB = context.getApplication().evaluateExpressionGet(context, "#{adminExceptionMB}", AdminExceptionMB.class);
+        AdminException adminException = new AdminException(e, request.getHeader("Referer"), "" + HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        adminExceptionMB.create(adminException);
         String errorPage = findErrorPage(e);
         if (!has(errorPage)) {
             String errorPageParam = context.getExternalContext().getInitParameter(Constants.InitialParams.ERROR_PAGE);
@@ -154,7 +107,14 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
                 errorPage = Constants.DEFAULT_ERROR_PAGE;
             }
         }
-        context.getApplication().getNavigationHandler().handleNavigation(context, null, errorPage);
+        //context.getApplication().getNavigationHandler().handleNavigation(context, null, errorPage); //do not work on android webview
+        String urlExtension = context.getViewRoot().getViewId().substring(context.getViewRoot().getViewId().indexOf(".") + 1);
+        String pageToRedirect = errorPage.substring(0,errorPage.indexOf(".") + 1) + urlExtension;
+        try {
+            context.getExternalContext().redirect(context.getExternalContext().getRequestContextPath()+pageToRedirect);
+        } catch (Exception e1) {
+              logger.error("Could not redirect to page " + context.getExternalContext().getRequestContextPath()+pageToRedirect, e);
+        }
         context.renderResponse();
     }
 
@@ -220,7 +180,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
 
     /**
-     * If there is any faces message queued add primefaces validation failed
+     * If there is any faces message queued add PrimeFaces validation failed
      *
      * @param context
      */
