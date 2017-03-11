@@ -30,6 +30,7 @@ public class AdminConfig implements Serializable {
     private String templatePath;
     private Integer breadCrumbMaxSize;
     private boolean renderMessages;
+    private boolean renderAjaxStatus;
     private boolean disableFilter;
 
 
@@ -41,7 +42,7 @@ public class AdminConfig implements Serializable {
         try (InputStream is = cl.getResourceAsStream(("admin-config.properties"))) {
             userConfigFile.load(is);
         } catch (Exception ex) {
-            log.error("Could not load user defined admin template properties.", ex);
+            log.warn("Could not load user defined admin template properties.", ex);
         }
 
         try (InputStream isDefault = cl.getResourceAsStream(("config/admin-config.properties"))) {
@@ -61,6 +62,7 @@ public class AdminConfig implements Serializable {
         templatePath = getProperty("admin.templatePath");
         breadCrumbMaxSize = Integer.parseInt(getProperty("admin.breadcrumbSize"));
         renderMessages = Boolean.parseBoolean(getProperty("admin.renderMessages"));
+        renderAjaxStatus = Boolean.parseBoolean(getProperty("admin.renderAjaxStatus"));
         disableFilter = Boolean.parseBoolean(getProperty("admin.disableFilter"));
     }
 
@@ -80,7 +82,6 @@ public class AdminConfig implements Serializable {
     public String getErrorPage() {
         return errorPage;
     }
-
 
     public String getDateFormat() {
         return dateFormat;
@@ -132,5 +133,13 @@ public class AdminConfig implements Serializable {
 
     public void setRenderMessages(boolean renderMessages) {
         this.renderMessages = renderMessages;
+    }
+
+    public boolean isRenderAjaxStatus() {
+        return renderAjaxStatus;
+    }
+
+    public void setRenderAjaxStatus(boolean renderAjaxStatus) {
+        this.renderAjaxStatus = renderAjaxStatus;
     }
 }
