@@ -16,9 +16,8 @@
     <h:body styleClass="#{themeMB.theme} sidebar-mini #{not empty sidebarCollapse and sidebarCollapse eq 'true' ? 'sidebar-collapse':''}">
         <ui:insert name="body-begin"/>
         <f:loadBundle var="adm" basename="admin"/>
-        <p:ajaxStatus styleClass="visible-sm" rendered="#{adminConfig.renderAjaxStatus}"
-                        onstart="showBar();"
-                        onsuccess="hideBar();"/>
+        <p:ajaxStatus rendered="#{adminConfig.renderAjaxStatus}" onstart="showBar();"
+                       onsuccess="hideBar();"/>
 
         <p:dialog modal="true" widgetVar="statusDialog" draggable="false" closable="false"
                   resizable="false" responsive="true" showHeader="false"

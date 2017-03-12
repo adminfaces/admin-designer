@@ -68,6 +68,12 @@
             <version>${version.wildfly-swarm}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+            <version>1.10</version>
+        </dependency>
+
     </dependencies>
 
 
@@ -103,6 +109,9 @@
                         <id>stop</id>
                     </execution>
                 </executions>
+                <configuration>
+                    <debug>8888</debug>
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>biz.gabrys.maven.plugins</groupId>

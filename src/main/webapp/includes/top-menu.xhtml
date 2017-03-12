@@ -5,6 +5,23 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pe="http://primefaces.org/ui/extensions">
 
+        <h:form style="display: inline">
+            <p:commandButton actionListener="#{downloadMB.downloadTheme}" ajax="false" value="Generate theme"
+                             styleClass="btn-danger" icon="fa fa-download"
+                             onclick="PrimeFaces.monitorDownload(start, stop);" style="margin: 10px">
+                <p:fileDownload value="#{downloadMB.file}"/>
+            </p:commandButton>
+        </h:form>
+    <script type="text/javascript">
+        function start() {
+            PF('statusDialog').show();
+        }
+
+        function stop() {
+            PF('statusDialog').hide();
+        }
+    </script>
+
     <ul class="nav navbar-nav">
         <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
@@ -68,16 +85,16 @@
                     </div>
                     <p>
                         Rafael M. Pestano
-                        <small> Java EE Developer </small>
+                        <small> Java EE Developer</small>
                     </p>
                 </li>
                 <li class="user-footer">
                     <h:form prependId="false">
                         <div class="pull-left">
-                            <p:commandLink  styleClass="btn btn-danger"  value="Change password"/>
+                            <p:commandLink styleClass="btn btn-danger" value="Change password"/>
                         </div>
                         <div class="pull-right">
-                            <p:commandLink id="logout" action="#{logoutMB.doLogout}"  title="Logoff">
+                            <p:commandLink id="logout" action="#{logoutMB.doLogout}" title="Logoff">
                                 <i class="fa fa-sign-out fa-2x"></i>
                             </p:commandLink>
                         </div>
