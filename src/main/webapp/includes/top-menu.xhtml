@@ -7,7 +7,12 @@
 
         <h:form style="display: inline">
             <p:commandButton actionListener="#{downloadMB.downloadTheme}" ajax="false" value="Generate theme"
-                             styleClass="btn-danger" icon="fa fa-download"
+                             styleClass="btn-sm btn-danger" icon="fa fa-download"
+                             onclick="PrimeFaces.monitorDownload(start, stop);" style="margin: 10px">
+                <p:fileDownload value="#{downloadMB.file}"/>
+            </p:commandButton>
+            <p:commandButton actionListener="#{downloadMB.downloadTemplate}" ajax="false" value="Generate template"
+                             styleClass="btn-sm btn-danger" icon="fa fa-download"
                              onclick="PrimeFaces.monitorDownload(start, stop);" style="margin: 10px">
                 <p:fileDownload value="#{downloadMB.file}"/>
             </p:commandButton>
