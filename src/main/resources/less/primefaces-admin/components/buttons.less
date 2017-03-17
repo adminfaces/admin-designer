@@ -12,7 +12,6 @@
   font-weight: 500;
 }
 
-
 button.ui-button {
   padding: 4px 12px;
   display: inline-block;
@@ -35,17 +34,17 @@ button.ui-button {
   border-radius: @default-border-radius;
   background: @btn-background-color none;
   box-shadow: none;
-  text-shadow: none!important;
+  text-shadow: none !important;
   color: @admin-text-color;
   -webkit-transition: background-color .2s;
   -moz-transition: background-color .2s;
   -o-transition: background-color .2s;
   transition: background-color .2s;
 
-  &.btn{
+  &.btn {
     padding: 5px 12px;
   }
-  &.btn-lg{
+  &.btn-lg {
     .btn-lg; /* reference to admin-lte/buttons.less */
   }
   &.btn-sm {
@@ -62,7 +61,8 @@ button.ui-button {
     border-width: 1px;
   }
 
-   &:active {
+
+  &:active {
     -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     -moz-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
     box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
@@ -71,19 +71,43 @@ button.ui-button {
   &:focus {
     outline: none;
   }
-}
-button.ui-state-hover,
-button.ui-state-focus {
-  border: 1px solid #adadad;
-  background: #e6e6e6;
-  font-weight: normal;
+
+
+  &.btn-primary {
+    .btn-interactions(@light-blue);
+  }
+
+  &.btn-danger {
+    .btn-interactions(@red);
+  }
+
+  &.btn-fatal {
+    .btn-interactions(@dark-red);
+  }
+
+  &.btn-warning {
+    .btn-interactions(@yellow);
+  }
+
+  &.btn-success {
+    .btn-interactions(@green);
+  }
+
+  &.btn-teal {
+    .btn-interactions(@admin-teal);
+  }
+
+  &.btn-info {
+    .btn-interactions(@aqua);
+  }
+
 }
 
 
 button.ui-button-text-only .ui-button-text {
   padding: 0;
-  padding-left: .3em!important;
-  padding-right: .3em!important;
+  padding-left: .3em !important;
+  padding-right: .3em !important;
 }
 
 button.ui-button-text-icon-left .ui-button-text, .ui-button-text-icon-right .ui-button-text {
@@ -96,23 +120,32 @@ button.ui-button .ui-button-text {
 }
 
 button.ui-state-default {
-  background-image: none!important;
+  background-image: none !important;
 }
 
 button.ui-state-disabled {
-    cursor: not-allowed!important;
-    filter: alpha(opacity=65)!important;
-    -webkit-box-shadow: none!important;
-    box-shadow: none!important;
-    opacity: .65!important;
+  cursor: not-allowed !important;
+  filter: alpha(opacity=65) !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  opacity: .65 !important;
 }
 
-button.btn-fatal {
-  color: #fff!important;
-  background-color: @dark-red!important;;
-  border-color: darken(@dark-red, 5%)!important;;
-  &:hover, &:active, &.hover {
-    background-color: darken(@dark-red, 5%)!important;;
+button, a {
+  &.btn-fatal {
+    color: #fff !important;
+    background-color: @dark-red !important;;
+    border-color: darken(@dark-red, 5%) !important;;
+    .btn-interactions(@dark-red);
+  }
+}
+
+button, a {
+  &.btn-teal {
+    color: #fff !important;
+    background-color: @admin-teal !important;;
+    border-color: darken(@admin-teal, 5%) !important;;
+    .btn-interactions(@admin-teal);
   }
 }
 
@@ -134,23 +167,35 @@ button.btn-fatal {
 .ui-splitbutton {
   &.btn-primary > button {
     .btn-primary;
+    .btn-interactions(@light-blue);
   }
 
   &.btn-success > button {
     .btn-success;
+    .btn-interactions(@green);
   }
 
   &.btn-danger > button {
     .btn-danger;
+    .btn-interactions(@red);
+  }
+  &.btn-fatal > button {
+    color: #fff !important;
+    background-color: @dark-red !important;;
+    border-color: darken(@dark-red, 5%) !important;;
+    .btn-interactions(@dark-red);
   }
   &.btn-info > button {
     .btn-info;
+    .btn-interactions(@aqua);
   }
   &.btn-default > button {
     .btn-default;
+    .btn-interactions(#f4f4f4);
   }
   &.btn-warning > button {
     .btn-warning;
+    .btn-interactions(@yellow);
   }
   &.btn-flat {
     .border-radius(0);
@@ -167,37 +212,44 @@ button.btn-fatal {
   width: 100%;
 }
 
-
 .ui-splitbutton-menubutton span {
-  display: none!important;
+  display: none !important;
 }
 
 /* adds fa-caret-down to split button so it can be render as bootstrap button style (e.g btn-primary)*/
 .ui-splitbutton-menubutton:before {
   font-family: FontAwesome;
-  position:relative;
-  top:-2px;
+  position: relative;
+  top: -2px;
   overflow: hidden;
-  content: "\f0d7"!important;
+  content: "\f0d7" !important;
 }
 
 /* ButtonSet */
 .ui-selectbooleanbutton.ui-button.ui-state-default,
 .ui-selectonebutton .ui-button.ui-state-default,
 .ui-selectmanybutton .ui-button.ui-state-default {
-  border: 1px solid @input-border-color; background: #ffffff; font-weight: normal; color: #555555;
+  border: 1px solid @input-border-color;
+  background: #ffffff;
+  font-weight: normal;
+  color: #555555;
 }
 
-.ui-selectbooleanbutton.ui-button.ui-state-hover,.ui-selectbooleanbutton.ui-button.ui-state-focus,
-.ui-selectonebutton .ui-button.ui-state-hover,.ui-selectonebutton .ui-button.ui-state-focus,
-.ui-selectmanybutton .ui-button.ui-state-hover,.ui-selectmanybutton .ui-button.ui-state-focus {
-  border: 1px solid #c0c0c0; background: @hover-color; font-weight: normal; color: #212121;
+.ui-selectbooleanbutton.ui-button.ui-state-hover, .ui-selectbooleanbutton.ui-button.ui-state-focus,
+.ui-selectonebutton .ui-button.ui-state-hover, .ui-selectonebutton .ui-button.ui-state-focus,
+.ui-selectmanybutton .ui-button.ui-state-hover, .ui-selectmanybutton .ui-button.ui-state-focus {
+  border: 1px solid #c0c0c0;
+  background: @hover-color;
+  font-weight: normal;
+  color: #212121;
 }
 
 .ui-selectbooleanbutton.ui-button.ui-state-active,
 .ui-selectonebutton .ui-button.ui-state-active,
 .ui-selectmanybutton .ui-button.ui-state-active {
-  border: 1px solid darken(@light-blue, 5%); background: @light-blue; color: #FFFFFF;
+  border: 1px solid darken(@light-blue, 5%);
+  background: @light-blue;
+  color: #FFFFFF;
 }
 
 .ui-selectbooleanbutton.ui-button.ui-state-default .ui-icon {
