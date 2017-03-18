@@ -40,18 +40,20 @@ In application root directory:
 ----
 +
 . Second edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
-. Finally compile the application using:
+. Now to compile the application using:
 +
 ----
  ./mvnw compile (or mvnw.cmd compile)
 ----
 TIP: If you don't want to compile every time you change a less file, use the flag `-Dlesscss.watch=true`. Or use a tool like http://brackets.io/[brackets^] with https://github.com/jdiehl/brackets-less-autocompile[less extension^] installed.
-
++
+. Finally when you're done you can download the customized `theme` or `template` packed as jar files;
++
+image::designer.png[]
 
 The changes made to less files should be visible in running application `http://localhost:8080/showcase`
 
 NOTE: There is no need to stop and run the application again.
 
-When you are done you can get the theme in https://github.com/adminfaces/admin-designer/tree/master/src/main/webapp/resources/primefaces-admin[src/main/webapp/resources/primefaces-admin^];
 
 You can see this workflow in the following video: https://www.youtube.com/watch?v=AGo03YqjyDM
