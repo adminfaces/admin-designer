@@ -49,7 +49,7 @@ TIP: If you don't want to compile every time you change a less file, use the fla
 +
 . Finally when you're done you can download the customized `theme` or `template` packed as jar files;
 +
-image::designer.png[]
+image:designer.png[]
 
 The changes made to less files should be visible in running application `http://localhost:8080/showcase`
 
