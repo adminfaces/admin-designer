@@ -80,9 +80,13 @@
     <build>
         <finalName>showcase</finalName>
         <resources>
-            <resource>
-                <filtering>true</filtering>
+           <resource>
                 <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+            <resource>
+                <directory>src/main/resources/starter</directory>
+                <filtering>false</filtering>
             </resource>
         </resources>
         <plugins>
@@ -109,6 +113,9 @@
                         <id>stop</id>
                     </execution>
                 </executions>
+                <configuration>
+                    <!--<debug>8888</debug>-->
+                </configuration>
             </plugin>
             <plugin>
                 <groupId>biz.gabrys.maven.plugins</groupId>

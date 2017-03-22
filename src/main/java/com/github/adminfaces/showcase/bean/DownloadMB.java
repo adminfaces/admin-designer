@@ -7,11 +7,14 @@ import org.primefaces.model.StreamedContent;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import java.io.*;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
 /**
@@ -22,6 +25,7 @@ import java.util.zip.ZipOutputStream;
 public class DownloadMB {
     private StreamedContent streamedContent;
     private String baseDir = Paths.get("").toAbsolutePath().toString();
+    private final Logger log = Logger.getLogger(getClass().getName());
 
 
     public void downloadTheme() throws IOException {
@@ -54,6 +58,87 @@ public class DownloadMB {
         addDirectory(baseDir + "/target/classes/com", baseDir + "/target/classes/com", zipFile, false, Arrays.asList("admin-config.properties", "less", "showcase"));
         IOUtils.closeQuietly(zipFile);
         streamedContent = new DefaultStreamedContent(new FileInputStream("target/admin-template.jar"), "application/java-archive", "admin-template.jar");
+    }
+
+    public void downloadProject() throws IOException {
+        unzip(getClass().getResourceAsStream("/admin-starter.zip"));
+        copyDir(new File("target/classes/less/"), new File("target/admin-starter/src/main/resources/less"));
+        copyDir(new File("src/main/java/com/github/adminfaces/template"), new File("target/admin-starter/src/main/java/com/github/adminfaces/template"));
+        copyFile("target/showcase/403.xhtml", "target/admin-starter/src/main/webapp/403.xhtml");
+        copyFile("target/showcase/404.xhtml", "target/admin-starter/src/main/webapp/404.xhtml");
+        copyFile("target/showcase/500.xhtml", "target/admin-starter/src/main/webapp/500.xhtml");
+        copyFile("target/showcase/expired.xhtml", "target/admin-starter/src/main/webapp/expired.xhtml");
+        copyFile("target/showcase/optimistic.xhtml", "target/admin-starter/src/main/webapp/optimistic.xhtml");
+        copyFile("target/showcase/admin.xhtml", "target/admin-starter/src/main/webapp/admin.xhtml");
+        copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin.properties");
+        copyDir(new File("src/main/resources/config"), new File("target/admin-starter/src/main/resources/config"));
+        copyDir(new File("src/main/webapp/resources/primefaces-admin"), new File("target/admin-starter/src/main/webapp/resources/primefaces-admin"));
+
+        copyFile("src/main/webapp/WEB-INF/beans.xml", "target/admin-starter/src/main/webapp/WEB-INF/beans.xml");
+        copyFile("src/main/webapp/WEB-INF/faces-config.xml", "target/admin-starter/src/main/webapp/WEB-INF/faces-config.xml");
+        copyFile("src/main/webapp/WEB-INF/web.xml", "target/admin-starter/src/main/webapp/WEB-INF/web.xml");
+        copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
+        copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
+        copyDir(new File("src/main/webapp/resources/admin"), new File("target/admin-starter/src/main/webapp/resources/admin"));
+        Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/prism.js"));
+        Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/chart.min.js"));
+
+
+        ZipOutputStream zipFile = new ZipOutputStream(new FileOutputStream("target/admin-starter.zip"));
+        addDirectory(baseDir + "/target/admin-starter", baseDir + "/target/admin-starter/", zipFile, false);
+
+        IOUtils.closeQuietly(zipFile);
+        streamedContent = new DefaultStreamedContent(new FileInputStream("target/admin-starter.zip"), "application/zip", "admin-starter.zip");
+    }
+
+    private static void copyDir(File src, File dest)
+            throws IOException {
+
+        if (src.isDirectory()) {
+
+            //if directory not exists, create it
+            if (!dest.exists()) {
+                dest.mkdirs();
+            }
+
+            //list all the directory contents
+            String files[] = src.list();
+
+            for (String file : files) {
+                //construct the src and dest file structure
+                File srcFile = new File(src, file);
+                File destFile = new File(dest, file);
+                //recursive copy
+                copyDir(srcFile, destFile);
+            }
+
+        } else {
+            //if file, then copy it
+            copyFile(src, dest);
+        }
+    }
+
+    private static void copyFile(String src, String dest) throws IOException {
+        copyFile(new File(src), new File(dest));
+    }
+
+    private static void copyFile(File src, File dest) throws IOException {
+        if (!dest.exists() && dest.isDirectory()) {
+            dest.mkdirs();
+        }
+        //Use bytes stream to support all file types
+        InputStream in = new FileInputStream(src);
+        OutputStream out = new FileOutputStream(dest);
+
+        byte[] buffer = new byte[1024];
+
+        int length;
+        //copy the file content in bytes
+        while ((length = in.read(buffer)) > 0) {
+            out.write(buffer, 0, length);
+        }
+        in.close();
+        out.close();
     }
 
     public StreamedContent getFile() {
@@ -91,6 +176,33 @@ public class DownloadMB {
         FileInputStream in = new FileInputStream(content);
         IOUtils.copy(in, out);
         IOUtils.closeQuietly(in);
+    }
+
+
+    private void unzip(InputStream zipFile) throws IOException {
+        String targetDir = baseDir + "/target";
+        ZipInputStream zipInputStream = new ZipInputStream(zipFile);
+        try {
+            ZipEntry zipEntry = zipInputStream.getNextEntry();
+            while (zipEntry != null) {
+                File destPath = new File(targetDir, zipEntry.getName());
+                log.fine(String.format("Unpacking {}.", destPath.getAbsoluteFile()));
+                if (!zipEntry.isDirectory()) {
+                    FileOutputStream fout = new FileOutputStream(destPath);
+                    final byte[] buffer = new byte[8192];
+                    int n = 0;
+                    while (-1 != (n = zipInputStream.read(buffer))) {
+                        fout.write(buffer, 0, n);
+                    }
+                    fout.close();
+                } else {
+                    destPath.mkdir();
+                }
+                zipEntry = zipInputStream.getNextEntry();
+            }
+        } finally {
+            zipInputStream.close();
+        }
     }
 
 }
