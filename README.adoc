@@ -7,7 +7,7 @@
 :sectanchors:
 :sectlink:
 :numbered:
-:imagesdir: img
+
 :doctype: book
 :tip-caption: :bulb:
 :note-caption: :information_source:
