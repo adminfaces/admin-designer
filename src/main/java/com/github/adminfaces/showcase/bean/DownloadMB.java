@@ -77,9 +77,11 @@ public class DownloadMB {
         copyFile("src/main/webapp/WEB-INF/beans.xml", "target/admin-starter/src/main/webapp/WEB-INF/beans.xml");
         copyFile("src/main/webapp/WEB-INF/faces-config.xml", "target/admin-starter/src/main/webapp/WEB-INF/faces-config.xml");
         copyFile("src/main/webapp/WEB-INF/web.xml", "target/admin-starter/src/main/webapp/WEB-INF/web.xml");
+        copyFile("src/main/webapp/WEB-INF/admin.taglib.xml", "target/admin-starter/src/main/webapp/WEB-INF/admin.taglib.xml");
+
         copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
         copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
-        copyDir(new File("src/main/webapp/resources/admin"), new File("target/admin-starter/src/main/webapp/resources/admin"));
+        copyDir(new File("src/main/webapp/resources/components"), new File("target/admin-starter/src/main/webapp/resources/components"));
         Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/prism.js"));
         Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/chart.min.js"));
 
