@@ -31,15 +31,17 @@ The initial idea was to speed AdminFaces development but it turns out that it ca
 
 == How it works
 
-In application root directory:
 
-. First start the application by running the command:
+. First download Admin Designer from github releases https://github.com/adminfaces/admin-designer/releases[here^];
+
+. Now in application root directory start it by running the command:
 +
 ----
-./mvnw wildfly-swarm:run (or mvnw.cmd wildfly-swarm:run)
+./mvnw wildfly-swarm:run (or mvnw.cmd wildfly-swarm:run) <1>
 ----
+<1> To use `mvnw` (maven wrapper) you just need Java (JAVA_HOME) installed.
 +
-. Second edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
+. Edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
 . Now to compile the application using:
 +
 ----
