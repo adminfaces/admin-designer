@@ -4,11 +4,43 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <parent>
+        <groupId>org.sonatype.oss</groupId>
+        <artifactId>oss-parent</artifactId>
+        <version>9</version>
+        <relativePath/>
+    </parent>
+
     <groupId>com.github.adminfaces</groupId>
     <artifactId>admin-designer</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
-    <name>admin-showcase</name>
+    <name>admin-designer</name>
+    <url>https://github.com/adminfaces/admin-designer</url>
+
+     <description>
+       AdminFaces designer toolkit
+    </description>
+
+    <developers>
+        <developer>
+            <name>Rafael M. Pestano</name>
+            <email>rmpestanoATgmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The MIT License (MIT)</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <scm>
+        <connection>scm:git:https://github.com/adminfaces/admin-designer.git</connection>
+        <developerConnection>scm:git:git@github.com:adminfaces/admin-designer.git</developerConnection>
+        <url>https://github.com/adminfaces/admin-designer.git</url>
+    </scm>
 
     <packaging>war</packaging>
 
@@ -80,7 +112,7 @@
     <build>
         <finalName>showcase</finalName>
         <resources>
-           <resource>
+            <resource>
                 <directory>src/main/resources</directory>
                 <filtering>true</filtering>
             </resource>
