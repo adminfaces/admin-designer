@@ -78,6 +78,7 @@ public class DownloadMB {
         copyFile("src/main/webapp/WEB-INF/faces-config.xml", "target/admin-starter/src/main/webapp/WEB-INF/faces-config.xml");
         copyFile("src/main/webapp/WEB-INF/web.xml", "target/admin-starter/src/main/webapp/WEB-INF/web.xml");
         copyFile("src/main/webapp/WEB-INF/admin.taglib.xml", "target/admin-starter/src/main/webapp/WEB-INF/admin.taglib.xml");
+        copyDir("src/main/resources/META-INF", "target/admin-starter/src/main/resources/META-INF");
 
         copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
         copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
@@ -91,6 +92,10 @@ public class DownloadMB {
 
         IOUtils.closeQuietly(zipFile);
         streamedContent = new DefaultStreamedContent(new FileInputStream("target/admin-starter.zip"), "application/zip", "admin-starter.zip");
+    }
+
+    private static void copyDir(String src, String dest) throws IOException {
+        copyDir(new File(src),new File(dest));
     }
 
     private static void copyDir(File src, File dest)
