@@ -28,9 +28,9 @@
 
         <div class="wrapper">
             <div id="loader" class="load-bar" style="display: none">
-                 <div class="bar"></div>
-                  <div class="bar"></div>
-                  <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
             <header class="main-header">
                 <a href="#{request.contextPath}/" class="logo">
@@ -53,21 +53,23 @@
 
             <!-- side menu -->
             <aside class="main-sidebar">
-                <ui:insert name="menu-begin"/>
-                <section class="sidebar">
-                    <ui:insert name="menu"/>
-                </section>
-                <ui:insert name="menu-end"/>
+                <div id="sidebar">
+                    <ui:insert name="menu-begin"/>
+                    <section class="sidebar">
+                        <ui:insert name="menu"/>
+                    </section>
+                    <ui:insert name="menu-end"/>
+                </div>
             </aside>
             <!-- content -->
-            <div class="content-wrapper">
+            <div id="content" class="content-wrapper">
                 <ui:insert name="content-wrapper"/>
                 <section class="content-header">
                     <h1>
                         <ui:insert name="title"/>
                         <small><ui:insert name="description"/></small>
                     </h1>
-                    <ui:fragment rendered="#{empty renderBreadCrumb or renderBreadCrumb eq 'true'}">
+                    <ui:fragment rendered="#{(adminConfig.renderBreadCrumb) and (empty renderBreadCrumb or renderBreadCrumb eq 'true') }">
                         <ol class="breadcrumb">
                             <li>
                                 <p:link href="/" onclick="clearBreadCrumbs();">
@@ -117,16 +119,54 @@
                 <p:remoteCommand name="clearBreadCrumbs" actionListener="#{breadCrumbMB.clear}" process="@this"
                                  update="@(.breadcrumb)" partialSubmit="true" global="false"/>
             </h:form>
-            <div id="scrollTop" style="display:none;position: fixed; bottom: 10px; right: 20px; width: 34px; height: 34px; color: rgb(238, 238, 238); line-height: 34px; text-align: center; background-color: rgb(34, 45, 50); cursor: pointer; border-radius: 3px; z-index: 99999; opacity: 0.7;" onclick="window.scrollTo(0,0)">
+            <div id="scrollTop" class="ripplelink" style="display:none;position: fixed; bottom: 10px; right: 20px; width: 34px; height: 34px; color: rgb(238, 238, 238); line-height: 34px; text-align: center; background-color: rgb(34, 45, 50); cursor: pointer; border-radius: 3px; z-index: 99999; opacity: 0.7;" onclick="window.scrollTo(0,0)">
                 <i class="fa fa-chevron-up"></i>
             </div>
         </div>
 
-            <script type="text/javascript">
-                if(isMobile()) {
-                    window.onscroll=activateScrollToTop;
-                }
-            </script>
+        <script type="text/javascript">
+
+            if (isMobile()) {
+                window.onscroll = activateScrollToTop;
+                <ui:fragment rendered = "#{adminConfig.enableRipple}">
+                    /*<![CDATA[*/
+                    var rippleElements = '#{adminConfig.rippleElements}';
+
+                    $(function () {
+                        $(document.body).off('mousedown.ripple', rippleElements)
+                            .on('mousedown.ripple', rippleElements, null, function (e) {
+                                var element = $(this);
+                                $(".ripple").remove();
+                                var posX = element.offset().left,
+                                    posY = element.offset().top,
+                                    width = element.outerWidth(),
+                                    height = element.outerHeight();
+
+                                element.prepend("<span class='ripple'></span>");
+
+
+                                if (width >= height) {
+                                    height = width;
+                                } else {
+                                    width = height;
+                                }
+                                var x = e.pageX - posX - width / 2;
+                                var y = e.pageY - posY - height / 2;
+
+                                $(".ripple").css({
+                                    width: width,
+                                    height: height,
+                                    top: y + 'px',
+                                    left: x + 'px'
+                                }).addClass("rippleEffect");
+                            });
+                    });
+                    /* ]]>*/
+                </ui:fragment>
+            }
+
+
+        </script>
 
         <h:outputScript library="primefaces" name="jquery/jquery.js" target="head"/>
         <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
