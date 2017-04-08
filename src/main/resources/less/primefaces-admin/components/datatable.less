@@ -138,6 +138,7 @@ body .ui-datatable {
     border: 1px solid #e6e6e6;
     box-shadow: none !important;
     outline: 0 !important;
+    position: relative;
     border-radius: 0;
     &.ui-sortable-column.ui-state-active {
       background-image: -webkit-linear-gradient(top, #ffffff, #e2e2e2);
@@ -145,7 +146,11 @@ body .ui-datatable {
 
     }
   }
+  td[role="gridcell"] {
+    position: relative;
+  }
 }
+
 
 /* datatable paginator */
 
