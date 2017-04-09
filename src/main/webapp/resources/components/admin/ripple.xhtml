@@ -15,7 +15,7 @@
             <script type="text/javascript">
                 /*<![CDATA[*/
 
-                if ('#{not cc.attrs.mobileOnly}') {
+                if (#{not cc.attrs.mobileOnly}) {
                     ripple();
                 } else if (isMobile()) {
                     ripple();
