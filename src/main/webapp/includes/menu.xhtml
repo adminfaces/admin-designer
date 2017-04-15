@@ -11,6 +11,12 @@
                 <span>Home</span>
             </p:link>
         </li>
+        <li>
+            <p:link href="/docs/index.html" target="_blank">
+                <i class="fa fa-book"></i>
+                <span>Documentation</span>
+            </p:link>
+        </li>
         <li class="header">
             General
         </li>
@@ -51,6 +57,12 @@
                     <p:link href="/pages/components/buttons.xhtml">
                         <i class="fa fa-th-large"></i>
                         <span>Buttons</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/pages/components/chips.xhtml">
+                        <i class="fa fa-ellipsis-h"></i>
+                        <span>Chips</span>
                     </p:link>
                 </li>
                 <li>
@@ -122,5 +134,13 @@
         </li>
     </ul>
 
+    <script type="text/javascript">
+        if(isMobile()) {
+           $('ul.sidebar-menu a.ui-link').click(function() {
+                $(this).prop('disabled', true);
+                showBar();
+            })
+        }
+    </script>
 
 </ui:composition>
