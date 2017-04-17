@@ -33,7 +33,7 @@ Also another great feature of Admin Designer is the possibility to *download the
 
 [IMPORTANT]
 ====
-The downloaded project is the https://github.com/adminfaces/admin-starter[Admin Starter^] with admin theme and template embedded in the project.
+The downloaded project is the https://github.com/adminfaces/admin-starter[Admin Starter^] with modified admin theme and template embedded in the project.
 
 NOTE: This is the most flexible approach but at the same time `you lose the updates on Admin Theme and template projects` because you don't depend on them anymore.
 ====
