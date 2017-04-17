@@ -70,8 +70,7 @@
                         <ui:insert name="title"/>
                         <small><ui:insert name="description"/></small>
                     </h1>
-                    <ui:fragment
-                            rendered="#{(adminConfig.renderBreadCrumb) and (empty renderBreadCrumb or renderBreadCrumb eq 'true') }">
+                    <ui:fragment rendered="#{(adminConfig.renderBreadCrumb) and (empty renderBreadCrumb or renderBreadCrumb eq 'true') }">
                         <ol class="breadcrumb" style="overflow: hidden;">
                             <li style="position: relative;">
                                 <p:link href="/" onclick="clearBreadCrumbs();" style="position: relative;">
@@ -84,8 +83,7 @@
                                     <h:panelGroup rendered="#{status.last}">
                                         #{b.title}
                                     </h:panelGroup>
-                                    <p:link href="#{b.link}" rendered="#{not status.last}"
-                                            style="color: #3C8DBC;position: relative">
+                                    <p:link href="#{b.link}" rendered="#{not status.last}" style="color: #3C8DBC;position: relative">
                                         #{b.title}
                                     </p:link>
                                 </li>
