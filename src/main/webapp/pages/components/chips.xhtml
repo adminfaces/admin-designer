@@ -19,6 +19,20 @@
             .ui-chips.my-custom-class .ui-chips-token {
                 background: #444;
             }
+            .ui-grid-row .ui-grid-col-2,
+            .ui-grid-row .ui-grid-col-10 {
+                padding: 0.5em 0;
+                margin-left: 10px;
+            }
+
+            .ui-orderlist .ui-orderlist-list {
+                height: auto;
+            }
+
+            .ui-orderlist .ui-grid-row .ui-grid-col-2,
+            .ui-orderlist .ui-grid-row .ui-grid-col-10 {
+                padding: 0;
+            }
         </style>
         <adm:breadcrumb title="Chips"/>
         <h:form>
@@ -35,7 +49,7 @@
                 <div class="ui-g-12">
                     <h3 style="margin-top:0">Box colors</h3>
                 </div>
-                <p:panelGrid columns="2" layout="grid">
+                <p:panelGrid columns="2" layout="grid" >
                     <p:outputLabel for="chips-danger" value="Danger "/>
                     <p:chips id="chips-danger" styleClass="box-danger" placeholder="Add a tag"/>
                     <p:outputLabel for="chips-warn" value="Warning "/>
