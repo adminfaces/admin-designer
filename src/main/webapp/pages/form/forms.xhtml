@@ -78,7 +78,7 @@
                     </p:outputPanel>
 
                     <p:outputLabel for="radio" value="Radio"/>
-                    <p:selectOneRadio style="position: relative" id="radio" value="#{radioMB.city2}" layout="responsive" columns="3">
+                    <p:selectOneRadio id="radio" value="#{radioMB.city2}" layout="responsive" columns="3">
                         <f:selectItems value="#{radioMB.cities}" var="c" itemLabel="#{c}" itemValue="#{c}"/>
                     </p:selectOneRadio>
 
@@ -135,7 +135,7 @@
                 </p:panelGrid>
                 <p:commandButton id="dialog" value="Dialog" icon="ui-icon-extlink" styleClass="btn-success"
                                  type="button" onclick="PF('dlg').show()" style="margin-top:20px;display:block"/>
-                <p:dialog header="Login" widgetVar="dlg" resizable="false" responsive="true" modal="true">
+                <p:dialog header="Login" widgetVar="dlg" resizable="false" responsive="true" modal="true" appendTo="@(body)">
                     <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
                                  columnClasses="ui-grid-col-4,ui-grid-col-8">
                         <h:outputLabel for="username" value="Username:"/>
@@ -156,7 +156,7 @@
                 <p:chart type="line" model="#{chartMB.lineModel1}" style="height:300px;margin:20px 0"
                          responsive="true"/>
 
-                <p:dataTable var="car" value="#{datatableMB.cars}" reflow="true" style="margin-top:20px">
+                <p:dataTable var="car" value="#{datatableMB.cars}" reflow="true" style="margin-top:20px" paginator="true" paginatorPosition="bottom" rows="5">
                     <f:facet name="header">
                         DataTable
                     </f:facet>
