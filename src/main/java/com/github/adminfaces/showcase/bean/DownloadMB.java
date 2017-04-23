@@ -30,9 +30,9 @@ public class DownloadMB {
 
     public void downloadTheme() throws IOException {
         ZipOutputStream zipFile = new ZipOutputStream(new FileOutputStream("target/admin-theme.jar"));
-        addDirectory(baseDir + "/target/showcase/resources/primefaces-admin", baseDir + "/target/showcase/resources/primefaces-admin/", zipFile, true);
-        addDirectory(baseDir + "/target/showcase/resources/bootstrap", baseDir + "/target/showcase/resources/bootstrap/", zipFile, true, Arrays.asList("css"));
-        addDirectory(baseDir + "/target/showcase/resources/js", baseDir + "/target/showcase/resources/js/", zipFile, true, Arrays.asList("prism.js", "chart.min.js", "admintemplate.js"));
+        addDirectory(baseDir + "/src/main/webapp/resources/primefaces-admin", baseDir + "/src/main/webapp/resources/primefaces-admin/", zipFile, true);
+        addDirectory(baseDir + "/src/main/webapp/resources/bootstrap", baseDir + "/src/main/webapp/resources/bootstrap/", zipFile, true, Arrays.asList("css"));
+        addDirectory(baseDir + "/src/main/webapp/resources/js", baseDir + "/src/main/webapp/resources/js/", zipFile, true, Arrays.asList("prism.js", "chart.min.js", "admintemplate.js"));
         addEntry(baseDir + "/target/classes/theme-web.xml", "/META-INF/web-fragment.xml", zipFile);
         IOUtils.closeQuietly(zipFile);
         streamedContent = new DefaultStreamedContent(new FileInputStream("target/admin-theme.jar"), "application/java-archive", "admin-theme.jar");
@@ -40,19 +40,19 @@ public class DownloadMB {
 
     public void downloadTemplate() throws IOException {
         ZipOutputStream zipFile = new ZipOutputStream(new FileOutputStream("target/admin-template.jar"));
-        addEntry(baseDir + "/target/showcase/403.xhtml", "/META-INF/resources/403.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/404.xhtml", "/META-INF/resources/404.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/500.xhtml", "/META-INF/resources/500.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/expired.xhtml", "/META-INF/resources/expired.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/optimistic.xhtml", "/META-INF/resources/optimistic.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/admin.xhtml", "/META-INF/resources/admin.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/403.xhtml", "/META-INF/resources/403.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/404.xhtml", "/META-INF/resources/404.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/500.xhtml", "/META-INF/resources/500.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/expired.xhtml", "/META-INF/resources/expired.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/optimistic.xhtml", "/META-INF/resources/optimistic.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/admin.xhtml", "/META-INF/resources/admin.xhtml", zipFile);
         addEntry(baseDir + "/target/classes/template-web.xml", "/META-INF/web-fragment.xml", zipFile);
         addEntry(baseDir + "/target/classes/admin.taglib.xml", "/META-INF/admin.taglib.xml", zipFile);
-        addEntry(baseDir + "/target/showcase/WEB-INF/beans.xml", "/META-INF/beans.xml", zipFile);
-        addEntry(baseDir + "/target/showcase/WEB-INF/faces-config.xml", "/META-INF/faces-config.xml", zipFile);
-        addEntry(baseDir + "/target/showcase/resources/admin/sidebar.xhtml", "/META-INF/resources/admin/sidebar.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/resources/admin/breadcrumb.xhtml", "/META-INF/resources/admin/breadcrumb.xhtml", zipFile);
-        addEntry(baseDir + "/target/showcase/resources/js/admintemplate.js", "/META-INF/resources/js/admintemplate.js", zipFile);
+        addEntry(baseDir + "/src/main/webapp/WEB-INF/beans.xml", "/META-INF/beans.xml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/WEB-INF/faces-config.xml", "/META-INF/faces-config.xml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/resources/admin/sidebar.xhtml", "/META-INF/resources/admin/sidebar.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/resources/admin/breadcrumb.xhtml", "/META-INF/resources/admin/breadcrumb.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/resources/js/admintemplate.js", "/META-INF/resources/js/admintemplate.js", zipFile);
         addEntry(baseDir + "/target/classes/config/admin-config.properties", "/config/admin-config.properties", zipFile);
         addEntry(baseDir + "/target/classes/admin.properties", "/admin.properties", zipFile);
         addDirectory(baseDir + "/target/classes/com", baseDir + "/target/classes/com", zipFile, false, Arrays.asList("admin-config.properties", "less", "showcase"));
@@ -62,14 +62,14 @@ public class DownloadMB {
 
     public void downloadProject() throws IOException {
         unzip(getClass().getResourceAsStream("/admin-starter.zip"));
-        copyDir(new File("target/classes/less/"), new File("target/admin-starter/src/main/resources/less"));
+        copyDir(new File("src/main/resources/less/"), new File("target/admin-starter/src/main/resources/less"));
         copyDir(new File("src/main/java/com/github/adminfaces/template"), new File("target/admin-starter/src/main/java/com/github/adminfaces/template"));
-        copyFile("target/showcase/403.xhtml", "target/admin-starter/src/main/webapp/403.xhtml");
-        copyFile("target/showcase/404.xhtml", "target/admin-starter/src/main/webapp/404.xhtml");
-        copyFile("target/showcase/500.xhtml", "target/admin-starter/src/main/webapp/500.xhtml");
-        copyFile("target/showcase/expired.xhtml", "target/admin-starter/src/main/webapp/expired.xhtml");
-        copyFile("target/showcase/optimistic.xhtml", "target/admin-starter/src/main/webapp/optimistic.xhtml");
-        copyFile("target/showcase/admin.xhtml", "target/admin-starter/src/main/webapp/admin.xhtml");
+        copyFile("src/main/webapp/403.xhtml", "target/admin-starter/src/main/webapp/403.xhtml");
+        copyFile("src/main/webapp/404.xhtml", "target/admin-starter/src/main/webapp/404.xhtml");
+        copyFile("src/main/webapp/500.xhtml", "target/admin-starter/src/main/webapp/500.xhtml");
+        copyFile("src/main/webapp/expired.xhtml", "target/admin-starter/src/main/webapp/expired.xhtml");
+        copyFile("src/main/webapp/optimistic.xhtml", "target/admin-starter/src/main/webapp/optimistic.xhtml");
+        copyFile("src/main/webapp/admin.xhtml", "target/admin-starter/src/main/webapp/admin.xhtml");
         copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin.properties");
         copyDir(new File("src/main/resources/config"), new File("target/admin-starter/src/main/resources/config"));
         copyDir(new File("src/main/webapp/resources/primefaces-admin"), new File("target/admin-starter/src/main/webapp/resources/primefaces-admin"));
