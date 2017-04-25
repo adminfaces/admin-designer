@@ -48,7 +48,7 @@ NOTE: This is the most flexible approach but at the same time `you lose the upda
 ----
 ./mvnw wildfly-swarm:run (or mvnw.cmd wildfly-swarm:run) <1>
 ----
-<1> To use `mvnw` (maven wrapper) you just need Java (JAVA_HOME pointing to a `JDK`) installed.
+<1> To use `mvnw` (maven wrapper) you just need Java installed (JAVA_HOME pointing to a `JDK`).
 +
 . Edit any less file in directory https://github.com/adminfaces/admin-designer/tree/master/src/main/resources/less[`src/main/resources/less`^].
 . Now to compile the application using:
