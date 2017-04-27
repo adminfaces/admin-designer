@@ -63,6 +63,15 @@
                         <p:message id="msgSelect" for="select"/>
                     </div>
                     <div class="ui-g-12">
+                        <p:outputLabel for="autocomplete" value="Auto Complete"/>
+                    </div>
+                    <div class="ui-g-8">
+                        <p:autoComplete id="autocomplete" completeMethod="#{autoCompleteMB.completeText}" dropdown="true" required="true" />
+                    </div>
+                    <div class="ui-g-4">
+                        <p:message id="msgAutocomplete" for="autocomplete"/>
+                    </div>
+                    <div class="ui-g-12">
                         <p:outputLabel for="txt" value="Text"/>
                     </div>
                     <div class="ui-g-8">
