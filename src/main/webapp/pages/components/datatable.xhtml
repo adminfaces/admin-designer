@@ -64,8 +64,8 @@
                     <p:column filterBy="#{car.id}" sortBy="#{car.id}" headerText="Id" footerText="contains"
                               filterMatchMode="contains" priority="1">
                         <p:link value="#{car.id}" outcome="/index.xhtml" >
-                                <f:param name="id" value="#{car.id}"/>
-                       </p:link>
+                            <f:param name="id" value="#{car.id}"/>
+                        </p:link>
                     </p:column>
 
                     <p:column filterBy="#{car.year}" headerText="Year" footerText="lte" filterMatchMode="lte"
@@ -123,7 +123,7 @@
 
                 <p:separator/>
 
-                <p:dataTable id="radioDT" var="car" value="#{datatableMB.cars}"
+                <p:dataTable id="radioDT" var="car" value="#{datatableMB.cars}" paginator="true" paginatorPosition="bottom"
                              selection="#{datatableMB.selectedCar}" rowKey="#{car.id}">
                     <f:facet name="header">
                         RadioButton
