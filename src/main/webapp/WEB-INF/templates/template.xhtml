@@ -8,7 +8,6 @@
         <h:outputStylesheet library="css" name="showcase.css"/>
         <h:outputStylesheet library="css" name="prism.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"/>
-        <h:outputStylesheet library="webjars" name="font-awesome/4.7.0/css/font-awesome-jsf.css" />
 
         <link rel="shortcut icon" type="image/x-icon" href="#{resource['images/favicon.ico']}"/>
 
@@ -47,7 +46,7 @@
             Copyright (C) 2017 - AdminFaces
         </a>
         <div class="pull-right hidden-xs" style="color: gray">
-            <i>#{adm['admin.version']}</i>
+            <i>Powered by <a href="https://github.com/adminfaces/admin-tempate">Admin Template <span style="font-weight: bold"> #{adm['admin.version']}</span></a> and Admin Theme #{theme['theme.version']}</i>
         </div>
 
         <h:outputScript library="js" name="prism.js"  target="head"/>
