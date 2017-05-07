@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui">
-
 
     <ul class="sidebar-menu">
         <li>
@@ -12,10 +12,10 @@
             </p:link>
         </li>
         <li>
-            <p:link href="/docs/index.html" target="_blank">
+            <a href="/showcase/docs/index.html" target="_blank">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
-            </p:link>
+            </a>
         </li>
         <li class="header">
             General
@@ -32,17 +32,11 @@
                 <span>Forms</span>
             </p:link>
         </li>
-        <li>
-            <p:link href="/login.xhtml">
-                <i class="fa fa-users"></i>
-                <span>Logon</span>
-            </p:link>
-        </li>
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>UI Elements</span>
-            <span class="pull-right-container">
+                <span class="pull-right-container">
                      <i class="fa fa-angle-left pull-right"></i>
                 </span>
             </a>
@@ -104,6 +98,54 @@
 
             </ul>
         </li>
+        <li class="treeview">
+            <a href="#">
+                <i class="fa fa-file-text"></i>
+                <span>Custom Pages</span>
+                <span class="pull-right-container">
+                     <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+                <li>
+                    <p:link href="/login.xhtml" title="Logon page">
+                        <i class="fa fa-users"></i>
+                        <span>Logon</span>
+                    </p:link>
+                </li>
+
+                <li>
+                    <p:link href="/403.xhtml" title="Access denied page">
+                        <i class="fa fa-circle-o"></i>
+                        <span>403</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/non-existing.xhtml" title="404 page">
+                        <i class="fa fa-circle-o"></i>
+                        <span>404</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/500.xhtml" title="500 page">
+                        <i class="fa fa-circle-o"></i>
+                        <span>500</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/expired.xhtml" title="View expired page">
+                        <i class="fa fa-circle-o"></i>
+                        <span>View expired</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/optmistic.xhtml" title="Optimistic lock page">
+                        <i class="fa fa-circle-o"></i>
+                        <span>Optimistic lock</span>
+                    </p:link>
+                </li>
+            </ul>
+        </li>
 
         <li class="header">
             Layout
@@ -135,8 +177,8 @@
     </ul>
 
     <script type="text/javascript">
-        if(isMobile()) {
-           $('ul.sidebar-menu a.ui-link').click(function() {
+        if (isMobile()) {
+            $('ul.sidebar-menu a.ui-link').click(function () {
                 $(this).prop('disabled', true);
                 showBar();
             })
