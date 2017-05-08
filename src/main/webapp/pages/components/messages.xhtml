@@ -4,8 +4,7 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:adm="http://github.com/adminfaces"
-                template="/WEB-INF/templates/template.xhtml">
-
+                template="#{layoutMB.layout}">
 
     <ui:define name="title">
         Messages
@@ -48,10 +47,10 @@
                     <div class="ui-g-4">
                         <p:message id="msgDefault" for="default"/>
                     </div>
-                      <div class="ui-g-12">
+                    <div class="ui-g-12">
                         <p:outputLabel for="select" value="Select"/>
                     </div>
-                     <div class="ui-g-8">
+                    <div class="ui-g-8">
                         <p:selectOneMenu id="select" value="#{null}" required="true">
                             <f:selectItem itemLabel="Select"/>
                             <f:selectItem itemLabel="Credit Card" itemValue="Credit Card"/>
@@ -81,7 +80,7 @@
                         </p:selectCheckboxMenu>
                     </div>
                     <div class="ui-g-4">
-                        <p:message id="multiple" for="chkmenu-multiple" display="tooltip"/>
+                        <p:message id="multiple" for="chkmenu-multiple"/>
                     </div>
                     <div class="ui-g-12">
                         <p:outputLabel for="txt" value="Text"/>

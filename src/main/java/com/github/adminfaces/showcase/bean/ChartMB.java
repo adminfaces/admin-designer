@@ -15,38 +15,19 @@
  */
 package com.github.adminfaces.showcase.bean;
 
+import org.omnifaces.cdi.ViewScoped;
+import org.primefaces.event.ItemSelectEvent;
+import org.primefaces.model.chart.*;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.context.FacesContext;
-import javax.inject.Named;
-
-import org.omnifaces.cdi.ViewScoped;
-import org.primefaces.event.ItemSelectEvent;
-import org.primefaces.model.chart.Axis;
-import org.primefaces.model.chart.AxisType;
-import org.primefaces.model.chart.BarChartModel;
-import org.primefaces.model.chart.BarChartSeries;
-import org.primefaces.model.chart.BubbleChartModel;
-import org.primefaces.model.chart.BubbleChartSeries;
-import org.primefaces.model.chart.CartesianChartModel;
-import org.primefaces.model.chart.CategoryAxis;
-import org.primefaces.model.chart.ChartSeries;
-import org.primefaces.model.chart.DateAxis;
-import org.primefaces.model.chart.DonutChartModel;
-import org.primefaces.model.chart.HorizontalBarChartModel;
-import org.primefaces.model.chart.LineChartModel;
-import org.primefaces.model.chart.LineChartSeries;
-import org.primefaces.model.chart.LinearAxis;
-import org.primefaces.model.chart.MeterGaugeChartModel;
-import org.primefaces.model.chart.OhlcChartModel;
-import org.primefaces.model.chart.OhlcChartSeries;
-import org.primefaces.model.chart.PieChartModel;
 
 @Named
 @ViewScoped
