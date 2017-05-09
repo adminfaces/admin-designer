@@ -17,12 +17,11 @@ package com.github.adminfaces.showcase.bean;
 
 import org.omnifaces.cdi.ViewScoped;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.inject.Named;
 
 @Named
 @ViewScoped

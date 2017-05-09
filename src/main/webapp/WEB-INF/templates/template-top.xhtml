@@ -2,7 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
-                template="/admin.xhtml">
+                template="/admin-top.xhtml">
 
     <ui:define name="head">
         <h:outputStylesheet library="css" name="showcase.css"/>
@@ -19,23 +19,25 @@
     </ui:define>
 
     <ui:define name="logo">
-        Admin Showcase
-    </ui:define>
-
-    <ui:define name="logo-mini">
-        Admin
-    </ui:define>
-
-    <ui:define name="menu-begin">
-        <ui:include src="/includes/menu-search.xhtml"/>
+        <b>Admin</b>Faces
     </ui:define>
 
     <ui:define name="menu">
-        <ui:include src="/includes/menu.xhtml"/>
+        <ui:include src="/includes/menubar.xhtml"/>
     </ui:define>
 
     <ui:define name="top-menu">
         <ui:include src="/includes/top-menu.xhtml"/>
+    </ui:define>
+
+    <ui:define name="menu-end">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" id="navbar-search-input"
+                       placeholder="Search" onkeyup="alert('TO DO')">
+                </input>
+            </div>
+        </form>
     </ui:define>
 
     <ui:define name="content-end">
@@ -44,7 +46,7 @@
         </section>
     </ui:define>
 
-    <ui:define name="footer">
+   <ui:define name="footer">
         <a target="_blank"
            href="https://github.com/adminfaces">
             Copyright (C) 2017 - AdminFaces
@@ -64,6 +66,5 @@
             }
         </script>
     </ui:define>
-
 
 </ui:composition>

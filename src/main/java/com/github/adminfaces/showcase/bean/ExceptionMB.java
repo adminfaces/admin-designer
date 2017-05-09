@@ -43,6 +43,4 @@ public class ExceptionMB implements Serializable {
     public void throwOptimisticLock() {
         throw new OptimisticLockException("this is a optimistic lock exception...");
     }
-
-
 }

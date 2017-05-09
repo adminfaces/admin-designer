@@ -3,24 +3,21 @@ package com.github.adminfaces.showcase.bean;
 /**
  * Created by rafael-pestano on 08/02/17.
  */
-import java.io.Serializable;
-import java.util.Calendar;
-import java.util.Date;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
-import javax.inject.Named;
 
 import org.omnifaces.cdi.ViewScoped;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
 import org.primefaces.event.SelectEvent;
-import org.primefaces.model.DefaultScheduleEvent;
-import org.primefaces.model.DefaultScheduleModel;
-import org.primefaces.model.LazyScheduleModel;
-import org.primefaces.model.ScheduleEvent;
-import org.primefaces.model.ScheduleModel;
+import org.primefaces.model.*;
+
+import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.inject.Named;
+import java.io.Serializable;
+import java.util.Calendar;
+import java.util.Date;
 
 @Named
 @ViewScoped

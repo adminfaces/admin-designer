@@ -16,8 +16,8 @@
 package com.github.adminfaces.showcase.bean;
 
 
-import com.github.adminfaces.showcase.service.CarService;
 import com.github.adminfaces.showcase.model.Car;
+import com.github.adminfaces.showcase.service.CarService;
 import org.omnifaces.cdi.ViewScoped;
 
 import javax.annotation.PostConstruct;
