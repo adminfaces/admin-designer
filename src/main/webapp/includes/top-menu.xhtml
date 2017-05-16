@@ -5,6 +5,57 @@
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:pe="http://primefaces.org/ui/extensions">
 
+     <style type="text/css">
+        div.ui-menu.ui-menu-dynamic {
+            z-index: 9999!important;
+        }
+
+        div.btn-download.ui-splitbutton.ui-buttonset {
+            margin: 10px;
+        }
+    </style>
+    <h:form prependId="false" style="display: inline;margin: 10px" >
+                <p:splitButton value="Download maven project"
+                               onclick="document.getElementById('btn-project').click();return false"
+                               process="@none" update="@none"
+                               title="Download a sample maven project with customized theme and template."
+                               icon="fa fa-download" styleClass="btn-success btn-download">
+                    <p:menuitem onclick="document.getElementById('btn-theme').click();return false"
+                                title="Download theme as jar file."
+                                value="Download theme" icon="fa fa-download"/>
+                    <p:menuitem onclick="document.getElementById('btn-template').click();return false"
+                                title="Download template as jar file."
+                                value="Download template" icon="fa fa-download"/>
+                </p:splitButton>
+
+                <p:commandButton id="btn-project" actionListener="#{downloadMB.downloadProject}" ajax="false"
+                                 value="Download maven project"
+                                 styleClass="btn-sm btn-success" icon="fa fa-download"
+                                 onclick="PrimeFaces.monitorDownload(start, stop);" style="display: none">
+                    <p:fileDownload value="#{downloadMB.file}"/>
+                </p:commandButton>
+                <p:commandButton id="btn-theme" actionListener="#{downloadMB.downloadTheme}" ajax="false" value="Generate theme"
+                                 styleClass="btn-sm btn-danger" icon="fa fa-download"
+                                 onclick="PrimeFaces.monitorDownload(start, stop);" style="display: none">
+                    <p:fileDownload value="#{downloadMB.file}"/>
+                </p:commandButton>
+                <p:commandButton id="btn-template" actionListener="#{downloadMB.downloadTemplate}" ajax="false" value="Generate template"
+                                 styleClass="btn-sm btn-danger" icon="fa fa-download"
+                                 onclick="PrimeFaces.monitorDownload(start, stop);" style="display: none">
+                    <p:fileDownload value="#{downloadMB.file}"/>
+                </p:commandButton>
+
+    </h:form>
+    <script type="text/javascript">
+        function start() {
+            PF('statusDialog').show();
+        }
+
+        function stop() {
+            PF('statusDialog').hide();
+        }
+    </script>
+
     <ul class="nav navbar-nav">
         <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
