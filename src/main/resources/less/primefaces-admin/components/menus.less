@@ -34,8 +34,17 @@ body .ui-menu .ui-menu-list {
   }
 }
 
-ul.sidebar-menu > li {
-  overflow: hidden;
+/* ripple/waves effect integration, overflow hidden so the effect doesn't exceed element size */
+@media (max-width: @screen-sm) {
+  ul.sidebar-menu > li {
+    overflow: hidden;
+  }
+}
+
+@media (min-width: (@screen-sm + 1)) {
+  body ul.sidebar-menu > li {
+    overflow: visible;
+  }
 }
 
 a.sidebar-toggle {

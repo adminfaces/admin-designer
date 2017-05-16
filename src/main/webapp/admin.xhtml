@@ -13,7 +13,6 @@
         <meta name="mobile-web-app-capable" content="yes"/>
         <ui:insert name="head"/>
         <ui:insert name="head-end"/>
-
     </h:head>
     <h:body styleClass="#{skinMB.theme} sidebar-mini #{not empty sidebarCollapse and sidebarCollapse eq 'true' ? 'sidebar-collapse':''}">
         <ui:insert name="body-begin"/>
@@ -23,7 +22,7 @@
                       onsuccess="hideBar();"/>
 
         <p:dialog modal="true" widgetVar="statusDialog" draggable="false" closable="false"
-                  resizable="false" responsive="true" showHeader="false" appendTo="@(body)"
+                  resizable="false" responsive="true" showHeader="false"
                   style="z-index: 9999!important;position: fixed">
             <p:graphicImage library="primefaces-admin" name="images/ajaxloadingbar.gif"/>
         </p:dialog>
