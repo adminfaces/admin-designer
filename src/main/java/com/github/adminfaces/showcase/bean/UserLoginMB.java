@@ -20,7 +20,6 @@ import org.primefaces.context.RequestContext;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 import java.io.Serializable;
 
@@ -47,8 +46,8 @@ public class UserLoginMB implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-  
-    public void login(ActionEvent event) {
+
+    public void login() {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean loggedIn = false;
