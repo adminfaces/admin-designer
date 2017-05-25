@@ -139,7 +139,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <!--<debug>8888</debug>-->
+                    <debug>8888</debug>
                 </configuration>
             </plugin>
             <plugin>
