@@ -17,12 +17,6 @@
                 <span>Documentation</span>
             </a>
         </li>
-        <li>
-            <p:link href="/showcase/pages/analytics.xhtml">
-                <i class="fa fa-pie-chart"></i>
-                <span>Analytics</span>
-            </p:link>
-        </li>
         <li class="header">
             General
         </li>
@@ -51,6 +45,12 @@
                     <p:link href="/pages/components/accordion.xhtml">
                         <i class="fa fa-bars"></i>
                         <span>Accordion</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/pages/components/autocomplete.xhtml">
+                        <i class="fa fa-sort-amount-desc"></i>
+                        <span>AutoComplete</span>
                     </p:link>
                 </li>
                 <li>
@@ -183,7 +183,7 @@
         <li>
             <p:link href="/horizontal-layout" onclick="$('#link-horizontal-layout').click();return false">
                 <i class="fa fa-credit-card"></i>
-                <span><b>Horizontal</b> menu</span>
+                <span><b>Horizontal</b> layout</span>
             </p:link>
             <h:form prependId="false">
                 <p:commandLink id="link-horizontal-layout" action="#{layoutMB.setHorizontalLayout}" ajax="false"/>
