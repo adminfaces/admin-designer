@@ -31,53 +31,53 @@ import java.util.List;
 @Named
 @ViewScoped
 public class AutoCompleteMB implements Serializable {
-    
+
     private Theme theme;
     private Theme theme2;
     private List<Theme> selectedThemes;
-    
+
     @Inject
     private ThemeService service;
-    
+
     public List<String> completeText(String query) {
-		List<String> results = new ArrayList<String>();
-		for(int i = 0; i < 10; i++) {
-			results.add(query + i);
-		}
-		
-		return results;
-	}
-    
+        List<String> results = new ArrayList<String>();
+        for(int i = 0; i < 10; i++) {
+            results.add(query + i);
+        }
+
+        return results;
+    }
+
     public List<Theme> completeTheme(String query) {
         List<Theme> allThemes = service.getThemes();
-		List<Theme> filteredThemes = new ArrayList<Theme>();
-        
+        List<Theme> filteredThemes = new ArrayList<Theme>();
+
         for (int i = 0; i < allThemes.size(); i++) {
             Theme skin = allThemes.get(i);
-            if(skin.getName().toLowerCase().contains(query)) {
+            if(skin.getName().toLowerCase().contains(query.toLowerCase())) {
                 filteredThemes.add(skin);
             }
         }
-        
+
         return filteredThemes;
-	}
-    
+    }
+
     public List<Theme> completeThemeContains(String query) {
         List<Theme> allThemes = service.getThemes();
-		List<Theme> filteredThemes = new ArrayList<Theme>();
-        
+        List<Theme> filteredThemes = new ArrayList<Theme>();
+
         for (int i = 0; i < allThemes.size(); i++) {
             Theme skin = allThemes.get(i);
-            if(skin.getName().toLowerCase().contains(query)) {
+            if(skin.getName().toLowerCase().contains(query.toLowerCase())) {
                 filteredThemes.add(skin);
             }
         }
-        
+
         return filteredThemes;
-	}
+    }
 
 
-        
+
     public void onItemSelect(SelectEvent event) {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Item Selected", event.getObject().toString()));
     }
@@ -106,11 +106,11 @@ public class AutoCompleteMB implements Serializable {
     public void setSelectedThemes(List<Theme> selectedThemes) {
         this.selectedThemes = selectedThemes;
     }
-    
+
     public void setService(ThemeService service) {
         this.service = service;
     }
-    
+
     public char getThemeGroup(Theme theme) {
         return theme.getDisplayName().charAt(0);
     }
