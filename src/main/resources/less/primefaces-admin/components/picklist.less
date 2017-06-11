@@ -99,7 +99,6 @@ body .ui-picklist, body .ui-picklist.ui-picklist-responsive {
 
   }
 
-
   div.ui-picklist-target-controls {
 
     .ui-picklist-buttons-cell > button {
@@ -301,13 +300,16 @@ body .ui-picklist, body .ui-picklist.ui-picklist-responsive {
     }
   }
 
-
   &.ui-picklist-responsive .ui-picklist-buttons, .ui-picklist-buttons {
     width: 1px;
   }
 
+}
 
-
+@media (min-width: (@screen-sm + 1 )) {
+    .ui-picklist-buttons-cell {
+      padding-top: 25px;
+    }
 }
 
 
