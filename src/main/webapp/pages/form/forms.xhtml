@@ -22,7 +22,6 @@
             .ui-orderlist .ui-grid-row .ui-grid-col-10 {
                 padding: 0;
             }
-
         </style>
     </ui:define>
 
@@ -257,7 +256,7 @@
                 </div>
 
                 <div class="ui-g-4 ui-sm-12">
-                    <p:panel header="OrderList" styleClass="card no-border" style="height:354px">
+                    <p:panel header="OrderList" styleClass="card no-border" style="height:335px">
                         <p:orderList value="#{pickListMB.orderThemes}" var="theme" itemValue="#{theme}"
                                      converter="themeConverter" controlsLocation="left" responsive="true">
 
@@ -342,7 +341,7 @@
                 </div>
 
 
-                <div class="ui-g-6">
+                <div class="ui-g-6 ui-sm-12">
                     <p:panel header="Menu" styleClass="card no-border">
                         <p:menu toggleable="true">
                             <p:submenu label="File">
@@ -360,8 +359,8 @@
                     </p:panel>
                 </div>
 
-                <div class="ui-g-6">
-                    <p:panel header="PanelMenu" styleClass="card no-border" style="height: 296px">
+                <div class="ui-g-6 ui-sm-12">
+                    <p:panel header="PanelMenu" styleClass="card no-border" style="height: 300px">
 
                         <p:panelMenu>
                             <p:submenu label="Ajax Menuitems">
