@@ -54,6 +54,7 @@ public class DownloadMB {
         addEntry(baseDir + "/src/main/webapp/resources/admin/sidebar.xhtml", "/META-INF/resources/admin/sidebar.xhtml", zipFile);
         addEntry(baseDir + "/src/main/webapp/resources/admin/breadcrumb.xhtml", "/META-INF/resources/admin/breadcrumb.xhtml", zipFile);
         addEntry(baseDir + "/src/main/webapp/resources/js/admintemplate.js", "/META-INF/resources/js/admintemplate.js", zipFile);
+        addEntry(baseDir + "/src/main/webapp/resources/images/ajaxloadingbar.gif", "/META-INF/resources/images/ajaxloadingbar.gif", zipFile);
         addEntry(baseDir + "/target/classes/config/admin-config.properties", "/config/admin-config.properties", zipFile);
         addEntry(baseDir + "/target/classes/admin.properties", "/admin.properties", zipFile);
         addDirectory(baseDir + "/target/classes/com", baseDir + "/target/classes/com", zipFile, false, Arrays.asList("admin-config.properties", "less", "showcase"));
@@ -75,7 +76,6 @@ public class DownloadMB {
         copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin.properties");
         copyDir(new File("src/main/resources/config"), new File("target/admin-starter/src/main/resources/config"));
         copyDir(new File("src/main/webapp/resources/primefaces-admin"), new File("target/admin-starter/src/main/webapp/resources/primefaces-admin"));
-
         copyFile("src/main/webapp/WEB-INF/beans.xml", "target/admin-starter/src/main/webapp/WEB-INF/beans.xml");
         copyFile("src/main/webapp/WEB-INF/faces-config.xml", "target/admin-starter/src/main/webapp/WEB-INF/faces-config.xml");
         copyFile("src/main/webapp/WEB-INF/web.xml", "target/admin-starter/src/main/webapp/WEB-INF/web.xml");
@@ -83,6 +83,7 @@ public class DownloadMB {
         copyDir("src/main/resources/META-INF", "target/admin-starter/src/main/resources/META-INF");
 
         copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
+        copyDir(new File("src/main/webapp/resources/images"), new File("target/admin-starter/src/main/webapp/resources/images"));
         copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
         copyDir(new File("src/main/webapp/resources/components"), new File("target/admin-starter/src/main/webapp/resources/components"));
         Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/prism.js"));
