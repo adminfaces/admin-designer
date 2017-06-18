@@ -153,6 +153,28 @@
 
             </script>
         </ui:fragment>
+
+        <ui:fragment rendered="#{adminConfig.autoShowNavbar}">
+            <script type="text/javascript">
+                $(window).scroll(function () {
+                    if (isMobile()) {
+                        var minScrollTime = 300;
+                        var now = new Date().getTime();
+                        if (!scrollTimer) {
+                            if (now - lastScrollFireTime > (3 * minScrollTime)) {
+                                activateAutoShowNavbarOnScrollUp();   // fire immediately on first scroll
+                                lastScrollFireTime = now;
+                            }
+                            scrollTimer = setTimeout(function() {
+                                scrollTimer = null;
+                                lastScrollFireTime = new Date().getTime();
+                                activateAutoShowNavbarOnScrollUp();
+                            }, minScrollTime);
+                        }
+                    }
+                });
+            </script>
+        </ui:fragment>
     </h:body>
 
 </f:view>
