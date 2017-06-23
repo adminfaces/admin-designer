@@ -84,7 +84,25 @@ ul.ui-selectlistbox-list > li.ui-selectlistbox-item {
 }
 
 .ui-selectcheckboxmenu-header .ui-selectcheckboxmenu-close {
+  box-shadow: none;
   padding: 1px !important;
+
+  span.ui-icon-circle-close {
+    background-image: none !important;
+    display: inline !important;
+    text-indent: initial;
+    &:before {
+      font-family: FontAwesome;
+      color: @admin-text-color;
+      position: relative;
+      font-size: @font-awesome-icon-size;
+      top: -5px;
+      left: 5px;
+      overflow: hidden;
+      content: "\f00d" !important;
+    }
+  }
+
 }
 
 div.ui-selectcheckboxmenu {
@@ -106,8 +124,7 @@ body .ui-selectcheckboxmenu-panel .ui-selectcheckboxmenu-list-item .ui-chkbox {
 }
 
 div.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
-  border-color: #ffffff;
-  border-left-color: transparent;
+  border-color: transparent;
   width: @select-trigger-width;
   height: 32px;
   &.ui-state-hover, &.ui-state-focus {
@@ -164,6 +181,10 @@ body .ui-selectcheckboxmenu-multiple {
     white-space: normal;
     float: left;
     border-radius: @default-border-radius;
+  }
+
+  li.ui-selectcheckboxmenu-token {
+    white-space: normal;
   }
 
   span.ui-selectcheckboxmenu-token-icon.ui-icon-close {
@@ -231,9 +252,39 @@ body .ui-selectcheckboxmenu-multiple {
   }
 }
 
+body .ui-selectcheckboxmenu-header .ui-selectcheckboxmenu-filter-container {
+
+  span.ui-icon-search {
+    background-image: none !important;
+    display: inline;
+    position: relative!important;
+    text-indent: initial;
+    float: right;
+    top: 7px;
+    right: 0;
+    width: 20px;
+
+    &:before {
+      font-family: FontAwesome;
+      color: @admin-text-color;
+      display: inline !important;
+      position: relative;
+      font-size: @font-awesome-icon-size;
+      margin-left: 5px;
+      top: -3px;
+      overflow: hidden;
+      content: "\f002" !important;
+    }
+  }
+}
+
 /* checkboxmenu interactions */
 
-body div.ui-selectcheckboxmenu, div.ui-fluid div.ui-selectcheckboxmenu{
+ul.ui-selectcheckboxmenu-multiple-container {
+  border: none!important;
+}
+
+body div.ui-selectcheckboxmenu, div.ui-fluid div.ui-selectcheckboxmenu {
 
   &.ui-state-focus {
     -moz-box-shadow: 0 0 5px @box-shadow-color;
@@ -242,7 +293,11 @@ body div.ui-selectcheckboxmenu, div.ui-fluid div.ui-selectcheckboxmenu{
     border-color: lighten(@box-shadow-color,30%);
   }
 
-  &.ui-state-error, &.ui-state-error.ui-state-focus {
+  &.ui-state-error {
+     border: 1px solid @box-shadow-color-error;
+  }
+
+  &.ui-state-error.ui-state-focus {
     -moz-box-shadow: 0 0 5px @box-shadow-color-error;
     -webkit-box-shadow: 0 0 5px @box-shadow-color-error;
     box-shadow: 0 0 5px @box-shadow-color-error;
@@ -256,7 +311,6 @@ body div.ui-selectcheckboxmenu, div.ui-fluid div.ui-selectcheckboxmenu {
     color: @error-color;
   }
 }
-
 
 body .ui-selectcheckboxmenu .ui-selectcheckboxmenu-label {
   padding-top: 6px;
