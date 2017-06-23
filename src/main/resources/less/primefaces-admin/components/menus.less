@@ -96,67 +96,118 @@ body .ui-menu.ui-menu-toggleable li.ui-widget-header h3 {
 
 /* panelmenu */
 
-body .ui-panelmenu li.ui-menuitem span.ui-menuitem-text {
-  padding-left: 0;
-}
 
-div.ui-panelmenu div.ui-panelmenu-panel {
-  overflow: hidden;
 
-  span.ui-menuitem-icon {
-    left: .7em;
-  }
-}
+body .ui-panelmenu {
 
-body .ui-panelmenu .ui-menu-parent > .ui-menuitem-link {
-
-  > .ui-icon {
-    left: 1.6em;
-    top: 5px;
+  li.ui-menuitem span.ui-menuitem-text {
+    padding-left: 0;
   }
 
-  &.ui-menuitem-link-hasicon {
-    padding-left: 2.5em;
+  .ui-panelmenu-content {
+    position: initial;
   }
-}
 
-body span.ui-panelmenu-icon.ui-icon {
+  div.ui-panelmenu-panel {
+    overflow: hidden;
 
-  &.ui-icon-triangle-1-e {
-    background-image: none;
-    display: inline;
-    position: relative;
-    &:before {
-      font-family: FontAwesome;
-      color: @admin-text-color;
-      position: relative;
-      left: -48px;
-      top: -4px;
-      font-size: @font-awesome-icon-size;
-      overflow: hidden;
-      content: "\f0da" !important;
+    > H3 {
+      padding: 2px 0;
+
+      .ui-icon-triangle-1-s {
+        background-image: none!important;
+        display: inline;
+        position: relative;
+        float: left;
+        text-indent: initial;
+        left: 10px;
+        top: 15px;
+        &:before {
+          font-family: FontAwesome;
+          color: @admin-text-color;
+          position: relative;
+          font-size: @font-awesome-icon-size;
+          overflow: hidden;
+          content: "\f0d7" !important;
+        }
+      }
+
+      .ui-icon-triangle-1-e {
+        background-image: none!important;
+        display: inline;
+        position: relative;
+        float: left;
+        text-indent: initial;
+        left: 10px;
+        top: 15px;
+        &:before {
+          font-family: FontAwesome;
+          color: @admin-text-color;
+          position: relative;
+          font-size: @font-awesome-icon-size;
+          overflow: hidden;
+          content: "\f0da" !important;
+        }
+      }
+    }
+
+    span.ui-menuitem-icon {
+      left: .7em;
     }
   }
 
-  &.ui-icon-triangle-1-s {
-    background-image: none;
-    display: inline;
-    position: relative;
-    &:before {
-      font-family: FontAwesome;
-      color: @admin-text-color;
+  .ui-menu-parent > .ui-menuitem-link {
+
+    > .ui-icon {
+      left: 1.6em;
+      top: 5px;
+    }
+
+    &.ui-menuitem-link-hasicon {
+      padding-left: 2.5em;
+    }
+  }
+
+  span.ui-panelmenu-icon.ui-icon {
+
+    &.ui-icon-triangle-1-e {
+      background-image: none;
+      display: inline;
       position: relative;
-      left: -50px;
-      top: -4px;
-      font-size: @font-awesome-icon-size;
-      overflow: hidden;
-      content: "\f0d7" !important;
+      &:before {
+        font-family: FontAwesome;
+        color: @admin-text-color;
+        position: relative;
+        left: -48px;
+        top: -4px;
+        font-size: @font-awesome-icon-size;
+        overflow: hidden;
+        content: "\f0da" !important;
+      }
+    }
+
+    &.ui-icon-triangle-1-s {
+      background-image: none;
+      display: inline;
+      position: relative;
+      &:before {
+        font-family: FontAwesome;
+        color: @admin-text-color;
+        position: relative;
+        left: -50px;
+        top: -4px;
+        font-size: @font-awesome-icon-size;
+        overflow: hidden;
+        content: "\f0d7" !important;
+      }
     }
   }
 }
+
+
 
 @media (max-width: @screen-sm) {
-  body span.ui-panelmenu-icon.ui-icon {
+  body .ui-panelmenu span.ui-panelmenu-icon.ui-icon, body .ui-panelmenu div.ui-panelmenu-panel > H3 span {
 
     &.ui-icon-triangle-1-e, &.ui-icon-triangle-1-s {
       &:before {

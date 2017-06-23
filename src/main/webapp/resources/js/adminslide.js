@@ -1,6 +1,16 @@
 //slideoutjs integration
 $(document).ready(function () {
-    if (isMobile() && !$(document.body).hasClass("layout-top-nav")) {
+    initSlideout();
+});
+
+$(window).on('resize', function () {
+    initSlideout();
+});
+
+
+function initSlideout() {
+    if (isMobile() && !$(document.body).hasClass("layout-top-nav") && document.getElementById('sidebar')) {
+        var sidebar = $('#sidebar');
         var slideout = new Slideout({
             'panel': document.getElementById('content'),
             'menu': document.getElementById('sidebar'),
@@ -15,6 +25,7 @@ $(document).ready(function () {
                 document.getElementById('content').style.transform = 'initial';
 
             } else {
+                adjustSidebarPosition();
                 slideout.open();
                 document.getElementById('sidebar').style.display = 'block';
                 document.getElementById('content').style.transform = '230px';
@@ -22,32 +33,44 @@ $(document).ready(function () {
         });
 
         slideout.on('translatestart', function () {
-            document.getElementById('sidebar').style.display = 'block';
             setBodyClass('sidebar-open');
+            sidebar.show(500);
         });
 
+
+        slideout.on('beforeopen', function () {
+           adjustSidebarPosition();
+        });
 
         slideout.on('close', function () {
             slideoutClose();
         });
 
+        slideout.on('beforeclose', function () {
+            document.getElementById('sidebar').style.display = 'none';
+        });
+
         $(".content-wrapper").click(function () {
             if (!$("body").hasClass("sidebar-open") && document.getElementById('content').style.transform !== 'initial') {
                 document.getElementById('content').style.transform = 'initial';
+                document.getElementById('sidebar').style.display = 'none';
+                initSlideout();
             }
         });
 
-    }
 
-    function slideoutClose() {
-        document.getElementById('sidebar').style.display = 'none';
-        removeBodyClass('sidebar-open');
-    }
-
-    function slideoutOpen() {
+    } else if (document.getElementById('sidebar')) {
         document.getElementById('sidebar').style.display = 'block';
-        removeBodyClass('sidebar-open');
+        document.getElementById('content').style.transform = 'initial';
     }
+}
 
+function slideoutClose() {
+    removeBodyClass('sidebar-open');
+}
 
-});
+function slideoutOpen() {
+    var sidebar = $('#sidebar');
+    sidebar.show(500);
+    removeBodyClass('sidebar-open');
+}

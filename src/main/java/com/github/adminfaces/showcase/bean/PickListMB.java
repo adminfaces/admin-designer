@@ -41,7 +41,8 @@ public class PickListMB implements Serializable {
     
     private DualListModel<String> cities;
     private DualListModel<Theme> themes;
-    
+    private List<Theme> orderThemes;
+
     @PostConstruct
     public void init() {
         //Cities
@@ -63,6 +64,7 @@ public class PickListMB implements Serializable {
         List<Theme> themesTarget = new ArrayList<Theme>();
         
         themes = new DualListModel<Theme>(themesSource, themesTarget);
+        orderThemes = new ArrayList<>(themesSource);
         
     }
 
@@ -117,5 +119,13 @@ public class PickListMB implements Serializable {
     public void onReorder() {
         FacesContext context = FacesContext.getCurrentInstance();
         context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "List Reordered", null));
+    }
+
+    public List<Theme> getOrderThemes() {
+        return orderThemes;
+    }
+
+    public void setOrderThemes(List<Theme> orderThemes) {
+        this.orderThemes = orderThemes;
     }
 }

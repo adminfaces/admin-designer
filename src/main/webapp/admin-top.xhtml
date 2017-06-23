@@ -63,7 +63,6 @@
                 #navbar-search-input {
                     width: 100%;
                 }
-
             }
         </style>
 
@@ -76,7 +75,7 @@
         <p:dialog modal="true" widgetVar="statusDialog" draggable="false" closable="false"
                   resizable="false" responsive="true" showHeader="false"
                   style="z-index: 9999!important;position: fixed">
-            <p:graphicImage library="primefaces-admin" name="images/ajaxloadingbar.gif"/>
+            <p:graphicImage library="images" name="ajaxloadingbar.gif"/>
         </p:dialog>
 
 
@@ -196,6 +195,28 @@
         <h:outputScript library="js" name="bootstrap.min.js" target="head"/>
         <h:outputScript library="js" name="admin-lte.min.js" target="head"/>
         <h:outputScript library="js" name="admintemplate.js" target="head"/>
+
+        <ui:fragment rendered="#{adminConfig.autoShowNavbar}">
+            <script type="text/javascript">
+                $(window).scroll(function () {
+                    if (isMobile()) {
+                        var minScrollTimeNav = 300;
+                        var now = new Date().getTime();
+                        if (!scrollTimerNav) {
+                            if (now - lastScrollFireTimeNav > (3 * minScrollTimeNav)) {
+                                activateAutoShowNavbarOnScrollUp();   // fire immediately on first scroll
+                                lastScrollFireTimeNav = now;
+                            }
+                            scrollTimerNav = setTimeout(function() {
+                                scrollTimerNav = null;
+                                lastScrollFireTimeNav = new Date().getTime();
+                                activateAutoShowNavbarOnScrollUp();
+                            }, minScrollTimeNav);
+                        }
+                    }
+                });
+            </script>
+        </ui:fragment>
 
 
     </h:body>
