@@ -26,10 +26,12 @@ import java.io.Serializable;
 @Named
 @ViewScoped
 public class UserLoginMB implements Serializable {
-    
+
     private String username;
-    
+
     private String password;
+
+    private String selected;
 
     public String getUsername() {
         return username;
@@ -47,11 +49,19 @@ public class UserLoginMB implements Serializable {
         this.password = password;
     }
 
+    public String getSelected() {
+        return selected;
+    }
+
+    public void setSelected(String selected) {
+        this.selected = selected;
+    }
+
     public void login() {
         RequestContext context = RequestContext.getCurrentInstance();
         FacesMessage message = null;
         boolean loggedIn = false;
-        
+
         if(username != null && username.equals("admin") && password != null && password.equals("admin")) {
             loggedIn = true;
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Welcome", username);
@@ -59,8 +69,8 @@ public class UserLoginMB implements Serializable {
             loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials");
         }
-        
+
         FacesContext.getCurrentInstance().addMessage(null, message);
         context.addCallbackParam("loggedIn", loggedIn);
-    }   
+    }
 }
