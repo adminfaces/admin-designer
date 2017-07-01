@@ -18171,6 +18171,9 @@ body div.ui-fluid div.material .ui-message.ui-message-error .ui-message-error-ic
 body div.material.focused input.ui-inputfield::-webkit-input-placeholder,
 body .ui-widget div.material.focused input.ui-inputfield::-webkit-input-placeholder,
 body div.ui-fluid div.material.focused input.ui-inputfield::-webkit-input-placeholder,
+body div.material.focused textarea.ui-inputtextarea::-webkit-input-placeholder,
+body .ui-widget div.material.focused textarea.ui-inputtextarea::-webkit-input-placeholder,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea::-webkit-input-placeholder,
 body div.material.focused input.ui-autocomplete-input::-webkit-input-placeholder,
 body .ui-widget div.material.focused input.ui-autocomplete-input::-webkit-input-placeholder,
 body div.ui-fluid div.material.focused input.ui-autocomplete-input::-webkit-input-placeholder,
@@ -18182,6 +18185,9 @@ body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield::-
 body div.material.focused input.ui-inputfield::-moz-placeholder,
 body .ui-widget div.material.focused input.ui-inputfield::-moz-placeholder,
 body div.ui-fluid div.material.focused input.ui-inputfield::-moz-placeholder,
+body div.material.focused textarea.ui-inputtextarea::-moz-placeholder,
+body .ui-widget div.material.focused textarea.ui-inputtextarea::-moz-placeholder,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea::-moz-placeholder,
 body div.material.focused input.ui-autocomplete-input::-moz-placeholder,
 body .ui-widget div.material.focused input.ui-autocomplete-input::-moz-placeholder,
 body div.ui-fluid div.material.focused input.ui-autocomplete-input::-moz-placeholder,
@@ -18193,6 +18199,9 @@ body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield::-
 body div.material.focused input.ui-inputfield:-ms-input-placeholder,
 body .ui-widget div.material.focused input.ui-inputfield:-ms-input-placeholder,
 body div.ui-fluid div.material.focused input.ui-inputfield:-ms-input-placeholder,
+body div.material.focused textarea.ui-inputtextarea:-ms-input-placeholder,
+body .ui-widget div.material.focused textarea.ui-inputtextarea:-ms-input-placeholder,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea:-ms-input-placeholder,
 body div.material.focused input.ui-autocomplete-input:-ms-input-placeholder,
 body .ui-widget div.material.focused input.ui-autocomplete-input:-ms-input-placeholder,
 body div.ui-fluid div.material.focused input.ui-autocomplete-input:-ms-input-placeholder,
@@ -18204,6 +18213,9 @@ body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield:-m
 body div.material.focused input.ui-inputfield ~ label,
 body .ui-widget div.material.focused input.ui-inputfield ~ label,
 body div.ui-fluid div.material.focused input.ui-inputfield ~ label,
+body div.material.focused textarea.ui-inputtextarea ~ label,
+body .ui-widget div.material.focused textarea.ui-inputtextarea ~ label,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea ~ label,
 body div.material.focused input.ui-autocomplete-input ~ label,
 body .ui-widget div.material.focused input.ui-autocomplete-input ~ label,
 body div.ui-fluid div.material.focused input.ui-autocomplete-input ~ label,
@@ -18213,6 +18225,11 @@ body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield ~ 
   color: #3c8dbc;
   font-size: 12px;
   top: -15px;
+}
+body div.material.focused textarea.ui-inputtextarea.ui-inputfield ~ label,
+body .ui-widget div.material.focused textarea.ui-inputtextarea.ui-inputfield ~ label,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea.ui-inputfield ~ label {
+  top: -8px;
 }
 body div.material.focused span.ui-autocomplete ~ label,
 body .ui-widget div.material.focused span.ui-autocomplete ~ label,
@@ -18237,7 +18254,10 @@ body .ui-widget div.material input.ui-inputfield::-webkit-input-placeholder,
 body div.ui-fluid div.material input.ui-inputfield::-webkit-input-placeholder,
 body div.material input.ui-autocomplete-input::-webkit-input-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input::-webkit-input-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input::-webkit-input-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input::-webkit-input-placeholder,
+body div.material textarea.ui-inputtextarea::-webkit-input-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea::-webkit-input-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea::-webkit-input-placeholder {
   color: transparent;
   -webkit-transition: 240ms;
   -o-transition: 240ms;
@@ -18248,7 +18268,10 @@ body .ui-widget div.material input.ui-inputfield::-moz-placeholder,
 body div.ui-fluid div.material input.ui-inputfield::-moz-placeholder,
 body div.material input.ui-autocomplete-input::-moz-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input::-moz-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input::-moz-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input::-moz-placeholder,
+body div.material textarea.ui-inputtextarea::-moz-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea::-moz-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea::-moz-placeholder {
   color: transparent;
   -webkit-transition: 240ms;
   -o-transition: 240ms;
@@ -18259,7 +18282,10 @@ body .ui-widget div.material input.ui-inputfield:-ms-input-placeholder,
 body div.ui-fluid div.material input.ui-inputfield:-ms-input-placeholder,
 body div.material input.ui-autocomplete-input:-ms-input-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input:-ms-input-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input:-ms-input-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input:-ms-input-placeholder,
+body div.material textarea.ui-inputtextarea:-ms-input-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea:-ms-input-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea:-ms-input-placeholder {
   color: transparent;
   -webkit-transition: 240ms;
   -o-transition: 240ms;
@@ -18270,7 +18296,10 @@ body .ui-widget div.material input.ui-inputfield:focus::-webkit-input-placeholde
 body div.ui-fluid div.material input.ui-inputfield:focus::-webkit-input-placeholder,
 body div.material input.ui-autocomplete-input:focus::-webkit-input-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input:focus::-webkit-input-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input:focus::-webkit-input-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input:focus::-webkit-input-placeholder,
+body div.material textarea.ui-inputtextarea:focus::-webkit-input-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea:focus::-webkit-input-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea:focus::-webkit-input-placeholder {
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
@@ -18280,7 +18309,10 @@ body .ui-widget div.material input.ui-inputfield:focus::-moz-placeholder,
 body div.ui-fluid div.material input.ui-inputfield:focus::-moz-placeholder,
 body div.material input.ui-autocomplete-input:focus::-moz-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input:focus::-moz-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input:focus::-moz-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input:focus::-moz-placeholder,
+body div.material textarea.ui-inputtextarea:focus::-moz-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea:focus::-moz-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea:focus::-moz-placeholder {
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
@@ -18290,7 +18322,10 @@ body .ui-widget div.material input.ui-inputfield:focus:-ms-input-placeholder,
 body div.ui-fluid div.material input.ui-inputfield:focus:-ms-input-placeholder,
 body div.material input.ui-autocomplete-input:focus:-ms-input-placeholder,
 body .ui-widget div.material input.ui-autocomplete-input:focus:-ms-input-placeholder,
-body div.ui-fluid div.material input.ui-autocomplete-input:focus:-ms-input-placeholder {
+body div.ui-fluid div.material input.ui-autocomplete-input:focus:-ms-input-placeholder,
+body div.material textarea.ui-inputtextarea:focus:-ms-input-placeholder,
+body .ui-widget div.material textarea.ui-inputtextarea:focus:-ms-input-placeholder,
+body div.ui-fluid div.material textarea.ui-inputtextarea:focus:-ms-input-placeholder {
   -webkit-transition: none;
   -o-transition: none;
   transition: none;
@@ -18298,6 +18333,9 @@ body div.ui-fluid div.material input.ui-autocomplete-input:focus:-ms-input-place
 body div.material input.ui-inputfield,
 body .ui-widget div.material input.ui-inputfield,
 body div.ui-fluid div.material input.ui-inputfield,
+body div.material textarea.ui-inputtextarea,
+body .ui-widget div.material textarea.ui-inputtextarea,
+body div.ui-fluid div.material textarea.ui-inputtextarea,
 body div.material div.ui-selectonemenu,
 body .ui-widget div.material div.ui-selectonemenu,
 body div.ui-fluid div.material div.ui-selectonemenu,
@@ -18323,6 +18361,9 @@ body div.ui-fluid div.material .ui-calendar {
 body div.material input.ui-inputfield ~ label,
 body .ui-widget div.material input.ui-inputfield ~ label,
 body div.ui-fluid div.material input.ui-inputfield ~ label,
+body div.material textarea.ui-inputtextarea ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea ~ label,
 body div.material div.ui-selectonemenu ~ label,
 body .ui-widget div.material div.ui-selectonemenu ~ label,
 body div.ui-fluid div.material div.ui-selectonemenu ~ label,
@@ -18348,6 +18389,9 @@ body div.ui-fluid div.material .ui-calendar ~ label {
 body div.material input.ui-inputfield.ui-state-focus,
 body .ui-widget div.material input.ui-inputfield.ui-state-focus,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-focus,
+body div.material textarea.ui-inputtextarea.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-focus,
 body div.material div.ui-selectonemenu.ui-state-focus,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-focus,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-focus,
@@ -18368,6 +18412,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-focus {
 body div.material input.ui-inputfield.ui-state-focus ~ label,
 body .ui-widget div.material input.ui-inputfield.ui-state-focus ~ label,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-focus ~ label,
+body div.material textarea.ui-inputtextarea.ui-state-focus ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-focus ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-focus ~ label,
 body div.material div.ui-selectonemenu.ui-state-focus ~ label,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-focus ~ label,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-focus ~ label,
@@ -18387,6 +18434,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-focus ~ label {
 body div.material input.ui-inputfield.ui-state-error,
 body .ui-widget div.material input.ui-inputfield.ui-state-error,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-error,
+body div.material textarea.ui-inputtextarea.ui-state-error,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-error,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-error,
 body div.material div.ui-selectonemenu.ui-state-error,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-error,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-error,
@@ -18409,6 +18459,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-error {
 body div.material input.ui-inputfield.ui-state-error ~ label,
 body .ui-widget div.material input.ui-inputfield.ui-state-error ~ label,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-error ~ label,
+body div.material textarea.ui-inputtextarea.ui-state-error ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-error ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-error ~ label,
 body div.material div.ui-selectonemenu.ui-state-error ~ label,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-error ~ label,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-error ~ label,
@@ -18426,6 +18479,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-error ~ label {
 body div.material input.ui-inputfield.ui-state-error.ui-state-focus,
 body .ui-widget div.material input.ui-inputfield.ui-state-error.ui-state-focus,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-error.ui-state-focus,
+body div.material textarea.ui-inputtextarea.ui-state-error.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-error.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-error.ui-state-focus,
 body div.material div.ui-selectonemenu.ui-state-error.ui-state-focus,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-error.ui-state-focus,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-error.ui-state-focus,
@@ -18447,6 +18503,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-error.ui-state-focus {
 body div.material input.ui-inputfield.ui-state-error .ui-selectonemenu-label,
 body .ui-widget div.material input.ui-inputfield.ui-state-error .ui-selectonemenu-label,
 body div.ui-fluid div.material input.ui-inputfield.ui-state-error .ui-selectonemenu-label,
+body div.material textarea.ui-inputtextarea.ui-state-error .ui-selectonemenu-label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-error .ui-selectonemenu-label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-error .ui-selectonemenu-label,
 body div.material div.ui-selectonemenu.ui-state-error .ui-selectonemenu-label,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-error .ui-selectonemenu-label,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-error .ui-selectonemenu-label,
@@ -18464,6 +18523,9 @@ body div.ui-fluid div.material .ui-calendar.ui-state-error .ui-selectonemenu-lab
 body div.material input.ui-inputfield .ui-selectonemenu-trigger,
 body .ui-widget div.material input.ui-inputfield .ui-selectonemenu-trigger,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectonemenu-trigger,
+body div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger,
 body div.material div.ui-selectonemenu .ui-selectonemenu-trigger,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectonemenu-trigger,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectonemenu-trigger,
@@ -18479,6 +18541,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectonemenu-trigger,
 body div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger,
 body .ui-widget div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger,
+body div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger,
 body div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger,
@@ -18494,6 +18559,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectcheckboxmenu-trigger,
 body div.material input.ui-inputfield .ui-autocomplete-dropdown,
 body .ui-widget div.material input.ui-inputfield .ui-autocomplete-dropdown,
 body div.ui-fluid div.material input.ui-inputfield .ui-autocomplete-dropdown,
+body div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown,
 body div.material div.ui-selectonemenu .ui-autocomplete-dropdown,
 body .ui-widget div.material div.ui-selectonemenu .ui-autocomplete-dropdown,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-autocomplete-dropdown,
@@ -18511,6 +18579,9 @@ body div.ui-fluid div.material .ui-calendar .ui-autocomplete-dropdown {
 body div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-hover,
 body .ui-widget div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-hover,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-hover,
+body div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-hover,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-hover,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-hover,
 body div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-hover,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-hover,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-hover,
@@ -18526,6 +18597,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectonemenu-trigger.ui-state-h
 body div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-hover,
 body .ui-widget div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-hover,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-hover,
+body div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-hover,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-hover,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-hover,
 body div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-hover,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-hover,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-hover,
@@ -18541,6 +18615,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectcheckboxmenu-trigger.ui-st
 body div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-hover,
 body .ui-widget div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-hover,
 body div.ui-fluid div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-hover,
+body div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-hover,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-hover,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-hover,
 body div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-hover,
 body .ui-widget div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-hover,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-hover,
@@ -18556,6 +18633,9 @@ body div.ui-fluid div.material .ui-calendar .ui-autocomplete-dropdown.ui-state-h
 body div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-focus,
 body .ui-widget div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-focus,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectonemenu-trigger.ui-state-focus,
+body div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger.ui-state-focus,
 body div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-focus,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-focus,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectonemenu-trigger.ui-state-focus,
@@ -18571,6 +18651,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectonemenu-trigger.ui-state-f
 body div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-focus,
 body .ui-widget div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-focus,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectcheckboxmenu-trigger.ui-state-focus,
+body div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectcheckboxmenu-trigger.ui-state-focus,
 body div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-focus,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-focus,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectcheckboxmenu-trigger.ui-state-focus,
@@ -18586,6 +18669,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectcheckboxmenu-trigger.ui-st
 body div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-focus,
 body .ui-widget div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-focus,
 body div.ui-fluid div.material input.ui-inputfield .ui-autocomplete-dropdown.ui-state-focus,
+body div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-autocomplete-dropdown.ui-state-focus,
 body div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-focus,
 body .ui-widget div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-focus,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-autocomplete-dropdown.ui-state-focus,
@@ -18606,6 +18692,9 @@ body div.ui-fluid div.material .ui-calendar .ui-autocomplete-dropdown.ui-state-f
 body div.material input.ui-inputfield .ui-selectonemenu-trigger .ui-icon,
 body .ui-widget div.material input.ui-inputfield .ui-selectonemenu-trigger .ui-icon,
 body div.ui-fluid div.material input.ui-inputfield .ui-selectonemenu-trigger .ui-icon,
+body div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger .ui-icon,
+body .ui-widget div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger .ui-icon,
+body div.ui-fluid div.material textarea.ui-inputtextarea .ui-selectonemenu-trigger .ui-icon,
 body div.material div.ui-selectonemenu .ui-selectonemenu-trigger .ui-icon,
 body .ui-widget div.material div.ui-selectonemenu .ui-selectonemenu-trigger .ui-icon,
 body div.ui-fluid div.material div.ui-selectonemenu .ui-selectonemenu-trigger .ui-icon,
@@ -18623,6 +18712,9 @@ body div.ui-fluid div.material .ui-calendar .ui-selectonemenu-trigger .ui-icon {
 body div.material input.ui-inputfield button.ui-datepicker-trigger,
 body .ui-widget div.material input.ui-inputfield button.ui-datepicker-trigger,
 body div.ui-fluid div.material input.ui-inputfield button.ui-datepicker-trigger,
+body div.material textarea.ui-inputtextarea button.ui-datepicker-trigger,
+body .ui-widget div.material textarea.ui-inputtextarea button.ui-datepicker-trigger,
+body div.ui-fluid div.material textarea.ui-inputtextarea button.ui-datepicker-trigger,
 body div.material div.ui-selectonemenu button.ui-datepicker-trigger,
 body .ui-widget div.material div.ui-selectonemenu button.ui-datepicker-trigger,
 body div.ui-fluid div.material div.ui-selectonemenu button.ui-datepicker-trigger,
@@ -18640,6 +18732,9 @@ body div.ui-fluid div.material .ui-calendar button.ui-datepicker-trigger {
 body div.material input.ui-inputfield button.ui-autocomplete-dropdown,
 body .ui-widget div.material input.ui-inputfield button.ui-autocomplete-dropdown,
 body div.ui-fluid div.material input.ui-inputfield button.ui-autocomplete-dropdown,
+body div.material textarea.ui-inputtextarea button.ui-autocomplete-dropdown,
+body .ui-widget div.material textarea.ui-inputtextarea button.ui-autocomplete-dropdown,
+body div.ui-fluid div.material textarea.ui-inputtextarea button.ui-autocomplete-dropdown,
 body div.material div.ui-selectonemenu button.ui-autocomplete-dropdown,
 body .ui-widget div.material div.ui-selectonemenu button.ui-autocomplete-dropdown,
 body div.ui-fluid div.material div.ui-selectonemenu button.ui-autocomplete-dropdown,
@@ -18657,6 +18752,9 @@ body div.ui-fluid div.material .ui-calendar button.ui-autocomplete-dropdown {
 body div.material input.ui-inputfield span.ui-icon-triangle-1-s:before,
 body .ui-widget div.material input.ui-inputfield span.ui-icon-triangle-1-s:before,
 body div.ui-fluid div.material input.ui-inputfield span.ui-icon-triangle-1-s:before,
+body div.material textarea.ui-inputtextarea span.ui-icon-triangle-1-s:before,
+body .ui-widget div.material textarea.ui-inputtextarea span.ui-icon-triangle-1-s:before,
+body div.ui-fluid div.material textarea.ui-inputtextarea span.ui-icon-triangle-1-s:before,
 body div.material div.ui-selectonemenu span.ui-icon-triangle-1-s:before,
 body .ui-widget div.material div.ui-selectonemenu span.ui-icon-triangle-1-s:before,
 body div.ui-fluid div.material div.ui-selectonemenu span.ui-icon-triangle-1-s:before,
@@ -18674,6 +18772,9 @@ body div.ui-fluid div.material .ui-calendar span.ui-icon-triangle-1-s:before {
 body div.material input.ui-inputfield label,
 body .ui-widget div.material input.ui-inputfield label,
 body div.ui-fluid div.material input.ui-inputfield label,
+body div.material textarea.ui-inputtextarea label,
+body .ui-widget div.material textarea.ui-inputtextarea label,
+body div.ui-fluid div.material textarea.ui-inputtextarea label,
 body div.material div.ui-selectonemenu label,
 body .ui-widget div.material div.ui-selectonemenu label,
 body div.ui-fluid div.material div.ui-selectonemenu label,
@@ -18711,6 +18812,48 @@ body div.ui-fluid div.material span.ui-calendar {
 body div.material label.ui-outputlabel.ui-state-error,
 body .ui-widget div.material label.ui-outputlabel.ui-state-error,
 body div.ui-fluid div.material label.ui-outputlabel.ui-state-error {
+  color: #b94a48;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield {
+  border: 1px solid #d2d6de;
+  padding: 15px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 98%, #3c8dbc 2%) no-repeat -10000px 0;
+  background-size: 2000px 100%;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield ~ label {
+  padding: 7px;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus {
+  background-position: 0 0;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-focus ~ label {
+  color: #3c8dbc;
+  font-size: 12px;
+  top: -8px;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error {
+  border: solid 1px #eed3d7;
+  color: #333333;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 98%, #b94a48 2%) no-repeat -10000px 0;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error.ui-state-focus,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error.ui-state-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error.ui-state-focus {
+  background-position: 0 0;
+}
+body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label {
   color: #b94a48;
 }
 /* Menus */
