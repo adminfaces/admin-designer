@@ -48,10 +48,12 @@
                         <p:message id="msgDefault" for="default"/>
                     </div>
 
-                    <div class="ui-g-8 material">
-                        <p:inputText id="material" required="true" placeholder="Material placeholder"  />
-                        <p:outputLabel for="material" value="Material input"/>
-                        <p:message  for="material"/>
+                    <div class="ui-g-8">
+                        <div class="material">
+                            <p:inputText id="material" required="true" placeholder="Material placeholder"/>
+                            <p:outputLabel for="material" value="Material input"/>
+                            <p:message for="material"/>
+                        </div>
                     </div>
 
                     <div class="ui-g-12">
@@ -72,7 +74,8 @@
                         <p:outputLabel for="autocomplete" value="Auto Complete"/>
                     </div>
                     <div class="ui-g-8">
-                        <p:autoComplete id="autocomplete" completeMethod="#{autoCompleteMB.completeText}" dropdown="true" required="true" />
+                        <p:autoComplete id="autocomplete" completeMethod="#{autoCompleteMB.completeText}"
+                                        dropdown="true" required="true"/>
                     </div>
                     <div class="ui-g-4">
                         <p:message id="msgAutocomplete" for="autocomplete"/>
@@ -121,7 +124,7 @@
 
                     <div class="ui-g-4">
                         <p:commandButton id="submitButton" styleClass="btn-primary" value="Submit" update="@form"
-                                         ignoreAutoUpdate="true" />
+                                         ignoreAutoUpdate="true"/>
                     </div>
                 </div>
 
