@@ -15977,29 +15977,69 @@ body .ui-datepicker {
   padding: 0;
   border: none;
 }
+body .ui-datepicker span.ui-icon-circle-triangle-e {
+  background-image: none;
+  display: inline;
+  position: relative;
+  color: transparent;
+  opacity: 1;
+}
+body .ui-datepicker span.ui-icon-circle-triangle-e:before {
+  font-family: FontAwesome;
+  color: #fff;
+  position: relative;
+  margin: 0 7px;
+  top: -5px;
+  font-size: 13.3px;
+  overflow: hidden;
+  content: "\f0da" !important;
+}
+body .ui-datepicker span.ui-icon-circle-triangle-e:hover {
+  opacity: .8;
+}
+body .ui-datepicker span.ui-icon-circle-triangle-w {
+  background-image: none;
+  display: inline;
+  position: relative;
+  color: transparent;
+  opacity: 1;
+}
+body .ui-datepicker span.ui-icon-circle-triangle-w:before {
+  font-family: FontAwesome;
+  color: #fff;
+  position: relative;
+  margin: 0 7px;
+  top: -5px;
+  font-size: 13.3px;
+  overflow: hidden;
+  content: "\f0d9" !important;
+}
+body .ui-datepicker span.ui-icon-circle-triangle-w:hover {
+  opacity: .8;
+}
 .ui-datepicker .ui-datepicker-header,
 .ui-datepicker .ui-timepicker-div > .ui-widget-header {
   position: relative;
   padding: .4em 0;
-  border: 1px solid #3b3e40;
+  border: 1px solid #367fa9;
 }
 .ui-datepicker .ui-datepicker-header,
 .ui-datepicker .ui-timepicker-div > .ui-widget-header {
-  background: #595c5d;
+  background: #3c8dbc;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #595c5d 0%, #474a4b 100%);
+  background: -moz-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #595c5d), color-stop(100%, #474a4b));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3c8dbc), color-stop(100%, #307095));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #595c5d 0%, #474a4b 100%);
+  background: -webkit-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #595c5d 0%, #474a4b 100%);
+  background: -o-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #595c5d 0%, #474a4b 100%);
+  background: -ms-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* IE10+ */
-  background: linear-gradient(top, #595c5d 0%, #474a4b 100%);
+  background: linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#595c5d', endColorstr='#474a4b', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-blue', endColorstr='darken(@light-blue, 10%)', GradientType=0);
   /* IE6-9 */
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
   -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
@@ -16009,29 +16049,29 @@ body .ui-datepicker {
   border-radius: 0;
 }
 .ui-datepicker th {
-  color: #e8e9ea !important;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  color: #fff !important;
+  text-shadow: none;
   border: #27292b solid !important;
   border-width: 1px 0 !important;
-  background: #77797a;
+  background: #3c8dbc;
   /* Old browsers */
-  background: -moz-linear-gradient(top, #77797a 0%, #5b5e5e 100%);
+  background: -moz-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #77797a), color-stop(100%, #5b5e5e));
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #3c8dbc), color-stop(100%, #307095));
   /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #77797a 0%, #5b5e5e 100%);
+  background: -webkit-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #77797a 0%, #5b5e5e 100%);
+  background: -o-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #77797a 0%, #5b5e5e 100%);
+  background: -ms-linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* IE10+ */
-  background: linear-gradient(top, #77797a 0%, #5b5e5e 100%);
+  background: linear-gradient(top, #3c8dbc 0%, #307095 100%);
   /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#77797a', endColorstr='#5b5e5e', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@light-blue', endColorstr='darken(@light-blue, 10%)', GradientType=0);
   /* IE6-9 */
-  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
-  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
-  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.15) inset;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 .ui-datepicker .ui-datepicker-prev,
 .ui-datepicker .ui-datepicker-next {
@@ -16069,8 +16109,8 @@ body .ui-datepicker {
   margin: 0 2.3em;
   line-height: 1.8em;
   text-align: center;
-  color: #e8e9ea;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-shadow: none;
 }
 .ui-datepicker .ui-datepicker-title select {
   font-size: 1em;
@@ -16166,12 +16206,6 @@ td.ui-datepicker-unselectable {
 .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
   float: left;
 }
-.ui-datepicker .ui-icon-circle-triangle-w {
-  background: url("#{resource['primefaces-admin:images/icons_16.png']}") 0 -128px no-repeat !important;
-}
-.ui-datepicker .ui-icon-circle-triangle-e {
-  background: url("#{resource['primefaces-admin:images/icons_16.png']}") 0 -112px no-repeat !important;
-}
 .ui-datepicker-header .ui-state-hover {
   border: 0;
   background: none;
@@ -16239,7 +16273,7 @@ body .ui-calendar button.ui-datepicker-trigger > span.ui-icon-calendar {
 }
 body .ui-calendar button.ui-datepicker-trigger > span.ui-icon-calendar:before {
   font-family: FontAwesome;
-  color: #595C5D;
+  color: #444444;
   position: relative;
   top: 2px;
   font-size: 18px;
@@ -16253,7 +16287,7 @@ body .ui-calendar button.ui-datepicker-trigger .ui-button {
 .ui-datepicker .ui-timepicker-div > .ui-widget-header,
 .ui-datepicker-year,
 .ui-datepicker-month {
-  background: #595c5d !important;
+  background: #3c8dbc !important;
 }
 body .ui-datepicker tbody td {
   box-sizing: border-box;
