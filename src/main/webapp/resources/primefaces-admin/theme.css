@@ -18154,26 +18154,29 @@ label.ui-outputlabel {
 .ui-outputlabel-rfi {
   display: none;
 }
+body .ui-widget .keypad-key.ui-state-default {
+  border: none;
+  background: #fff;
+  border-radius: 50%;
+}
+body .ui-widget .keypad-key.ui-state-default.ui-state-hover {
+  background: #eeeeee;
+}
+body .ui-widget .keypad-key.ui-state-default.keypad-close,
+body .ui-widget .keypad-key.ui-state-default.keypad-enter,
+body .ui-widget .keypad-key.ui-state-default.keypad-spacebar,
+body .ui-widget .keypad-key.ui-state-default.keypad-shift,
+body .ui-widget .keypad-key.ui-state-default.keypad-clear,
+body .ui-widget .keypad-key.ui-state-default.keypad-back {
+  background: #3c8dbc;
+  color: #fff;
+  border-radius: 3px;
+}
 /* material design classes */
 body div.material,
 body .ui-widget div.material,
 body div.ui-fluid div.material {
   position: relative;
-  /* div.ui-selectonemenu {
-
-      ~ label {
-        top: -17px!important;
-        font-size: 12px;
-        margin-left: 5px;
-        color: @light-blue;
-      }
-
-      &.ui-state-disabled {
-        ~ label {
-          color: @gray;
-        }
-      }
-    }*/
 }
 body div.material .ui-message.ui-message-error,
 body .ui-widget div.material .ui-message.ui-message-error,
@@ -18945,6 +18948,19 @@ body div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label
 body .ui-widget div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label,
 body div.ui-fluid div.material textarea.ui-inputtextarea.ui-inputfield.ui-state-error ~ label {
   color: #b94a48;
+}
+body div.material div.ui-selectonemenu ~ label,
+body .ui-widget div.material div.ui-selectonemenu ~ label,
+body div.ui-fluid div.material div.ui-selectonemenu ~ label {
+  top: -17px !important;
+  font-size: 12px;
+  margin-left: 5px;
+  color: #3c8dbc;
+}
+body div.material div.ui-selectonemenu.ui-state-disabled ~ label,
+body .ui-widget div.material div.ui-selectonemenu.ui-state-disabled ~ label,
+body div.ui-fluid div.material div.ui-selectonemenu.ui-state-disabled ~ label {
+  color: #d2d6de;
 }
 /* Menus */
 .ui-tabmenu li.ui-state-active {
