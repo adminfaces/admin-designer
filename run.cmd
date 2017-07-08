@@ -1,0 +1,1 @@
+mvnw.cmd wildfly-swarm:run

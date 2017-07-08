@@ -67,7 +67,7 @@ body, body .ui-widget, body div.ui-fluid {
       div.ui-selectcheckboxmenu {
 
         ~ label, label.ui-selectcheckboxmenu-label {
-          display: none;//checkboxmenu label is hidden on focus
+          display: none; //checkboxmenu label is hidden on focus
         }
       }
     }
@@ -105,6 +105,7 @@ body, body .ui-widget, body div.ui-fluid {
         }
 
       }
+
     }
 
     input.ui-inputfield, textarea.ui-inputtextarea, div.ui-selectonemenu, .ui-autocomplete, .ui-selectcheckboxmenu, .ui-calendar {
@@ -136,6 +137,12 @@ body, body .ui-widget, body div.ui-fluid {
           color: @light-blue;
           font-size: 12px;
           top: -15px;
+        }
+      }
+
+      &.ui-state-disabled {
+        ~ label {
+          color: @gray;
         }
       }
 
@@ -212,7 +219,7 @@ body, body .ui-widget, body div.ui-fluid {
 
       ~ label {
         position: relative;
-        top:-30px;
+        top: -30px;
       }
 
       &.ui-state-focus ~ label {
@@ -265,6 +272,22 @@ body, body .ui-widget, body div.ui-fluid {
         }
       }
 
+    }
+
+    div.ui-selectonemenu {
+
+      ~ label {
+        top: -17px!important;
+        font-size: 12px;
+        margin-left: 5px;
+        color: @light-blue;
+      }
+
+      &.ui-state-disabled {
+        ~ label {
+          color: @gray;
+        }
+      }
     }
   }
   //div material
