@@ -15985,6 +15985,7 @@ div.ui-chkbox span.ui-icon-closethick:before {
   font-size: 13.3px;
   top: -2px;
   left: -5px;
+  padding: 2px 4px;
   overflow: hidden;
   content: "\f00d" !important;
 }
@@ -16304,8 +16305,8 @@ body .ui-calendar button.ui-datepicker-trigger > span.ui-icon-calendar:before {
   font-family: FontAwesome;
   color: #444444;
   position: relative;
-  top: 2px;
-  font-size: 18px;
+  top: -2px;
+  font-size: 20px;
   overflow: hidden;
   content: "\f073" !important;
 }
@@ -19027,6 +19028,107 @@ body div.material div.ui-selectonemenu.ui-state-disabled ~ label,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-disabled ~ label,
 body div.ui-fluid div.material div.ui-selectonemenu.ui-state-disabled ~ label {
   color: #d2d6de;
+}
+body div.material.icon-left button.ui-datepicker-trigger,
+body .ui-widget div.material.icon-left button.ui-datepicker-trigger,
+body div.ui-fluid div.material.icon-left button.ui-datepicker-trigger {
+  left: 0;
+  margin-left: -5px;
+  width: 32px;
+}
+body div.material.icon-left .fa,
+body .ui-widget div.material.icon-left .fa,
+body div.ui-fluid div.material.icon-left .fa {
+  left: 0px;
+  width: 32px;
+}
+body div.material.icon-left input,
+body .ui-widget div.material.icon-left input,
+body div.ui-fluid div.material.icon-left input {
+  padding-left: 30px;
+}
+body div.material.icon-left input.ui-inputfield ~ label,
+body .ui-widget div.material.icon-left input.ui-inputfield ~ label,
+body div.ui-fluid div.material.icon-left input.ui-inputfield ~ label,
+body div.material.icon-left span.ui-calendar ~ label,
+body .ui-widget div.material.icon-left span.ui-calendar ~ label,
+body div.ui-fluid div.material.icon-left span.ui-calendar ~ label {
+  margin-left: 30px;
+}
+body div.material.no-float input.ui-inputfield::-webkit-input-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield::-webkit-input-placeholder,
+body div.material.no-float input.ui-autocomplete-input::-webkit-input-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input::-webkit-input-placeholder,
+body div.material.no-float textarea.ui-inputtextarea::-webkit-input-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea::-webkit-input-placeholder {
+  color: #999999;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+body div.material.no-float input.ui-inputfield::-moz-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield::-moz-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield::-moz-placeholder,
+body div.material.no-float input.ui-autocomplete-input::-moz-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input::-moz-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input::-moz-placeholder,
+body div.material.no-float textarea.ui-inputtextarea::-moz-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea::-moz-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea::-moz-placeholder {
+  color: #999999;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+body div.material.no-float input.ui-inputfield:-ms-input-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield:-ms-input-placeholder,
+body div.material.no-float input.ui-autocomplete-input:-ms-input-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input:-ms-input-placeholder,
+body div.material.no-float textarea.ui-inputtextarea:-ms-input-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea:-ms-input-placeholder {
+  color: #999999;
+  -webkit-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+body div.material.no-float input.ui-inputfield.ui-state-error::-webkit-input-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield.ui-state-error::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield.ui-state-error::-webkit-input-placeholder,
+body div.material.no-float input.ui-autocomplete-input.ui-state-error::-webkit-input-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input.ui-state-error::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input.ui-state-error::-webkit-input-placeholder,
+body div.material.no-float textarea.ui-inputtextarea.ui-state-error::-webkit-input-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea.ui-state-error::-webkit-input-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea.ui-state-error::-webkit-input-placeholder {
+  color: #b94a48;
+}
+body div.material.no-float input.ui-inputfield.ui-state-error::-moz-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield.ui-state-error::-moz-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield.ui-state-error::-moz-placeholder,
+body div.material.no-float input.ui-autocomplete-input.ui-state-error::-moz-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input.ui-state-error::-moz-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input.ui-state-error::-moz-placeholder,
+body div.material.no-float textarea.ui-inputtextarea.ui-state-error::-moz-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea.ui-state-error::-moz-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea.ui-state-error::-moz-placeholder {
+  color: #b94a48;
+}
+body div.material.no-float input.ui-inputfield.ui-state-error:-ms-input-placeholder,
+body .ui-widget div.material.no-float input.ui-inputfield.ui-state-error:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-inputfield.ui-state-error:-ms-input-placeholder,
+body div.material.no-float input.ui-autocomplete-input.ui-state-error:-ms-input-placeholder,
+body .ui-widget div.material.no-float input.ui-autocomplete-input.ui-state-error:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float input.ui-autocomplete-input.ui-state-error:-ms-input-placeholder,
+body div.material.no-float textarea.ui-inputtextarea.ui-state-error:-ms-input-placeholder,
+body .ui-widget div.material.no-float textarea.ui-inputtextarea.ui-state-error:-ms-input-placeholder,
+body div.ui-fluid div.material.no-float textarea.ui-inputtextarea.ui-state-error:-ms-input-placeholder {
+  color: #b94a48;
 }
 /* Menus */
 .ui-tabmenu li.ui-state-active {
