@@ -17985,7 +17985,8 @@ span.ui-icon-help:before {
   span.ui-icon-newwin:before,
   span.ui-icon-minusthick:before,
   span.ui-icon-extlink:before,
-  span.ui-icon-close:before {
+  span.ui-icon-close:before,
+  span.icon-cancel:before {
     font-size: 13.3px + 1;
   }
 }
@@ -19041,6 +19042,12 @@ body .ui-widget div.material.icon-left .fa,
 body div.ui-fluid div.material.icon-left .fa {
   left: 0px;
   width: 32px;
+  cursor: pointer;
+}
+body div.material.icon-left .fa:hover,
+body .ui-widget div.material.icon-left .fa:hover,
+body div.ui-fluid div.material.icon-left .fa:hover {
+  opacity: .8;
 }
 body div.material.icon-left input,
 body .ui-widget div.material.icon-left input,
@@ -21078,3 +21085,147 @@ body .ui-tree .ui-tree-toggler.ui-icon-triangle-1-s:before {
 .ui-treetable .ui-treetable-data .ui-treetable-toggler {
   margin-top: -1px;
 }*/
+div.ui-fileupload {
+  -webkit-box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.09);
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.15), 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 5px 0 rgba(0, 0, 0, 0.09);
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  -moz-border-radius-bottomleft: 3px;
+  -moz-border-radius-bottomright: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-icon-plusthick {
+  color: #fff;
+  text-indent: 0;
+  top: 10px;
+  height: 24px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-icon-plusthick:before {
+  color: #fff;
+  top: 5px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose {
+  color: white;
+  background: #3c8dbc;
+  padding: 3px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose:hover {
+  background-color: #367fa9 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose:focus {
+  background-color: #32769d !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose:active {
+  background-color: #296282 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose.ui-state-disabled:hover {
+  background-color: #3c8dbc !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose.ui-state-disabled:focus {
+  background-color: #3c8dbc !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar span.ui-fileupload-choose.ui-state-disabled:active {
+  background-color: #3c8dbc !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload {
+  color: white;
+  background: #00a65a;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload:hover {
+  background-color: #008d4c !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload:focus {
+  background-color: #007d44 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload:active {
+  background-color: #005a31 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload.ui-state-disabled:hover {
+  background-color: #00a65a !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload.ui-state-disabled:focus {
+  background-color: #00a65a !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload.ui-state-disabled:active {
+  background-color: #00a65a !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload span.ui-icon-arrowreturnthick-1-n {
+  background-image: none !important;
+  display: inline !important;
+  text-indent: 0;
+  top: 10px;
+  height: 24px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-upload span.ui-icon-arrowreturnthick-1-n:before {
+  font-family: FontAwesome;
+  color: #fff;
+  position: relative;
+  font-size: 13.3px;
+  padding: 0 4px;
+  top: 2px;
+  overflow: hidden;
+  content: "\f093" !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel {
+  color: white;
+  background: #dd4b39;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel:hover {
+  background-color: #d73925 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel:focus {
+  background-color: #ca3523 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel:active {
+  background-color: #ac2d1e !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel.ui-state-disabled:hover {
+  background-color: #dd4b39 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel.ui-state-disabled:focus {
+  background-color: #dd4b39 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel.ui-state-disabled:active {
+  background-color: #dd4b39 !important;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel span.ui-icon-cancel {
+  background-image: none !important;
+  display: inline !important;
+  text-indent: 0;
+  top: 10px;
+  height: 24px;
+}
+div.ui-fileupload .ui-fileupload-buttonbar button.ui-fileupload-cancel span.ui-icon-cancel:before {
+  font-family: FontAwesome;
+  color: #fff;
+  position: relative;
+  font-size: 13.3px;
+  padding: 0 4px;
+  top: 2px;
+  overflow: hidden;
+  content: "\f05e" !important;
+}
+@media (max-width: 768px) {
+  body div.ui-fileupload .ui-fileupload-buttonbar .ui-button {
+    padding: .9em 1em .9em 1.2em;
+  }
+  body div.ui-fileupload .ui-fileupload-buttonbar .ui-button .ui-button-text {
+    display: none;
+  }
+  body div.ui-fileupload .ui-fileupload-buttonbar .ui-button span.ui-icon-plusthick {
+    top: 11px;
+  }
+  body div.ui-fileupload .ui-fileupload-buttonbar .ui-button span.ui-icon-arrowreturnthick-1-n,
+  body div.ui-fileupload .ui-fileupload-buttonbar .ui-button span.ui-icon-cancel {
+    top: 8px;
+  }
+}
+@media (max-width: 768px) {
+  span.ui-icon-plusthick:before,
+  button.ui-fileupload-upload span.ui-icon-arrowreturnthick-1-n:before,
+  button.ui-fileupload-cancel span.ui-icon-cancel:before {
+    top: 0 !important;
+    margin-left: -2px !important;
+  }
+}
