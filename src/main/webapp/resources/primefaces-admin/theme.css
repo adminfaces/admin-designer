@@ -18320,9 +18320,23 @@ body div.ui-fluid div.material.focused input.ui-autocomplete-input ~ label,
 body div.material.focused span.ui-calendar > input.ui-inputfield ~ label,
 body .ui-widget div.material.focused span.ui-calendar > input.ui-inputfield ~ label,
 body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield ~ label {
-  color: #3c8dbc;
+  color: #333333;
   font-size: 12px;
   top: -15px;
+}
+body div.material.focused input.ui-inputfield ~ label.material-focus,
+body .ui-widget div.material.focused input.ui-inputfield ~ label.material-focus,
+body div.ui-fluid div.material.focused input.ui-inputfield ~ label.material-focus,
+body div.material.focused textarea.ui-inputtextarea ~ label.material-focus,
+body .ui-widget div.material.focused textarea.ui-inputtextarea ~ label.material-focus,
+body div.ui-fluid div.material.focused textarea.ui-inputtextarea ~ label.material-focus,
+body div.material.focused input.ui-autocomplete-input ~ label.material-focus,
+body .ui-widget div.material.focused input.ui-autocomplete-input ~ label.material-focus,
+body div.ui-fluid div.material.focused input.ui-autocomplete-input ~ label.material-focus,
+body div.material.focused span.ui-calendar > input.ui-inputfield ~ label.material-focus,
+body .ui-widget div.material.focused span.ui-calendar > input.ui-inputfield ~ label.material-focus,
+body div.ui-fluid div.material.focused span.ui-calendar > input.ui-inputfield ~ label.material-focus {
+  color: #3c8dbc;
 }
 body div.material.focused textarea.ui-inputtextarea.ui-inputfield ~ label,
 body .ui-widget div.material.focused textarea.ui-inputtextarea.ui-inputfield ~ label,
@@ -18335,7 +18349,7 @@ body div.ui-fluid div.material.focused span.ui-autocomplete ~ label,
 body div.material.focused span.ui-calendar ~ label,
 body .ui-widget div.material.focused span.ui-calendar ~ label,
 body div.ui-fluid div.material.focused span.ui-calendar ~ label {
-  color: #3c8dbc;
+  color: #333333;
   font-size: 12px;
   top: -15px;
 }
@@ -18344,8 +18358,22 @@ body .ui-widget div.material.focused span.ui-autocomplete ~ label.ui-state-error
 body div.ui-fluid div.material.focused span.ui-autocomplete ~ label.ui-state-error,
 body div.material.focused span.ui-calendar ~ label.ui-state-error,
 body .ui-widget div.material.focused span.ui-calendar ~ label.ui-state-error,
-body div.ui-fluid div.material.focused span.ui-calendar ~ label.ui-state-error {
+body div.ui-fluid div.material.focused span.ui-calendar ~ label.ui-state-error,
+body div.material.focused span.ui-autocomplete ~ label.material-focus.ui-state-error,
+body .ui-widget div.material.focused span.ui-autocomplete ~ label.material-focus.ui-state-error,
+body div.ui-fluid div.material.focused span.ui-autocomplete ~ label.material-focus.ui-state-error,
+body div.material.focused span.ui-calendar ~ label.material-focus.ui-state-error,
+body .ui-widget div.material.focused span.ui-calendar ~ label.material-focus.ui-state-error,
+body div.ui-fluid div.material.focused span.ui-calendar ~ label.material-focus.ui-state-error {
   color: #b94a48;
+}
+body div.material.focused span.ui-autocomplete ~ label.material-focus,
+body .ui-widget div.material.focused span.ui-autocomplete ~ label.material-focus,
+body div.ui-fluid div.material.focused span.ui-autocomplete ~ label.material-focus,
+body div.material.focused span.ui-calendar ~ label.material-focus,
+body .ui-widget div.material.focused span.ui-calendar ~ label.material-focus,
+body div.ui-fluid div.material.focused span.ui-calendar ~ label.material-focus {
+  color: #3c8dbc;
 }
 body div.material.focused div.ui-selectcheckboxmenu ~ label,
 body .ui-widget div.material.focused div.ui-selectcheckboxmenu ~ label,
@@ -18599,7 +18627,25 @@ body .ui-widget div.material .ui-selectcheckboxmenu.ui-state-error ~ label,
 body div.ui-fluid div.material .ui-selectcheckboxmenu.ui-state-error ~ label,
 body div.material .ui-calendar.ui-state-error ~ label,
 body .ui-widget div.material .ui-calendar.ui-state-error ~ label,
-body div.ui-fluid div.material .ui-calendar.ui-state-error ~ label {
+body div.ui-fluid div.material .ui-calendar.ui-state-error ~ label,
+body div.material input.ui-inputfield.ui-state-error ~ label.material-focus,
+body .ui-widget div.material input.ui-inputfield.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material input.ui-inputfield.ui-state-error ~ label.material-focus,
+body div.material textarea.ui-inputtextarea.ui-state-error ~ label.material-focus,
+body .ui-widget div.material textarea.ui-inputtextarea.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material textarea.ui-inputtextarea.ui-state-error ~ label.material-focus,
+body div.material div.ui-selectonemenu.ui-state-error ~ label.material-focus,
+body .ui-widget div.material div.ui-selectonemenu.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material div.ui-selectonemenu.ui-state-error ~ label.material-focus,
+body div.material .ui-autocomplete.ui-state-error ~ label.material-focus,
+body .ui-widget div.material .ui-autocomplete.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material .ui-autocomplete.ui-state-error ~ label.material-focus,
+body div.material .ui-selectcheckboxmenu.ui-state-error ~ label.material-focus,
+body .ui-widget div.material .ui-selectcheckboxmenu.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material .ui-selectcheckboxmenu.ui-state-error ~ label.material-focus,
+body div.material .ui-calendar.ui-state-error ~ label.material-focus,
+body .ui-widget div.material .ui-calendar.ui-state-error ~ label.material-focus,
+body div.ui-fluid div.material .ui-calendar.ui-state-error ~ label.material-focus {
   color: #b94a48;
 }
 body div.material input.ui-inputfield.ui-state-error.ui-state-focus,
@@ -18970,7 +19016,10 @@ body div.ui-fluid div.material span.ui-calendar {
 }
 body div.material label.ui-outputlabel.ui-state-error,
 body .ui-widget div.material label.ui-outputlabel.ui-state-error,
-body div.ui-fluid div.material label.ui-outputlabel.ui-state-error {
+body div.ui-fluid div.material label.ui-outputlabel.ui-state-error,
+body div.material label.ui-outputlabel.ui-state-error.material-focus,
+body .ui-widget div.material label.ui-outputlabel.ui-state-error.material-focus,
+body div.ui-fluid div.material label.ui-outputlabel.ui-state-error.material-focus {
   color: #b94a48;
 }
 body div.material textarea.ui-inputtextarea.ui-inputfield,
@@ -19023,7 +19072,7 @@ body div.ui-fluid div.material div.ui-selectonemenu ~ label {
   top: -17px !important;
   font-size: 12px;
   margin-left: 5px;
-  color: #3c8dbc;
+  color: #333333;
 }
 body div.material div.ui-selectonemenu.ui-state-disabled ~ label,
 body .ui-widget div.material div.ui-selectonemenu.ui-state-disabled ~ label,
