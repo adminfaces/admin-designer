@@ -331,20 +331,6 @@ function adminMaterial() {
     $(document).on('blur', 'div.material div.ui-selectcheckboxmenu', function (e) {
         materialCheckboxMenu();
     });
-
-    $(document).on("click","div.material.icon-left i", function () {
-        $(this).next().focus();
-    });
-
-    $(document).on("click","span.ui-calendar.ui-trigger-calendar,span.ui-autocomplete", function () {
-        $(this).next().addClass('material-focus');
-    });
-
-    $(document).on('blur', "span.ui-calendar.ui-trigger-calendar, span.ui-autocomplete", function () {
-        $(this).next().removeClass('material-focus');
-    });
-
-
 }
 
 function materialCheckboxMenu() {
@@ -355,5 +341,4 @@ function materialInputs() {
     $('div.material input.ui-inputfield, div.material textarea.ui-inputtextarea').each(function(){
         $(this).parents('div.material').toggleClass('focused', this.value.length > 0);
     });
-
 }

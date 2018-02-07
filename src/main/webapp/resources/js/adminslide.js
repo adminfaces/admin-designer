@@ -39,7 +39,7 @@ function initSlideout() {
 
 
         slideout.on('translateend', function () {
-           adjustSidebarPosition();
+            adjustSidebarPosition();
         });
 
         slideout.on('close', function () {
