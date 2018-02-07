@@ -16087,7 +16087,7 @@ body .ui-datepicker span.ui-icon-circle-triangle-e:before {
   color: #fff;
   position: relative;
   margin: 0 7px;
-  top: -5px;
+  top: -10px;
   font-size: 13.3px;
   overflow: hidden;
   content: "\f0da" !important;
@@ -16107,7 +16107,7 @@ body .ui-datepicker span.ui-icon-circle-triangle-w:before {
   color: #fff;
   position: relative;
   margin: 0 7px;
-  top: -5px;
+  top: -10px;
   font-size: 13.3px;
   overflow: hidden;
   content: "\f0d9" !important;
@@ -16221,6 +16221,9 @@ body .ui-datepicker span.ui-icon-circle-triangle-w:hover {
 .ui-datepicker select.ui-datepicker-year {
   width: 49%;
   -moz-appearance: none;
+  color: #444444;
+  background-color: #fff !important;
+  border: #d2d6de;
 }
 .ui-datepicker select.ui-datepicker-month::-ms-expand {
   display: none;
@@ -16282,7 +16285,7 @@ body .ui-datepicker tbody td.ui-datepicker-today a {
   padding: 3px;
 }
 body .ui-datepicker tbody td.ui-datepicker-today a.ui-state-active {
-  border: none!important;
+  border: none !important;
 }
 td.ui-datepicker-unselectable {
   border-color: #ebebeb !important;
@@ -16933,7 +16936,7 @@ body .ui-paginator a.ui-paginator-next span.ui-icon-seek-next:before {
   top: 0;
   padding: 0 4px;
   overflow: hidden;
-  content: "\f04e" !important;
+  content: "\f054" !important;
 }
 body .ui-paginator a.ui-paginator-prev span.ui-icon-seek-prev {
   background-image: none !important;
@@ -16950,7 +16953,7 @@ body .ui-paginator a.ui-paginator-prev span.ui-icon-seek-prev:before {
   top: 0;
   padding: 0 4px;
   overflow: hidden;
-  content: "\f04a" !important;
+  content: "\f053" !important;
 }
 @media (max-width: 640px) {
   body div.ui-treetable div.ui-paginator span.ui-paginator-pages,
@@ -17364,7 +17367,7 @@ body .ui-widget-header .ui-icon {
   -moz-osx-font-smoothing: grayscale;
 }
 body .ui-widget-header .ui-icon:hover {
-  opacity: .5;
+  opacity: 0.5;
 }
 .ui-state-default .ui-icon {
   background-image: url("#{resource['primefaces-admin:images/ui-icons_454545_256x240.png']}");
@@ -17936,7 +17939,6 @@ span.ui-icon-closethick:before {
 }
 span.ui-icon-minusthick {
   background-image: none !important;
-  opacity: 1;
   display: inline !important;
 }
 span.ui-icon-minusthick:before {
@@ -18255,6 +18257,10 @@ body .ui-state-default .ui-icon {
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px white inset;
+}
+.ui-inputgroup-addon,
+.ui-inputgroup-addon-checkbox {
+  border-color: #d2d6de;
 }
 /* grids */
 body .ui-g,
@@ -19751,29 +19757,62 @@ body .ui-orderlist.ui-grid-responsive {
 body .ui-orderlist .ui-orderlist-controls,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls {
   margin-right: 0;
+  width: 30px;
 }
-body .ui-orderlist .ui-orderlist-controls button,
-body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button {
-  background-color: transparent;
+body .ui-orderlist .ui-orderlist-controls button.ui-button,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button {
+  padding: 0 10px;
+  background-color: #3c8dbc;
+  border-radius: 50%;
   border: none;
+  width: 30px;
+  height: 30px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
 }
-body .ui-orderlist .ui-orderlist-controls .ui-button,
-body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls .ui-button {
-  min-width: 30px;
+body .ui-orderlist .ui-orderlist-controls button.ui-button:hover,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button:hover {
+  background-color: #367fa9 !important;
 }
-body .ui-orderlist .ui-orderlist-controls span.ui-button-icon-left,
-body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls span.ui-button-icon-left {
-  left: 0;
-  padding: 0 4px;
+body .ui-orderlist .ui-orderlist-controls button.ui-button:focus,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button:focus {
+  background-color: #32769d !important;
+}
+body .ui-orderlist .ui-orderlist-controls button.ui-button:active,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button:active {
+  background-color: #296282 !important;
+}
+body .ui-orderlist .ui-orderlist-controls button.ui-button.ui-state-disabled:hover,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button.ui-state-disabled:hover {
+  background-color: #3c8dbc !important;
+}
+body .ui-orderlist .ui-orderlist-controls button.ui-button.ui-state-disabled:focus,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button.ui-state-disabled:focus {
+  background-color: #3c8dbc !important;
+}
+body .ui-orderlist .ui-orderlist-controls button.ui-button.ui-state-disabled:active,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button.ui-state-disabled:active {
+  background-color: #3c8dbc !important;
+}
+@-moz-document url-prefix() {
+  body .ui-orderlist .ui-orderlist-controls button.ui-button > span:before,
+  body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button > span:before {
+    bottom: 15px;
+  }
+  body .ui-orderlist .ui-orderlist-controls button.ui-button.ui-orderlist-button-move-bottom > span:before,
+  body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button.ui-orderlist-button-move-bottom > span:before,
+  body .ui-orderlist .ui-orderlist-controls button.ui-button.ui-orderlist-button-move-down > span:before,
+  body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-button.ui-orderlist-button-move-down > span:before {
+    bottom: 16px;
+  }
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-up,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-up {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-up > span,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-up > span {
@@ -19784,11 +19823,11 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-up > span:before,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-up > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f139" !important;
+  content: "\f04b" !important;
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-up span.ui-button-text,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-up span.ui-button-text {
@@ -19796,9 +19835,10 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-top,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-top {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-top > span,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-top > span {
@@ -19809,11 +19849,11 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-top > span:before,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-top > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f0aa" !important;
+  content: "\f051" !important;
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-top span.ui-button-text,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-top span.ui-button-text {
@@ -19821,9 +19861,10 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-bottom,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-bottom {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-bottom > span,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-bottom > span {
@@ -19834,11 +19875,11 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-bottom > span:before,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-bottom > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f0ab" !important;
+  content: "\f051" !important;
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-bottom span.ui-button-text,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-bottom span.ui-button-text {
@@ -19846,9 +19887,10 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-down,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-down {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-down > span,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-down > span {
@@ -19859,21 +19901,19 @@ body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-down > span:before,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-down > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f13a" !important;
+  content: "\f04b" !important;
 }
 body .ui-orderlist .ui-orderlist-controls button.ui-orderlist-button-move-down span.ui-button-text,
 body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls button.ui-orderlist-button-move-down span.ui-button-text {
   display: none;
 }
-@media (min-width: 769px) {
-  body .ui-orderlist,
-  body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls {
-    margin-top: 20px;
-  }
+body .ui-orderlist,
+body .ui-orderlist.ui-grid-responsive .ui-orderlist-controls {
+  margin-top: 20px;
 }
 /* Panel */
 .ui-panel.ui-widget {
@@ -20073,25 +20113,58 @@ body .ui-picklist .ui-picklist-filter-container > input,
 body .ui-picklist.ui-picklist-responsive .ui-picklist-filter-container > input {
   border-bottom: none;
 }
-body .ui-picklist div.ui-picklist-target-controls .ui-picklist-buttons-cell > button,
-body .ui-picklist.ui-picklist-responsive div.ui-picklist-target-controls .ui-picklist-buttons-cell > button {
-  text-align: left;
-}
-body .ui-picklist div.ui-picklist-target-controls span.ui-button-icon-left,
-body .ui-picklist.ui-picklist-responsive div.ui-picklist-target-controls span.ui-button-icon-left {
-  left: 0;
-  padding: 0 4px;
-}
 body .ui-picklist div.ui-picklist-buttons-cell button,
 body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button {
-  background-color: transparent;
-  border: none;
+  background-color: #3c8dbc;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button:hover,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button:hover {
+  background-color: #367fa9 !important;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button:focus,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button:focus {
+  background-color: #32769d !important;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button:active,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button:active {
+  background-color: #296282 !important;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button.ui-state-disabled:hover,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button.ui-state-disabled:hover {
+  background-color: #3c8dbc !important;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button.ui-state-disabled:focus,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button.ui-state-disabled:focus {
+  background-color: #3c8dbc !important;
+}
+body .ui-picklist div.ui-picklist-buttons-cell button.ui-state-disabled:active,
+body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button.ui-state-disabled:active {
+  background-color: #3c8dbc !important;
+}
+@-moz-document url-prefix() {
+  body .ui-picklist div.ui-picklist-buttons-cell button > span:before,
+  body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button > span:before {
+    bottom: 15px;
+  }
+  body .ui-picklist div.ui-picklist-buttons-cell button.ui-picklist-button-move-bottom > span:before,
+  body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button.ui-picklist-button-move-bottom > span:before,
+  body .ui-picklist div.ui-picklist-buttons-cell button.ui-picklist-button-move-down > span:before,
+  body .ui-picklist.ui-picklist-responsive div.ui-picklist-buttons-cell button.ui-picklist-button-move-down > span:before {
+    bottom: 16px;
+  }
 }
 body .ui-picklist button.ui-picklist-button-move-up,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-up {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 body .ui-picklist button.ui-picklist-button-move-up > span,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-up > span {
@@ -20102,11 +20175,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-up > spa
 body .ui-picklist button.ui-picklist-button-move-up > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-up > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f139" !important;
+  content: "\f04b" !important;
 }
 body .ui-picklist button.ui-picklist-button-move-up span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-up span.ui-button-text {
@@ -20117,6 +20190,10 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-top {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 body .ui-picklist button.ui-picklist-button-move-top > span,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-top > span {
@@ -20127,11 +20204,12 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-top > sp
 body .ui-picklist button.ui-picklist-button-move-top > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-top > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
+  left: -2px;
   overflow: hidden;
-  content: "\f0aa" !important;
+  content: "\f051" !important;
 }
 body .ui-picklist button.ui-picklist-button-move-top span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-top span.ui-button-text {
@@ -20142,6 +20220,10 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-bottom {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 body .ui-picklist button.ui-picklist-button-move-bottom > span,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-bottom > span {
@@ -20152,11 +20234,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-bottom >
 body .ui-picklist button.ui-picklist-button-move-bottom > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-bottom > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f0ab" !important;
+  content: "\f051" !important;
 }
 body .ui-picklist button.ui-picklist-button-move-bottom span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-bottom span.ui-button-text {
@@ -20167,6 +20249,10 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 body .ui-picklist button.ui-picklist-button-move-down > span,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down > span {
@@ -20177,11 +20263,12 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down > s
 body .ui-picklist button.ui-picklist-button-move-down > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
+  left: -1px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f13a" !important;
+  content: "\f04b" !important;
 }
 body .ui-picklist button.ui-picklist-button-move-down span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down span.ui-button-text {
@@ -20189,7 +20276,6 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-move-down spa
 }
 body .ui-picklist button.ui-picklist-button-add,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add {
-  width: 53px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -20203,12 +20289,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add > span {
 body .ui-picklist button.ui-picklist-button-add > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
-  margin-right: 25px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f138" !important;
+  content: "\f04b" !important;
 }
 body .ui-picklist button.ui-picklist-button-add span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add span.ui-button-text {
@@ -20216,7 +20301,6 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add span.ui-b
 }
 body .ui-picklist button.ui-picklist-button-add-all,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all {
-  width: 53px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -20230,12 +20314,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all > spa
 body .ui-picklist button.ui-picklist-button-add-all > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
-  margin-right: 25px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f0a9" !important;
+  content: "\f04e" !important;
 }
 body .ui-picklist button.ui-picklist-button-add-all span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all span.ui-button-text {
@@ -20243,7 +20326,6 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all span.
 }
 body .ui-picklist button.ui-picklist-button-remove,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove {
-  width: 53px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
@@ -20257,12 +20339,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove > span
 body .ui-picklist button.ui-picklist-button-remove > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
-  margin-right: 25px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f137" !important;
+  content: "\f04b" !important;
 }
 body .ui-picklist button.ui-picklist-button-remove span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove span.ui-button-text {
@@ -20270,10 +20351,13 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove span.u
 }
 body .ui-picklist button.ui-picklist-button-remove-all,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all {
-  width: 53px;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  -webkit-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 body .ui-picklist button.ui-picklist-button-remove-all > span,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all > span {
@@ -20284,12 +20368,11 @@ body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all > 
 body .ui-picklist button.ui-picklist-button-remove-all > span:before,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all > span:before {
   font-family: FontAwesome;
-  color: #444444;
+  color: #fff;
   position: relative;
-  font-size: 20px;
-  margin-right: 25px;
+  font-size: 13.3px;
   overflow: hidden;
-  content: "\f0a8" !important;
+  content: "\f04e" !important;
 }
 body .ui-picklist button.ui-picklist-button-remove-all span.ui-button-text,
 body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all span.ui-button-text {
@@ -20301,9 +20384,29 @@ body .ui-picklist .ui-picklist-buttons,
 body .ui-picklist.ui-picklist-responsive .ui-picklist-buttons {
   width: 1px;
 }
+@media (max-width: 767px) {
+  body .ui-picklist button.ui-picklist-button-add,
+  body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add,
+  body .ui-picklist button.ui-picklist-button-add-all,
+  body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-add-all {
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  body .ui-picklist button.ui-picklist-button-remove,
+  body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove,
+  body .ui-picklist button.ui-picklist-button-remove-all,
+  body .ui-picklist.ui-picklist-responsive button.ui-picklist-button-remove-all {
+    -webkit-transform: rotate(270deg);
+    -ms-transform: rotate(270deg);
+    -o-transform: rotate(270deg);
+    transform: rotate(270deg);
+  }
+}
 @media (min-width: 769px) {
   .ui-picklist-buttons-cell {
-    padding-top: 25px;
+    padding-top: 10px;
   }
 }
 /* resizable */
@@ -20766,6 +20869,18 @@ div.ui-fluid div.ui-selectcheckboxmenu.ui-state-error.ui-state-focus {
 }
 body .ui-selectcheckboxmenu .ui-selectcheckboxmenu-label {
   padding-top: 6px;
+}
+body div.ui-sidebar a.ui-sidebar-close {
+  padding: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: none;
+}
+body div.ui-sidebar a.ui-sidebar-close .ui-state-hover,
+body div.ui-sidebar a.ui-sidebar-close ui-state-focus {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 /*
  * jQuery UI Slider 1.8.16
