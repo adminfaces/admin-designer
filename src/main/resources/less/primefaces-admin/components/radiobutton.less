@@ -8,13 +8,12 @@ body .ui-radiobutton .ui-radiobutton-box {
   overflow: hidden;
   &.ui-state-focus {
     background: @hover-color;
-    border-color: lighten(@box-shadow-color,30%);
+    border-color: lighten(@box-shadow-color, 30%);
   }
-  &.ui-state-hover   {
+  &.ui-state-hover {
     background: @hover-color;
   }
 }
-
 
 .ui-radiobutton-box.ui-state-active,
 .ui-radiobutton-box.ui-state-focus.ui-state-active {
@@ -51,7 +50,7 @@ body .ui-radiobutton {
       color: #fff;
 
       span.ui-radiobutton-icon {
-        background-color: #3c8dbc!important;
+        background-color: #3c8dbc !important;
       }
     }
 
@@ -74,7 +73,7 @@ body .ui-radiobutton {
     margin-top: 2px;
     border-radius: 50%;
     display: inline-block;
-    background-image: none!important;
+    background-image: none !important;
   }
 }
 
@@ -83,8 +82,13 @@ div.ui-selectoneradio label {
   font-weight: 500;
 }
 
-body .ui-selectoneradio.ui-grid-responsive .ui-grid-row > div {
-  padding: .2em;
+body .ui-selectoneradio.ui-grid-responsive {
+
+  .ui-grid-row, ui-g {
+    > div {
+      padding: .2em;
+    }
+  }
 }
 
 body div.ui-radiobutton-box {
