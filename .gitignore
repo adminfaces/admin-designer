@@ -38,7 +38,7 @@ target/
 
 test-output/
 
-
+theme.css
 
 
 *.log

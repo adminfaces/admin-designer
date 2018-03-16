@@ -24,7 +24,7 @@
         <p:dialog modal="true" widgetVar="statusDialog" draggable="false" closable="false"
                   resizable="false" responsive="true" showHeader="false"
                   style="z-index: 9999!important;position: fixed">
-            <p:graphicImage library="images" name="ajaxloadingbar.gif"/>
+            <p:graphicImage library="images" name="#{adminConfig.loadingImage}"/>
         </p:dialog>
 
         <div class="wrapper">
@@ -45,7 +45,7 @@
                         <ui:insert name="logo"/>
                     </span>
                 </a>
-                <nav class="navbar navbar-static-top" role="navigation">
+                <nav class="navbar navbar-static-top">
                     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
                         <span class="sr-only"></span>
                     </a>
