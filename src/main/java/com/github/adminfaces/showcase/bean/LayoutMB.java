@@ -30,10 +30,6 @@ public class LayoutMB implements Serializable {
         layout = "/WEB-INF/templates/template-top.xhtml";
     }
 
-    public void test() {
-        layout = "/WEB-INF/templates/template-top.xhtml";
-    }
-
     public void setDefaultLayout() {
         layout = "/WEB-INF/templates/template.xhtml";
     }
