@@ -44,7 +44,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.wildfly-swarm>2017.2.0</version.wildfly-swarm>
+        <version.wildfly-swarm>2018.3.3</version.wildfly-swarm>
     </properties>
 
     <dependencies>

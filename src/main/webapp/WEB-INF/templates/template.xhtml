@@ -2,6 +2,7 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
                 template="/admin.xhtml">
 
     <ui:define name="head">
@@ -53,16 +54,23 @@
             <i>#{adm['admin.version']}</i>
         </div>
 
-        <h:outputScript library="js" name="prism.js"  target="head"/>
-
         <script type="text/javascript">
-            if(isMobile()) {
-                $('a.ui-link').click(function() {
+            if (isMobile()) {
+                $('a.ui-link').click(function () {
                     $(this).prop('disabled', true);
                     showBar();
                 });
             }
         </script>
+    </ui:define>
+
+    <ui:define name="wrapper-end">
+        <ui:include src="/includes/right-sidebar.xhtml"/>
+    </ui:define>
+
+    <ui:define name="after-wrapper">
+        <h:outputScript library="js" name="prism.js" target="head"/>
+        <h:outputScript library="js" name="rightsidebar.js" target="head"/>
     </ui:define>
 
 

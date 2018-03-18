@@ -55,8 +55,6 @@
             <i>#{adm['admin.version']}</i>
         </div>
 
-        <h:outputScript library="js" name="prism.js"  target="head"/>
-
         <script type="text/javascript">
             if(isMobile()) {
                 $('a.ui-link').click(function() {
@@ -65,6 +63,15 @@
                 });
             }
         </script>
+    </ui:define>
+
+    <ui:define name="after-wrapper">
+        <h:outputScript library="js" name="prism.js"  target="head"/>
+        <h:outputScript library="js" name="rightsidebar.js"  target="head"/>
+    </ui:define>
+
+    <ui:define name="wrapper-end">
+        <ui:include src="/includes/right-sidebar.xhtml"/>
     </ui:define>
 
 </ui:composition>
