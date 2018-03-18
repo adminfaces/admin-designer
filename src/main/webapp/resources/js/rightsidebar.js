@@ -77,6 +77,12 @@ $(function () {
             $('.control-sidebar').removeClass('control-sidebar-open');
         })
 
+        if($('body').hasClass('layout-top-nav')) {
+            $('#horizontal-layout').prop('checked', false);
+        } else {
+            $('#horizontal-layout').prop('checked', true);
+        }
+
     }
 
     setup();

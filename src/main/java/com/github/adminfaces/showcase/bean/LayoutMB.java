@@ -34,6 +34,18 @@ public class LayoutMB implements Serializable {
         layout = "/WEB-INF/templates/template.xhtml";
     }
 
+    public void toogleLayout() {
+        if(isDefaultLayout()) {
+            setHorizontalLayout();
+        } else {
+            setDefaultLayout();
+        }
+    }
+
+    public boolean isDefaultLayout() {
+        return layout != null && layout.endsWith("template.xhtml");
+    }
+
     public boolean isFlat() {
         return flat;
     }
