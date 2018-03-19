@@ -12,38 +12,41 @@ import java.io.Serializable;
 @SessionScoped
 public class LayoutMB implements Serializable {
 
-    private String layout;
+    private String template;
 
     private boolean flat;
 
+    private boolean darkSidebar;
+
     @PostConstruct
     public void init() {
-        setDefaultLayout();
+        setDefaultTemplate();
         flat = false;
+        darkSidebar = true;
     }
 
-    public String getLayout() {
-        return layout;
+    public String getTemplate() {
+        return template;
     }
 
-    public void setHorizontalLayout() {
-        layout = "/WEB-INF/templates/template-top.xhtml";
+    public void setTemplateTop() {
+        template = "/WEB-INF/templates/template-top.xhtml";
     }
 
-    public void setDefaultLayout() {
-        layout = "/WEB-INF/templates/template.xhtml";
+    public void setDefaultTemplate() {
+        template = "/WEB-INF/templates/template.xhtml";
     }
 
-    public void toogleLayout() {
+    public void toogleTemplate() {
         if(isDefaultLayout()) {
-            setHorizontalLayout();
+            setTemplateTop();
         } else {
-            setDefaultLayout();
+            setDefaultTemplate();
         }
     }
 
     public boolean isDefaultLayout() {
-        return layout != null && layout.endsWith("template.xhtml");
+        return template != null && template.endsWith("template.xhtml");
     }
 
     public boolean isFlat() {
@@ -52,5 +55,13 @@ public class LayoutMB implements Serializable {
 
     public void setFlat(boolean flat) {
         this.flat = flat;
+    }
+
+    public boolean isDarkSidebar() {
+        return darkSidebar;
+    }
+
+    public void setDarkSidebar(boolean darkSidebar) {
+        this.darkSidebar = darkSidebar;
     }
 }

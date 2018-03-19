@@ -10,7 +10,7 @@ $(document).on("pfAjaxComplete", function () {
             $messages.slideUp();
         }, readingTimeMillis);
     }
-    
+
     activateSidebarComponent();
 });
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
             $messages.slideUp();
         }, readingTimeMillis);
     }
-    
+
     activateSidebarComponent()
 });
 
@@ -395,11 +395,11 @@ $(document).on("click", "div.ui-inputswitch", function () {
 
 
 /**
- * 
- * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used 
+ *
+ * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used
  * and user is on a mobele device (small screen)
- * 
- *  This is needed because of conflict with slideoutjs 
+ *
+ *  This is needed because of conflict with slideoutjs
  */
 function activateSidebarComponent() {
     if (isMobile()) {
@@ -408,7 +408,7 @@ function activateSidebarComponent() {
         if (!content.hasClass('slideout-panel')) {
             return; //if slideout is not enabled then do nothing
         }
-        
+
         if ($('div.ui-sidebar-active').length > 0) {
             content.css('will-change', 'unset');
             content.css('position', 'unset');
