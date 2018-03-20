@@ -16,12 +16,6 @@
             color: #222d32!important;
         }
 
-        body div.ui-chkbox-box.ui-state-focus, div.ui-chkbox-box.ui-state-active.ui-state-focus {
-            border-color: #97ccef!important;
-            box-shadow: 0 0 5px #1f89ce;
-            -webkit-box-shadow: 0 0 5px #1f89ce;
-        }
-
         body .control-sidebar div.ui-chkbox-box.ui-state-focus.ui-state-active {
             color: #222d32!important;
         }
@@ -36,7 +30,9 @@
 
     <h:panelGroup id="panel" layout="block" styleClass="hidden-sm hidden-xs">
         <h:form prependId="false">
-            <aside class="control-sidebar #{layoutMB.darkSidebar ? 'control-sidebar-dark':'control-sidebar-light'}">
+            <p:remoteCommand name="changeMenuOrientation" process="@this"
+                             action="#{layoutMB.toogleTemplate}" oncomplete="location.reload();"/>
+            <aside class="control-sidebar control-sidebar-dark">
                 <!-- Create the tabs -->
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                     <li class="active"><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i
@@ -50,8 +46,6 @@
                     <div id="control-sidebar-theme-demo-options-tab" class="tab-pane active">
                         <div><h4 class="control-sidebar-heading">Layout Options</h4>
                             <div class="form-group">
-                                <p:remoteCommand name="changeMenuOrientation" process="@this"
-                                                 action="#{layoutMB.toogleTemplate}" oncomplete="location.reload();"/>
                                 <label class="control-sidebar-subheading">
                                     <input id="horizontal-layout" type="checkbox" class="pull-right"
                                            onclick="changeMenuOrientation()"/>
@@ -76,17 +70,19 @@
                                                                                                      data-enable="expandOnHover"
                                                                                                      class="pull-right"/> Sidebar Expand on Hover</label>
                                 <p>Let the sidebar mini expand on hover</p></div>
-                            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox"
-                                                                                                     data-controlsidebar="control-sidebar-open"
-                                                                                                     class="pull-right"/> Toggle Right Sidebar Slide</label>
+                            <div class="form-group">
+                                <span class="control-sidebar-subheading">
+                                    <p:outputLabel value="Toggle Control Sidebar Slide" for="sidebar-open"/>
+                                    <p:selectBooleanCheckbox id="sidebar-open" styleClass="pull-right" >
+                                            <p:ajax process="@none" update="@none" partialSubmit="true" oncomplete="toggleSidebarControl()"/>
+                                    </p:selectBooleanCheckbox>
+                                </span>
                                 <p>If checked the right sidebar will be fixed on the page.</p></div>
                             <div class="form-group">
-                                <label class="control-sidebar-subheading">
+                                <span class="control-sidebar-subheading">
                                     <p:outputLabel value="Toggle Right Sidebar Skin" for="sidebar-skin"/>
-                                    <p:selectBooleanCheckbox id="sidebar-skin" styleClass="pull-right" value="#{layoutMB.darkSidebar}">
-                                        <p:ajax global="false" update=":panel"/>
-                                    </p:selectBooleanCheckbox>
-                                </label>
+                                    <p:selectBooleanCheckbox id="sidebar-skin" styleClass="pull-right"/>
+                                </span>
                                 <p>Toggle between dark and light skins for the right sidebar</p>
                             </div>
 
@@ -277,7 +273,7 @@
 
         </h:form>
 
-        <h:outputScript library="js" name="rightsidebar.js" target="head"/>
+        <h:outputScript library="js" name="control-sidebar.js" target="head"/>
 
     </h:panelGroup>
 
