@@ -10,6 +10,7 @@ $(function () {
     $('[data-toggle="push-menu"]').pushMenu()
 
     var $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu')
+    var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar')
 
 
     function changeLayout(cls) {
@@ -17,6 +18,7 @@ $(function () {
         if ($('body').hasClass('fixed') && cls == 'fixed') {
             $pushMenu.expandOnHover()
         }
+        $controlSidebar.fix()
     }
 
 
@@ -49,30 +51,31 @@ $(function () {
         }
     }
 
-    function updateSidebarSkin(sidebarSkin, $control) {
+    function updateSidebarSkin(sidebarSkin) {
+        var $sidebar = $('.control-sidebar');
         var sidebarSkinCkbox = $('#sidebar-skin span.ui-chkbox-icon');
         if (sidebarSkin == 'control-sidebar-light') {
-            $control.removeClass('control-sidebar-dark');
+            $sidebar.removeClass('control-sidebar-dark');
             sidebarSkinCkbox.addClass('ui-icon-blank');
             sidebarSkinCkbox.removeClass('ui-icon-check');
             sidebarSkinCkbox.parent().removeClass('ui-state-active');
         } else {
-            $control.removeClass('control-sidebar-light');
+            $sidebar.removeClass('control-sidebar-light');
             sidebarSkinCkbox.addClass('ui-icon-check');
             sidebarSkinCkbox.removeClass('ui-icon-blank');
             sidebarSkinCkbox.parent().addClass('ui-state-active');
         }
 
-        $control.addClass(sidebarSkin);
+        $sidebar.addClass(sidebarSkin);
 
         store('layout.sidebar-skin',sidebarSkin);
     }
 
 
     function updateSidebarToggle() {
-        var sidebarControlOpen = get('control-sidebar-open');
+        var sidebarControlOpen = get('layout.sidebar-control-open');
 
-        var sidebarOpenCkbox = $('#sidebar-open span.ui-chkbox-icon');
+        var sidebarOpenCkbox = $('#sidebar-toggle span.ui-chkbox-icon');
         if (sidebarControlOpen) {
             sidebarOpenCkbox.addClass('ui-icon-check');
             sidebarOpenCkbox.removeClass('ui-icon-blank');
@@ -83,6 +86,16 @@ $(function () {
             sidebarOpenCkbox.parent().removeClass('ui-state-active');
         }
 
+        changeLayout('control-sidebar-open');
+
+        sidebarControlOpen = $('body').hasClass('control-sidebar-open');
+
+        if (sidebarControlOpen) {
+            $('.control-sidebar').removeClass('control-sidebar-open')
+        }
+        store('layout.sidebar-control-open',sidebarControlOpen);
+
+
     }
 
     /**
@@ -92,13 +105,13 @@ $(function () {
      */
     function setup() {
 
-        var sidebar = $('.control-sidebar');
         var sidebarSkin = get('layout.sidebar-skin');
 
         if (!sidebarSkin) {
             sidebarSkin = 'control-sidebar-dark';
         }
-        updateSidebarSkin(sidebarSkin, sidebar);
+        updateSidebarSkin(sidebarSkin);
+
         updateSidebarToggle();
 
         // Add the layout manager
@@ -107,16 +120,16 @@ $(function () {
         });
 
         $('#sidebar-skin').on('click', function () {
-            var $sidebar = $('.control-sidebar');
             var sidebarSkin;
-            if ($sidebar.hasClass('control-sidebar-dark')) {
+            if ($('.control-sidebar').hasClass('control-sidebar-dark')) {
                 sidebarSkin = 'control-sidebar-light'
             }
             else {
                 sidebarSkin = 'control-sidebar-dark';
             }
+
             setTimeout(function () {
-                updateSidebarSkin(sidebarSkin,$sidebar);
+                updateSidebarSkin(sidebarSkin);
             },20);
         });
 
@@ -148,6 +161,13 @@ $(function () {
             $('#horizontal-layout').prop('checked', true);
         }
 
+        $('#sidebar-toggle').on('click', function () {
+            setTimeout(function () {
+                updateSidebarToggle();
+            },20);
+
+        });
+
     }
 
 
@@ -164,13 +184,5 @@ $(function () {
     });
 
 
-    function toggleSidebarControl() { use click function selectBoolean
-        changeLayout('control-sidebar-open');
-        var sidebarControlOpen = $('body').hasClass('control-sidebar-open');
-        store('layout.sidebar-control-open', sidebarControlOpen);
-        if (sidebarControlOpen) {
-            $('.control-sidebar').removeClass('control-sidebar-open')
-        }
-    }
 });
 
