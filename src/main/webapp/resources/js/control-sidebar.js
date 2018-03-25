@@ -72,27 +72,23 @@ $(function () {
     }
 
 
-    function updateSidebarToggle() {
-        var sidebarControlOpen = get('layout.sidebar-control-open');
+    function updateSidebarToggle(sidebarControlOpen) {
 
         var sidebarOpenCkbox = $('#sidebar-toggle span.ui-chkbox-icon');
-        if (sidebarControlOpen) {
+        if (sidebarControlOpen === true || sidebarControlOpen === 'true') {
             sidebarOpenCkbox.addClass('ui-icon-check');
             sidebarOpenCkbox.removeClass('ui-icon-blank');
             sidebarOpenCkbox.parent().addClass('ui-state-active');
+            $('.control-sidebar').addClass('control-sidebar-open');
+            $('body').addClass('control-sidebar-open');
         } else {
             sidebarOpenCkbox.addClass('ui-icon-blank');
             sidebarOpenCkbox.removeClass('ui-icon-check');
             sidebarOpenCkbox.parent().removeClass('ui-state-active');
-        }
-
-        changeLayout('control-sidebar-open');
-
-        sidebarControlOpen = $('body').hasClass('control-sidebar-open');
-
-        if (sidebarControlOpen) {
             $('.control-sidebar').removeClass('control-sidebar-open')
+            $('body').removeClass('control-sidebar-open');
         }
+
         store('layout.sidebar-control-open',sidebarControlOpen);
 
 
@@ -112,7 +108,7 @@ $(function () {
         }
         updateSidebarSkin(sidebarSkin);
 
-        updateSidebarToggle();
+        updateSidebarToggle(get('layout.sidebar-control-open'));
 
         // Add the layout manager
         $('[data-layout]').on('click', function () {
@@ -161,9 +157,10 @@ $(function () {
             $('#horizontal-layout').prop('checked', true);
         }
 
-        $('#sidebar-toggle').on('click', function () {
+        $('#sidebar-toggle .ui-chkbox-box, #sidebar-toggle-label').on('click', function () {
             setTimeout(function () {
-                updateSidebarToggle();
+                changeLayout('control-sidebar-open');
+                updateSidebarToggle($('body').hasClass('control-sidebar-open'));
             },20);
 
         });

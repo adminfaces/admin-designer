@@ -38,14 +38,14 @@ public class LayoutMB implements Serializable {
     }
 
     public void toogleTemplate() {
-        if(isDefaultLayout()) {
+        if(isDefaultTemplate()) {
             setTemplateTop();
         } else {
             setDefaultTemplate();
         }
     }
 
-    public boolean isDefaultLayout() {
+    public boolean isDefaultTemplate() {
         return template != null && template.endsWith("template.xhtml");
     }
 
