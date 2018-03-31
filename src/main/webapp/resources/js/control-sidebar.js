@@ -91,8 +91,30 @@ $(function () {
 
         store('layout.sidebar-control-open',sidebarControlOpen);
 
+    }
+
+    function updateSidebarExpand(expandOnHover) {
+
+        var sidebarOpenCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
+        console.log(sidebarOpenCkbox.attr('class'));
+        console.log("Update expand: "+expandOnHover)
+        if(expandOnHover === true || expandOnHover === 'true') {
+            sidebarOpenCkbox.removeClass('ui-icon-blank');
+            sidebarOpenCkbox.addClass('ui-icon-check');
+            sidebarOpenCkbox.parent().addClass('ui-state-active');
+            $pushMenu.expandOnHover();
+            collapseSidebar();
+        } else {
+            sidebarOpenCkbox.addClass('ui-icon-blank');
+            sidebarOpenCkbox.removeClass('ui-icon-check');
+            sidebarOpenCkbox.parent().removeClass('ui-state-active');
+            expandSidebar();
+        }
+
+        store('layout.sidebar-expand-hover',expandOnHover);
 
     }
+
 
     /**
      * Retrieve default settings and apply them to the template
@@ -106,9 +128,13 @@ $(function () {
         if (!sidebarSkin) {
             sidebarSkin = 'control-sidebar-dark';
         }
+
         updateSidebarSkin(sidebarSkin);
 
         updateSidebarToggle(get('layout.sidebar-control-open'));
+
+        updateSidebarExpand(get('layout.sidebar-expand-hover'));
+
 
         // Add the layout manager
         $('[data-layout]').on('click', function () {
@@ -123,10 +149,25 @@ $(function () {
             else {
                 sidebarSkin = 'control-sidebar-dark';
             }
-
             setTimeout(function () {
                 updateSidebarSkin(sidebarSkin);
             },20);
+        });
+
+        $('#sidebar-toggle .ui-chkbox-box, #sidebar-toggle-label').on('click', function () {
+            setTimeout(function () {
+                changeLayout('control-sidebar-open');
+                updateSidebarToggle($('body').hasClass('control-sidebar-open'));
+            },20);
+
+        });
+
+        $('#sidebar-expand-hover .ui-chkbox-box, #sidebar-expand-hover-label').on('click', function () {
+            setTimeout(function () {
+                updateSidebarExpand($('#sidebar-expand-hover span.ui-chkbox-icon').hasClass('ui-icon-check'));
+                //location.reload();
+            },20);
+
         });
 
         $('[data-enable="expandOnHover"]').on('click', function () {
@@ -157,14 +198,6 @@ $(function () {
             $('#horizontal-layout').prop('checked', true);
         }
 
-        $('#sidebar-toggle .ui-chkbox-box, #sidebar-toggle-label').on('click', function () {
-            setTimeout(function () {
-                changeLayout('control-sidebar-open');
-                updateSidebarToggle($('body').hasClass('control-sidebar-open'));
-            },20);
-
-        });
-
     }
 
 
@@ -173,6 +206,7 @@ $(function () {
             setup();
         }, 20);
     });
+
 
     $(document).ready(function () {
         setTimeout(function () {
