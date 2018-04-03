@@ -15072,6 +15072,24 @@ button.ui-button {
   transition: background-color 0.2s;
   overflow: hidden;
 }
+button.ui-button:hover {
+  background-color: #e7e7e7 !important;
+}
+button.ui-button:focus {
+  background-color: #e0e0e0 !important;
+}
+button.ui-button:active {
+  background-color: #cecece !important;
+}
+button.ui-button.ui-state-disabled:hover {
+  background-color: #f4f4f4 !important;
+}
+button.ui-button.ui-state-disabled:focus {
+  background-color: #f4f4f4 !important;
+}
+button.ui-button.ui-state-disabled:active {
+  background-color: #f4f4f4 !important;
+}
 button.ui-button.btn {
   padding: 5px 12px;
 }
@@ -15576,7 +15594,16 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 }
 .ui-splitbutton.btn-block > button {
   display: block;
+  border-right: none;
+  z-index: 1;
+}
+.ui-splitbutton.btn-block button.ui-splitbutton-menubutton {
+  z-index: 0;
   width: 100%;
+}
+.ui-splitbutton.btn-block button.ui-splitbutton-menubutton:before {
+  float: right;
+  right: 15px;
 }
 .ui-splitbutton-menubutton span.ui-icon,
 .ui-splitbutton-menubutton span.ui-button-text {
@@ -17575,7 +17602,7 @@ body .ui-widget-header .ui-icon:hover {
 .ui-icon-carat-2-e-w {
   background-position: -144px 0;
 }
-.ui-icon-trui-treetable-togglerui-treetable-toggleriangle-1-n {
+.ui-icon-triangle-1-n {
   background-position: 0 -16px;
 }
 .ui-icon-triangle-1-ne {
