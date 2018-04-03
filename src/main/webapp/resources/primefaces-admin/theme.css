@@ -15165,6 +15165,9 @@ button.ui-button.btn-primary.ui-state-disabled:focus {
 button.ui-button.btn-primary.ui-state-disabled:active {
   background-color: #3c8dbc !important;
 }
+button.ui-button.btn-primary span.ui-icon {
+  color: #fff;
+}
 button.ui-button.btn-danger:hover {
   background-color: #d73925 !important;
 }
@@ -15182,6 +15185,9 @@ button.ui-button.btn-danger.ui-state-disabled:focus {
 }
 button.ui-button.btn-danger.ui-state-disabled:active {
   background-color: #dd4b39 !important;
+}
+button.ui-button.btn-danger span.ui-icon {
+  color: #fff;
 }
 button.ui-button.btn-fatal:hover {
   background-color: #9d3529 !important;
@@ -15201,6 +15207,9 @@ button.ui-button.btn-fatal.ui-state-disabled:focus {
 button.ui-button.btn-fatal.ui-state-disabled:active {
   background-color: #b13c2e !important;
 }
+button.ui-button.btn-fatal span.ui-icon {
+  color: #fff;
+}
 button.ui-button.btn-warning:hover {
   background-color: #e08e0b !important;
 }
@@ -15218,6 +15227,9 @@ button.ui-button.btn-warning.ui-state-disabled:focus {
 }
 button.ui-button.btn-warning.ui-state-disabled:active {
   background-color: #f39c12 !important;
+}
+button.ui-button.btn-warning span.ui-icon {
+  color: #fff;
 }
 button.ui-button.btn-success:hover {
   background-color: #008d4c !important;
@@ -15237,6 +15249,9 @@ button.ui-button.btn-success.ui-state-disabled:focus {
 button.ui-button.btn-success.ui-state-disabled:active {
   background-color: #00a65a !important;
 }
+button.ui-button.btn-success span.ui-icon {
+  color: #fff;
+}
 button.ui-button.btn-teal:hover {
   background-color: #007d71 !important;
 }
@@ -15255,6 +15270,9 @@ button.ui-button.btn-teal.ui-state-disabled:focus {
 button.ui-button.btn-teal.ui-state-disabled:active {
   background-color: #009688 !important;
 }
+button.ui-button.btn-teal span.ui-icon {
+  color: #fff;
+}
 button.ui-button.btn-info:hover {
   background-color: #00acd6 !important;
 }
@@ -15272,6 +15290,9 @@ button.ui-button.btn-info.ui-state-disabled:focus {
 }
 button.ui-button.btn-info.ui-state-disabled:active {
   background-color: #00c0ef !important;
+}
+button.ui-button.btn-info span.ui-icon {
+  color: #fff!important;
 }
 button.ui-button-text-only .ui-button-text {
   padding: 0;
@@ -15405,6 +15426,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 .ui-splitbutton.btn-primary > button.ui-state-disabled:active {
   background-color: #3c8dbc !important;
 }
+.ui-splitbutton.btn-primary > button span.ui-icon {
+  color: #fff;
+}
 .ui-splitbutton.btn-success > button {
   color: #fff;
   background-color: #5cb85c;
@@ -15435,6 +15459,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 }
 .ui-splitbutton.btn-success > button.ui-state-disabled:active {
   background-color: #00a65a !important;
+}
+.ui-splitbutton.btn-success > button span.ui-icon {
+  color: #fff;
 }
 .ui-splitbutton.btn-danger > button {
   color: #fff;
@@ -15467,6 +15494,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 .ui-splitbutton.btn-danger > button.ui-state-disabled:active {
   background-color: #dd4b39 !important;
 }
+.ui-splitbutton.btn-danger > button span.ui-icon {
+  color: #fff;
+}
 .ui-splitbutton.btn-fatal > button {
   color: #fff !important;
   background-color: #b13c2e !important;
@@ -15489,6 +15519,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 }
 .ui-splitbutton.btn-fatal > button.ui-state-disabled:active {
   background-color: #b13c2e !important;
+}
+.ui-splitbutton.btn-fatal > button span.ui-icon {
+  color: #fff;
 }
 .ui-splitbutton.btn-info > button {
   color: #fff;
@@ -15520,6 +15553,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 }
 .ui-splitbutton.btn-info > button.ui-state-disabled:active {
   background-color: #00c0ef !important;
+}
+.ui-splitbutton.btn-info > button span.ui-icon {
+  color: #fff;
 }
 .ui-splitbutton.btn-default > button {
   color: #333;
@@ -15582,6 +15618,9 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 }
 .ui-splitbutton.btn-warning > button.ui-state-disabled:active {
   background-color: #f39c12 !important;
+}
+.ui-splitbutton.btn-warning > button span.ui-icon {
+  color: #fff;
 }
 .ui-splitbutton.btn-flat {
   border-radius: 0;
@@ -15724,6 +15763,9 @@ body .ui-menubutton.btn-primary > button.ui-state-disabled:focus {
 body .ui-menubutton.btn-primary > button.ui-state-disabled:active {
   background-color: #3c8dbc !important;
 }
+body .ui-menubutton.btn-primary > button span.ui-icon {
+  color: #fff;
+}
 body .ui-menubutton.btn-success > button {
   color: #fff;
   background-color: #5cb85c;
@@ -15754,6 +15796,9 @@ body .ui-menubutton.btn-success > button.ui-state-disabled:focus {
 }
 body .ui-menubutton.btn-success > button.ui-state-disabled:active {
   background-color: #00a65a !important;
+}
+body .ui-menubutton.btn-success > button span.ui-icon {
+  color: #fff;
 }
 body .ui-menubutton.btn-danger > button {
   color: #fff;
@@ -15786,6 +15831,9 @@ body .ui-menubutton.btn-danger > button.ui-state-disabled:focus {
 body .ui-menubutton.btn-danger > button.ui-state-disabled:active {
   background-color: #dd4b39 !important;
 }
+body .ui-menubutton.btn-danger > button span.ui-icon {
+  color: #fff;
+}
 body .ui-menubutton.btn-fatal > button {
   color: #fff !important;
   background-color: #b13c2e !important;
@@ -15808,6 +15856,9 @@ body .ui-menubutton.btn-fatal > button.ui-state-disabled:focus {
 }
 body .ui-menubutton.btn-fatal > button.ui-state-disabled:active {
   background-color: #b13c2e !important;
+}
+body .ui-menubutton.btn-fatal > button span.ui-icon {
+  color: #fff;
 }
 body .ui-menubutton.btn-info > button {
   color: #fff;
@@ -15839,6 +15890,9 @@ body .ui-menubutton.btn-info > button.ui-state-disabled:focus {
 }
 body .ui-menubutton.btn-info > button.ui-state-disabled:active {
   background-color: #00c0ef !important;
+}
+body .ui-menubutton.btn-info > button span.ui-icon {
+  color: #fff;
 }
 body .ui-menubutton.btn-default > button {
   color: #333;
@@ -15901,6 +15955,9 @@ body .ui-menubutton.btn-warning > button.ui-state-disabled:focus {
 }
 body .ui-menubutton.btn-warning > button.ui-state-disabled:active {
   background-color: #f39c12 !important;
+}
+body .ui-menubutton.btn-warning > button span.ui-icon {
+  color: #fff;
 }
 body .ui-menubutton.btn-flat {
   border-radius: 0;
