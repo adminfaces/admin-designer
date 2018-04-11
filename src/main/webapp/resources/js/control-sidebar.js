@@ -9,6 +9,7 @@ $(function () {
     $('[data-toggle="control-sidebar"]').controlSidebar()
     $('[data-toggle="push-menu"]').pushMenu()
 
+
     var $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu')
     var $controlSidebar = $('[data-toggle="control-sidebar"]').data('lte.controlsidebar')
 
@@ -68,7 +69,7 @@ $(function () {
 
         $sidebar.addClass(sidebarSkin);
 
-        store('layout.sidebar-skin',sidebarSkin);
+        store('layout.sidebar-skin', sidebarSkin);
     }
 
 
@@ -89,29 +90,43 @@ $(function () {
             $('body').removeClass('control-sidebar-open');
         }
 
-        store('layout.sidebar-control-open',sidebarControlOpen);
+        store('layout.sidebar-control-open', sidebarControlOpen);
 
     }
 
-    function updateSidebarExpand(expandOnHover) {
 
-        var sidebarOpenCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
-        console.log(sidebarOpenCkbox.attr('class'));
-        console.log("Update expand: "+expandOnHover)
-        if(expandOnHover === true || expandOnHover === 'true') {
-            sidebarOpenCkbox.removeClass('ui-icon-blank');
-            sidebarOpenCkbox.addClass('ui-icon-check');
-            sidebarOpenCkbox.parent().addClass('ui-state-active');
+    function loadSidebarExpand() {
+        var expandOnHover = get('layout.sidebar-expand-hover');
+        var sidebarExpandCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
+        if (expandOnHover === true || expandOnHover === 'true') {
+            PF('sidebarExpand').input.click();
+            $pushMenu.expandOnHover();
+            collapseSidebar();
+            sidebarExpandCkbox.removeClass('ui-icon-blank');
+            sidebarExpandCkbox.addClass('ui-icon-check');
+            sidebarExpandCkbox.parent().addClass('ui-state-active');
+            return;
+        }
+    }
+
+    function updateSidebarExpand() {
+        var expandOnHover = PF('sidebarExpand').input.is(':checked');
+        var sidebarExpandCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
+
+        if (expandOnHover) {
             $pushMenu.expandOnHover();
             collapseSidebar();
         } else {
-            sidebarOpenCkbox.addClass('ui-icon-blank');
-            sidebarOpenCkbox.removeClass('ui-icon-check');
-            sidebarOpenCkbox.parent().removeClass('ui-state-active');
+            sidebarExpandCkbox.addClass('ui-icon-blank');
+            sidebarExpandCkbox.removeClass('ui-icon-check');
+            sidebarExpandCkbox.parent().removeClass('ui-state-active');
             expandSidebar();
+            $('[data-toggle="push-menu"]').data('lte.pushmenu', null); //not working, see https://github.com/almasaeed2010/AdminLTE/issues/1843#issuecomment-379550396
+            $('[data-toggle="push-menu"]').pushMenu({expandOnHover: false});
+            $pushMenu = $('[data-toggle="push-menu"]').data('lte.pushmenu');
         }
 
-        store('layout.sidebar-expand-hover',expandOnHover);
+        store('layout.sidebar-expand-hover', expandOnHover);
 
     }
 
@@ -133,7 +148,7 @@ $(function () {
 
         updateSidebarToggle(get('layout.sidebar-control-open'));
 
-        updateSidebarExpand(get('layout.sidebar-expand-hover'));
+        loadSidebarExpand();
 
 
         // Add the layout manager
@@ -145,36 +160,27 @@ $(function () {
             var sidebarSkin;
             if ($('.control-sidebar').hasClass('control-sidebar-dark')) {
                 sidebarSkin = 'control-sidebar-light'
-            }
-            else {
+            } else {
                 sidebarSkin = 'control-sidebar-dark';
             }
             setTimeout(function () {
                 updateSidebarSkin(sidebarSkin);
-            },20);
+            }, 20);
         });
 
         $('#sidebar-toggle .ui-chkbox-box, #sidebar-toggle-label').on('click', function () {
             setTimeout(function () {
                 changeLayout('control-sidebar-open');
                 updateSidebarToggle($('body').hasClass('control-sidebar-open'));
-            },20);
+            }, 20);
 
         });
 
         $('#sidebar-expand-hover .ui-chkbox-box, #sidebar-expand-hover-label').on('click', function () {
             setTimeout(function () {
-                updateSidebarExpand($('#sidebar-expand-hover span.ui-chkbox-icon').hasClass('ui-icon-check'));
-                //location.reload();
-            },20);
+                updateSidebarExpand();
+            }, 20);
 
-        });
-
-        $('[data-enable="expandOnHover"]').on('click', function () {
-            $(this).attr('disabled', true)
-            $pushMenu.expandOnHover()
-            if (!$('body').hasClass('sidebar-collapse'))
-                $('[data-layout="sidebar-collapse"]').click()
         });
 
         //  Reset options
