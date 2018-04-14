@@ -30,8 +30,7 @@
 
     <h:panelGroup id="panel" layout="block" styleClass="hidden-sm hidden-xs">
         <h:form prependId="false">
-            <p:remoteCommand name="changeMenuOrientation" process="@this"
-                             action="#{layoutMB.toogleTemplate}" oncomplete="location.reload();"/>
+            <p:commandLink id="link-toggle-layout" action="#{layoutMB.toggleTemplate}" ajax="false" style="visibility: hidden"/>
             <aside class="control-sidebar control-sidebar-dark">
                 <!-- Create the tabs -->
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -46,27 +45,38 @@
                     <div id="control-sidebar-theme-demo-options-tab" class="tab-pane active">
                         <div><h4 class="control-sidebar-heading">Layout Options</h4>
                             <div class="form-group">
-                                <label class="control-sidebar-subheading">
-                                    <input id="horizontal-layout" type="checkbox" class="pull-right"
-                                           onclick="changeMenuOrientation()"/>
-                                    Left menu layout?
-                                </label>
-                                <p>If checked the menu will be placed on the <b>left</b> otherwise it will be on
-                                    <b>top</b>.</p></div>
-                            <div class="form-group"><label class="control-sidebar-subheading">
-                                <input type="checkbox" data-layout="fixed"
-                                       class="pull-right"/> Fixed layout</label>
-                                <p>Activate the fixed layout, if checked the top bar will be fixed on the page. You can't use fixed and boxed layouts together</p>
+                                <span class="control-sidebar-subheading">
+                                    <p:outputLabel id="toggle-menu-layout-label" value="Toggle menu layout" for="toggle-menu-layout"/>
+                                    <p:selectBooleanCheckbox value="#{layoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right" >
+                                        <p:ajax process="@none" update="@none" oncomplete="$('#link-toggle-layout').click()" />
+                                    </p:selectBooleanCheckbox>    
+                                </span>
+                                <p>Toggle menu orientation, <code>left</code> or <code>top</code> menu layout.</p>
                             </div>
-                            <div class="form-group"><label class="control-sidebar-subheading">
-                                <input type="checkbox" data-layout="layout-boxed"
-                                       class="pull-right"/> Boxed Layout</label>
-                                <p>Activate the boxed layout</p></div>
-                            <div class="form-group"><label class="control-sidebar-subheading"><input type="checkbox"
-                                                                                                     data-layout="sidebar-collapse"
-                                                                                                     class="pull-right"/> Toggle Sidebar</label>
-                                <p>Toggle the left sidebar's state (open or collapse)</p></div>
+                            
+                            <div class="form-group">
+                                <span class="control-sidebar-subheading">
+                                    <p:outputLabel id="fixed-layout-label" value="Fixed  Layout" for="fixed-layout"/>
+                                    <p:selectBooleanCheckbox id="fixed-layout" styleClass="pull-right" />
+                                </span>
+                                <p>Activate the fixed layout, if checked the top bar will be fixed on the page. You can't use fixed and boxed layouts together.</p>
+                            </div>
+                            
+                             <div class="form-group">
+                                <span class="control-sidebar-subheading">
+                                    <p:outputLabel id="boxed-layout-label" value="Boxed Layout" for="boxed-layout"/>
+                                    <p:selectBooleanCheckbox id="boxed-layout" styleClass="pull-right" />
+                                </span>
+                                <p>Activate the boxed layout.</p>
+                            </div>
 
+                             <div class="form-group">
+                                <span class="control-sidebar-subheading">
+                                    <p:outputLabel id="sidebar-toggle-label" value="Toggle Sidebar" for="sidebar-toggle"/>
+                                    <p:selectBooleanCheckbox id="sidebar-toggle" styleClass="pull-right" />
+                                </span>
+                                <p>Toggle the left sidebar's state (open or collapse).</p>
+                            </div>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="sidebar-expand-hover-label" value=" Sidebar Expand on Hover" for="sidebar-expand-hover"/>
@@ -76,8 +86,8 @@
                             </div>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
-                                    <p:outputLabel id="sidebar-toggle-label" value="Toggle Control Sidebar Slide" for="sidebar-toggle"/>
-                                    <p:selectBooleanCheckbox id="sidebar-toggle" styleClass="pull-right" />
+                                    <p:outputLabel id="control-sidebar-toggle-label" value="Toggle Control Sidebar Slide" for="control-sidebar-toggle"/>
+                                    <p:selectBooleanCheckbox id="control-sidebar-toggle" styleClass="pull-right" />
                                 </span>
                                 <p>If checked the right sidebar will be fixed on the page.</p>
                             </div>
