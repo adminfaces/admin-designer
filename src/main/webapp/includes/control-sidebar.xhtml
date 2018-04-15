@@ -48,7 +48,7 @@
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="toggle-menu-layout-label" value="Toggle menu layout" for="toggle-menu-layout"/>
                                     <p:selectBooleanCheckbox value="#{layoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right" >
-                                        <p:ajax process="@none" update="@none" oncomplete="$('#link-toggle-layout').click()" />
+                                        <p:ajax process="@none" update="@none" global="false" oncomplete="$('#link-toggle-layout').click()" />
                                     </p:selectBooleanCheckbox>    
                                 </span>
                                 <p>Toggle menu orientation, <code>left</code> or <code>top</code> menu layout.</p>

@@ -135,7 +135,6 @@ $(function () {
         var expandOnHover = get('layout.sidebar-expand-hover');
         var sidebarExpandCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
         if (expandOnHover === true || expandOnHover === 'true') {
-            PF('sidebarExpand').input.click();
             $pushMenu.expandOnHover();
             collapseSidebar();
             sidebarExpandCkbox.removeClass('ui-icon-blank');

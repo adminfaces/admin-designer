@@ -59,7 +59,6 @@ public class LayoutMB implements Serializable {
         this.defaultTemplateSelected = defaultTemplateSelected;
     }
     
-    
 
     public boolean isFlat() {
         return flat;
