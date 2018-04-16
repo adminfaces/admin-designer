@@ -93,7 +93,7 @@
                     </p:selectOneRadio>
 
                     <p:outputLabel for="chkbox" value="Checkbox"/>
-                    <p:selectManyCheckbox id="chkbox" value="#{checkboxMB.selectedCities2}" layout="responsive"
+                    <p:selectManyCheckbox id="chkbox" value="#{checkboxMB.selectedCities2}" layout="responsive" styleClass=""
                                           columns="3">
                         <f:selectItems value="#{checkboxMB.cities}" var="city" itemLabel="#{city}" itemValue="#{city}"/>
                     </p:selectManyCheckbox>
@@ -110,12 +110,12 @@
                     </p:splitButton>
 
                     <p:outputLabel for="chkmenu" value="Checkbox Menu"/>
-                    <p:selectCheckboxMenu id="chkmenu" label="Cities">
+                    <p:selectCheckboxMenu id="chkmenu" label="Cities" >
                         <f:selectItems value="#{checkboxMB.cities}"/>
                     </p:selectCheckboxMenu>
 
                     <p:outputLabel for="chkmenu-multiple" value="Checkbox Menu Multiple"/>
-                    <p:selectCheckboxMenu id="chkmenu-multiple" label="Cities"
+                    <p:selectCheckboxMenu id="chkmenu-multiple" label="Cities" styleClass="black" panelStyleClass="black"
                                           multiple="true" filter="true" filterMatchMode="startsWith">
                         <f:selectItems value="#{checkboxMB.cities}"/>
                     </p:selectCheckboxMenu>

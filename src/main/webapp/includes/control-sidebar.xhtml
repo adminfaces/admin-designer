@@ -2,28 +2,18 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:p="http://primefaces.org/ui"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:h="http://xmlns.jcp.org/jsf/html">
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <style type="text/css">
 
-        body .control-sidebar div.ui-chkbox-box span.ui-chkbox-icon.ui-icon-check:before {
-            color: #222d32;
-            margin-left: 5px;
+        .control-sidebar-dark b.sidebar-bold  {
+            color: #fff;
         }
-
-        body .control-sidebar div.ui-chkbox-box.ui-state-active {
-            border-color: #333;
-            color: #222d32!important;
+        
+        .control-sidebar-light b.sidebar-bold {
+            color: #111;
         }
-
-        body .control-sidebar div.ui-chkbox-box.ui-state-focus.ui-state-active {
-            color: #222d32!important;
-        }
-
-        body .control-sidebar div.ui-chkbox-box {
-            background: #fff!important;
-        }
-
 
     </style>
 
@@ -32,77 +22,165 @@
         <h:form prependId="false">
             <p:commandLink id="link-toggle-layout" action="#{layoutMB.toggleTemplate}" ajax="false" style="visibility: hidden"/>
             <aside class="control-sidebar control-sidebar-dark">
-                <!-- Create the tabs -->
                 <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
                     <li class="active"><a href="#control-sidebar-theme-demo-options-tab" data-toggle="tab"><i
-                            class="fa fa-wrench"></i></a></li>
+                                class="fa fa-wrench"></i></a></li>
                     <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
                     <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
                 </ul>
-                <!-- Tab panes -->
                 <div class="tab-content">
-                    <!-- layout options -->
                     <div id="control-sidebar-theme-demo-options-tab" class="tab-pane active">
                         <div><h4 class="control-sidebar-heading">Layout Options</h4>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
-                                    <p:outputLabel id="toggle-menu-layout-label" value="Toggle menu layout" for="toggle-menu-layout"/>
-                                    <p:selectBooleanCheckbox value="#{layoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right" >
+                                    <p:outputLabel id="toggle-menu-layout-label" value="Menu orientation" for="toggle-menu-layout"/>
+                                    <p:selectBooleanCheckbox value="#{layoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right black" >
                                         <p:ajax process="@none" update="@none" global="false" oncomplete="$('#link-toggle-layout').click()" />
                                     </p:selectBooleanCheckbox>    
                                 </span>
-                                <p>Toggle menu orientation, <code>left</code> or <code>top</code> menu layout.</p>
+                                <p>Toggle menu orientation between <b class="sidebar-bold">left</b> and <b class="sidebar-bold">top</b> menu. By default left menu is activated.</p>
                             </div>
-                            
+
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="fixed-layout-label" value="Fixed  Layout" for="fixed-layout"/>
-                                    <p:selectBooleanCheckbox id="fixed-layout" styleClass="pull-right" />
+                                    <p:selectBooleanCheckbox id="fixed-layout" styleClass="pull-right black" />
                                 </span>
                                 <p>Activate the fixed layout, if checked the top bar will be fixed on the page. You can't use fixed and boxed layouts together.</p>
                             </div>
-                            
-                             <div class="form-group">
+
+                            <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="boxed-layout-label" value="Boxed Layout" for="boxed-layout"/>
-                                    <p:selectBooleanCheckbox id="boxed-layout" styleClass="pull-right" />
+                                    <p:selectBooleanCheckbox id="boxed-layout" styleClass="pull-right black" />
                                 </span>
                                 <p>Activate the boxed layout.</p>
                             </div>
 
-                             <div class="form-group">
+                            <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="sidebar-toggle-label" value="Toggle Sidebar" for="sidebar-toggle"/>
-                                    <p:selectBooleanCheckbox id="sidebar-toggle" styleClass="pull-right" />
+                                    <p:selectBooleanCheckbox id="sidebar-toggle" styleClass="pull-right black" />
                                 </span>
                                 <p>Toggle the left sidebar's state (open or collapse).</p>
                             </div>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="sidebar-expand-hover-label" value=" Sidebar Expand on Hover" for="sidebar-expand-hover"/>
-                                    <p:selectBooleanCheckbox id="sidebar-expand-hover" widgetVar="sidebarExpand" styleClass="pull-right" />
+                                    <p:selectBooleanCheckbox disabled="#{not layoutMB.defaultTemplate}" id="sidebar-expand-hover" widgetVar="sidebarExpand" styleClass="pull-right black" />
                                 </span>
                                 <p>If checked the left sidebar will expand on hover.</p>
                             </div>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel id="control-sidebar-toggle-label" value="Toggle Control Sidebar Slide" for="control-sidebar-toggle"/>
-                                    <p:selectBooleanCheckbox id="control-sidebar-toggle" styleClass="pull-right" />
+                                    <p:selectBooleanCheckbox id="control-sidebar-toggle" styleClass="pull-right black" />
                                 </span>
                                 <p>If checked the right sidebar will be fixed on the page.</p>
                             </div>
                             <div class="form-group">
                                 <span class="control-sidebar-subheading">
                                     <p:outputLabel value="Toggle Right Sidebar Skin" for="sidebar-skin"/>
-                                    <p:selectBooleanCheckbox id="sidebar-skin" styleClass="pull-right"/>
+                                    <p:selectBooleanCheckbox id="sidebar-skin" styleClass="pull-right black"/>
                                 </span>
                                 <p>Toggle between dark and light skins for the right sidebar</p>
                             </div>
 
+                            <h4 class="control-sidebar-heading">Skins</h4>
+                            <ul class="list-unstyled clearfix">
+                                <li style="float:left; width: 33.33333%; padding: 5px;">
+
+                                    <p:commandLink styleClass="skin-link clearfix #{skinMB.skin eq 'skin-blue' ? '':'full-opacity-hover'}" 
+                                                   style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+                                                   onclick="replaceSkinWith('skin-blue', $(this));" 
+                                                   oncomplete="setTimeout(updateSidebarToggle,30)"
+                                                   process="@this" update="@none" partialSubmit="true"
+                                                   actionListener="#{skinMB.changeSkin('skin-blue')}">
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9">
+
+                                            </span>
+                                            <span class="bg-light-blue" style="display:block; width: 80%; float: left; height: 7px;">
+
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span>
+                                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                        </div>
+                                    </p:commandLink>
+                                    <p class="text-center no-margin">Blue</p>
+                                </li>
+                                <li style="float:left; width: 33.33333%; padding: 5px;">
+                                    <p:commandLink styleClass="skin-link clearfix #{skinMB.skin eq 'skin-black' ? '':'full-opacity-hover'}" 
+                                                   style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+                                                   onclick="replaceSkinWith('skin-black', $(this));" 
+                                                   oncomplete="setTimeout(updateSidebarToggle,30)"
+                                                   process="@this" update="@none" partialSubmit="true"
+                                                   actionListener="#{skinMB.changeSkin('skin-black')}">
+                                        <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
+                                            <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span>
+                                            <span style="display:block; width: 80%; float: left; height: 7px; background: #fefefe"></span>
+                                        </div>
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222"></span>
+                                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                        </div>
+                                    </p:commandLink>
+                                    <p class="text-center no-margin">Black</p>
+                                </li>
+                                <li style="float:left; width: 33.33333%; padding: 5px;">
+                                    <p:commandLink styleClass="skin-link clearfix #{skinMB.skin eq 'skin-purple' ? '':'full-opacity-hover'}" 
+                                                   style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+                                                   onclick="replaceSkinWith('skin-purple', $(this));" 
+                                                   oncomplete="setTimeout(updateSidebarToggle,30)"
+                                                   process="@this" update="@none" partialSubmit="true"
+                                                   actionListener="#{skinMB.changeSkin('skin-purple')}">
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-purple-active">
+
+                                            </span>
+                                            <span class="bg-purple" style="display:block; width: 80%; float: left; height: 7px;">
+
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32">
+
+                                            </span>
+                                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7">
+
+                                            </span>
+                                        </div>
+                                        <p class="text-center no-margin">Purple</p>
+                                    </p:commandLink>
+                                </li>
+
+                                <li style="float:left; width: 33.33333%; padding: 5px;">
+                                    <p:commandLink styleClass="skin-link clearfix #{skinMB.skin eq 'skin-green' ? '':'full-opacity-hover'}" 
+                                                   style="display: block; box-shadow: 0 0 3px rgba(0,0,0,0.4)"
+                                                   onclick="replaceSkinWith('skin-green', $(this));" 
+                                                   oncomplete="setTimeout(updateSidebarToggle,30)"
+                                                   process="@this" update="@none" partialSubmit="true"
+                                                   actionListener="#{skinMB.changeSkin('skin-green')}">
+                                        
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 7px;" class="bg-green-active"></span>
+                                            <span class="bg-green" style="display:block; width: 80%; float: left; height: 7px;"></span>
+                                        </div>
+                                        
+                                        <div>
+                                            <span style="display:block; width: 20%; float: left; height: 20px; background: #222d32"></span>
+                                            <span style="display:block; width: 80%; float: left; height: 20px; background: #f4f5f7"></span>
+                                        </div>
+                                    </p:commandLink>
+                                    <p class="text-center no-margin">Green</p>
+                                </li>
+                            </ul>    
+
                         </div>
                     </div>
 
-                    <!-- Home tab content -->
                     <div class="tab-pane" id="control-sidebar-home-tab">
                         <h3 class="control-sidebar-heading">Recent Activity</h3>
                         <ul class="control-sidebar-menu">
@@ -151,7 +229,6 @@
                                 </a>
                             </li>
                         </ul>
-                        <!-- /.control-sidebar-menu -->
 
                         <h3 class="control-sidebar-heading">Tasks Progress</h3>
                         <ul class="control-sidebar-menu">
@@ -204,13 +281,8 @@
                                 </a>
                             </li>
                         </ul>
-                        <!-- /.control-sidebar-menu -->
-
                     </div>
 
-                    <!-- /.tab-pane -->
-
-                    <!-- Settings tab content -->
                     <div class="tab-pane" id="control-sidebar-settings-tab">
                         <form method="post">
                             <h3 class="control-sidebar-heading">General Settings</h3>
@@ -225,7 +297,6 @@
                                     Some information about this general settings option
                                 </p>
                             </div>
-                            <!-- /.form-group -->
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -237,7 +308,6 @@
                                     Other sets of options are available
                                 </p>
                             </div>
-                            <!-- /.form-group -->
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -249,7 +319,6 @@
                                     Allow the user to show his name in blog posts
                                 </p>
                             </div>
-                            <!-- /.form-group -->
 
                             <h3 class="control-sidebar-heading">Chat Settings</h3>
 
@@ -259,7 +328,6 @@
                                     <input type="checkbox" class="pull-right" checked=""/>
                                 </label>
                             </div>
-                            <!-- /.form-group -->
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -267,7 +335,6 @@
                                     <input type="checkbox" class="pull-right"/>
                                 </label>
                             </div>
-                            <!-- /.form-group -->
 
                             <div class="form-group">
                                 <label class="control-sidebar-subheading">
@@ -276,10 +343,8 @@
                                         <i class="fa fa-trash-o"></i></a>
                                 </label>
                             </div>
-                            <!-- /.form-group -->
                         </form>
                     </div>
-                    <!-- /.tab-pane -->
                 </div>
             </aside>
             <div class="control-sidebar-bg"></div>
@@ -287,6 +352,30 @@
         </h:form>
 
         <h:outputScript library="js" name="control-sidebar.js" target="head"/>
+
+        <script type="text/javascript">
+            /*<![CDATA[*/
+            function replaceSkinWith(newSkin, $this) {
+                $('.skin-link').each(function () {
+                  $(this).addClass('full-opacity-hover');  
+                });
+                $this.removeClass('full-opacity-hover');
+                var cl = $('body').attr("class").split(" ");
+                for (var i = 0; i < cl.length; i++) {
+                    if (cl[i].startsWith('skin-')) {
+                        $('body').removeClass(cl[i])
+                    }
+                }
+                $('body').addClass(newSkin);
+                
+            }
+
+            function updateSidebarToggle() {
+                $('.control-sidebar').addClass('control-sidebar-open');
+
+            }
+            /* ]]>*/
+        </script>    
 
     </h:panelGroup>
 

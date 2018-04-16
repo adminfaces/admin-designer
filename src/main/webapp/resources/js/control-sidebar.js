@@ -73,7 +73,6 @@ $(function () {
     }
     
     function updateBoxedLayout(boxedLayout) {
-        console.log('boxedLayout:' +boxedLayout)
         var boxedLayoutCkbox = $('#boxed-layout span.ui-chkbox-icon');
         if (boxedLayout === true || boxedLayout === 'true') {
             boxedLayoutCkbox.addClass('ui-icon-check');
@@ -86,13 +85,11 @@ $(function () {
             boxedLayoutCkbox.parent().removeClass('ui-state-active');
             $('body').removeClass('layout-boxed')
         }
-        console.log('storing:' +boxedLayout)
         store('layout.boxed', boxedLayout);
         
     }
     
     function updateFixedLayout(fixedLayout) {
-        console.log('fixedLayout:' +fixedLayout)
         var fixedLayoutCkbox = $('#fixed-layout span.ui-chkbox-icon');
         if (fixedLayout === true || fixedLayout === 'true') {
             fixedLayoutCkbox.addClass('ui-icon-check');
@@ -105,7 +102,6 @@ $(function () {
             fixedLayoutCkbox.parent().removeClass('ui-state-active');
             $('body').removeClass('fixed');
         }
-        console.log('storing:' +fixedLayout);
         store('layout.fixed', fixedLayout);
     }
     
@@ -132,6 +128,9 @@ $(function () {
     }
 
     function loadSidebarExpand() {
+        if(!$pushMenu) {
+            return;//on layout-top it doesn't exists
+        }
         var expandOnHover = get('layout.sidebar-expand-hover');
         var sidebarExpandCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
         if (expandOnHover === true || expandOnHover === 'true') {
@@ -145,6 +144,9 @@ $(function () {
     }
 
     function updateSidebarExpand() {
+         if(!$pushMenu) {
+            return;//on layout-top it doesn't exists
+        }
         var expandOnHover = PF('sidebarExpand').input.is(':checked');
         var sidebarExpandCkbox = $('#sidebar-expand-hover span.ui-chkbox-icon');
 
@@ -197,18 +199,12 @@ $(function () {
         
         if (!fixedLayout) {
            fixedLayout = false; 
-           console.log('fixed undefined')
         }
         
         updateFixedLayout(fixedLayout);
 
         loadSidebarExpand();
 
-
-        // Add the layout manager
-        $('[data-layout]').on('click', function () {
-            changeLayout($(this).data('layout'))
-        });
 
         $('#sidebar-skin').on('click', function () {
             var sidebarSkin;
