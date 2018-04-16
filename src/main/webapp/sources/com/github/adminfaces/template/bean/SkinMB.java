@@ -9,6 +9,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 
 import static com.github.adminfaces.template.util.Assert.has;
+import org.omnifaces.util.Faces;
 
 /**
  * Created by rmpestano on 07/01/17.
@@ -30,11 +31,10 @@ public class SkinMB implements Serializable {
         }
     }
 
-
     public void changeSkin(String skin){
         this.skin = skin;
     }
-
+    
     public String getSkin() {
         return skin;
     }
