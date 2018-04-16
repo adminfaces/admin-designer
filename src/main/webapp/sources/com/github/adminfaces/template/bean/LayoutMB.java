@@ -1,5 +1,6 @@
-package com.github.adminfaces.showcase.bean;
+package com.github.adminfaces.template.bean;
 
+import com.github.adminfaces.showcase.bean.*;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;

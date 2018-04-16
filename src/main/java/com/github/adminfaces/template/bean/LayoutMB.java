@@ -1,18 +1,21 @@
 package com.github.adminfaces.template.bean;
 
+import com.github.adminfaces.showcase.bean.*;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 
 /**
- * Created by rmpestano on 15/04/18.
+ * Created by rmpestano on 07/05/17.
  */
 @Named
 @SessionScoped
-public class ControlSidebarMB implements Serializable {
+public class LayoutMB implements Serializable {
 
     private String template;
+
+    private boolean flat;
 
     private boolean darkSidebar;
     
@@ -21,6 +24,7 @@ public class ControlSidebarMB implements Serializable {
     @PostConstruct
     public void init() {
         setDefaultTemplate();
+        flat = false;
         darkSidebar = true;
     }
 
@@ -56,6 +60,14 @@ public class ControlSidebarMB implements Serializable {
         this.defaultTemplateSelected = defaultTemplateSelected;
     }
     
+
+    public boolean isFlat() {
+        return flat;
+    }
+
+    public void setFlat(boolean flat) {
+        this.flat = flat;
+    }
 
     public boolean isDarkSidebar() {
         return darkSidebar;
