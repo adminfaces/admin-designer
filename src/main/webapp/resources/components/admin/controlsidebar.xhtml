@@ -24,7 +24,7 @@
 
 
             <h:form prependId="false">
-                <p:commandLink  id="link-toggle-layout" action="#{adminLayoutMB.toggleTemplate}" ajax="false" style="visibility: hidden"/>
+                <p:commandLink  id="link-toggle-layout" action="#{layoutMB.toggleTemplate}" ajax="false" style="visibility: hidden"/>
                 <ui:insert name="before-content"/>
                 <aside class="control-sidebar control-sidebar-dark">
                     <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
@@ -40,7 +40,7 @@
                                 <div class="form-group">
                                     <span class="control-sidebar-subheading">
                                         <p:outputLabel id="toggle-menu-layout-label" value="Menu orientation" for="toggle-menu-layout"/>
-                                        <p:selectBooleanCheckbox value="#{adminLayoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right black" >
+                                        <p:selectBooleanCheckbox value="#{layoutMB.defaultTemplateSelected}" id="toggle-menu-layout" styleClass="pull-right black" >
                                             <p:ajax process="@none" update="@none" global="false" oncomplete="$('a[id$=link-toggle-layout]').click()" />
                                         </p:selectBooleanCheckbox>    
                                     </span>
@@ -73,7 +73,7 @@
                                 <div class="form-group">
                                     <span class="control-sidebar-subheading">
                                         <p:outputLabel id="sidebar-expand-hover-label" value=" Sidebar Expand on Hover" for="sidebar-expand-hover"/>
-                                        <p:selectBooleanCheckbox disabled="#{not adminLayoutMB.defaultTemplate}" id="sidebar-expand-hover" widgetVar="sidebarExpand" styleClass="pull-right black" />
+                                        <p:selectBooleanCheckbox disabled="#{not layoutMB.defaultTemplate}" id="sidebar-expand-hover" widgetVar="sidebarExpand" styleClass="pull-right black" />
                                     </span>
                                     <p>If checked the left sidebar will expand on hover.</p>
                                 </div>
