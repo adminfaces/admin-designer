@@ -133,9 +133,9 @@
                         <id>stop</id>
                     </execution>
                 </executions>
-                <configuration>
+<!--                <configuration>
                     <debug>8888</debug>
-                </configuration>
+                </configuration>-->
             </plugin>
             <plugin>
                 <groupId>biz.gabrys.maven.plugins</groupId>

@@ -274,22 +274,3 @@ $(function () {
 
 
 });
-
-function replaceSkinWith(newSkin, $this) {
-    $('.skin-link').each(function () {
-        $(this).addClass('full-opacity-hover');
-    });
-    $this.removeClass('full-opacity-hover');
-    var cl = $('body').attr("class").split(" ");
-    for (var i = 0; i < cl.length; i++) {
-        if (cl[i].startsWith('skin-')) {
-            $('body').removeClass(cl[i])
-        }
-    }
-    $('body').addClass(newSkin);
-
-}
-
-function updateSidebarToggle() {
-    $('.control-sidebar').addClass('control-sidebar-open');
-}
