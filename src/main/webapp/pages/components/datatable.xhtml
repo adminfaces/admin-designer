@@ -152,8 +152,12 @@
                     </p:dataTable>
                 </div>
 
-                <p:separator/>
+            </h:form>
+        </p:panel>
 
+        <p:separator/>
+        <p:panel header="Tree table" styleClass="card no-border" toggleable="true" toggleSpeed="300">
+            <h:form>
                 <div id="treetable">
                     <p:treeTable value="#{treeTableMB.root}" selectionMode="single"
                                  var="document" paginator="true" paginatorPosition="bottom" rows="2">
@@ -171,12 +175,12 @@
                         </p:column>
                         <p:column headerText="(p4)" priority="4">
                             <p:commandLink process="@none" update="@none" oncomplete="alert('view detail')"
-                                           title="View Detail" styleClass="ui-icon ui-icon-search"/>
+                                           title="View Detail" styleClass="fa fa-search" style="text-decoration: none"/>
                         </p:column>
                     </p:treeTable>
                 </div>
 
-                <p:separator/>
+                <h4>Multiple selection</h4>
                 <div id="treetable-multiple">
                     <p:treeTable value="#{treeTableMB.root}" selectionMode="checkbox"
                                  selection="#{treeTableMB.selectedNodes}"
@@ -196,7 +200,7 @@
                         </p:column>
                         <p:column headerText="(p4)" priority="4">
                             <p:commandLink process="@none" update="@none" oncomplete="alert('view detail')"
-                                           title="View Detail" styleClass="ui-icon ui-icon-search"/>
+                                           title="View Detail" styleClass="fa fa-search" style="text-decoration: none"/>
                         </p:column>
                     </p:treeTable>
                 </div>
@@ -306,7 +310,7 @@
                 </div>
             </div> 
         </p:panel>
-
+        <p:separator/>
         <p:panel header="Editable" styleClass="card no-border" toggleable="true" toggleSpeed="300">
             <h:form id="form">
                 <p:growl id="msgs" showDetail="true"/>
@@ -322,14 +326,18 @@
                     <p:column headerText="Id">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}" style="width:100%"/></f:facet>
+                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}"/></f:facet>
                         </p:cellEditor>
                     </p:column>
 
                     <p:column headerText="Year">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.year}" /></f:facet>
-                            <f:facet name="input"><p:inputText value="#{car.year}" style="width:100%" label="Year"/></f:facet>
+                            <f:facet name="input">
+                                <p:calendar value="#{car.year}" pattern="yyyy" showOn="both" yearRange="c-60:c+0" navigator="true" label="Year">
+                                    <f:converter converterId="calendarYearConverter"/>
+                                </p:calendar>
+                            </f:facet>
                         </p:cellEditor>
                     </p:column>
 
@@ -337,9 +345,9 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.brand}" /></f:facet>
                             <f:facet name="input">
-                                <h:selectOneMenu value="#{car.brand}" style="width:100%">
+                                <p:selectOneMenu value="#{car.brand}">
                                     <f:selectItems value="#{datatableEditMB.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
-                                </h:selectOneMenu>
+                                </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
@@ -348,14 +356,14 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.color}" /></f:facet>
                             <f:facet name="input">
-                                <h:selectOneMenu value="#{car.color}" style="width:100%">
+                                <p:selectOneMenu value="#{car.color}">
                                     <f:selectItems value="#{datatableEditMB.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
-                                </h:selectOneMenu>
+                                </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
 
-                    <p:column style="width:32px">
+                    <p:column style="width:40px">
                         <p:rowEditor />
                     </p:column>
                 </p:dataTable>
@@ -370,14 +378,18 @@
                     <p:column headerText="Id">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.id}" /></f:facet>
-                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}" style="width:96%"/></f:facet>
+                            <f:facet name="input"><p:inputText id="modelInput" value="#{car.id}"/></f:facet>
                         </p:cellEditor>
                     </p:column>
 
                     <p:column headerText="Year">
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.year}" /></f:facet>
-                            <f:facet name="input"><p:inputText value="#{car.year}" style="width:96%" label="Year"/></f:facet>
+                           <f:facet name="input">
+                                <p:calendar value="#{car.year}" pattern="yyyy" showOn="both" yearRange="c-60:c+0" navigator="true" label="Year">
+                                    <f:converter converterId="calendarYearConverter"/>
+                                </p:calendar>
+                            </f:facet>
                         </p:cellEditor>
                     </p:column>
 
@@ -385,9 +397,9 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.brand}" /></f:facet>
                             <f:facet name="input">
-                                <h:selectOneMenu value="#{car.brand}" style="width:100%">
+                                <p:selectOneMenu value="#{car.brand}">
                                     <f:selectItems value="#{datatableEditMB.brands}" var="man" itemLabel="#{man}" itemValue="#{man}" />
-                                </h:selectOneMenu>
+                                </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
@@ -396,17 +408,17 @@
                         <p:cellEditor>
                             <f:facet name="output"><h:outputText value="#{car.color}" /></f:facet>
                             <f:facet name="input">
-                                <h:selectOneMenu value="#{car.color}" style="width:100%">
+                                <p:selectOneMenu value="#{car.color}">
                                     <f:selectItems value="#{datatableEditMB.colors}" var="color" itemLabel="#{color}" itemValue="#{color}" />
-                                </h:selectOneMenu>
+                                </p:selectOneMenu>
                             </f:facet>
                         </p:cellEditor>
                     </p:column>
                 </p:dataTable>
 
                 <p:contextMenu for="cars2" widgetVar="cMenu">   
-                    <p:menuitem value="Edit Cell" icon="ui-icon-search" onclick="PF('cellCars').showCellEditor();return false;"/>  
-                    <p:menuitem value="Hide Menu" icon="ui-icon-close" onclick="PF('cMenu').hide()"/>  
+                    <p:menuitem value="Edit Cell" icon="fa fa-search" onclick="PF('cellCars').showCellEditor();return false;"/>  
+                    <p:menuitem value="Hide Menu" icon="fa fa-close" onclick="PF('cMenu').hide()"/>  
                 </p:contextMenu> 
 
             </h:form>
