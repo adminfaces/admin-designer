@@ -78,6 +78,10 @@ button.ui-button {
                 font-size: @font-awesome-icon2x-size 
             }
         }
+        
+        &.ui-button-text-icon-right, &.ui-button-text-icon-left  {
+            padding: 6px 16px;
+        }
     }
     &.btn-sm {
         .btn-sm;
@@ -285,6 +289,45 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
         border-width: 1px;
     }
 
+    &.btn-material {
+        background-color: transparent!important;
+        border: none!important;
+        .border-radius(2px);
+
+        > button {
+            .btn-material;
+        }
+        
+        button.ui-button.ui-splitbutton-menubutton  {
+            border: none;
+        }
+
+
+        &.btn-default > button {
+            .btn-interactions(@btn-background-color);
+            color: rgba(0,0,0,.87)!important;
+            span.ui-icon {
+                color: rgba(0,0,0,.87);
+            }
+        }
+
+        &.btn-success > button {
+            .btn-interactions(@btn-background-color);
+            color: @green!important;
+            span.ui-icon {
+                color: green;
+            }
+        }
+        
+        &.btn-primary > button {
+            .btn-interactions(@btn-background-color);
+            color: @light-blue!important;
+            span.ui-icon {
+                color: @light-blue;
+            }
+        }
+    }
+
 }
 
 .ui-splitbutton.btn-block {
@@ -305,8 +348,6 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
     }
 
 }
-
-
 
 .ui-splitbutton-menubutton span {
     &.ui-icon, &.ui-button-text {
@@ -555,15 +596,15 @@ body button, body button.ui-button.ui-widget  {
         background-color: rgba(153,153,153,.2);
         .box-shadow(none);
     }
-    
+
     &.btn-lg {
-      padding: 8px 30px;  
+        padding: 8px 30px;  
     }
-    
+
     &.btn-sm {
         padding: 5px 20px;
     }
-    
+
     &.btn-xs {
         padding: 4px 15px;
     }
@@ -571,6 +612,9 @@ body button, body button.ui-button.ui-widget  {
     &.btn-default {
         .btn-interactions(@btn-background-color);
         color: rgba(0,0,0,.87)!important;
+        span.ui-icon {
+            color: rgba(0,0,0,.87);
+        }
     }
 
     &.btn-primary {
@@ -625,7 +669,7 @@ body button, body button.ui-button.ui-widget  {
         .btn-interactions(@btn-background-color);
         color: @aqua!important;
         span.ui-icon {
-            color: @admin-teal;
+            color: @aqua;
         }
     }
 }
