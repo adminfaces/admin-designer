@@ -300,6 +300,7 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
         
         button.ui-button.ui-splitbutton-menubutton  {
             border: none;
+            .btn-interactions(@btn-background-color);
         }
 
 
@@ -599,6 +600,11 @@ body button, body button.ui-button.ui-widget  {
 
     &.btn-lg {
         padding: 8px 30px;  
+        
+        
+       &.ui-button-text-icon-right, &.ui-button-text-icon-left  {
+            padding: 4px 30px;
+        }
     }
 
     &.btn-sm {
