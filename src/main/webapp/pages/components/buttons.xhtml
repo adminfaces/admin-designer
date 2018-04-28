@@ -271,9 +271,9 @@
            function styleMaterialInputs() {
                var switchOn = PF('materialSwitch').input.attr('checked') === 'checked'; 
                if(switchOn) {
-                   $('form[id$=buttons').find('.ui-button').addClass('btn-material');
+                   $('form[id$=buttons').find('.ui-button, div.ui-splitbutton').not(".ui-splitbutton button").addClass('btn-material');
                } else {
-                   $('form[id$=buttons').find('.ui-button').removeClass('btn-material');
+                   $('form[id$=buttons').find('.ui-button, div.ui-splitbutton').not(".ui-splitbutton button").removeClass('btn-material');
                }
            }
            
