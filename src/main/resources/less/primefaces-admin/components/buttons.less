@@ -414,6 +414,12 @@ body .ui-menubutton {
 
     .border-radius(50%);
 
+    &.btn-material {
+        > button {
+            .btn-material;
+        }
+    }
+
     &.btn-primary > button {
         .btn-primary;
         .btn-interactions(@light-blue);
@@ -518,93 +524,108 @@ div.ui-selectbooleanbutton {
 }
 
 
-//flat buttons
+//material flat buttons
 
-body button, body button.ui-button.ui-widget {
+body button, body button.ui-button.ui-widget  {
 
     &.btn-material {
-        border: none;
-        border-radius: 2px;
-        position: relative;
-        padding: 8px 30px;
-        margin: 10px 1px;
-        font-size: 14px;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 0;
-        will-change: box-shadow,transform;
-        -webkit-transition: -webkit-box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-        -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-        transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
-        outline: 0;
-        cursor: pointer;
-        text-decoration: none;
-        background: 0 0!important;
+        .btn-material;
+    }
 
-        &:hover, &:focus {
-           background-color: rgba(153,153,153,.2);
-            .box-shadow(none);
+}
+
+.btn-material() {
+    border: none;
+    border-radius: 2px;
+    position: relative;
+    padding: 6px 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    will-change: box-shadow,transform;
+    -webkit-transition: -webkit-box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    -o-transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    transition: box-shadow .2s cubic-bezier(.4,0,1,1),background-color .2s cubic-bezier(.4,0,.2,1),color .2s cubic-bezier(.4,0,.2,1);
+    outline: 0;
+    cursor: pointer;
+    text-decoration: none;
+    background: 0 0!important;
+
+    &:hover, &:focus {
+        background-color: rgba(153,153,153,.2);
+        .box-shadow(none);
+    }
+    
+    &.btn-lg {
+      padding: 8px 30px;  
+    }
+    
+    &.btn-sm {
+        padding: 5px 20px;
+    }
+    
+    &.btn-xs {
+        padding: 4px 15px;
+    }
+
+    &.btn-default {
+        .btn-interactions(@btn-background-color);
+        color: rgba(0,0,0,.87)!important;
+    }
+
+    &.btn-primary {
+        .btn-interactions(@btn-background-color);
+        color: @light-blue!important;
+        span.ui-icon {
+            color: @light-blue;
         }
+    }
 
-        &.btn-default {
-             .btn-interactions(@btn-background-color);
-            color: rgba(0,0,0,.87)!important;
+    &.btn-danger {
+        .btn-interactions(@btn-background-color);
+        color: @red!important;
+        span.ui-icon {
+            color: @red;
         }
+    }
 
-        &.btn-primary {
-            .btn-interactions(@btn-background-color);
-            color: @light-blue!important;
-            span.ui-icon {
-                color: @light-blue;
-            }
+    &.btn-fatal {
+        .btn-interactions(@btn-background-color);
+        color: @dark-red!important;
+        span.ui-icon {
+            color: @dark-red;
         }
+    }
 
-        &.btn-danger {
-            .btn-interactions(@btn-background-color);
-            color: @red!important;
-            span.ui-icon {
-                color: @red;
-            }
+    &.btn-warning {
+        .btn-interactions(@btn-background-color);
+        color: @yellow!important;
+        span.ui-icon {
+            color: @yellow;
         }
+    }
 
-        &.btn-fatal {
-            .btn-interactions(@btn-background-color);
-            color: @dark-red!important;
-            span.ui-icon {
-                color: @dark-red;
-            }
+    &.btn-success {
+        .btn-interactions(@btn-background-color);
+        color: @green!important;
+        span.ui-icon {
+            color: @green;
         }
+    }
 
-        &.btn-warning {
-            .btn-interactions(@btn-background-color);
-            color: @yellow!important;
-            span.ui-icon {
-                color: @yellow;
-            }
+    &.btn-teal {
+        .btn-interactions(@btn-background-color);
+        color: @admin-teal!important;
+        span.ui-icon {
+            color: @admin-teal;
         }
+    }
 
-        &.btn-success {
-            .btn-interactions(@btn-background-color);
-            color: @green!important;
-            span.ui-icon {
-                color: @green;
-            }
-        }
-
-        &.btn-teal {
-            .btn-interactions(@btn-background-color);
-            color: @admin-teal!important;
-            span.ui-icon {
-                color: @admin-teal;
-            }
-        }
-
-        &.btn-info {
-            .btn-interactions(@btn-background-color);
-            color: @aqua!important;
-            span.ui-icon {
-                color: @admin-teal;
-            }
+    &.btn-info {
+        .btn-interactions(@btn-background-color);
+        color: @aqua!important;
+        span.ui-icon {
+            color: @admin-teal;
         }
     }
 }
