@@ -26,6 +26,12 @@
                 <span>Documentation</span>
             </a>
         </li>
+        <li>
+            <p:link href="/pages/analytics/analytics.xhtml">
+                <i class="fa fa-pie-chart"></i>
+                <span>Analytics</span>
+            </p:link>
+        </li>
         <li class="header">
             General
         </li>
@@ -46,6 +52,12 @@
                 <i class="fa fa-google"></i>
                 <span class="label label-danger pull-right" style="line-height: inherit">NEW</span>
                 <span>Material inputs</span>
+            </p:link>
+        </li>
+        <li>
+            <p:link href="/pages/components/messages.xhtml">
+                <i class="fa fa-envelope"></i>
+                <span>Messages</span>
             </p:link>
         </li>
         <li class="treeview">
@@ -106,15 +118,15 @@
                     </p:link>
                 </li>
                 <li>
-                    <p:link href="/pages/components/messages.xhtml">
-                        <i class="fa fa-envelope-o"></i>
-                        <span>Messages</span>
-                    </p:link>
-                </li>
-                <li>
                     <p:link href="/pages/components/panel.xhtml">
                         <i class="fa fa-window-maximize"></i>
                         <span>Panels</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link href="/pages/components/sidebar.xhtml" >
+                        <i class="fa fa-arrows-alt"></i>
+                        <span>Sidebar</span>
                     </p:link>
                 </li>
                 <li>
@@ -166,7 +178,6 @@
                         <span>Wizard</span>
                     </p:link>
                 </li>
-
             </ul>
         </li>
         <li class="treeview">
@@ -266,7 +277,7 @@
                 <span><b>Horizontal</b> layout</span>
             </p:link>
             <h:form prependId="false">
-                <p:commandLink id="link-horizontal-layout" action="#{layoutMB.toggleTemplate}" ajax="false"/>
+                <p:commandLink id="link-horizontal-layout" action="#{layoutMB.toggleTemplate()}" ajax="false"/>
             </h:form>
         </li>
 
