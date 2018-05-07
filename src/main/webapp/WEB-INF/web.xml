@@ -5,10 +5,9 @@
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
-    <!-- Change to "Production" when you are ready to deploy -->
     <context-param>
         <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
+        <param-value>Production</param-value>
     </context-param>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
@@ -27,12 +26,22 @@
         <param-name>primefaces.THEME</param-name>
         <param-value>admin</param-value>
     </context-param>
-    
     <context-param>
         <param-name>primefaces.MOVE_SCRIPTS_TO_BOTTOM</param-name>
         <param-value>true</param-value>
     </context-param>
-
+     <context-param>
+        <param-name>com.sun.faces.numberOfLogicalViews</param-name>
+        <param-value>6</param-value>
+    </context-param>
+    <context-param>
+        <param-name>com.sun.faces.numberOfViewsInSession</param-name>
+        <param-value>6</param-value>
+    </context-param>
+    <context-param>
+        <param-name>org.omnifaces.VIEW_SCOPE_MANAGER_MAX_ACTIVE_VIEW_SCOPES</param-name>
+        <param-value>6</param-value>
+    </context-param>
     <context-param>
         <param-name>primefaces.SUBMIT</param-name>
         <param-value>partial</param-value>
@@ -46,10 +55,10 @@
         <error-code>403</error-code>
         <location>/403.xhtml</location>
     </error-page>
-	<error-page>
-		<exception-type>com.github.adminfaces.template.exception.AccessDeniedException</exception-type>
-		<location>/403.xhtml</location>
-	</error-page>
+    <error-page>
+        <exception-type>com.github.adminfaces.template.exception.AccessDeniedException</exception-type>
+        <location>/403.xhtml</location>
+    </error-page>
     <error-page>
         <error-code>404</error-code>
         <location>/404.xhtml</location>
