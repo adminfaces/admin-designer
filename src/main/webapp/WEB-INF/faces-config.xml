@@ -12,6 +12,7 @@
         <locale-config>
             <supported-locale>en</supported-locale>
             <supported-locale>pt_BR</supported-locale>
+            <supported-locale>es_MX</supported-locale>
         </locale-config>
             
         <resource-bundle>
