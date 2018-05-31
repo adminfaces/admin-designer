@@ -10,7 +10,7 @@ $(document).on("pfAjaxComplete", function () {
             $messages.slideUp();
         }, readingTimeMillis);
     }
-
+    
     activateSidebarComponent();
 });
 
@@ -25,7 +25,7 @@ $(document).ready(function () {
             $messages.slideUp();
         }, readingTimeMillis);
     }
-
+    
     activateSidebarComponent()
 });
 
@@ -164,7 +164,7 @@ function removeBodyClass(clazz) {
 }
 
 function collapseSidebar() {
-    if (!$(document.body).hasClass('sidebar-collapse')) {
+    if (!$(document.body).hasClass('sidebar-collapse') && !$(document.body).hasClass('layout-top-nav')) {
         $(document.body).addClass('sidebar-collapse')
     }
 }
@@ -178,7 +178,7 @@ function expandSidebar() {
 function toggleSidebar() {
     if ($(document.body).hasClass('sidebar-collapse')) {
         $(document.body).removeClass('sidebar-collapse')
-    } else {
+    } else if(!$(document.body).hasClass('layout-top-nav')) {
         $(document.body).addClass('sidebar-collapse')
     }
 }
@@ -395,11 +395,11 @@ $(document).on("click", "div.ui-inputswitch", function () {
 
 
 /**
- *
- * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used
+ * 
+ * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used 
  * and user is on a mobele device (small screen)
- *
- *  This is needed because of conflict with slideoutjs
+ * 
+ *  This is needed because of conflict with slideoutjs 
  */
 function activateSidebarComponent() {
     if (isMobile()) {
