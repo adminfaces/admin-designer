@@ -223,7 +223,16 @@
                             <p:menuitem value="Homepage" url="http://www.primefaces.org"
                                         icon="fa fa-home" />
                         </p:menuButton>
- 
+                        
+                        <p:spacer height="5px"/>   
+                        <p:menuButton value="Options (.btn-material)" styleClass="btn-material btn-primary">
+                            <p:menuitem value="Save" icon="fa fa-check" />
+                            <p:menuitem value="Update" icon="fa fa-refresh" />
+                            <p:menuitem value="Delete" icon="fa fa-remove" />
+                            <p:separator />
+                            <p:menuitem value="Homepage" url="http://www.primefaces.org"
+                                        icon="fa fa-home" />
+                        </p:menuButton>
                         <h1 style="margin-top: 40px">ContextMenu</h1>
                         Right click!
                         <p:contextMenu>
@@ -359,7 +368,7 @@
                                 </p:column>
                             </p:submenu>
 
-                            <p:submenu label="Sports" icon="ui-icon-document">
+                            <p:submenu label="Sports" icon="fa fa-file">
 
                                 <p:column>
                                     <p:submenu label="Sports.1">
@@ -392,7 +401,7 @@
                                 </p:column>
                             </p:submenu>
 
-                            <p:submenu label="Entertainment" icon="fa fa-edit">
+                            <p:submenu label="Entertainment" icon="fa fa-youtube">
                                 <p:column>
                                     <p:submenu label="Entertainment.1">
                                         <p:menuitem value="Entertainment.1.1" url="#" />
@@ -418,7 +427,7 @@
                                 </p:column>
                             </p:submenu>
 
-                            <p:submenu label="Tech" icon="ui-icon-contact">
+                            <p:submenu label="Tech" icon="fa fa-qrcode">
                                 <p:column>
                                     <p:submenu label="Tech.1">
                                         <p:menuitem value="Tech.1.1" url="#" />
