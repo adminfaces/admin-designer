@@ -1,30 +1,64 @@
 /* Menus */
 
-.ui-tabmenu li.ui-state-active {
-    border: 1px solid #156090;
-    background: #186ba0;
-    color: #FFFFFF;
+//general
+li.ui-menuitem  { 
+
+    &:hover {
+        background: @hover-color;
+    }
+
+    a.ui-menuitem-link {
+
+        span.ui-menuitem-icon {
+            top: 1px;
+            margin-right: 4px;
+        }
+
+        .ui-icon-triangle-1-s, .ui-icon-triangle-1-e {
+            background-image: none;
+            display: inline-block;
+            top: 2px;
+            text-indent: 0;
+        }
+
+        .ui-icon-triangle-1-s:before {
+            font-family: 'Glyphicons Halflings';
+            color: @admin-text-color;
+            position: relative;
+            left: 5px;
+            top: -2px;
+            font-size: @glyphicon-icon-size!important;
+            overflow: hidden;
+            content: "\e259" !important;
+        }
+
+        .ui-icon-triangle-1-e:before {
+            font-family: 'Glyphicons Halflings';
+            color: @admin-text-color;
+            position: relative;
+            top: -2px;
+            font-size: @glyphicon-icon-size!important;
+            overflow: hidden;
+            content: "\e258" !important;
+        }
+    }
+
 }
 
-.ui-tabmenu li.ui-state-active .ui-menuitem-text {
-    color: #FFFFFF;
-}
+body .ui-menu {
 
-.ui-tabmenu li.ui-state-active .ui-menuitem-icon {
-    background-image: url("#{resource['primefaces-admin:images/ui-icons_ffffff_256x240.png']}");
-}
+    ul.ui-menu-list > li.ui-widget-header {
+        border: 0;
+        background: @light-blue;
+        color: #fff;
 
+        span.ui-icon:before {
+            color:#fff;
+        }
+    }
 
-/* SlideMenu */
+    //icones 
 
-.ui-slidemenu .ui-menu-child {
-    -webkit-box-shadow: none !important;
-    -moz-box-shadow: none !important;
-    box-shadow: none !important;
-}
-
-ul.ui-menu-list > li.ui-widget-header {
-    border: 0;
 }
 
 li.ui-menuitem > a.ui-menuitem-link {
@@ -35,6 +69,87 @@ body li.ui-menuitem span.ui-menuitem-text {
     padding-left: 2px;
 }
 
+/* menubar */
+div.ui-menu.ui-menubar {
+    padding: 0; 
+
+    li.ui-menuitem {
+        padding: .2em;
+    }
+}
+
+/* tabmenu */
+.ui-tabmenu {
+
+    li {
+        &.ui-state-active {
+            border: 1px solid darken(@light-blue, 5%);
+            background: @light-blue;
+            color: #FFFFFF;
+
+            .ui-menuitem-text {
+                color: #FFFFFF;
+            }
+
+            .ui-menuitem-icon:before {
+                color: #fff;
+            }
+
+        }
+
+        &.ui-state-hover {
+            background-color: @hover-color;
+        }
+
+        .ui-menuitem-icon {
+            display: inline-block;
+            margin: 3px;
+        }
+    }
+
+}
+
+
+
+.ui-tabmenu li.ui-state-active .ui-menuitem-icon {
+    background-image: url("#{resource['primefaces-admin:images/ui-icons_ffffff_256x240.png']}");
+}
+
+
+/* SlideMenu */
+
+.ui-slidemenu {
+
+    .ui-menu-child {
+        -webkit-box-shadow: none !important;
+        -moz-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .ui-slidemenu-backward {
+        margin-bottom: 0;
+        border: none;
+        color: transparent;
+        &:hover {
+            background: @hover-color;
+        }
+        .ui-icon-triangle-1-w {
+            text-indent: 0;
+            &:before {
+                font-family: FontAwesome;
+                color: @admin-text-color;
+                position: relative;
+                font-size: @font-awesome-icon-size;
+                overflow: hidden;
+                content: "\f112" !important;
+            }
+        }
+
+    }
+
+}
+
+
 body .ui-menu .ui-menu-list li.ui-widget-header {
     span.ui-icon-triangle-1-s {
         background-image: none;
@@ -42,12 +157,12 @@ body .ui-menu .ui-menu-list li.ui-widget-header {
         position: relative;
         left: -8px;
         &:before {
-            font-family: FontAwesome;
+            font-family: 'Glyphicons Halflings';
             color: @admin-text-color;
             position: relative;
-            font-size: @font-awesome-icon-size;
+            font-size: @glyphicon-icon-size;
             overflow: hidden;
-            content: "\f0d7" !important;
+            content: "\e259" !important;
         }
     }
     span.ui-icon-triangle-1-e {
@@ -56,15 +171,26 @@ body .ui-menu .ui-menu-list li.ui-widget-header {
         position: relative;
         left: -8px;
         &:before {
-            font-family: FontAwesome;
+            font-family: 'Glyphicons Halflings';
             color: @admin-text-color;
             position: relative;
-            font-size: @font-awesome-icon-size;
+            font-size: @glyphicon-icon-size;
             overflow: hidden;
-            content: "\f0da" !important;
+            content: "\e258" !important;
         }
     }
 }
+
+/* body .ui-menu .ui-menu-list li.ui-widget-header {
+        span {
+            &.ui-icon-triangle-1-s:before {
+                font-size: @glyphicon-icon-size;
+            }
+            &.ui-icon-triangle-1-e:before {
+                font-size: @glyphicon-icon-size;
+            }
+        }
+    }*/
 
 @media (max-width: @screen-sm) {
     body .ui-menu .ui-menu-list li.ui-widget-header {
@@ -72,7 +198,7 @@ body .ui-menu .ui-menu-list li.ui-widget-header {
             &.ui-icon-triangle-1-s,
             &.ui-icon-triangle-1-e {
                 &:before {
-                    font-size: @font-awesome-icon-size + 1;
+                    font-size: @glyphicon-icon-size + 1;
                 }
             }
         }
@@ -97,6 +223,16 @@ body .ui-menu.ui-menu-toggleable li.ui-widget-header h3 {
 /* panelmenu */
 
 body .ui-panelmenu {
+
+    .ui-panelmenu-header {
+
+        &.ui-state-active, &.ui-state-active a {
+            background: @light-blue;
+            color: #ffffff;
+            border: 1px solid darken(@light-blue, 5%);
+        }
+    }
+
     li.ui-menuitem span.ui-menuitem-text {
         padding-left: 0;
     }
@@ -116,12 +252,12 @@ body .ui-panelmenu {
                 left: 10px;
                 top: 15px;
                 &:before {
-                    font-family: FontAwesome;
-                    color: @admin-text-color;
+                    font-family: 'Glyphicons Halflings';
+                    color: #fff;
                     position: relative;
-                    font-size: @font-awesome-icon-size;
+                    font-size: @glyphicon-icon-size;
                     overflow: hidden;
-                    content: "\f0d7" !important;
+                    content: "\e259" !important;
                 }
             }
             .ui-icon-triangle-1-e {
@@ -133,57 +269,61 @@ body .ui-panelmenu {
                 left: 10px;
                 top: 15px;
                 &:before {
-                    font-family: FontAwesome;
+                    font-family: 'Glyphicons Halflings';
                     color: @admin-text-color;
                     position: relative;
-                    font-size: @font-awesome-icon-size;
+                    font-size: @glyphicon-icon-size;
                     overflow: hidden;
-                    content: "\f0da" !important;
+                    content: "\e258" !important;
                 }
             }
         }
-        span.ui-menuitem-icon {
-            left: .7em;
-        }
+
+    }//end header
+
+    a.ui-menuitem-link-hasicon span.ui-panelmenu-icon.ui-icon:before {
+        left:-25px!important;
     }
+
     .ui-menu-parent > .ui-menuitem-link {
         > .ui-icon {
-            left: 1.6em;
             top: 5px;
         }
         &.ui-menuitem-link-hasicon {
             padding-left: 2.5em;
         }
-    }
-    span.ui-panelmenu-icon.ui-icon {
-        &.ui-icon-triangle-1-e {
-            background-image: none;
-            display: inline;
-            position: relative;
-            &:before {
-                font-family: FontAwesome;
-                color: @admin-text-color;
+
+        span.ui-panelmenu-icon.ui-icon {
+            left: -4px;
+            &.ui-icon-triangle-1-e {
+                background-image: none;
+                display: inline;
                 position: relative;
-                left: -48px;
-                top: -4px;
-                font-size: @font-awesome-icon-size;
-                overflow: hidden;
-                content: "\f0da" !important;
+                &:before {
+                    font-family: 'Glyphicons Halflings';
+                    color: @admin-text-color;
+                    position: relative;
+                    left: -4px;
+                    top: -4px;
+                    font-size: @glyphicon-icon-size;
+                    overflow: hidden;
+                    content: "\e258" !important;
+                }
             }
-        }
-        &.ui-icon-triangle-1-s {
-            background-image: none;
-            display: inline;
-            position: relative;
-            &:before {
-                font-family: FontAwesome;
-                color: @admin-text-color;
+            &.ui-icon-triangle-1-s {
+                background-image: none;
+                display: inline;
                 position: relative;
-                left: -50px;
-                top: -4px;
-                font-size: @font-awesome-icon-size;
-                overflow: hidden;
-                content: "\f0d7" !important;
+                &:before {
+                    font-family: 'Glyphicons Halflings';
+                    color: @admin-text-color;
+                    position: relative;
+                    left: -5px;
+                    top: -4px;
+                    font-size: @glyphicon-icon-size;
+                    overflow: hidden;
+                    content: "\e259" !important;
+                }
             }
         }
     }
@@ -245,37 +385,4 @@ a.sidebar-toggle {
 
 li.ui-menuitem-active {
     background-color: #eeeeee;
-}
-
-li.ui-menuitem a.ui-menuitem-link .ui-icon { 
-
-    &.ui-icon-triangle-1-s, &.ui-icon-triangle-1-e {
-	    background-image: none;
-	    display: inline-block;
-	    top: 2px;
-	    text-indent: 0;
-    }
-   
-    &.ui-icon-triangle-1-s:before {
-        font-family: 'Glyphicons Halflings';
-        color: @admin-text-color;
-        position: relative;
-        left: 5px;
-        top: -2px;
-        font-size: @glyphicon-icon-size!important;
-        overflow: hidden;
-        content: "\e259" !important;
-    }
-    
-    &.ui-icon-triangle-1-e:before {
-        font-family: 'Glyphicons Halflings';
-        color: @admin-text-color;
-        position: relative;
-        top: -2px;
-        font-size: @glyphicon-icon-size!important;
-        overflow: hidden;
-        content: "\e258" !important;
-    }
-    
-    
 }
