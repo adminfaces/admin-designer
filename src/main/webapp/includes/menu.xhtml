@@ -21,7 +21,7 @@
             </p:link>
         </li>
         <li>
-            <a outcome="/docs/index.html" target="_blank">
+            <a href="#{request.contextPath}/docs/index.html" target="_blank">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
             </a>
@@ -114,6 +114,7 @@
                 <li>
                     <p:link outcome="/pages/components/menus.xhtml">
                         <i class="fa fa-list"></i>
+                        <span class="label label-danger pull-right" style="line-height: inherit">NEW</span>
                         <span>Menus</span>
                     </p:link>
                 </li>
@@ -124,7 +125,7 @@
                     </p:link>
                 </li>
                 <li>
-                    <p:link href="/pages/components/sidebar.xhtml" >
+                    <p:link outcome="/pages/components/sidebar.xhtml" >
                         <i class="fa fa-arrows-alt"></i>
                         <span>Sidebar</span>
                     </p:link>
