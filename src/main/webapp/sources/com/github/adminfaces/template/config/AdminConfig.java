@@ -94,7 +94,7 @@ public class AdminConfig implements Serializable {
         ignoredResources =  getProperty("admin.ignoredResources");
         loadingImage =  getProperty("admin.loadingImage");
         renderControlSidebar =  Boolean.parseBoolean(getProperty("admin.renderControlSidebar"));
-        leftMenuTemplate = Boolean.parseBoolean(getProperty("admin.leftMenuTemplate"));
+        leftMenuTemplate = Boolean.parseBoolean(getProperty("admin.controlSidebar.leftMenuTemplate"));
         
         boolean controlSidebarShowOnMobile = Boolean.parseBoolean(getProperty("admin.controlSidebar.showOnMobile"));
         controlSidebar = new ControlSidebarConfig(controlSidebarShowOnMobile);

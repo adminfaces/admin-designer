@@ -16,7 +16,7 @@
         <ui:insert name="head-end"/>
     </h:head>
 
-    <h:body styleClass="#{skinMB.skin} layout-top-nav hold-transition">
+    <h:body styleClass="#{not empty skin ? skin:skinMB.skin} layout-top-nav hold-transition">
 
         <style type="text/css">
 

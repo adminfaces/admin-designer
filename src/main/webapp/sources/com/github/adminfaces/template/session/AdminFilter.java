@@ -161,7 +161,7 @@ public class AdminFilter implements Filter {
     private void redirectToLogon(HttpServletRequest request, HttpServletResponse response) {
         try {
             String referer = request.getHeader("Referer");
-            String recoveryUrlParams = "";
+            String recoveryUrlParams;
             //get request parameters
             if (has(referer) && referer.contains("?")) {
                 recoveryUrlParams = referer.substring(referer.lastIndexOf("?") + 1);
