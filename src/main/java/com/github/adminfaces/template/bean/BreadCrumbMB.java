@@ -17,11 +17,11 @@ import static com.github.adminfaces.template.util.Assert.has;
 /**
  * Created by rafael-pestano on 30/11/16.
  */
-@SessionScoped
 @Named
+@SessionScoped
 public class BreadCrumbMB implements Serializable {
 
-    private ThreadLocal<Boolean> hasCleared = new ThreadLocal<>();
+    private transient ThreadLocal<Boolean> hasCleared = new ThreadLocal<>();
 
     @Inject
     protected AdminConfig adminConfig;
