@@ -1,6 +1,49 @@
 ul.nav.navbar-nav {
     li {
         display: block; //delimits ripple effect
-         position: relative;
+        position: relative;
     }
 }
+
+//search menu 
+div.navbar-collapse {
+    .navbar-form {
+        ul.navbar-nav {
+            background: #fff;
+            margin: 0;
+
+            li.dropdown.open {
+                > a.dropdown-toggle {
+                    padding: 0;
+                }
+
+                ul.dropdown-menu {
+                    margin-left: 7px;
+                    min-width: 196px;
+
+                    li {
+                        a {
+                            padding: 3px 15px;
+                            font-weight: 600;
+                            
+                            &:hover {
+                                background-color: #e1e3e9;
+                            }
+                            
+                            span {
+                                margin-left: -5px;
+                            }
+                        }
+                        
+                        a,i {
+                            color: #555;
+                        }
+
+                    }
+
+                }
+            }
+        }
+    }
+}
+

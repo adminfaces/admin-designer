@@ -33,10 +33,22 @@
         <form class="navbar-form navbar-left" role="search">
             <div class="form-group">
                 <input type="text" class="form-control" id="navbar-search-input"
-                       placeholder="Search" onkeyup="alert('TO DO')">
+                       placeholder="Search..." onclick="this.value = '';searchTopMenu('')" title="Filter menus by name"
+                       onkeyup="searchTopMenu(this.value)">
                 </input>
+                <ul class="nav navbar-nav" role="menu">
+
+                    <li class="dropdown" >
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"/>
+
+                        <ul class="dropdown-menu" role="menu">
+
+                        </ul>
+                    </li>     
+                </ul>    
             </div>
         </form>
+
     </ui:define>
 
     <ui:define name="content-end">
@@ -44,18 +56,18 @@
             <ui:insert name="code"/>
         </section>
     </ui:define>
-    
-     <!-- below is just an example on how to define more tabs for control sidebar --> 
+
+    <!-- below is just an example on how to define more tabs for control sidebar --> 
     <ui:define name="controlsidebar-tabs">
         <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
         <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
     </ui:define>
-     
-   <ui:define name="controlsidebar-content">
+
+    <ui:define name="controlsidebar-content">
         <ui:include src="/includes/controlsidebar-tabs-content.xhtml"/>
     </ui:define>
 
-   <ui:define name="footer">
+    <ui:define name="footer">
         <a target="_blank"
            href="https://github.com/adminfaces">
             Copyright (C) 2017 - AdminFaces
@@ -65,11 +77,32 @@
         </div>
 
         <script type="text/javascript">
-            if(isMobile()) {
-                $('a.ui-link').click(function() {
+            if (isMobile()) {
+                $('a.ui-link').click(function () {
                     $(this).prop('disabled', true);
                     showBar();
                 });
+            }
+
+            function searchTopMenu(criteria) {
+                //<![CDATA[
+                
+                $('.navbar-form li.dropdown').addClass('open');
+                var menuResults = $('.navbar-form ul.dropdown-menu[role="menu"]');
+                if (criteria != null && criteria.length >= 2) {
+                    criteria = criteria.toLowerCase();
+                    
+                     $('ul.nav.navbar-nav ul.dropdown-menu[role="menu"] > li').each(function () {
+                         var linkText = $(this).find('a span');
+                         if(linkText && linkText.html().toLowerCase().indexOf(criteria) !== -1) {
+                              console.log($(this).html());
+                               menuResults.append("<li>").append($(this)).append("</li>");
+                         }
+                     });
+
+                }
+                
+                //]]>
             }
         </script>
     </ui:define>
