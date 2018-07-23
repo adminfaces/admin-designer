@@ -29,28 +29,6 @@
         <ui:include src="/includes/top-menu.xhtml"/>
     </ui:define>
 
-    <ui:define name="menu-end">
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" id="navbar-search-input"
-                       placeholder="Search..." onclick="this.value = '';searchTopMenu('')" title="Filter menus by name"
-                       onkeyup="searchTopMenu(this.value)">
-                </input>
-                <ul class="nav navbar-nav" role="menu">
-
-                    <li class="dropdown" >
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true"/>
-
-                        <ul class="dropdown-menu" role="menu">
-
-                        </ul>
-                    </li>     
-                </ul>    
-            </div>
-        </form>
-
-    </ui:define>
-
     <ui:define name="content-end">
         <section class="content">
             <ui:insert name="code"/>
@@ -82,27 +60,6 @@
                     $(this).prop('disabled', true);
                     showBar();
                 });
-            }
-
-            function searchTopMenu(criteria) {
-                //<![CDATA[
-                
-                $('.navbar-form li.dropdown').addClass('open');
-                var menuResults = $('.navbar-form ul.dropdown-menu[role="menu"]');
-                if (criteria != null && criteria.length >= 2) {
-                    criteria = criteria.toLowerCase();
-                    
-                     $('ul.nav.navbar-nav ul.dropdown-menu[role="menu"] > li').each(function () {
-                         var linkText = $(this).find('a span');
-                         if(linkText && linkText.html().toLowerCase().indexOf(criteria) !== -1) {
-                              console.log($(this).html());
-                               menuResults.append("<li>").append($(this)).append("</li>");
-                         }
-                     });
-
-                }
-                
-                //]]>
             }
         </script>
     </ui:define>
