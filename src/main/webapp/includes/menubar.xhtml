@@ -9,17 +9,6 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">General <span
                     class="caret"></span></a>
             <ul class="dropdown-menu multi-level" role="menu">
-                <li class="dropdown-submenu">
-                    <a tabindex="-1" href="#">Hover me for more options</a>
-                    <ul class="dropdown-menu">
-                        <li>
-                            <p:link outcome="/pages/exception/exception.xhtml">
-                                <i class="fa fa-stack-overflow"></i>
-                                <span>Exceptions sub</span>
-                            </p:link>
-                        </li>
-                    </ul>
-                </li>
                 <li>
                     <p:link outcome="/pages/exception/exception.xhtml">
                         <i class="fa fa-stack-overflow"></i>
@@ -44,6 +33,27 @@
                         <i class="fa fa-envelope"></i>
                         <span>Messages</span>
                     </p:link>
+                </li>
+                <li class="dropdown-submenu">
+                    <a tabindex="-1" href="#">
+                        <span>Multilevel menu</span>
+                        <i class="fa fa-share"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li style="min-width: 180px">
+                            <p:link outcome="/pages/exception/exception.xhtml">
+                                <i class="fa fa-stack-overflow"></i>
+                                <span>Exceptions submenu</span>
+                            </p:link>
+                        </li>
+
+                        <li>
+                            <p:link outcome="/pages/components/messages.xhtml">
+                                <i class="fa fa-envelope"></i>
+                                <span>Messages sub</span>
+                            </p:link>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </li>
