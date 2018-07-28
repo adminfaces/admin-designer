@@ -273,13 +273,10 @@
             </p:link>
         </li>
         <li>
-            <p:link href="/horizontal-layout" onclick="$('#link-horizontal-layout').click();store('layout.default-template', false);return false">
+            <p:link href="/horizontal-layout" onclick="$('#toggle-menu-layout-label').click();return false">
                 <i class="fa fa-credit-card"></i>
                 <span><b>Horizontal</b> layout</span>
             </p:link>
-            <h:form prependId="false">
-                <p:commandLink id="link-horizontal-layout" action="#{layoutMB.toggleTemplate()}" ajax="false"/>
-            </h:form>
         </li>
 
     </ul>
