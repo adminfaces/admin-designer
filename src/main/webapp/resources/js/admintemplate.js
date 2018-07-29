@@ -61,7 +61,7 @@ function activateMenu(url, activated) {
 
 function activateMobileBar() {
     if (isMobile()) {
-        $('ul.sidebar-menu a.ui-link, ul.navbar-nav li a.ui-link, ol.breadcrumb a').click(function () {
+        $('ul.sidebar-menu a.ui-link, ul.navbar-nav li a.ui-link:not(#layout-setup), ol.breadcrumb a').click(function () {
             $(this).prop('disabled', true);
             showBar();
         });
@@ -140,7 +140,6 @@ function searchLeftMenu(criteria) {
     $('#menu-search').show();
     $('#menu-search li.dropdown').addClass('open');
     var menuResults = $('#menu-search ul.dropdown-menu[role="menu"]');
-    console.log($('#menu-search ul.dropdown-menu[role="menu"]').html());
     $('#menu-search li.dropdown li').remove();
 
     if (criteria != null && criteria.length >= 2) {
