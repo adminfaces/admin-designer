@@ -19,23 +19,23 @@
             }
 
             @media (max-width: 768px) {
-                
+
                 body div.ui-growl {
                     display: none;
                 }
-                
-               body div.ui-messages-error {
+
+                body div.ui-messages-error {
                     display: block;
                 }
 
             }
 
             @media (min-width: 769px) {
-              body div.ui-growl {
+                body div.ui-growl {
                     display: block;
                 }
 
-              body div.ui-messages-error {
+                body div.ui-messages-error {
                     display: none;
                 }
             }
@@ -129,22 +129,22 @@
             <!-- /.login-box-body -->
         </div>
 
-        <section class="content">
-            <div class="pull-right" style="color: gray;margin-top: -20px">
-                Page views: <p:link id="link-stats" href="#"> <span
-                        style="font-weight: 600"> #{analyticsMB.pageStats.totalPageViews}</span></p:link>
-            </div>
-            <p:tabView>
-                <p:tab title="logon.xhtml">
-                    <pre>
+        <p:panel closable="true" closeSpeed="1000" header="Sources" styleClass="card no-border">
+                <div class="pull-right" style="color: gray;margin-top: -20px">
+                    Page views: <p:link id="link-stats" href="#"> <span
+                            style="font-weight: 600"> #{analyticsMB.pageStats.totalPageViews}</span></p:link>
+                </div>
+                <p:tabView >
+                    <p:tab title="logon.xhtml">
+                        <pre>
                <code class="language-html">
                    <h:outputText value="#{sourceCodeMB.getPageSource()}" escape="true"/>
                </code>
-                    </pre>
-                </p:tab>
+                        </pre>
+                    </p:tab>
 
-            </p:tabView>
-        </section>
+                </p:tabView>
+        </p:panel>
         <h:outputScript library="js" name="prism.js"  target="head"/>
         <h:outputScript library="js" name="admintemplate.js"  target="head"/>
         <adm:ripple/>
