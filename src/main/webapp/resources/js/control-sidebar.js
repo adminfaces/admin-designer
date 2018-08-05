@@ -208,6 +208,10 @@ $(function () {
         var optionSelector = id.concat(" ,").concat(id).concat(" span.ui-chkbox-icon, ").concat(id).concat("-label");
         $(optionSelector).removeClass('ui-state-disabled');
     }
+    
+    function isErrorPage() {
+    	return $('div.error-content').length > 0;
+    }
 
     function restoreDefaults() {
         store('layout.skin', null);
