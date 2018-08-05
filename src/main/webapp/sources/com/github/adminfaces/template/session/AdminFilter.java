@@ -31,7 +31,7 @@ import static com.github.adminfaces.template.util.Assert.has;
 @WebFilter(urlPatterns = {"/*"})
 public class AdminFilter implements Filter {
 
-    private static final String FACES_RESOURCES = "javax.faces.resource";
+    private static final String FACES_RESOURCES = "/javax.faces.resource";
     private static final Logger log = Logger.getLogger(AdminFilter.class.getName());
 
     private boolean disableFilter;
@@ -45,7 +45,7 @@ public class AdminFilter implements Filter {
     @Inject
     AdminConfig adminConfig;
 
-    private List<String> ignoredResources = new ArrayList<>();
+    private final List<String> ignoredResources = new ArrayList<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -111,7 +111,6 @@ public class AdminFilter implements Filter {
             return;
         }
 
-
         if (skipResource(request, response) || adminSession.isLoggedIn()) {
             if (!adminSession.isUserRedirected() && adminSession.isLoggedIn() && has(request.getHeader("Referer")) && request.getHeader("Referer").contains("?page=")) {
                 adminSession.setUserRedirected(true);
@@ -153,8 +152,9 @@ public class AdminFilter implements Filter {
      * @return true if resource must be skipped by the filter false otherwise
      */
     private boolean skipResource(HttpServletRequest request, HttpServletResponse response) {
-        String path = request.getServletPath().replaceAll("/", "");
-        boolean skip = path.startsWith(FACES_RESOURCES) || ignoredResources.contains(path) || response.getStatus() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+        String path = request.getServletPath();
+        path = path.substring(0,path.lastIndexOf("."));
+        boolean skip = path.startsWith(FACES_RESOURCES) || shouldIgnoreResource(path) || response.getStatus() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
         return skip;
     }
 
@@ -212,6 +212,20 @@ public class AdminFilter implements Filter {
         return !recoveryUrl.toString().contains(Constants.DEFAULT_INDEX_PAGE.replace("xhtml", pageSuffix)) && !recoveryUrl.toString().contains(Constants.DEFAULT_ACCESS_DENIED_PAGE.replace("xhtml", adminConfig.getPageSufix())) 
                 && !recoveryUrl.toString().contains(Constants.DEFAULT_EXPIRED_PAGE.replace("xhtml", pageSuffix)) && !recoveryUrl.toString().contains(Constants.DEFAULT_OPTIMISTIC_PAGE.replace("xhtml", adminConfig.getPageSufix()))
                 && !recoveryUrl.toString().contains(Constants.DEFAULT_LOGIN_PAGE.replace("xhtml", adminConfig.getPageSufix()));
+    }
+
+    /**
+     * 
+     * @param path
+     * @return true if requested path starts with a ignored resource (configured in admin-config.properties)
+     */
+    private boolean shouldIgnoreResource(String path) {
+        for (String ignoredResource : ignoredResources) {
+            if(path.startsWith(ignoredResource)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }
