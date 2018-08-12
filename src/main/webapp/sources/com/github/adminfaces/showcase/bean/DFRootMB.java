@@ -21,10 +21,7 @@ public class DFRootMB implements Serializable {
     public void openLevel1() {
         Map<String, Object> options = new HashMap<String, Object>();
         options.put("modal", true);
-        options.put("id", "level1");
         options.put("appendTo", "@(body)");
-        options.put("styleClass", "dlg1");
-        options.put("fontsize", "555");
         RequestContext.getCurrentInstance().openDialog("level1", options, null);
     }
 
