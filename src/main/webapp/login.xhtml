@@ -49,19 +49,6 @@
                 background-size: cover;
             }
 
-            body .login-logo {
-                margin: 20px;
-                text-align: right;
-                font-size: 60px;
-                font-weight: 500
-            }
-
-            @media (max-width: 1024px) {
-                body .login-logo {
-                    text-align: center;
-                }
-            }
-
         </style>
     </h:head>
 
@@ -73,6 +60,11 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
+        
+        <p:dialog id="adminStatusDialog" modal="true" widgetVar="statusDialog" draggable="false" closable="false"
+                  resizable="false" responsive="true" showHeader="false" appendTo="@(body)">
+            <p:graphicImage library="images" name="#{adminConfig.loadingImage}"/>
+        </p:dialog>
 
         <div class="login-box">
             <div class="login-logo">
