@@ -31,7 +31,7 @@ import static com.github.adminfaces.template.util.Assert.has;
 @WebFilter(urlPatterns = {"/*"})
 public class AdminFilter implements Filter {
 
-    private static final String FACES_RESOURCES = "javax.faces.resource";
+    private static final String FACES_RESOURCES = "/javax.faces.resource";
     private static final Logger log = Logger.getLogger(AdminFilter.class.getName());
 
     private boolean disableFilter;
@@ -45,7 +45,7 @@ public class AdminFilter implements Filter {
     @Inject
     AdminConfig adminConfig;
 
-    private List<String> ignoredResources = new ArrayList<>();
+    private final List<String> ignoredResources = new ArrayList<>();
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -73,12 +73,17 @@ public class AdminFilter implements Filter {
                 loginPage = loginPage.startsWith("/") ? loginPage.substring(1) : loginPage;
                 indexPage = indexPage.startsWith("/") ? indexPage.substring(1) : indexPage;
 
-                ignoredResources.add(loginPage);
-                ignoredResources.add(errorPage);
+                ignoredResources.add("/"+loginPage.substring(0,loginPage.lastIndexOf(".")));//we need leading slash for ignoredResources
+                ignoredResources.add("/"+errorPage.substring(0,errorPage.lastIndexOf(".")));
 
                 String configuredResouces = adminConfig.getIgnoredResources();
                 if(has(configuredResouces)) {
                     this.ignoredResources.addAll(Arrays.asList(configuredResouces.split(",")));
+                    for (String ignoredResource : ignoredResources) {
+                        if(!ignoredResource.startsWith("/")) { //we need leading slash for ignoredResources beucase getServletPath (in this#skipResource) returns a string with leading slash 
+                            ignoredResources.set(ignoredResources.indexOf(ignoredResource), "/" + ignoredResource);
+                        }
+                    }
                 }
 
             } catch (Exception e) {
@@ -110,7 +115,6 @@ public class AdminFilter implements Filter {
             chain.doFilter(req, resp);
             return;
         }
-
 
         if (skipResource(request, response) || adminSession.isLoggedIn()) {
             if (!adminSession.isUserRedirected() && adminSession.isLoggedIn() && has(request.getHeader("Referer")) && request.getHeader("Referer").contains("?page=")) {
@@ -153,8 +157,11 @@ public class AdminFilter implements Filter {
      * @return true if resource must be skipped by the filter false otherwise
      */
     private boolean skipResource(HttpServletRequest request, HttpServletResponse response) {
-        String path = request.getServletPath().replaceAll("/", "");
-        boolean skip = path.startsWith(FACES_RESOURCES) || ignoredResources.contains(path) || response.getStatus() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
+        String path = request.getServletPath();
+        if(path.contains(".")) {
+            path = path.substring(0,path.lastIndexOf("."));
+        }
+        boolean skip = path.startsWith(FACES_RESOURCES) || shouldIgnoreResource(path) || response.getStatus() == HttpServletResponse.SC_INTERNAL_SERVER_ERROR;
         return skip;
     }
 
@@ -212,6 +219,20 @@ public class AdminFilter implements Filter {
         return !recoveryUrl.toString().contains(Constants.DEFAULT_INDEX_PAGE.replace("xhtml", pageSuffix)) && !recoveryUrl.toString().contains(Constants.DEFAULT_ACCESS_DENIED_PAGE.replace("xhtml", adminConfig.getPageSufix())) 
                 && !recoveryUrl.toString().contains(Constants.DEFAULT_EXPIRED_PAGE.replace("xhtml", pageSuffix)) && !recoveryUrl.toString().contains(Constants.DEFAULT_OPTIMISTIC_PAGE.replace("xhtml", adminConfig.getPageSufix()))
                 && !recoveryUrl.toString().contains(Constants.DEFAULT_LOGIN_PAGE.replace("xhtml", adminConfig.getPageSufix()));
+    }
+
+    /**
+     * 
+     * @param path
+     * @return true if requested path starts with a ignored resource (configured in admin-config.properties)
+     */
+    private boolean shouldIgnoreResource(String path) {
+        for (String ignoredResource : ignoredResources) {
+            if(path.startsWith(ignoredResource)) {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

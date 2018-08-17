@@ -213,8 +213,45 @@ body hr.ui-separator.ui-state-default {
 }
 
 //template breadcrumb icon
-body .content-header>.breadcrumb>li+li:before {
-    content: '\e258';
-    font-family: 'Glyphicons Halflings';
-    font-size: 8px;
+body .content-header>.breadcrumb {
+
+    >li+li {
+        &:before {
+            content: '\e258';
+            font-family: 'Glyphicons Halflings';
+            font-size: 8px;
+        }
+
+    }
+
+    i.fa-home {
+        padding-right: 2px;
+    }
+    
+    a:hover:not(#link-home) {
+    	opacity: .7;
+    }
+
+}
+
+.scroll-top {
+    display:none;
+    position: fixed; 
+    bottom: 10px; 
+    right: 20px; 
+    width: 34px; 
+    height: 34px; 
+    color: rgb(238, 238, 238); 
+    line-height: 34px; 
+    text-align: center; 
+    background-color: rgb(34, 45, 50); 
+    cursor: pointer; 
+    border-radius: 50%; 
+    z-index: 99999; 
+    opacity: 0.7;
+
+    .fa {
+        position:relative;
+        top: -2px
+    }
 }

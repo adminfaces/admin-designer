@@ -2,11 +2,9 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
       xmlns:adm="http://github.com/adminfaces"
       xmlns:p="http://primefaces.org/ui">
 
-<f:view contentType="text/html">
     <h:head>
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -15,23 +13,52 @@
         <h:outputStylesheet library="css" name="prism.css"/>
 
         <style type="text/css">
+ 
+
             @media (max-width: 768px) {
-                div.ui-growl {
-                    display: none!important;
+
+                body div.ui-growl {
+                    display: none;
                 }
 
-                div.ui-messages-error {
-                    display: block!important;
+                body div.ui-messages {
+                    display: block;
                 }
+
             }
 
             @media (min-width: 769px) {
-                div.ui-growl {
-                    display: block!important;
+                body div.ui-growl {
+                    display: block;
                 }
 
-                div.ui-messages-error {
-                    display: none!important;
+                body div.ui-messages {
+                    display: none;
+                }
+            }
+
+            body.login-page {
+                background-color: transparent;
+            }
+
+            html {
+                background: url(#{resource[ 'images:login-bg.jpg' ]}) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;
+            }
+
+            body .login-logo {
+                margin: 20px;
+                text-align: right;
+                font-size: 60px;
+                font-weight: 500
+            }
+
+            @media (max-width: 1024px) {
+                body .login-logo {
+                    text-align: center;
                 }
             }
 
@@ -66,7 +93,7 @@
                         <p:inputText value="#{logonMB.password}" type="password" styleClass="form-control"
                                      placeholder="Password" required="true" autocomplete="off"
                                      requiredMessage="Password is required."/>
-                        <i class="fa fa-lock form-control-feedback" ></i>
+                        <i class="fa fa-lock form-control-feedback" style="font-size: 18px" ></i>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
@@ -99,31 +126,25 @@
             <!-- /.login-box-body -->
         </div>
 
-        <section class="content">
-            <div class="pull-right" style="color: gray;margin-top: -20px">
-                Page views: <p:link id="link-stats" href="#"> <span
-                    style="font-weight: 600"> #{analyticsMB.pageStats.totalPageViews}</span></p:link>
-            </div>
-            <p:tabView>
-                <p:tab title="logon.xhtml">
-           <pre>
+        <p:panel closable="true" closeSpeed="1000" header="Sources" styleClass="card no-border" style="margin:10px">
+                <div class="pull-right" style="color: gray;margin-top: -20px">
+                    Page views: <p:link id="link-stats" href="#"> <span
+                            style="font-weight: 600"> #{analyticsMB.pageStats.totalPageViews}</span></p:link>
+                </div>
+                <p:tabView >
+                    <p:tab title="logon.xhtml">
+                        <pre>
                <code class="language-html">
                    <h:outputText value="#{sourceCodeMB.getPageSource()}" escape="true"/>
                </code>
-           </pre>
-                </p:tab>
+                        </pre>
+                    </p:tab>
 
-            </p:tabView>
-        </section>
+                </p:tabView>
+        </p:panel>
         <h:outputScript library="js" name="prism.js"  target="head"/>
         <h:outputScript library="js" name="admintemplate.js"  target="head"/>
         <adm:ripple/>
 
-        <style type="text/css">
-            body .load-bar {
-                margin-top: -20px;
-            }
-        </style>
     </h:body>
-</f:view>
 </html>

@@ -20,7 +20,7 @@ public class DFLevel1MB implements Serializable {
         Map<String, Object> options = new HashMap<String, Object>();
         options.put("modal", true);
         options.put("appendTo", "@(body)");
-        options.put("style", "z-index:10001");
+        options.put("styleClass", "dlg2");
         RequestContext.getCurrentInstance().openDialog("level2", options, null);
     }
 

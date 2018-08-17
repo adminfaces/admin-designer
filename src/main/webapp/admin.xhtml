@@ -98,36 +98,37 @@
             </aside>
             <!-- content -->
             <div id="content" class="content-wrapper">
-                <adm:breadcrumb title="#{title}" rendered="#{not empty title and empty requestScope['javax.servlet.error.exception_type']}"/>
+                <adm:breadcrumb title="#{title}" rendered="#{not empty title and empty requestScope['javax.servlet.error.exception_type'] and empty requestScope['javax.servlet.error.message']}"/>
                 <ui:insert name="content-wrapper"/>
                 <section class="content-header">
                     <h1>
                         <ui:insert name="title">
-                            <h:outputText value="#{title}" rendered="#{not empty title and empty requestScope['javax.servlet.error.exception_type']}"/>
+                            <h:outputText value="#{title}" rendered="#{not empty title and empty requestScope['javax.servlet.error.exception_type'] and empty requestScope['javax.servlet.error.message']}"/>
                         </ui:insert>
                         <small><ui:insert name="description"/></small>
                     </h1>
-                    <ui:fragment rendered="#{(adminConfig.renderBreadCrumb) and (empty renderBreadCrumb or renderBreadCrumb) and (empty requestScope['javax.servlet.error.exception_type'])}">
-                        <ol class="breadcrumb" style="overflow: hidden;">
-                            <li style="position: relative;">
-                                <a href="#{request.contextPath}/" onclick="clearBreadCrumbs();" style="position: relative;">
-                                    <i class="fa fa-home"></i>
-                                    #{adm['label.home']}
-                                </a>
-                            </li>
-                            <ui:repeat value="#{breadCrumbMB.breadCrumbs}" var="b" varStatus="status">
-                                <li class="#{status.last ? 'active':''}">
-                                    <h:panelGroup rendered="#{status.last}">
-                                        #{b.title}
-                                    </h:panelGroup>
-                                    <h:panelGroup rendered="#{not status.last}">
-                                        <a href="#{request.contextPath.concat(b.link)}" style="color: #3C8DBC;position: relative">
-                                            #{b.title}
-                                        </a>
-                                    </h:panelGroup>
+                    <ui:fragment rendered="#{(adminConfig.renderBreadCrumb) and (empty renderBreadCrumb or renderBreadCrumb) and (empty requestScope['javax.servlet.error.exception_type'] and empty requestScope['javax.servlet.error.message'])}">
+                            <ol class="breadcrumb" style="overflow: hidden;">
+                                <li style="position: relative;">
+                                    <h:form prependId="false">
+                                        <p:commandLink id="link-home" action="#{breadCrumbMB.clearAndHome}" process="@this" update="@none">
+                                            <i class="fa fa-home"></i><h:outputText value="#{adm['label.home']}"/>
+                                        </p:commandLink>
+                                    </h:form>
                                 </li>
-                            </ui:repeat>
-                        </ol>
+                                <ui:repeat value="#{breadCrumbMB.breadCrumbs}" var="b" varStatus="status">
+                                    <li class="#{status.last ? 'active':''}">
+                                        <h:panelGroup rendered="#{status.last}">
+                                            #{b.title}
+                                        </h:panelGroup>
+                                        <h:panelGroup rendered="#{not status.last}">
+                                            <a href="#{request.contextPath.concat(b.link)}" style="color: #3C8DBC;position: relative">
+                                                #{b.title}
+                                            </a>
+                                        </h:panelGroup>
+                                    </li>
+                                </ui:repeat>
+                            </ol>
                     </ui:fragment>
                     <ui:insert name="content-header"/>
                 </section>
@@ -155,14 +156,8 @@
             <footer class="main-footer">
                 <ui:insert name="footer"/>
             </footer>
-            <h:form>
-                <p:remoteCommand name="clearBreadCrumbs" actionListener="#{breadCrumbMB.clear}" process="@this"
-                                 update="@(.breadcrumb)" partialSubmit="true" global="false"/>
-            </h:form>
-            <div id="scrollTop" class="ripplelink"
-                 style="display:none;position: fixed; bottom: 10px; right: 20px; width: 34px; height: 34px; color: rgb(238, 238, 238); line-height: 34px; text-align: center; background-color: rgb(34, 45, 50); cursor: pointer; border-radius: 50%; z-index: 99999; opacity: 0.7;"
-                 onclick="window.scrollTo(0, 0)">
-                <i class="fa fa-chevron-up" style="position:relative;top: -2px"></i>
+            <div id="scrollTop" class="ripplelink scroll-top" onclick="window.scrollTo(0, 0)">
+                <i class="fa fa-chevron-up"></i>
             </div>
 
             <ui:insert name="wrapper-end"/>
