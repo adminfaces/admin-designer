@@ -2,13 +2,23 @@
 
 $(document).on("pfAjaxComplete", function () {
     activateSidebarComponent();
+    activateRippleIcons();
 });
 
 $(document).ready(function () {
     activateSidebarComponent();
     activateMenu(window.location.pathname, false);
     activateMobileBar();
+    activateRippleIcons();
 });
+
+function activateRippleIcons() {
+    $(document.body).on('mousedown', '.ui-panel-titlebar span.ui-icon, .ui-paginator span.ui-icon', null, function (e) {
+                $(this).addClass("icon-ripple");
+            }).on('mouseup, mouseleave', '.ui-panel-titlebar span.ui-icon, .ui-paginator span.ui-icon', null, function (e) {
+                $(this).removeClass("icon-ripple");
+            });
+}
 
 function stripTrailingSlash(str) {
     if (str && str.substr(-1) == '/') {
