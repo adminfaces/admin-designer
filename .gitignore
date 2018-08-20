@@ -45,3 +45,5 @@ theme.css
 
 #linux te files
 *~
+/build/
+/bin/

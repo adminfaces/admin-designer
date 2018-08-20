@@ -21,11 +21,15 @@ body .ui-tree {
                 color: @admin-text-color;
                 position: relative;
                 margin: 0 7px;
-                font-weight: bold;
                 top: -5px;
                 font-size: @glyphicon-icon-size;
                 overflow: hidden;
                 content: "\e258" !important;
+                
+               //make menu icons 'fat' on wider screens
+				@media (min-width: (@screen-md + 1)) {
+					font-weight: bold;
+				}
             }
         }
 
@@ -38,18 +42,20 @@ body .ui-tree {
                 color: @admin-text-color;
                 position: relative;
                 margin: 0 7px;
-                font-weight: bold;
                 top: -5px;
                 font-size: @glyphicon-icon-size;
                 overflow: hidden;
                 content: "\e259" !important;
+                @media (min-width: (@screen-md + 1)) {
+					font-weight: bold;
+				}
             }
         }
         &.icon-ripple {
             margin-left: -4px;
 
             ~ .ui-treenode-icon {
-                margin-left: -4px;
+                overflow: visible;
             }
         }
 
@@ -74,6 +80,14 @@ body .ui-tree {
         .ui-icon-check:before {
             color: #444;   
             font-size: (@font-awesome-icon-size - 1);
+        }
+        
+        .ui-tree-toggler.icon-ripple {
+        	 margin-left: -8px;
+        	 
+        	 &:before {
+        	 	left:4px;
+        	 }
         }
 
     }
@@ -119,15 +133,28 @@ body .ui-tree.ui-tree-horizontal {
         }
     }
 
-    span.ui-tree-toggler:before {
-        font-size: @font-awesome-icon-size - 2;
-    }
+    span.ui-tree-toggler {
+    
+	    &:before {
+	        font-size: @font-awesome-icon-size - 2;
+	    }
+	    
+	    &.icon-ripple {
+            margin-left: 0px;
 
-    span.ui-tree-toggler.ui-icon:before {
-        top: 0;
-        margin: 0 2px;
+            ~ .ui-treenode-icon {
+                margin-left: 0px;
+                overflow: visible;
+            }
+        }
+        
+        &.ui-icon:before {
+	        top: 0;
+	        margin: 0 2px;
+    	}
+    
     }
-
+    
     .ui-treenode-parent .ui-treenode-content {
         padding: .6em 2em .6em .2em;
     }
