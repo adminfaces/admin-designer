@@ -13,9 +13,9 @@ $(document).ready(function () {
 });
 
 function activateRippleIcons() {
-    $(document.body).on('mousedown', '.ui-panel-titlebar span.ui-icon, .ui-paginator span.ui-icon', null, function (e) {
+    $(document.body).on('mousedown', 'span.ui-tree-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
                 $(this).addClass("icon-ripple");
-            }).on('mouseup, mouseleave', '.ui-panel-titlebar span.ui-icon, .ui-paginator span.ui-icon', null, function (e) {
+            }).on('mouseup, mouseleave', 'span.ui-tree-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
                 $(this).removeClass("icon-ripple");
             });
 }
