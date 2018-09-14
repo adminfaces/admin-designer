@@ -9,6 +9,15 @@ $(window).on('resize', function () {
 
 
 function initSlideout() {
+    $("a.sidebar-toggle").on('click', function () {
+        setTimeout(function () {
+        if(!isMobile() && document.getElementById('sidebar')) {
+            document.getElementById('content').style.transform = 'initial';
+            document.getElementById('sidebar').style.display = 'block';
+        }
+    }, 30);
+    });
+    
     if (isMobile() && !$(document.body).hasClass("layout-top-nav") && document.getElementById('sidebar')) {
         var sidebar = $('#sidebar');
         var slideout = new Slideout({
@@ -57,12 +66,7 @@ function initSlideout() {
                 initSlideout();
             }
         });
-
-
-    } else if (document.getElementById('sidebar')) {
-        document.getElementById('sidebar').style.display = 'block';
-        document.getElementById('content').style.transform = 'initial';
-    }
+    }  
 }
 
 function slideoutClose() {
