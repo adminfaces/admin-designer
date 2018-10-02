@@ -134,7 +134,7 @@
                 </section>
                 <section class="content">
                     <ui:insert name="content-begin"/>
-                    <ui:fragment rendered="#{adminConfig.renderMessages}">
+                    <ui:fragment rendered="#{adminConfig.renderMessages and (empty renderMessages or renderMessages)}">
                         <div class="row">
                             <div class="col-sm-12">
                                 <p:messages id="messages" closable="true" globalOnly="true" autoUpdate="true"
@@ -606,7 +606,7 @@
                 });
             </script>
         </ui:fragment>
-        
+
         <ui:fragment rendered="#{adminConfig.autoHideMessages and (empty autoHideMessages or autoHideMessages)}">
 
             <script type="text/javascript">
