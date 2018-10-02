@@ -32,19 +32,24 @@
                     <h4>Tip!</h4>
 
                     <p>You can also create breadcrumb links programmatically:</p>
-                    <h:form>
+                    <h:form prependId="false">
+                        <p:tooltip/>
                         <div class="ui-g ui-fluid">
                             <div class="ui-g-12 ui-md-4">
-                                <p:inputText id="inpt-title" placeholder="Breadcrumb title, ex: Github" value="#{breadcrumbExampleMB.title}"
+                                <p:inputText id="inpt-title" required="true" placeholder="Breadcrumb title, ex: Github" value="#{breadcrumbExampleMB.title}"
                                              />
+                                <p:message for="inpt-title" display="tooltip"/>
+
                             </div>
                             <div class="ui-g-12 ui-md-4">
-                                <p:inputText id="inpt-link" placeholder="Breadcrumb link, ex: http://github.com" value="#{breadcrumbExampleMB.link}"
+                                <p:inputText id="inpt-link" required="true" placeholder="Breadcrumb link, ex: http://github.com" value="#{breadcrumbExampleMB.link}"
                                              />
+                                <p:message for="inpt-link" display="tooltip"/>
                             </div>
                             <div class="ui-g-12 ui-md-4">
                                 <p:commandButton value="Add breadcrumb" actionListener="#{breadcrumbExampleMB.add}"
                                                  styleClass="btn-primary" ajax="false"/>
+
                             </div>
                         </div>
                     </h:form>
