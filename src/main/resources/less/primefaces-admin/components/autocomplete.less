@@ -148,6 +148,16 @@ button.ui-autocomplete-dropdown  span.ui-icon-triangle-1-s {
     }
 }
 
+@supports (font: -moz-document) {
+    button.ui-autocomplete-dropdown  span.ui-icon-triangle-1-s:before {
+        top: -16px!important;
+        left: 2px;
+    }
+    .ui-material button.ui-autocomplete-dropdown  span.ui-icon-triangle-1-s:before {
+        top: -8px!important;
+    }
+}
+
 div.ui-autocomplete-itemtip {
     z-index: (@dialog-zindex + 1)important;
     width: auto!important;

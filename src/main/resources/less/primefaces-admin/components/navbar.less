@@ -214,11 +214,22 @@ body.skin-purple, body.skin-purple-light {
 }
 
 
-
 @media (max-width: @screen-sm) {
-    ul.nav.navbar-nav {
+  body ul.nav.navbar-nav {
         li.dropdown-submenu ul.dropdown-menu li {
             margin-left: 15px;
+        }
+
+        @-moz-document url-prefix() {
+            body ul.nav.navbar-nav  li span.label {
+                margin-top: -3px;
+            }
+        }
+
+        @supports (font: -moz-document) {
+            body ul.nav.navbar-nav li span.label {
+                margin-top: -3px;
+            }
         }
     }    
 
@@ -238,6 +249,12 @@ body.skin-purple, body.skin-purple-light {
 }
 
 @-moz-document url-prefix() {
+    ul.nav.navbar-nav ul.dropdown-menu > li > a {
+        white-space: normal;
+    }
+}
+
+@supports (font: -moz-document) {
     ul.nav.navbar-nav ul.dropdown-menu > li > a {
         white-space: normal;
     }
