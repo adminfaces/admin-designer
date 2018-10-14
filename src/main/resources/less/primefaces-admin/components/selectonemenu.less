@@ -32,7 +32,7 @@ div.ui-selectonemenu {
                 }
             }
         }
-        
+
         .icon-ripple.ui-icon-triangle-1-s {
             margin-left: 3px;
         }
@@ -48,6 +48,12 @@ div.ui-selectonemenu {
         }
     }
 }
+
+//ie11
+_:-ms-fullscreen, :root body  div.ui-selectonemenu div.ui-selectonemenu-trigger span.ui-icon-triangle-1-s {
+    padding-top: 1px;
+}
+
 
 
 div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s {
@@ -154,7 +160,7 @@ div.ui-selectcheckboxmenu {
             overflow: hidden;
             content: "\f00d" !important;
         }
-        
+
         &.icon-ripple {
             left: -3px;
         }
@@ -186,7 +192,7 @@ div.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
     .ui-icon {
         margin-top: 6px;
         margin-left: 3px;
-        
+
         &.icon-ripple {
             left: 6px;
         }
