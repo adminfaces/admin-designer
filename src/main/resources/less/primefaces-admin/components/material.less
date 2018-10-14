@@ -190,9 +190,9 @@ body, body .ui-widget, body div.ui-fluid {
 
       .ui-selectonemenu-trigger .ui-icon {
         margin-left: 2px;
-        
+
         &.ui-icon-triangle-1-s.icon-ripple {
-          left: 3px;  
+          left: 3px;
         }
       }
 
@@ -201,11 +201,17 @@ body, body .ui-widget, body div.ui-fluid {
       }
 
       button.ui-autocomplete-dropdown {
-          top: -4px;
+        top: -4px;
 
+        span.ui-icon-triangle-1-s:before {
+          left: 4px;
+        }
+
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
           span.ui-icon-triangle-1-s:before {
-              left: 4px;
+            top:-10px;
           }
+        }
       }
 
       @-moz-document url-prefix() {
@@ -217,12 +223,12 @@ body, body .ui-widget, body div.ui-fluid {
       span.ui-icon-triangle-1-s:before {
         top: 5px;
       }
-      
+
       div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s {
-          top: 3px;
-          &:before {
-              left: 3px;
-          }
+        top: 3px;
+        &:before {
+          left: 3px;
+        }
       }
 
       label {
