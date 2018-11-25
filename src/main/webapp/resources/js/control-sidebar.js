@@ -208,22 +208,6 @@ $(function () {
         var optionSelector = id.concat(" ,").concat(id).concat(" span.ui-chkbox-icon, ").concat(id).concat("-label");
         $(optionSelector).removeClass('ui-state-disabled');
     }
-    
-    function isErrorPage() {
-    	return $('div.error-content').length > 0;
-    }
-
-    function restoreDefaults() {
-        store('layout.skin', null);
-        store('layout.default-template', null);
-        store('layout.sidebar-expand-hover', null);
-        store('layout.sidebar-control-open', null);
-        store('layout.fixed', null);
-        store('layout.boxed', null);
-        store('layout.sidebar-collapsed', null);
-        store('layout.sidebar-skin', null);
-        loadLayoutDefaults();
-    }
 
     /**
      * Retrieve stored settings and apply them to the template
@@ -319,7 +303,7 @@ $(function () {
         $('#sidebar-collapsed .ui-chkbox-box, #sidebar-collapsed-label').on('click', function () {
             var sidebarCollapsed = $('body').hasClass('sidebar-collapse');
             setTimeout(function () {
-                updateSidebarCollapded(!sidebarCollapsed);//negate because we want to toogle its state from collpased to not collapsed and vice versa
+                updateSidebarCollapded(!sidebarCollapsed);//negate because we want to toggle its state from collpased to not collapsed and vice versa
             }, 20);
         });
 
@@ -354,12 +338,6 @@ $(function () {
             }, 20);
         });
 
-        $('#restore-defaults a').on('click', function () {
-            setTimeout(function () {
-                restoreDefaults();
-            }, 20);
-        });
-
         loadTemplate();
 
         loadSkin();
@@ -383,6 +361,16 @@ $(function () {
 
 });
 
+function restoreLayoutDefaults() {
+    store('layout.skin', null);
+    store('layout.default-template', null);
+    store('layout.sidebar-expand-hover', null);
+    store('layout.sidebar-control-open', null);
+    store('layout.fixed', null);
+    store('layout.boxed', null);
+    store('layout.sidebar-collapsed', null);
+    store('layout.sidebar-skin', null);
+}
 
 function toggleTemplate() {
     store('layout.default-template', null);

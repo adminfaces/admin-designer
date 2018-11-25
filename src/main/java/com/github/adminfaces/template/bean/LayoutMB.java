@@ -20,11 +20,14 @@ public class LayoutMB implements Serializable {
     private static final Logger LOG = Logger.getLogger(LayoutMB.class.getName());
     private static final String DEFAULT_TEMPLATE = "/admin.xhtml"; //template bundled in admin-template 
     private static final String TEMPLATE_TOP = "/admin-top.xhtml"; //template bundled in admin-template 
-    private static final String APP_TEMPLATE_PATH = "/WEB-INF/templates/template.xhtml"; // application template (left menu)
-    private static final String APP_TEMPLATE_TOP_PATH = "/WEB-INF/templates/template-top.xhtml"; //application template (top menu)
+    private static final String APP_TEMPLATE_PATH = "/templates/template.xhtml"; // application template (left menu)
+    private static final String APP_TEMPLATE_TOP_PATH = "/templates/template-top.xhtml"; //application template (top menu)
+    private static final String RESOURCES_PREFFIX = ""; // template resources preffix path
+    private static final String WEBAPP_PREFFIX = "/WEB-INF"; // template webapp preffix path
 
     private String template;
-    private Boolean appTemplateExists;
+	private String templatePath;
+	private String templateTopPath;
     private Boolean leftMenuTemplate; 
     private Boolean fixedLayout;
     private Boolean boxedLayout;
@@ -35,10 +38,16 @@ public class LayoutMB implements Serializable {
 
     @Inject
     protected AdminConfig adminConfig;
+    
+    @Inject
+    private SkinMB skinMB;
 
     @PostConstruct
     public void init() {
-        if (adminConfig.isLeftMenuTemplate()) {
+		this.templatePath = findTemplate(APP_TEMPLATE_PATH, DEFAULT_TEMPLATE);
+		this.templateTopPath = findTemplate(APP_TEMPLATE_TOP_PATH, TEMPLATE_TOP);
+
+		if (adminConfig.isLeftMenuTemplate()) {
             setDefaultTemplate();
         } else {
             setTemplateTop();
@@ -52,6 +61,11 @@ public class LayoutMB implements Serializable {
         this.fixedControlSidebar = controlSidebarConfig.getFixed();
         this.darkControlSidebarSkin = controlSidebarConfig.getDarkSkin();
     }
+    
+    public void restoreDefaults() {
+    	skinMB.init();
+    	this.init();
+    }
 
     public String getTemplate() {
         return template;
@@ -62,21 +76,12 @@ public class LayoutMB implements Serializable {
     }
 
     public void setTemplateTop() {
-        if (appTemplateExists()) {
-            template = APP_TEMPLATE_TOP_PATH;
-            
-        } else {
-            template = TEMPLATE_TOP;
-        }
+		template = templateTopPath;
         leftMenuTemplate = false;
-    }
-
+	}
+	
     public void setDefaultTemplate() {
-        if (appTemplateExists()) {
-            template = APP_TEMPLATE_PATH;
-        } else {
-            template = DEFAULT_TEMPLATE;
-        }
+		template = templatePath;
         leftMenuTemplate = true;
     }
 
@@ -142,49 +147,30 @@ public class LayoutMB implements Serializable {
         } else {
             setDefaultTemplate();
         }
-    }
-    
-    public void toggleFixedLayout() {
-        this.fixedLayout = !fixedLayout;
-    }
-    
-    public void toggleBoxedLayout() {
-        this.boxedLayout = !boxedLayout;
-    }
-    
-    public void toggleExpandOnHover() {
-        this.expandOnHover = !expandOnHover;
-    }
-    
-    public void toggleSidebarCollapsed() {
-        this.sidebarCollapsed = !sidebarCollapsed;
-    }
-    
-    public void toggleFixedControlSidebar() {
-        this.fixedControlSidebar = !fixedControlSidebar;
-    }
-    
-    public void toggleControlSidebarSkin() {
-        this.darkControlSidebarSkin = !darkControlSidebarSkin;
-    }
-    
+    }    
 
     public boolean isDefaultTemplate() {
         return template != null && (template.endsWith("template.xhtml") || template.equals("admin.xhtml"));
     }
 
-    private boolean appTemplateExists() {
-        if (appTemplateExists != null) {
-            return appTemplateExists;
-        }
+	private boolean templateExists(String templateName) {
         try {
-            appTemplateExists = Faces.getExternalContext().getResourceAsStream(APP_TEMPLATE_PATH) != null;
+            return Faces.getExternalContext().getResourceAsStream(templateName) != null;
         } catch (Exception e) {
             LOG.warning(String.format("Could not find application defined template in path '%s' due to following error: %s. Falling back to default admin template. See application template documentation for more details: https://github.com/adminfaces/admin-template#application-template", APP_TEMPLATE_PATH, e.getMessage()));
-            appTemplateExists = false;
-        }
-
-        return appTemplateExists;
+            return false;
+        }		
+	}
+	
+    private String findTemplate(String appTemplatePath, String bundledPath) {
+		String result;
+		if (templateExists(WEBAPP_PREFFIX + appTemplatePath)) {
+			result = WEBAPP_PREFFIX + appTemplatePath;
+		} else if (templateExists(RESOURCES_PREFFIX + appTemplatePath)) {
+			result = RESOURCES_PREFFIX + appTemplatePath;
+		} else {
+			result = bundledPath;
+		}
+        return result;
     }
-
 }

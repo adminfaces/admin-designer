@@ -17,7 +17,7 @@ function activateRippleIcons() {
         $(this).removeClass("icon-ripple");
     });
 }
-
+ 
 function stripTrailingSlash(str) {
     if (str && str.substr(-1) == '/') {
         return str.substr(0, str.length - 1);
@@ -449,11 +449,11 @@ $(document).on("click", "div.ui-inputswitch", function () {
 
 
 /**
- *
- * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used
+ * 
+ * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used 
  * and user is on a mobele device (small screen)
- *
- *  This is needed because of conflict with slideoutjs
+ * 
+ *  This is needed because of conflict with slideoutjs 
  */
 function activateSidebarComponent() {
     if (isMobile()) {
