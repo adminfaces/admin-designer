@@ -48,6 +48,7 @@ public class DownloadMB {
         addEntry(baseDir + "/src/main/webapp/expired.xhtml", "/META-INF/resources/expired.xhtml", zipFile);
         addEntry(baseDir + "/src/main/webapp/optimistic.xhtml", "/META-INF/resources/optimistic.xhtml", zipFile);
         addEntry(baseDir + "/src/main/webapp/admin.xhtml", "/META-INF/resources/admin.xhtml", zipFile);
+        addEntry(baseDir + "/src/main/webapp/admin-base.xhtml", "/META-INF/resources/admin-base.xhtml", zipFile);
         addEntry(baseDir + "/src/main/webapp/admin-top.xhtml", "/META-INF/resources/admin-top.xhtml", zipFile);
         addEntry(baseDir + "/target/classes/template-web.xml", "/META-INF/web-fragment.xml", zipFile);
         addEntry(baseDir + "/target/classes/admin.taglib.xml", "/META-INF/admin.taglib.xml", zipFile);
@@ -74,6 +75,7 @@ public class DownloadMB {
         copyFile("src/main/webapp/500.xhtml", "target/admin-starter/src/main/webapp/500.xhtml");
         copyFile("src/main/webapp/expired.xhtml", "target/admin-starter/src/main/webapp/expired.xhtml");
         copyFile("src/main/webapp/optimistic.xhtml", "target/admin-starter/src/main/webapp/optimistic.xhtml");
+        copyFile("src/main/webapp/admin-base.xhtml", "target/admin-starter/src/main/webapp/admin-base.xhtml");
         copyFile("src/main/webapp/admin.xhtml", "target/admin-starter/src/main/webapp/admin.xhtml");
         copyFile("src/main/webapp/admin-top.xhtml", "target/admin-starter/src/main/webapp/admin-top.xhtml");
         copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin.properties");
