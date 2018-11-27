@@ -30,7 +30,6 @@ public class SkinMB implements Serializable {
         }
     }
 
-
     public void changeSkin(String skin){
         this.skin = skin;
     }
