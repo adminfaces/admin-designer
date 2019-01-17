@@ -24,40 +24,45 @@
     <p:ajaxStatus rendered="#{adminConfig.renderAjaxStatus}"
                   onstart="showBar();"
                   onsuccess="hideBar();"/>
-                  
+
+    <p:dialog id="adminStatusDialog" modal="true" widgetVar="statusDialog" draggable="false" closable="false"
+              resizable="false" responsive="true" showHeader="false" appendTo="@(body)">
+        <p:graphicImage library="images" name="#{adminConfig.loadingImage}"/>
+    </p:dialog>
+
     <h:form prependId="false" style="display:none;">
         <h:commandButton id="btn-restore-layout" style="visibility:hidden;" actionListener="#{layoutMB.restoreDefaults}"
                          onclick="restoreLayoutDefaults();"/>
-        <p:commandButton id="updateSkinBlue" action="#{skinMB.changeSkin('skin-blue')}" oncomplete="replaceSkinWith('skin-blue')" 
+        <p:commandButton id="updateSkinBlue" action="#{skinMB.changeSkin('skin-blue')}" oncomplete="replaceSkinWith('skin-blue')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinBlack" action="#{skinMB.changeSkin('skin-black')}" oncomplete="replaceSkinWith('skin-black')" 
+        <p:commandButton id="updateSkinBlack" action="#{skinMB.changeSkin('skin-black')}" oncomplete="replaceSkinWith('skin-black')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinPurple" action="#{skinMB.changeSkin('skin-purple')}" oncomplete="replaceSkinWith('skin-purple')" 
+        <p:commandButton id="updateSkinPurple" action="#{skinMB.changeSkin('skin-purple')}" oncomplete="replaceSkinWith('skin-purple')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinGreen" action="#{skinMB.changeSkin('skin-green')}" oncomplete="replaceSkinWith('skin-green')" 
+        <p:commandButton id="updateSkinGreen" action="#{skinMB.changeSkin('skin-green')}" oncomplete="replaceSkinWith('skin-green')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinRed" action="#{skinMB.changeSkin('skin-red')}" oncomplete="replaceSkinWith('skin-red')" 
+        <p:commandButton id="updateSkinRed" action="#{skinMB.changeSkin('skin-red')}" oncomplete="replaceSkinWith('skin-red')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinYellow" action="#{skinMB.changeSkin('skin-yellow')}" oncomplete="replaceSkinWith('skin-yellow')" 
+        <p:commandButton id="updateSkinYellow" action="#{skinMB.changeSkin('skin-yellow')}" oncomplete="replaceSkinWith('skin-yellow')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinTeal" action="#{skinMB.changeSkin('skin-teal')}" oncomplete="replaceSkinWith('skin-teal')" 
+        <p:commandButton id="updateSkinTeal" action="#{skinMB.changeSkin('skin-teal')}" oncomplete="replaceSkinWith('skin-teal')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinBlueLight" action="#{skinMB.changeSkin('skin-blue-light')}" oncomplete="replaceSkinWith('skin-blue-light')" 
+        <p:commandButton id="updateSkinBlueLight" action="#{skinMB.changeSkin('skin-blue-light')}" oncomplete="replaceSkinWith('skin-blue-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinBlackLight" action="#{skinMB.changeSkin('skin-black-light')}" oncomplete="replaceSkinWith('skin-black-light')" 
+        <p:commandButton id="updateSkinBlackLight" action="#{skinMB.changeSkin('skin-black-light')}" oncomplete="replaceSkinWith('skin-black-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinPurpleLight" action="#{skinMB.changeSkin('skin-purple-light')}" oncomplete="replaceSkinWith('skin-purple-light')" 
+        <p:commandButton id="updateSkinPurpleLight" action="#{skinMB.changeSkin('skin-purple-light')}" oncomplete="replaceSkinWith('skin-purple-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinRedLight" action="#{skinMB.changeSkin('skin-red-light')}" oncomplete="replaceSkinWith('skin-red-light')" 
+        <p:commandButton id="updateSkinRedLight" action="#{skinMB.changeSkin('skin-red-light')}" oncomplete="replaceSkinWith('skin-red-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinGreenLight" action="#{skinMB.changeSkin('skin-green-light')}" oncomplete="replaceSkinWith('skin-green-light')" 
+        <p:commandButton id="updateSkinGreenLight" action="#{skinMB.changeSkin('skin-green-light')}" oncomplete="replaceSkinWith('skin-green-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinYellowLight" action="#{skinMB.changeSkin('skin-yellow-light')}" oncomplete="replaceSkinWith('skin-yellow-light')" 
+        <p:commandButton id="updateSkinYellowLight" action="#{skinMB.changeSkin('skin-yellow-light')}" oncomplete="replaceSkinWith('skin-yellow-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
-        <p:commandButton id="updateSkinTealLight" action="#{skinMB.changeSkin('skin-teal-light')}" oncomplete="replaceSkinWith('skin-teal-light')" 
+        <p:commandButton id="updateSkinTealLight" action="#{skinMB.changeSkin('skin-teal-light')}" oncomplete="replaceSkinWith('skin-teal-light')"
                          process="@this" update="@this" global="false" partialSubmit="true"/>
     </h:form>
-    
+
     <div class="wrapper">
         <div id="loader" class="load-bar" style="display: none">
             <div class="bar"></div>
@@ -70,7 +75,7 @@
 
         <ui:insert name="template-menu"/>
         <!-- content -->
-        <div id="content" class="content-wrapper">
+        <h:panelGroup layout="block" id="content" styleClass="content-wrapper">
             <adm:breadcrumb title="#{title}" rendered="#{not empty title and empty requestScope['javax.servlet.error.exception_type'] and empty requestScope['javax.servlet.error.message']}"/>
             <ui:insert name="content-wrapper"/>
             <section class="content-header">
@@ -123,8 +128,7 @@
                 <ui:insert name="body"/>
             </section>
             <ui:insert name="content-end"/>
-        </div>
-
+        </h:panelGroup>
 
         <footer class="main-footer">
             <ui:insert name="footer"/>
@@ -219,7 +223,7 @@
                                     <ul class="list-unstyled clearfix">
                                         <li style="float:left; width: 33.33333%; padding: 5px;">
                                             <p:commandLink id="btn-skin-blue" styleClass="skin-link clearfix #{skinMB.skin eq 'skin-blue' ? '':'full-opacity-hover'}"
-                                                           onclick="$('#updateSkinBlue').click()" update="@this" global="false" partialSubmit="true"> 
+                                                           onclick="$('#updateSkinBlue').click()" update="@this" global="false" partialSubmit="true">
                                                 <div>
                                                         <span style="display:block; width: 20%; float: left; height: 7px; background: #367fa9">
 
@@ -351,7 +355,7 @@
 
                                         <li style="float:left; width: 33.33333%; padding: 5px;">
                                             <p:commandLink id="btn-skin-black-light" styleClass="skin-link clearfix #{skinMB.skin eq 'skin-black-light' ? '':'full-opacity-hover'}"
-                                                          onclick="$('#updateSkinBlackLight').click()" update="@this" global="false" partialSubmit="true">
+                                                           onclick="$('#updateSkinBlackLight').click()" update="@this" global="false" partialSubmit="true">
 
                                                 <div style="box-shadow: 0 0 2px rgba(0,0,0,0.1)" class="clearfix">
                                                     <span style="display:block; width: 20%; float: left; height: 7px; background: #fefefe"></span>
@@ -582,10 +586,6 @@
     </ui:fragment>
 
     <ui:insert name="body-end"/>
-    <p:dialog id="adminStatusDialog" modal="true" widgetVar="statusDialog" draggable="false" closable="false"
-              resizable="false" responsive="true" showHeader="false" appendTo="@(body)">
-        <p:graphicImage library="images" name="#{adminConfig.loadingImage}"/>
-    </p:dialog>
 </h:body>
 
 </html>
