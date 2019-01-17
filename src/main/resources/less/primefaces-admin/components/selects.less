@@ -5,8 +5,9 @@ div.ui-selectonemenu {
     div.ui-selectonemenu-trigger {
         border-color: #ffffff;
         overflow: hidden;
-        box-shadow:none;
+        box-shadow: none;
         border: none;
+
         &.ui-state-hover, &.ui-state-focus {
             background: none;
         }
@@ -114,6 +115,7 @@ ul.ui-selectlistbox-list, ul.ui-multiselectlistbox-list {
             position: relative;
             overflow: hidden;
             padding: 3px 6px;
+
             &.ui-state-highlight {
                 border-radius: @default-border-radius;
             }
@@ -129,6 +131,7 @@ li:not(.ui-state-highlight) {
         }
     }
 }
+
 /* box-menu */
 
 
@@ -141,7 +144,6 @@ div.ui-selectcheckboxmenu {
 }
 
 
-
 .ui-selectcheckboxmenu-header .ui-selectcheckboxmenu-close {
     .box-shadow(none);
     padding: 1px !important;
@@ -151,6 +153,7 @@ div.ui-selectcheckboxmenu {
         display: inline !important;
         text-indent: initial;
         overflow: visible;
+
         &:before {
             font-family: FontAwesome;
             color: @admin-text-color;
@@ -187,9 +190,11 @@ div.ui-selectcheckboxmenu .ui-selectcheckboxmenu-trigger {
     width: @select-trigger-width;
     height: @select-trigger-height;
     .box-shadow(none);
+
     &.ui-state-hover, &.ui-state-focus {
         background: transparent;
     }
+
     .ui-icon {
         margin-top: 6px;
         margin-left: 3px;
@@ -216,13 +221,14 @@ div.ui-selectcheckboxmenu-header {
 div.ui-fluid div.ui-selectcheckboxmenu-multiple, body div.ui-selectcheckboxmenu-multiple {
     display: inline-table;
     overflow: visible;
-    border-collapse:initial;
+    border-collapse: initial;
 }
 
 body .ui-selectcheckboxmenu-multiple {
     .ui-selectcheckboxmenu-trigger .ui-icon {
         top: 5px;
     }
+
     .ui-selectcheckboxmenu-token-label {
         background: @light-blue;
         color: #fff;
@@ -242,6 +248,7 @@ body .ui-selectcheckboxmenu-multiple {
         position: relative;
         margin-left: -15px;
         top: 2px;
+
         &:before {
             font-family: FontAwesome;
             color: #fff;
@@ -254,17 +261,20 @@ body .ui-selectcheckboxmenu-multiple {
             overflow: hidden;
             content: "\f00d" !important;
         }
+
         &:hover:before {
             color: @hover-icon-color;
         }
     }
 
     /* box colors */
+
     &.box-default {
         .ui-selectcheckboxmenu-token-label {
             background: @gray-lte;
         }
     }
+
     &.box-danger {
         .ui-selectcheckboxmenu-token-label {
             background: @red;
@@ -294,6 +304,7 @@ body .ui-selectcheckboxmenu-multiple {
             background: @aqua;
         }
     }
+
     &.no-color {
         .ui-selectcheckboxmenu-token-label {
             background: #d2d6de;
@@ -306,11 +317,9 @@ body .ui-selectcheckboxmenu-header .ui-selectcheckboxmenu-filter-container {
     span.ui-icon-search {
         background-image: none !important;
         display: inline;
-        position: relative !important;
         text-indent: initial;
-        float: right;
         top: 7px;
-        right: 0;
+        right: 2%;
         width: 20px;
 
         &:before {
@@ -368,4 +377,47 @@ body div.ui-selectcheckboxmenu, div.ui-fluid div.ui-selectcheckboxmenu {
 
 body .ui-selectcheckboxmenu .ui-selectcheckboxmenu-label {
     padding-top: 6px;
+}
+
+
+//manyMenu
+
+div.ui-selectmanymenu {
+
+    .ui-selectlistbox-item.ui-state-highlight {
+
+        div.ui-chkbox-box.ui-state-active {
+            vertical-align: sub;
+            margin-left: 1px;
+            border: none;
+            background: #fff;
+            color: #333;
+
+            .ui-chkbox-icon.ui-icon-check:before {
+                color: #333;
+            }
+        }
+    }
+
+    .ui-selectlistbox-filter-container .ui-icon-search {
+        background-image: none !important;
+        display: inline;
+        text-indent: initial;
+        top: 7px;
+        right: 16%;
+        width: 20px;
+
+        &:before {
+            font-family: FontAwesome;
+            color: @admin-text-color;
+            display: inline !important;
+            position: relative;
+            font-size: @font-awesome-icon-size;
+            margin-left: 5px;
+            top: -3px;
+            overflow: hidden;
+            content: "\f002" !important;
+        }
+
+    }
 }
