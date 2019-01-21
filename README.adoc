@@ -23,7 +23,7 @@ The aim of this application is to make it easier to customize http://github.com/
 
 This the same http://github.com/adminfaces/admin-showcase[Admin Showcase^] application with `admin template` and `admin theme` bundled inside instead of being project dependencies.
 
-It uses http://wildfly-swarm.io/[Wildfly Swarm^] to run the `exploded` application so one can change the theme or template and see the modifications without needing to restart the application.  
+It uses http://thorntail.io/[ThornTail^] to run the `exploded` application so one can change the theme or template and see the modifications without needing to restart the application.  
 
 == Objectives
 
@@ -46,7 +46,7 @@ NOTE: This is the most flexible approach but at the same time `you lose the upda
 . Now in application root directory start it by running the command:
 +
 ----
-./mvnw wildfly-swarm:run (or mvnw.cmd wildfly-swarm:run) <1>
+./mvnw thorntail:run (or mvnw.cmd thorntail:run) <1>
 ----
 <1> To use `mvnw` (maven wrapper) you just need Java installed (JAVA_HOME pointing to a `JDK`).
 +
