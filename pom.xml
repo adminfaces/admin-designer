@@ -113,6 +113,7 @@
 						<fraction>ejb</fraction>
 						<fraction>cdi</fraction>
 					</fractions>
+<!--					<debug>8888</debug> -->
 				</configuration>
 
 				<executions>
@@ -126,7 +127,6 @@
 						<id>stop</id>
 					</execution>
 				</executions>
-				<!-- <configuration> <debug>8888</debug> </configuration> -->
 			</plugin>
 			<plugin>
 				<groupId>biz.gabrys.maven.plugins</groupId>
