@@ -1,0 +1,196 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                template="#{layoutMB.template}">
+
+    <ui:define name="title">
+        DatePicker
+    </ui:define>
+
+    <ui:define name="description">
+        <p:link value="DatePicker"
+                href="https://www.primefaces.org/showcase/ui/input/datePicker.xhtml"/> is an input component to select a date.
+    </ui:define>
+
+    <ui:define name="body">
+        <adm:breadcrumb title="DatePicker"/>
+
+        <div class="card box">
+            <div class="box-header with-border">
+                <h:form id="form">
+					<p:growl id="msgs" showDetail="true" />
+
+					<h:panelGrid columns="2" cellpadding="5">
+						<p:outputLabel for="inline" value="Inline:" />
+						<p:datePicker id="inline" value="#{calendarMB.date1}" inline="true" />
+
+						<p:outputLabel for="popup" value="Popup:" />
+						<p:datePicker id="popup" value="#{calendarMB.date2}" />
+
+						<p:outputLabel for="multiselect" value="Multiple Selection:" />
+						<p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarMB.multi}" readonlyInput="true" />
+
+						<p:outputLabel for="range" value="Range Selection:" />
+						<p:datePicker id="range" selectionMode="range" value="#{calendarMB.range}" readonlyInput="true" />
+
+						<p:outputLabel for="month" value="Month Picker:" />
+						<p:datePicker id="month" view="month" value="#{calendarMB.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" />
+
+						<p:outputLabel for="touch" value="Touch UI:" />
+						<p:datePicker id="touch" value="#{calendarMB.date4}" touchUI="true" showOtherMonths="true"/>
+
+						<p:outputLabel for="dateTemplate" value="Date Template:" />
+						<p:datePicker id="dateTemplate" value="#{calendarMB.date5}" dateTemplate="dateTemplateFunc" />
+
+						<p:outputLabel for="disabledDD" value="Disabled Date/Day:" />
+						<p:datePicker id="disabledDD" value="#{calendarMB.date6}" disabledDays="#{calendarMB.invalidDays}" disabledDates="#{calendarMB.invalidDates}" readonlyInput="true" />
+
+						<p:outputLabel for="button" value="Button:" />
+						<p:datePicker id="button" value="#{calendarMB.date7}" showIcon="true" />
+
+						<p:outputLabel for="event" value="Select Event:" />
+						<p:calendar id="event" value="#{calendarMB.date8}">
+							<p:ajax event="dateSelect" listener="#{calendarMB.onDateSelect}" update="msgs" />
+						</p:calendar>
+
+						<p:outputLabel for="spanish" value="Spanish:" />
+						<p:datePicker id="spanish" value="#{calendarMB.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
+
+						<p:outputLabel for="buttonbar" value="Button Bar:" />
+						<p:datePicker id="buttonbar" value="#{calendarMB.date10}" showButtonBar="true"/>
+
+						<p:outputLabel for="minmax" value="Min-Max:" />
+						<p:datePicker id="minmax" value="#{calendarMB.date11}" mindate="#{calendarMB.minDate}" maxdate="#{calendarMB.maxDate}" readonlyInput="true"/>
+
+						<p:outputLabel for="multi" value="Multiple Months:" />
+						<p:datePicker id="multi" value="#{calendarMB.date12}" numberOfMonths="3"/>
+
+						<p:outputLabel for="time" value="Time:" />
+						<p:datePicker id="time" value="#{calendarMB.date13}" showTime="true"/>
+
+						<p:outputLabel for="timeonly" value="Time Only:" />
+						<p:datePicker id="timeonly" value="#{calendarMB.date14}" timeOnly="true" pattern="HH:mm"/>
+					</h:panelGrid>
+
+					<p:commandButton value="Submit" update="msgs" action="#{calendarMB.click}" icon="pi pi-check" />
+
+                </h:form>
+            </div>
+        </div>
+
+
+		<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
+			<p:panelGrid id="display" columns="4" columnClasses="label,value,label,value">
+				<h:outputText value="Inline:" />
+				<h:outputText value="#{calendarMB.date1}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Popup:" />
+				<h:outputText value="#{calendarMB.date2}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Multiple Selection:" />
+				<ui:repeat var="date" value="#{calendarMB.multi}" varStatus="status" size="#{calendarMB.multi.size()}">
+					#{status.first ? '' : ','}
+					<h:outputText value="#{date}">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</ui:repeat>
+
+				<h:outputText value="Range Selection:" />
+				<ui:repeat var="date" value="#{calendarMB.range}" varStatus="status" size="2">
+					#{status.first ? '' : '-'}
+					<h:outputText value="#{date}">
+						<f:convertDateTime pattern="MM/dd/yyyy" />
+					</h:outputText>
+				</ui:repeat>
+
+				<h:outputText value="Month Picker:" />
+				<h:outputText value="#{calendarMB.date3}">
+					<f:convertDateTime pattern="MM/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Touch UI:" />
+				<h:outputText value="#{calendarMB.date4}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Date Template:" />
+				<h:outputText value="#{calendarMB.date5}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Disabled Date/Day:" />
+				<h:outputText value="#{calendarMB.date6}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Button:" />
+				<h:outputText value="#{calendarMB.date7}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Select Event:" />
+				<h:outputText value="#{calendarMB.date8}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Spanish:" />
+				<h:outputText value="#{calendarMB.date9}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Button Bar:" />
+				<h:outputText value="#{calendarMB.date10}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Min-Max:" />
+				<h:outputText value="#{calendarMB.date11}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Multiple Months:" />
+				<h:outputText value="#{calendarMB.date12}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Time:" />
+				<h:outputText value="#{calendarMB.date13}">
+					<f:convertDateTime pattern="MM/dd/yyyy" />
+				</h:outputText>
+
+				<h:outputText value="Time Only:" />
+				<h:outputText value="#{calendarMB.date14}">
+					<f:convertDateTime pattern="HH:mm" />
+				</h:outputText>
+			</p:panelGrid>
+		</p:dialog>
+    </ui:define>
+
+    <ui:define name="code">
+        <p:tabView>
+            <p:tab title="accordion.xhtml">
+				<pre>
+               <code class="language-html">
+                   <h:outputText value="#{sourceCodeMB.getPageSource()}" escape="true"/>
+               </code>
+				</pre>
+            </p:tab>
+
+            <p:tab title="TabViewMB.java">
+				<pre>
+               <code class="language-java">
+                   <h:outputText value="#{sourceCodeMB.getJavaSource('com.github.adminfaces.showcase.bean.TabViewMB')}"
+                                 escape="false"/>
+               </code>
+				</pre>
+            </p:tab>
+        </p:tabView>
+    </ui:define>
+</ui:composition>
