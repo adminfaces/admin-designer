@@ -6,7 +6,47 @@
                 xmlns:adm="http://github.com/adminfaces"
                 template="#{layoutMB.template}">
 
-    <ui:define name="title">
+	<ui:define name="metadata">
+		<script type="text/javascript">
+            PrimeFaces.locales['es'] = {
+                closeText: 'Cerrar',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                dayNamesMin: ['D', 'L', 'M', 'X', 'J', 'V', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Sólo hora',
+                timeText: 'Tiempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Fecha actual',
+                ampm: false,
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Día',
+                allDayText: 'Todo el día'
+            };
+		</script>
+
+		<script type="text/javascript">
+            //<![CDATA[
+            function dateTemplateFunc(date) {
+                return '<span style="background-color:' + ((date.day < 21 && date.day > 10) ? 'red' : 'inherit') + ';border-radius:50%;width: 24px;height: 24px;padding: 1px; ">' + date.day + '</span>';
+            }
+
+            //]]>
+		</script>
+	</ui:define>
+
+	<ui:define name="title">
         DatePicker
     </ui:define>
 
@@ -23,59 +63,59 @@
                 <h:form id="form">
 					<p:growl id="msgs" showDetail="true" />
 
-					<h:panelGrid columns="2" cellpadding="5">
+					<p:panelGrid columns="2" layout="grid" columnClasses="ui-grid-col-2,ui-grid-col-4">
 						<p:outputLabel for="inline" value="Inline:" />
-						<p:datePicker id="inline" value="#{calendarMB.date1}" inline="true" />
+						<p:datePicker id="inline" value="#{datePickerMB.date1}" inline="true" />
 
 						<p:outputLabel for="popup" value="Popup:" />
-						<p:datePicker id="popup" value="#{calendarMB.date2}" />
+						<p:datePicker id="popup" value="#{datePickerMB.date2}" />
 
 						<p:outputLabel for="multiselect" value="Multiple Selection:" />
-						<p:datePicker id="multiselect" selectionMode="multiple" value="#{calendarMB.multi}" readonlyInput="true" />
+						<p:datePicker id="multiselect" selectionMode="multiple" value="#{datePickerMB.multi}" readonlyInput="true" />
 
 						<p:outputLabel for="range" value="Range Selection:" />
-						<p:datePicker id="range" selectionMode="range" value="#{calendarMB.range}" readonlyInput="true" />
+						<p:datePicker id="range" selectionMode="range" value="#{datePickerMB.range}" readonlyInput="true" />
 
 						<p:outputLabel for="month" value="Month Picker:" />
-						<p:datePicker id="month" view="month" value="#{calendarMB.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" />
+						<p:datePicker id="month" view="month" value="#{datePickerMB.date3}" pattern="MM/yyyy" yearNavigator="true" yearRange="2000:2030" />
 
 						<p:outputLabel for="touch" value="Touch UI:" />
-						<p:datePicker id="touch" value="#{calendarMB.date4}" touchUI="true" showOtherMonths="true"/>
+						<p:datePicker id="touch" value="#{datePickerMB.date4}" touchUI="true" showOtherMonths="true"/>
 
 						<p:outputLabel for="dateTemplate" value="Date Template:" />
-						<p:datePicker id="dateTemplate" value="#{calendarMB.date5}" dateTemplate="dateTemplateFunc" />
+						<p:datePicker id="dateTemplate" value="#{datePickerMB.date5}" dateTemplate="dateTemplateFunc" />
 
 						<p:outputLabel for="disabledDD" value="Disabled Date/Day:" />
-						<p:datePicker id="disabledDD" value="#{calendarMB.date6}" disabledDays="#{calendarMB.invalidDays}" disabledDates="#{calendarMB.invalidDates}" readonlyInput="true" />
+						<p:datePicker id="disabledDD" value="#{datePickerMB.date6}" disabledDays="#{datePickerMB.invalidDays}" disabledDates="#{datePickerMB.invalidDates}" readonlyInput="true" />
 
 						<p:outputLabel for="button" value="Button:" />
-						<p:datePicker id="button" value="#{calendarMB.date7}" showIcon="true" />
+						<p:datePicker id="button" value="#{datePickerMB.date7}" showIcon="true" />
 
 						<p:outputLabel for="event" value="Select Event:" />
-						<p:calendar id="event" value="#{calendarMB.date8}">
-							<p:ajax event="dateSelect" listener="#{calendarMB.onDateSelect}" update="msgs" />
+						<p:calendar id="event" value="#{datePickerMB.date8}">
+							<p:ajax event="dateSelect" listener="#{datePickerMB.onDateSelect}" update="msgs" />
 						</p:calendar>
 
 						<p:outputLabel for="spanish" value="Spanish:" />
-						<p:datePicker id="spanish" value="#{calendarMB.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
+						<p:datePicker id="spanish" value="#{datePickerMB.date9}" locale="es" monthNavigator="true" pattern="yyyy-MMM-dd"/>
 
 						<p:outputLabel for="buttonbar" value="Button Bar:" />
-						<p:datePicker id="buttonbar" value="#{calendarMB.date10}" showButtonBar="true"/>
+						<p:datePicker id="buttonbar" value="#{datePickerMB.date10}" showButtonBar="true"/>
 
 						<p:outputLabel for="minmax" value="Min-Max:" />
-						<p:datePicker id="minmax" value="#{calendarMB.date11}" mindate="#{calendarMB.minDate}" maxdate="#{calendarMB.maxDate}" readonlyInput="true"/>
+						<p:datePicker id="minmax" value="#{datePickerMB.date11}" mindate="#{datePickerMB.minDate}" maxdate="#{datePickerMB.maxDate}" readonlyInput="true"/>
 
 						<p:outputLabel for="multi" value="Multiple Months:" />
-						<p:datePicker id="multi" value="#{calendarMB.date12}" numberOfMonths="3"/>
+						<p:datePicker id="multi" value="#{datePickerMB.date12}" numberOfMonths="3"/>
 
 						<p:outputLabel for="time" value="Time:" />
-						<p:datePicker id="time" value="#{calendarMB.date13}" showTime="true"/>
+						<p:datePicker id="time" value="#{datePickerMB.date13}" showTime="true"/>
 
 						<p:outputLabel for="timeonly" value="Time Only:" />
-						<p:datePicker id="timeonly" value="#{calendarMB.date14}" timeOnly="true" pattern="HH:mm"/>
-					</h:panelGrid>
+						<p:datePicker id="timeonly" value="#{datePickerMB.date14}" timeOnly="true" pattern="HH:mm"/>
+					</p:panelGrid>
 
-					<p:commandButton value="Submit" update="msgs" action="#{calendarMB.click}" icon="pi pi-check" />
+					<p:commandButton value="Submit" update="msgs" action="#{datePickerMB.click}" icon="pi pi-check" />
 
                 </h:form>
             </div>
@@ -85,17 +125,17 @@
 		<p:dialog modal="true" resizable="false" header="Values" widgetVar="dlg" showEffect="fold">
 			<p:panelGrid id="display" columns="4" columnClasses="label,value,label,value">
 				<h:outputText value="Inline:" />
-				<h:outputText value="#{calendarMB.date1}">
+				<h:outputText value="#{datePickerMB.date1}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Popup:" />
-				<h:outputText value="#{calendarMB.date2}">
+				<h:outputText value="#{datePickerMB.date2}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Multiple Selection:" />
-				<ui:repeat var="date" value="#{calendarMB.multi}" varStatus="status" size="#{calendarMB.multi.size()}">
+				<ui:repeat var="date" value="#{datePickerMB.multi}" varStatus="status" size="#{datePickerMB.multi.size()}">
 					#{status.first ? '' : ','}
 					<h:outputText value="#{date}">
 						<f:convertDateTime pattern="MM/dd/yyyy" />
@@ -103,7 +143,7 @@
 				</ui:repeat>
 
 				<h:outputText value="Range Selection:" />
-				<ui:repeat var="date" value="#{calendarMB.range}" varStatus="status" size="2">
+				<ui:repeat var="date" value="#{datePickerMB.range}" varStatus="status" size="2">
 					#{status.first ? '' : '-'}
 					<h:outputText value="#{date}">
 						<f:convertDateTime pattern="MM/dd/yyyy" />
@@ -111,62 +151,62 @@
 				</ui:repeat>
 
 				<h:outputText value="Month Picker:" />
-				<h:outputText value="#{calendarMB.date3}">
+				<h:outputText value="#{datePickerMB.date3}">
 					<f:convertDateTime pattern="MM/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Touch UI:" />
-				<h:outputText value="#{calendarMB.date4}">
+				<h:outputText value="#{datePickerMB.date4}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Date Template:" />
-				<h:outputText value="#{calendarMB.date5}">
+				<h:outputText value="#{datePickerMB.date5}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Disabled Date/Day:" />
-				<h:outputText value="#{calendarMB.date6}">
+				<h:outputText value="#{datePickerMB.date6}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Button:" />
-				<h:outputText value="#{calendarMB.date7}">
+				<h:outputText value="#{datePickerMB.date7}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Select Event:" />
-				<h:outputText value="#{calendarMB.date8}">
+				<h:outputText value="#{datePickerMB.date8}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Spanish:" />
-				<h:outputText value="#{calendarMB.date9}">
+				<h:outputText value="#{datePickerMB.date9}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Button Bar:" />
-				<h:outputText value="#{calendarMB.date10}">
+				<h:outputText value="#{datePickerMB.date10}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Min-Max:" />
-				<h:outputText value="#{calendarMB.date11}">
+				<h:outputText value="#{datePickerMB.date11}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Multiple Months:" />
-				<h:outputText value="#{calendarMB.date12}">
+				<h:outputText value="#{datePickerMB.date12}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Time:" />
-				<h:outputText value="#{calendarMB.date13}">
+				<h:outputText value="#{datePickerMB.date13}">
 					<f:convertDateTime pattern="MM/dd/yyyy" />
 				</h:outputText>
 
 				<h:outputText value="Time Only:" />
-				<h:outputText value="#{calendarMB.date14}">
+				<h:outputText value="#{datePickerMB.date14}">
 					<f:convertDateTime pattern="HH:mm" />
 				</h:outputText>
 			</p:panelGrid>
