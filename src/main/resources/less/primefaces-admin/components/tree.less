@@ -22,7 +22,7 @@ body .ui-tree {
                 position: relative;
                 margin: 0 7px;
                 top: -5px;
-                font-size: @glyphicon-icon-size;
+                font-size: @glyphicon-icon-size + 1;
                 overflow: hidden;
                 content: "\e258" !important;
 
@@ -43,7 +43,7 @@ body .ui-tree {
                 position: relative;
                 margin: 0 7px;
                 top: -5px;
-                font-size: @glyphicon-icon-size;
+                font-size: @glyphicon-icon-size + 1;
                 overflow: hidden;
                 content: "\e259" !important;
                 @media (min-width: (@screen-md + 1)) {
@@ -53,9 +53,9 @@ body .ui-tree {
         }
         &.icon-ripple {
             margin-left: -4px;
-
             ~ .ui-treenode-icon {
                 overflow: visible;
+                margin-left: -4px;
             }
         }
 
@@ -87,6 +87,10 @@ body .ui-tree {
 
             &:before {
                 left:4px;
+            }
+            ~ .ui-treenode-icon {
+                overflow: visible;
+                margin-left: 0;
             }
         }
 

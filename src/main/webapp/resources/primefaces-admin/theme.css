@@ -15221,7 +15221,6 @@ button.ui-autocomplete-dropdown span.ui-icon-triangle-1-s:before {
   }
 }
 div.ui-autocomplete-itemtip {
-  z-index: 1032 important;
   width: auto!important;
 }
 /* interaction cues */
@@ -17311,9 +17310,6 @@ body .ui-selectcheckboxmenu-panel.black div.ui-chkbox-box,
   background: #fff!important;
 }
 /*DatePicker & Calendar */
-body .p-datepicker {
-  top: 27px!important;
-}
 body .ui-datepicker {
   padding: 0;
   border: none;
@@ -17550,12 +17546,19 @@ body .ui-datepicker td.ui-datepicker-current-day a.ui-state-active.ui-state-high
   transform: scale(0.9);
   border-radius: 50%;
 }
-body .ui-datepicker .ui-datepicker-today a.ui-state-highlight {
+body .ui-datepicker .ui-datepicker-today a.ui-state-highlight,
+body .ui-datepicker .ui-datepicker-today span.ui-state-highlight {
   text-shadow: none;
   color: #222;
+  transform: scale(0.9);
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid #3c8dbc !important;
 }
-body .ui-datepicker .ui-datepicker-today a.ui-state-highlight.ui-state-active {
+body .ui-datepicker .ui-datepicker-today a.ui-state-highlight.ui-state-active,
+body .ui-datepicker .ui-datepicker-today span.ui-state-highlight.ui-state-active {
   color: #ffffff;
+  background: #3c8dbc;
 }
 body .ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
   float: left;
@@ -26772,7 +26775,7 @@ body .ui-tree .ui-tree-toggler.ui-icon-triangle-1-e:before {
   position: relative;
   margin: 0 7px;
   top: -5px;
-  font-size: 10px;
+  font-size: 11px;
   overflow: hidden;
   content: "\e258" !important;
 }
@@ -26792,7 +26795,7 @@ body .ui-tree .ui-tree-toggler.ui-icon-triangle-1-s:before {
   position: relative;
   margin: 0 7px;
   top: -5px;
-  font-size: 10px;
+  font-size: 11px;
   overflow: hidden;
   content: "\e259" !important;
 }
@@ -26806,6 +26809,7 @@ body .ui-tree .ui-tree-toggler.icon-ripple {
 }
 body .ui-tree .ui-tree-toggler.icon-ripple ~ .ui-treenode-icon {
   overflow: visible;
+  margin-left: -4px;
 }
 body .ui-tree span.ui-tree-selectable .ui-chkbox-icon.ui-icon-minus:before {
   font-family: 'Glyphicons Halflings';
@@ -26827,6 +26831,10 @@ body .ui-tree span.ui-tree-selectable .ui-tree-toggler.icon-ripple {
 }
 body .ui-tree span.ui-tree-selectable .ui-tree-toggler.icon-ripple:before {
   left: 4px;
+}
+body .ui-tree span.ui-tree-selectable .ui-tree-toggler.icon-ripple ~ .ui-treenode-icon {
+  overflow: visible;
+  margin-left: 0;
 }
 body .ui-tree .ui-treenode-label.ui-state-highlight {
   border: 0 none;
