@@ -219,6 +219,10 @@
                         <p:inputSwitch value="#{panelMB.solid}" >
                             <p:ajax process="@this" global="false" update="@(.ui-dialog)" oncomplete="PF('dlg').show()" />
                         </p:inputSwitch>
+                        <p:outputLabel value="Solid2? " />
+                        <p:toggleSwitch value="#{panelMB.solid}" >
+                            <p:ajax process="@this" global="false" update="@(.ui-dialog)" oncomplete="PF('dlg').show()" />
+                        </p:toggleSwitch>
 
                         <f:facet name="footer">
                             <div class="box-footer">
