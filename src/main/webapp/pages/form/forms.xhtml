@@ -182,7 +182,7 @@
                         <p:ajax event="toggle" listener="#{panelMB.onToggle}" />
 
                         <h:panelGrid columns="2" cellpadding="10">
-                            <p:graphicImage name="demo/images/godfather/godfather2.jpg" />
+                            <p:graphicImage name="demo/images/godfather2.jpg" />
                             <h:outputText value="Francis Ford Coppola's legendary continuation and sequel to his landmark 1972 film, The_Godfather, parallels the young Vito Corleone's rise with his son Michael's spiritual fall, deepening The_Godfather's depiction of the dark side of the American dream.
             In the early 1900s, the child Vito flees his Sicilian village for America after the local Mafia kills his family. Vito struggles to make a living.." />
                         </h:panelGrid>
@@ -205,16 +205,20 @@
                 <p:commandButton id="dialog" value="Dialog" icon="ui-icon-extlink" styleClass="btn-success"
                                  type="button" onclick="PF('dlg').show()" style="margin-top:20px;display:block"/>
                 <p:dialog header="Login" widgetVar="dlg" resizable="false" responsive="true"
-                          modal="true" appendTo="@(body)" width="350" styleClass="card">
+                          modal="true" appendTo="@(body)" width="350" styleClass="card #{panelMB.solid ? 'box-primary box-solid':''}">
                     <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
                                  columnClasses="ui-grid-col-4,ui-grid-col-8">
-                        <h:outputLabel for="username" value="Username:"/>
+                        <p:outputLabel for="username" value="Username:"/>
                         <p:inputText id="username"/>
 
-                        <h:outputLabel for="password" value="Password:"/>
+                        <p:outputLabel for="password" value="Password:"/>
                         <p:password id="password"/>
-                        <h:outputLabel for="date" value="Date:"/>
+                        <p:outputLabel for="date" value="Date:"/>
                         <p:calendar id="date" showOn="button"/>
+                        <p:outputLabel value="Solid? " />
+                        <p:inputSwitch value="#{panelMB.solid}" >
+                            <p:ajax process="@this" global="false" update="@(.ui-dialog)" oncomplete="PF('dlg').show()" />
+                        </p:inputSwitch>
 
                         <f:facet name="footer">
                             <div class="box-footer">
@@ -227,8 +231,7 @@
 
                 <div class="ui-g-12">
                     <p:panel styleClass="card no-border">
-                        <p:chart type="line" model="#{chartMB.lineModel1}" style="height:300px;margin:20px 0"
-                                 responsive="true"/>
+                        <p:lineChart model="#{chartMB.lineModel}" style="width: 100%; height: 400px;"/>
                     </p:panel>
                 </div>
 
