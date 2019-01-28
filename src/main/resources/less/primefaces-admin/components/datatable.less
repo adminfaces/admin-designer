@@ -690,16 +690,34 @@ td.ui-editable-column .ui-cell-editor-input {
 /* no-border */
 body .ui-datatable.no-border, body .ui-treetable.no-border {
 
-    th[role="columnheader"], tbody, .ui-datatable-header, .ui-paginator, td[role="gridcell"] {
+    th[role="columnheader"], tbody, .ui-datatable-header, .ui-treetable-header, .ui-paginator, td[role="gridcell"] {
         border:transparent!important;
-    }
+		border-top: none!important;
+		border-bottom: none!important;
 
+		&.ui-editable-column {
+			.ui-selectonemenu, .ui-inputfield, .ui-autocomplete {
+				border-left: transparent!important;
+				border-right: transparent!important;
+				border-radius: 0!important;
+				&.ui-state-hover {
+					border-top-color: transparent!important;
+					border-bottom-color: transparent!important;
+					border-radius: 0!important;
+				}
+			} 
+		}
+    }
     tfoot td {
         border-left: transparent!important;
         border-right: transparent!important;
     }
-    tr[role="row"] {
-        border-left: transparent!important;
-        border-right: transparent!important;
-    }
+    tr[role="row"], tr[role="row"].ui-widget-content {
+		border-left: transparent!important;
+		border-right: transparent!important;
+		&.ui-state-hover {
+		    border-top: 1px solid #dde3e7!important;
+			border-bottom: 1px solid #dde3e7!important;
+		}
+	} 
 }
