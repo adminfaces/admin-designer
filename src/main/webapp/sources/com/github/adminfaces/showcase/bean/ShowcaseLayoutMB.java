@@ -52,8 +52,4 @@ public class ShowcaseLayoutMB extends com.github.adminfaces.template.bean.Layout
         this.materialButtons = materialButtons;
     }
     
-    
-    
-    
-    
 }
