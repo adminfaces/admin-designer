@@ -356,13 +356,14 @@ function adjustSidebarPosition() {
         if (window.pageYOffset > 150) {
             var sidebarOffset = window.pageYOffset - 100 + "px";
             sidebar.css("top", sidebarOffset);
-            sidebar.css("z-index", 900);
+            sidebar.css("z-index", 1031);
         } else {
             sidebar.css("top", 0);
             sidebar.css("z-index", 1);
         }
     } else {
         $('#sidebar').css("top", 0);
+        setStaticNavbar();
     }
 }
 
