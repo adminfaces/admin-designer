@@ -21,7 +21,7 @@ function activateRippleIcons() {
         $(this).removeClass("icon-ripple");
     });
 }
- 
+
 function stripTrailingSlash(str) {
     if (str && str.substr(-1) == '/') {
         return str.substr(0, str.length - 1);
@@ -356,7 +356,7 @@ function adjustSidebarPosition() {
         if (window.pageYOffset > 150) {
             var sidebarOffset = window.pageYOffset - 100 + "px";
             sidebar.css("top", sidebarOffset);
-            sidebar.css("z-index", 1031);
+            sidebar.css("z-index", 900);
         } else {
             sidebar.css("top", 0);
             sidebar.css("z-index", 1);
