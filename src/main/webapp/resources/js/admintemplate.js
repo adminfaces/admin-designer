@@ -10,6 +10,10 @@ $(document).ready(function () {
     activateMobileBar();
 });
 
+$(window).on('resize', function () {
+    adjustSidebarPosition();
+});
+
 function activateRippleIcons() {
     $(document.body).on('mousedown touchstart', '.ui-messages .ui-icon, .ui-growl-item .ui-icon, span.ui-tree-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
         $(this).addClass("icon-ripple");
@@ -352,11 +356,13 @@ function adjustSidebarPosition() {
         if (window.pageYOffset > 150) {
             var sidebarOffset = window.pageYOffset - 100 + "px";
             sidebar.css("top", sidebarOffset);
-            sidebar.css("z-index", 1031);
+            sidebar.css("z-index", 900);
         } else {
             sidebar.css("top", 0);
             sidebar.css("z-index", 1);
         }
+    } else {
+        $('#sidebar').css("top", 0);
     }
 }
 
