@@ -61,6 +61,10 @@ public class DownloadMB {
         addEntry(baseDir + "/src/main/webapp/resources/images/ajaxloadingbar.gif", "/META-INF/resources/images/ajaxloadingbar.gif", zipFile);
         addEntry(baseDir + "/target/classes/config/admin-config.properties", "/config/admin-config.properties", zipFile);
         addEntry(baseDir + "/target/classes/admin.properties", "/admin.properties", zipFile);
+        addEntry(baseDir + "/target/classes/admin_es_MX.properties", "/admin_es_MX.properties", zipFile);
+        addEntry(baseDir + "/target/classes/admin_pt_BR.properties", "/admin_pt_BR.properties", zipFile);
+        addEntry(baseDir + "/target/classes/admin_ar.properties", "/admin_ar.properties", zipFile);
+        addEntry(baseDir + "/target/classes/admin_zh_CN.properties", "/admin_zh_CN.properties", zipFile);
         addDirectory(baseDir + "/target/classes/com", baseDir + "/target/classes/com", zipFile, false, Arrays.asList("admin-config.properties", "less", "showcase"));
         IOUtils.closeQuietly(zipFile);
         streamedContent = new DefaultStreamedContent(new FileInputStream("target/admin-template.jar"), "application/java-archive", "admin-template.jar");
@@ -79,13 +83,16 @@ public class DownloadMB {
         copyFile("src/main/webapp/admin.xhtml", "target/admin-starter/src/main/webapp/admin.xhtml");
         copyFile("src/main/webapp/admin-top.xhtml", "target/admin-starter/src/main/webapp/admin-top.xhtml");
         copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin.properties");
+        copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin_es_MX.properties");
+        copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin_pt_BR.properties");
+        copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin_ar.properties");
+        copyFile("src/main/resources/admin.properties", "target/admin-starter/src/main/resources/admin_zh_CN.properties");
         copyDir(new File("src/main/resources/config"), new File("target/admin-starter/src/main/resources/config"));        
         copyDir(new File("src/main/webapp/resources/primefaces-admin"), new File("target/admin-starter/src/main/webapp/resources/primefaces-admin"));
         copyFile("src/main/webapp/WEB-INF/admin.taglib.xml", "target/admin-starter/src/main/webapp/WEB-INF/admin.taglib.xml");
         copyDir("src/main/resources/META-INF", "target/admin-starter/src/main/resources/META-INF");
 
         copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
-        copyDir(new File("src/main/webapp/resources/images"), new File("target/admin-starter/src/main/webapp/resources/images"));
         copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
         copyDir(new File("src/main/webapp/resources/admin-lte"), new File("target/admin-starter/src/main/webapp/resources/admin-lte"));
         copyDir(new File("src/main/webapp/resources/components"), new File("target/admin-starter/src/main/webapp/resources/components"));

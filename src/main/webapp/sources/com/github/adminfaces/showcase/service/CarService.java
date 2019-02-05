@@ -95,4 +95,5 @@ public class CarService implements Serializable {
     public List<String> getBrands() {
         return Arrays.asList(brands);
     }
+
 }
