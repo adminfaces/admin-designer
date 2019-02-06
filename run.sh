@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./mvnw clean thorntail:run
+./mvnw clean wildfly-swarm:run
