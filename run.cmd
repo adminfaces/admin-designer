@@ -1,1 +1,1 @@
-mvnw.cmd clean thorntail:ru
+mvnw.cmd clean wildfly-swarm:run
