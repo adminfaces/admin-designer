@@ -774,4 +774,11 @@ a.ui-rowgroup-toggler {
 
 }
 
+@supports (-ms-ime-align: auto) {          
+    body a.ui-rowgroup-toggler .ui-rowgroup-toggler-icon {
+        &.ui-icon-circle-triangle-s,  &.ui-icon-circle-triangle-e { 
+            display: ruby-base;             
+        }        
+    } 
+}
 
