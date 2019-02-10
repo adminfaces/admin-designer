@@ -93,11 +93,13 @@ public class DownloadMB {
         copyDir("src/main/resources/META-INF", "target/admin-starter/src/main/resources/META-INF");
 
         copyDir(new File("src/main/webapp/resources/js"), new File("target/admin-starter/src/main/webapp/resources/js"));
+        copyDir(new File("src/main/webapp/resources/images"), new File("target/admin-starter/src/main/webapp/resources/images"));
         copyDir(new File("src/main/webapp/resources/bootstrap"), new File("target/admin-starter/src/main/webapp/resources/bootstrap"));
         copyDir(new File("src/main/webapp/resources/admin-lte"), new File("target/admin-starter/src/main/webapp/resources/admin-lte"));
         copyDir(new File("src/main/webapp/resources/components"), new File("target/admin-starter/src/main/webapp/resources/components"));
         Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/prism.js"));
         Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/js/chart.min.js"));
+        Files.delete(Paths.get("target/admin-starter/src/main/webapp/resources/images/logo.png"));
 
 
         ZipOutputStream zipFile = new ZipOutputStream(new FileOutputStream("target/admin-starter.zip"));
