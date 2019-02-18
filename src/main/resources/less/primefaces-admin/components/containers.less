@@ -4,14 +4,13 @@
   font-family: @font-family-sans;
 }
 
-div.wrapper {
-   overflow: hidden;
-}
-
 .ui-widget .ui-widget {
   font-size: @font-size-base;
 }
 
+div.wrapper {
+   overflow: hidden;
+}
 
 body .ui-tabs-outline {
   outline: none;
@@ -21,6 +20,9 @@ body .ui-tabs-outline {
   border: 1px solid @default-border-color;
   background: #fff;
   color: #222222;
+  &:hover {
+      background-color: transparent;
+  }
 }
 
 .ui-widget-header {

@@ -163,7 +163,7 @@ function searchLeftMenu(criteria) {
     var menuResults = $('#menu-search ul.dropdown-menu[role="menu"]');
     $('#menu-search li.dropdown li').remove();
 
-    if (criteria != null && criteria.length >= 2) {
+    if (criteria != null && criteria.length >= 1) {
         criteria = criteria.toLowerCase();
         var match = false;
         $('ul.sidebar-menu.tree li:not(.treeview, .header)').each(function () {
@@ -193,7 +193,7 @@ function searchTopMenu(criteria) {
     var menuResults = $('#menu-search ul.dropdown-menu[role="menu"]');
     $('#menu-search li.dropdown li').remove();
 
-    if (criteria != null && criteria.length >= 2) {
+    if (criteria != null && criteria.length >= 1) {
         criteria = criteria.toLowerCase();
         var match = false;
         $('ul.nav.navbar-nav ul.dropdown-menu[role="menu"] > li').each(function () {

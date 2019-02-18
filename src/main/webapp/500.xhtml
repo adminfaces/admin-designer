@@ -3,7 +3,6 @@
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:fn="http://java.sun.com/jsp/jstl/functions"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:adm="http://github.com/adminfaces"
                 xmlns:of="http://omnifaces.org/functions">
 
@@ -21,6 +20,7 @@
 
                         <p>
                             #{adm['label.go-back']} <p:link style="text-decoration: underline" outcome="/#{adminConfig.indexPage}" value="#{adm['label.home']}"
+                                                             escape="false"/> #{adm['label.or-to']} <p:link style="text-decoration: underline" onclick="location.reload();" href="#" value="#{adm['label.previous-page']}" 
                                                              escape="false"/>.
                         </p>
                     </div>
