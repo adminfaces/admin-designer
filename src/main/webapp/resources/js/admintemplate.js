@@ -15,9 +15,9 @@ $(window).on('resize', function () {
 });
 
 function activateRippleIcons() {
-    $(document.body).on('mousedown touchstart', '.ui-messages .ui-icon, .ui-growl-item .ui-icon, span.ui-tree-toggler, div.ui-row-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
+    $(document.body).on('mousedown touchstart', '.ui-messages .ui-icon, .ui-growl-item .ui-icon, span.ui-tree-toggler, span.ui-treetable-toggler, div.ui-row-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
         $(this).addClass("icon-ripple");
-    }).on('mouseup mouseleave touchend touchcancel', '.ui-messages .ui-icon, .ui-growl-item .ui-icon, span.ui-tree-toggler, div.ui-row-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
+    }).on('mouseup mouseleave touchend touchcancel', '.ui-messages .ui-icon, .ui-growl-item .ui-icon, span.ui-tree-toggler, span.ui-treetable-toggler, div.ui-row-toggler, span.ui-icon-calendar, div.ui-selectcheckboxmenu-trigger span.ui-icon-triangle-1-s, span.ui-icon-circle-close, .ui-panel-titlebar span.ui-icon, .ui-dialog-titlebar span.ui-icon, .ui-paginator span.ui-icon, .ui-autocomplete-dropdown span.ui-icon-triangle-1-s, .ui-selectonemenu-trigger span.ui-icon-triangle-1-s, .ui-spinner-button .ui-icon', null, function (e) {
         $(this).removeClass("icon-ripple");
     });
 
@@ -630,4 +630,31 @@ PrimeFaces.locales['zh_CN'] = {
     week: '周',
     day: '日',
     allDayText : '全天'
+};
+
+PrimeFaces.locales ['de'] = {
+    closeText: 'Schließen',
+    prevText: 'Zurück',
+    nextText: 'Weiter',
+    monthNames: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember' ],
+    monthNamesShort: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez' ],
+    dayNames: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+    dayNamesShort: ['Son', 'Mon', 'Die', 'Mit', 'Don', 'Fre', 'Sam'],
+    dayNamesMin: ['S', 'M', 'D', 'M ', 'D', 'F ', 'S'],
+    weekHeader: 'Woche',
+    firstDay: 1,
+    isRTL: false,
+    showMonthAfterYear: false,
+    yearSuffix:'',
+    timeOnlyTitle: 'Nur Zeit',
+    timeText: 'Zeit',
+    hourText: 'Stunde',
+    minuteText: 'Minute',
+    secondText: 'Sekunde',
+    currentText: 'Aktuelles Datum',
+    ampm: false,
+    month: 'Monat',
+    week: 'Woche',
+    day: 'Tag',
+    allDayText: 'Ganzer Tag'
 };

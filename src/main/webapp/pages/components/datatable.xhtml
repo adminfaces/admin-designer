@@ -8,7 +8,7 @@
 
 
     <ui:define name="metadata">
-		 <f:metadata>
+        <f:metadata>
             <f:viewParam name="bordeless" value="#{layoutMB.borderless}" converter="javax.faces.Boolean"/>
         </f:metadata>
         <ui:param name="enableSlideMenu" value="false"/> <!-- disables slide menu (only on this page) on small screens -->
@@ -39,14 +39,14 @@
         <adm:breadcrumb title="Datatable"/>
         <p:panel styleClass="card box-primary" header="Datatable">
             <h:form prependId="false">
-			<div>
-				<p:tooltip for="borderless" escape="false" position="top" value="Turns borderless tables on, just add &lt;code&gt;no-border&lt;/code&gt; class to all datatables."/>
-				<p:outputLabel value="Borderless tables?" for="borderless"/>
-				<p:inputSwitch id="borderless" value="#{layoutMB.borderless}">
-					<p:ajax update="@this @(.ui-datatable, .ui-treetable)"/>
-				</p:inputSwitch>
-			</div>
-            <p:spacer height="15px"/>
+                <div>
+                    <p:tooltip for="borderless" escape="false" position="top" value="Turns borderless tables on, just add &lt;code&gt;no-border&lt;/code&gt; class to all datatables."/>
+                    <p:outputLabel value="Borderless tables?" for="borderless"/>
+                    <p:inputSwitch id="borderless" value="#{layoutMB.borderless}">
+                        <p:ajax update="@this @(.ui-datatable, .ui-treetable)"/>
+                    </p:inputSwitch>
+                </div>
+                <p:spacer height="15px"/>
 
                 <div id="datatable">
                     <p:dataTable var="car" value="#{datatableMB.cars}" widgetVar="carsTable" paginator="true" styleClass="header-right #{layoutMB.borderless ? 'no-border':''}"
@@ -220,7 +220,7 @@
                 <p:growl id="msgs" showDetail="true"/>
 
                 <p:dataTable id="cars1" var="car" value="#{datatableEditMB.cars1}" styleClass="#{layoutMB.borderless ? 'no-border':''}"
-							 editable="true" style="margin-bottom:20px">
+                             editable="true" style="margin-bottom:20px">
                     <f:facet name="header">
                         Row Editing
                     </f:facet>
@@ -274,7 +274,7 @@
                 </p:dataTable>
 
                 <p:dataTable id="cars2" var="car" value="#{datatableEditMB.cars2}" styleClass="#{layoutMB.borderless ? 'no-border':''}"
-							 editable="true" editMode="cell" widgetVar="cellCars">
+                             editable="true" editMode="cell" widgetVar="cellCars">
                     <f:facet name="header">
                         Cell Editing with Click and RightClick
                     </f:facet>
@@ -322,10 +322,10 @@
                     </p:column>
                 </p:dataTable>
 
-                <p:contextMenu for="cars2" widgetVar="cMenu">   
-                    <p:menuitem value="Edit Cell" icon="fa fa-search" onclick="PF('cellCars').showCellEditor();return false;"/>  
-                    <p:menuitem value="Hide Menu" icon="fa fa-close" onclick="PF('cMenu').hide()"/>  
-                </p:contextMenu> 
+                <p:contextMenu for="cars2" widgetVar="cMenu">
+                    <p:menuitem value="Edit Cell" icon="fa fa-search" onclick="PF('cellCars').showCellEditor();return false;"/>
+                    <p:menuitem value="Hide Menu" icon="fa fa-close" onclick="PF('cMenu').hide()"/>
+                </p:contextMenu>
 
             </h:form>
         </p:panel>
@@ -339,7 +339,7 @@
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15" rows="10"
                                  emptyMessage="No cars found with given criteria"
-                                 >
+                    >
 
                         <f:facet name="header">
                             <h:outputText value="Box primary table"/>
@@ -367,7 +367,7 @@
                                  paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                  rowsPerPageTemplate="5,10,15" rows="10"
                                  emptyMessage="No cars found with given criteria"
-                                 >
+                    >
 
                         <f:facet name="header">
                             <h:outputText value="Box solid primary table"/>
@@ -389,7 +389,7 @@
 
                     </p:dataTable>
                 </div>
-            </div> 
+            </div>
         </p:panel>
 
         <p:spacer/>
@@ -473,36 +473,36 @@
         </p:panel>
         <p:separator/>
         <p:panel styleClass="card no-border" header="Row expansion" id="rowExpansionPanel" toggleable="true" toggleSpeed="300">
-	        <p:dataTable var="car" value="#{datatableMB.cars}" styleClass="#{layoutMB.borderless ? 'no-border':''}">
-		        <f:facet name="header">
-		            Expand rows to see detailed information
-		        </f:facet>
-		        <p:column style="width:30px">
-		            <p:rowToggler />
-		        </p:column>
-		        <p:column headerText="Id">
-		            <h:outputText value="#{car.id}" />
-		        </p:column>
-		        <p:column headerText="Year">
-		            <h:outputText value="#{car.year}" />
-		        </p:column>
-		        <p:rowExpansion>
-		            <p:panelGrid  columns="2" style="width:300px">
-		                <f:facet name="header">
-		                    <p:graphicImage name="demo/images/car/#{car.brand}-big.gif"/> 
-		                </f:facet>
-		                <p:outputLabel for="id" value="Id:" />
-		                <h:outputText id="id" value="#{car.id}" />
-		                <p:outputLabel for="year"  value="Year" />
-		                <h:outputText id="year" value="#{car.year}" />
-		                <p:outputLabel for="color"  value="Color:" />
-		                <h:outputText id="color" value="#{car.color}" style="color:#{car.color}"/>
-		                <p:outputLabel for="price"  value="Price" />
-		                <h:outputText id="price" value="$#{car.price}" />
-		            </p:panelGrid>
-		        </p:rowExpansion>
-	    </p:dataTable>
-    </p:panel>
+            <p:dataTable var="car" value="#{datatableMB.cars}" styleClass="#{layoutMB.borderless ? 'no-border':''}" rowKey="#{car.id}">
+                <f:facet name="header">
+                    Expand rows to see detailed information
+                </f:facet>
+                <p:column style="width:30px">
+                    <p:rowToggler />
+                </p:column>
+                <p:column headerText="Id">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+                <p:column headerText="Year">
+                    <h:outputText value="#{car.year}" />
+                </p:column>
+                <p:rowExpansion>
+                    <p:panelGrid  columns="2" style="width:300px" styleClass="ui-panelgrid-blank">
+                        <f:facet name="header">
+                            <p:graphicImage name="demo/images/car/#{car.brand}-big.gif"/>
+                        </f:facet>
+                        <p:outputLabel for="id" value="Id:" />
+                        <h:outputText id="id" value="#{car.id}" />
+                        <p:outputLabel for="year"  value="Year" />
+                        <h:outputText id="year" value="#{car.year}" />
+                        <p:outputLabel for="color"  value="Color:" />
+                        <h:outputText id="color" value="#{car.color}" style="color:#{car.color}"/>
+                        <p:outputLabel for="price"  value="Price" />
+                        <h:outputText id="price" value="$#{car.price}" />
+                    </p:panelGrid>
+                </p:rowExpansion>
+            </p:dataTable>
+        </p:panel>
     </ui:define>
 
     <ui:define name="code">
