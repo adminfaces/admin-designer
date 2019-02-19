@@ -76,4 +76,12 @@ public class SamplePageMB implements Serializable {
     public void setTalks(List<String> talks) {
         this.talks = talks;
     }
+
+    public Entity getEntity() {
+        return entity;
+    }
+
+    public void setEntity(Entity entity) {
+        this.entity = entity;
+    }
 }

@@ -14,7 +14,7 @@
         <adm:breadcrumb title="Sample page"/>
 
         <h:form id="form" prependId="false">
-            <p:focus rendered="#{empty samplePageMB.id}"/>
+            <p:focus />
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
@@ -58,7 +58,7 @@
                                 <p:outputLabel for="id" value="Id"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:inputNumber id="id" value="#{samplePageMB.entity.id}" readonly="true"
+                                <p:inputText id="id" value="#{samplePageMB.entity.id}" readonly="true"
                                              styleClass="form-control" />
                                 <span class="help-block"> 
                                     <p:message for="id"/>
@@ -120,7 +120,7 @@
                                 <p:outputLabel for="useSpaces" value="Use spaces over tabs?"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:inputSwitch value="#{samplePageMB.entity.useSpacesOverTabs}"/>
+                                <p:inputSwitch id="useSpaces" value="#{samplePageMB.entity.useSpacesOverTabs}"/>
                                 <span class="help-block">
                                     <p:message for="useSpaces" />
                                 </span>
