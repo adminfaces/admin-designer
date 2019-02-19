@@ -95,7 +95,7 @@
                                 <p:outputLabel for="talk" value="Talk to attend"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:autoComplete id="talk" value="#{talkFormMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" required="true" requiredMessage="Talk is required." var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
+                                <p:autoComplete id="talk" value="#{samplePageMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" required="true" requiredMessage="Talk is required." var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
                                 <span class="help-block">
                                     <p:message for="talk" />
                                 </span>
