@@ -95,5 +95,6 @@ public class Entity {
     public void setTalk(String talk) {
         this.talk = talk;
     }
+
     
 }

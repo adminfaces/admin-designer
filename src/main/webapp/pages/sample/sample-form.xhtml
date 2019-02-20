@@ -14,7 +14,7 @@
         <adm:breadcrumb title="Sample page"/>
 
         <h:form id="form" prependId="false">
-            <p:focus context="@form" />
+            <p:focus context="@form"/>
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div id="main-buttons" class="hidden-sm hidden-xs">
@@ -89,10 +89,20 @@
                                 </span>
                             </div>
                         </div>
-
+                         <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="age" value="Age"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:spinner id="age" value="#{samplePageMB.entity.age}" required="true" requiredMessage="Age is required."/>
+                                <span class="help-block"> 
+                                    <p:message for="age" escape="false"/>
+                                </span>
+                            </div>
+                        </div>
                         <div class="ui-sm-12 ui-g-6 ui-g-nopad">
                             <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="talk" value="Talk to attend"/>
+                                <p:outputLabel for="talk" value="Talk"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
                                 <p:autoComplete id="talk" value="#{samplePageMB.entity.talk}" completeMethod="#{samplePageMB.completeTalk}" minQueryLength="2" dropdown="true" required="true" requiredMessage="Talk is required." var="talk" itemLabel="#{talk}" itemValue="#{talk}"  />
@@ -101,17 +111,30 @@
                                 </span>
                             </div>
                         </div>
+                        
                         <div class="ui-sm-12 ui-g-6 ui-g-nopad">
                             <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="bio" value="Bio"/>
+                                <p:outputLabel for="cities" value="Cities"/>
                             </div>
                             <div class="ui-sm-12 ui-g-11">
-                                <p:inputTextarea id="bio" rows="5" cols="30" counter="display" maxlength="2000"
-                                                 counterTemplate="{0} remaining chars"
-                                                 autoResize="true"/>
+                                <p:selectCheckboxMenu id="cities" value="#{samplePageMB.entity.cities}" label="Cities"
+                                                      multiple="true" filter="true" filterMatchMode="contains">
+                                    <f:selectItems value="#{samplePageMB.cities}" var="city" itemLabel="#{city}"
+                                                   itemValue="#{city}"/>
+                                </p:selectCheckboxMenu>
                                 <span class="help-block"> 
-                                    <h:outputText id="display"/> 
-                                    <p:message for="bio"/>
+                                    <p:message for="cities"/>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:outputLabel for="date" value="Session day"/>
+                            </div>
+                            <div class="ui-sm-12 ui-g-11">
+                                <p:datePicker id="date" value="#{samplePageMB.entity.date}" showIcon="true"/>
+                                <span class="help-block"> 
+                                    <p:message for="date"/>
                                 </span>
                             </div>
                         </div>
@@ -126,29 +149,18 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="twitter" value="Twitter"/>
+                        
+                        <div class="ui-g-12 ui-g-nopad">
+                            <div class="ui-g-12">
+                                <p:outputLabel for="bio" value="Bio"/>
                             </div>
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:inputText id="twitter" value="#{samplePageMB.entity.twitter}" maxlength="50"/>
+                            <div class="ui-g-12">
+                                <p:inputTextarea id="bio" rows="3" cols="20" counter="display" maxlength="2000"
+                                                 counterTemplate="{0} remaining chars"
+                                                 autoResize="true"/>
                                 <span class="help-block"> 
-                                    <p:message for="twitter"/>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="ui-sm-12 ui-g-6 ui-g-nopad">
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:outputLabel for="cities" value="Cities visited"/>
-                            </div>
-                            <div class="ui-sm-12 ui-g-11">
-                                <p:selectCheckboxMenu id="cities" value="#{samplePageMB.entity.cities}" label="Cities"
-                                                      multiple="true" filter="true" filterMatchMode="contains">
-                                    <f:selectItems value="#{samplePageMB.cities}" var="city" itemLabel="#{city}"
-                                                   itemValue="#{city}"/>
-                                </p:selectCheckboxMenu>
-                                <span class="help-block"> 
-                                    <p:message for="cities"/>
+                                    <h:outputText id="display"/> 
+                                    <p:message for="bio"/>
                                 </span>
                             </div>
                         </div>
