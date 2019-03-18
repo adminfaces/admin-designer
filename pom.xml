@@ -57,7 +57,7 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>7.0</version>
+            <version>7.0.RC3</version>
         </dependency>
         <dependency>
             <groupId>org.primefaces.extensions</groupId>
@@ -69,8 +69,6 @@
             <artifactId>omnifaces</artifactId>
             <version>2.1</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.wildfly.swarm</groupId>
             <artifactId>jsf</artifactId>
