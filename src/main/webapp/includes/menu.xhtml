@@ -12,7 +12,7 @@
             </p:link>
         </li>
         <li>
-            <a href="#{request.contextPath}/docs/index.html" target="_blank">
+            <a href="http://adminfaces.github.io/site/docs/latest/" target="_blank">
                 <i class="fa fa-book"></i>
                 <span>Documentation</span>
             </a>
@@ -49,6 +49,7 @@
             <p:link outcome="/pages/sample/sample-form.xhtml">
                 <i class="fa fa-tasks"></i>
                 <span>Sample page</span>
+                <span class="label label-danger pull-right" style="line-height: inherit">NEW</span>
             </p:link>
         </li>
         <li class="treeview">
@@ -126,6 +127,12 @@
                     <p:link outcome="/pages/components/menus.xhtml">
                         <i class="fa fa-list"></i>
                         <span>Menus</span>
+                    </p:link>
+                </li>
+                <li>
+                    <p:link outcome="/pages/components/notificationBar.xhtml">
+                        <i class=" fa fa-exclamation-circle"></i>
+                        <span>NotificationBar</span>
                         <span class="label label-danger pull-right" style="line-height: inherit">NEW</span>
                     </p:link>
                 </li>
@@ -200,7 +207,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <p:link outcome="/pages/components/multilevel.xhtml">
+                            <p:link outcome="/pages/components/multilevel">
                                 <i class="fa fa-reply-all"></i>
                                 <span>Multi level item</span>
                             </p:link>
