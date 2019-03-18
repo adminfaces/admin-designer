@@ -51,6 +51,7 @@ public class AdminConfig implements Serializable {
     private boolean renderControlSidebar;
     private boolean leftMenuTemplate;
     private boolean renderMenuSearch;
+    private boolean renderAsterisks;
     //controlsidebar
     private ControlSidebarConfig controlSidebar;
     private String pageSuffix;
@@ -107,6 +108,7 @@ public class AdminConfig implements Serializable {
         renderControlSidebar =  Boolean.parseBoolean(getProperty("admin.renderControlSidebar"));
         rippleMobileOnly = Boolean.parseBoolean(getProperty("admin.rippleMobileOnly"));
         renderMenuSearch = Boolean.parseBoolean(getProperty("admin.renderMenuSearch"));
+        renderAsterisks = Boolean.parseBoolean(getProperty("admin.renderAsterisks"));
         messagesHideTimeout = getProperty("admin.messagesHideTimeout");
         leftMenuTemplate = Boolean.parseBoolean(getProperty("admin.controlSidebar.leftMenuTemplate"));
         boolean controlSidebarShowOnMobile = Boolean.parseBoolean(getProperty("admin.controlSidebar.showOnMobile"));
@@ -217,7 +219,15 @@ public class AdminConfig implements Serializable {
     public void setAutoHideMessages(boolean autoHideMessages) {
         this.autoHideMessages = autoHideMessages;
     }
-    
+
+    public boolean isRenderAsterisks() {
+        return renderAsterisks;
+    }
+
+    public void setRenderAsterisks(boolean renderAsterisks) {
+        this.renderAsterisks = renderAsterisks;
+    }
+
     public String getMessagesHideTimeout() {
         return messagesHideTimeout;
     }
@@ -361,6 +371,5 @@ public class AdminConfig implements Serializable {
     public void setRenderControlSidebar(boolean renderControlSidebar) {
         this.renderControlSidebar = renderControlSidebar;
     }
-    
-    
+
 }

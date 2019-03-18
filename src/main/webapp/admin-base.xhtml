@@ -589,6 +589,14 @@
         </script>
     </ui:fragment>
 
+    <ui:fragment rendered="#{adminConfig.renderAsterisks and (empty renderAsterisks or renderAsterisks)}">
+            <style type="text/css">
+                body .ui-outputlabel-rfi {
+                    display: inline;
+                }
+            </style>
+    </ui:fragment>
+
     <ui:insert name="body-end"/>
 </h:body>
 
