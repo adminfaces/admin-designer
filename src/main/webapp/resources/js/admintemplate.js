@@ -62,9 +62,9 @@ function activateMenu(url, activated) {
         var currentPage = stripTrailingSlash($(this).attr('href'));
         //console.log("sub-activePage:" + activePage +" sub-currentPage:" + currentPage);
         if (activePage == currentPage) {
-        	$(this).parentsUntil( "ul.sidebar-menu", "li.treeview" ).each(function () {
+            $(this).parentsUntil( "ul.sidebar-menu", "li.treeview" ).each(function () {
                 $(this).addClass('active');
-             });
+            });
             //$(this).parent().addClass('active');
             //$(this).parent().parent().parent().addClass('active');
             activated = true;
@@ -338,7 +338,7 @@ var scrollTimerNav, lastScrollFireTimeNav = 0;
 function activateAutoShowNavbarOnScrollUp() {
     if (isMobile() && window.pageYOffset > 150) {
         var currentScrollPositionNav = $(this).scrollTop();
-        if (currentScrollPositionNav > scrollPosition) {
+        if (currentScrollPositionNav > (scrollPosition - 50)) {
             //scroll down (default navbar)
             setStaticNavbar();
 
@@ -465,11 +465,11 @@ $(document).on("click", "div.ui-inputswitch", function () {
 
 
 /**
- * 
- * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used 
+ *
+ * removes 'will-change' attribute of content wrapper when primefaces sidebar component is used
  * and user is on a mobele device (small screen)
- * 
- *  This is needed because of conflict with slideoutjs 
+ *
+ *  This is needed because of conflict with slideoutjs
  */
 function activateSidebarComponent() {
     if (isMobile()) {
