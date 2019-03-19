@@ -1,7 +1,7 @@
 package com.github.adminfaces.template.exception;
 
 import com.github.adminfaces.template.util.Constants;
-import org.omnifaces.config.WebXml;
+import com.github.adminfaces.template.util.WebXml;
 import org.omnifaces.util.Exceptions;
 import org.omnifaces.util.Messages;
 
@@ -14,21 +14,20 @@ import javax.faces.context.FacesContext;
 import javax.faces.event.ExceptionQueuedEvent;
 import javax.faces.event.PhaseId;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import static com.github.adminfaces.template.util.Assert.has;
-import static javax.servlet.RequestDispatcher.*;
-import org.primefaces.PrimeFaces;
-
 
 /**
- * Based on: https://github.com/conventions/core/blob/master/src/main/java/org/conventionsframework/exception/ConventionsExceptionHandler.java
- * This handler adds FacesMessages when BusinessExceptions are thrown
- * OR sends user to error page when unexpected exception are raised.
+ * Based on:
+ * https://github.com/conventions/core/blob/master/src/main/java/org/conventionsframework/exception/ConventionsExceptionHandler.java
+ * This handler adds FacesMessages when BusinessExceptions are thrown OR sends user to error page when unexpected
+ * exception are raised.
  *
  * @author rafael-pestano
  */
@@ -78,7 +77,6 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
     }
 
-
     /**
      * @param context
      * @param e
@@ -86,22 +84,21 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
      */
     private void goToErrorPage(FacesContext context, Throwable e) {
         HttpServletRequest request = (HttpServletRequest) context.getExternalContext().getRequest();
-        request.setAttribute(ERROR_EXCEPTION + "_stacktrace", e);
-
-        if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
-            throw new FacesException(e);
-        }
-
         if (e instanceof FileNotFoundException) {
-            logger.log(Level.WARNING,"File not found", e);
+            logger.log(Level.WARNING, "File not found", e);
             throw new FacesException(e);
         }
 
+        Map<String, Object> sessionMap = context.getExternalContext().getSessionMap();
 
-        request.setAttribute(ERROR_EXCEPTION_TYPE, e.getClass().getName());
-        request.setAttribute(ERROR_MESSAGE, e.getMessage());
-        request.setAttribute(ERROR_REQUEST_URI, request.getHeader("Referer"));
-        request.setAttribute(ERROR_STATUS_CODE, HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        String requestedUri = request.getHeader("Referer");
+        sessionMap.put("userAgent",request.getHeader("user-agent"));
+        sessionMap.put("requestedUri",requestedUri);
+        sessionMap.put("stacktrace",e);
+        sessionMap.put("errorMessage",e != null ? e.getMessage() : "");
+        sessionMap.put("exceptionType", e != null ? e.getClass().getName() : null);
+        String userIp = request.getHeader("x-forwarded-for") != null ? request.getHeader("x-forwarded-for").split(",")[0] : request.getRemoteAddr();
+        sessionMap.put("userIp",userIp);
 
         String errorPage = findErrorPage(e);
         if (!has(errorPage)) {
@@ -110,8 +107,11 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
                 errorPage = Constants.DEFAULT_ERROR_PAGE;
             }
         }
-        context.getApplication().getNavigationHandler().handleNavigation(context, null, errorPage);
-        context.renderResponse();
+        try {
+            context.getExternalContext().redirect(context.getExternalContext().getRequestContextPath() + errorPage);
+        } catch (IOException ex) {
+            logger.log(Level.SEVERE, "Could not redirect user to error page: " + context.getExternalContext().getRequestContextPath() + errorPage, ex);
+        }
     }
 
     /**
@@ -131,7 +131,7 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
 
     /**
      * @param context
-     * @param e       application business exception
+     * @param e application business exception
      */
     private void handleBusinessException(FacesContext context, BusinessException e) {
         if (context.getCurrentPhaseId() == PhaseId.RENDER_RESPONSE) {
@@ -168,12 +168,25 @@ public class CustomExceptionHandler extends ExceptionHandlerWrapper {
      * Set primefaces validationFailled callback param
      */
     private void validationFailed() {
-        PrimeFaces context = PrimeFaces.current();
-        if (context != null) {
-            context.ajax().addCallbackParam("validationFailed", true);
+        org.primefaces.PrimeFaces pf = org.primefaces.PrimeFaces.current();
+        if (pf != null) {
+            pf.ajax().addCallbackParam("validationFailed", true);
         }
     }
 
+    /**
+     * Older versions of PrimeFaces (6.1) doesn't have new PrimeFaces.current() so we must use RequestContext
+     *
+     * @return
+     */
+    private boolean isRequestContextOnClasspath() {
+        try {
+            Class.forName("org.primefaces.context.RequestContext");
+            return true;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
 
     /**
      * If there is any faces message queued add PrimeFaces validation failed
