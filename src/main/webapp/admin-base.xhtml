@@ -25,8 +25,8 @@
                   onstart="showBar();"
                   onsuccess="hideBar();"/>
 
-    <p:dialog id="adminStatusDialog" modal="true" widgetVar="statusDialog" draggable="false" closable="false"
-              resizable="false" responsive="true" showHeader="false" appendTo="@(body)">
+    <p:dialog id="adminStatusDialog" modal="true" widgetVar="statusDialog" draggable="false" closable="#{adminConfig.closableLoading}"
+              resizable="false" responsive="true" showHeader="#{adminConfig.closableLoading}" appendTo="@(body)">
         <p:graphicImage library="images" name="#{adminConfig.loadingImage}"/>
     </p:dialog>
 
@@ -115,15 +115,15 @@
                 <ui:fragment rendered="#{adminConfig.renderMessages and (empty renderMessages or renderMessages)}">
                     <div class="row">
                         <div class="col-sm-12">
-                            <p:messages id="messages" closable="true" globalOnly="true"
+                            <p:messages id="messages" closable="true" globalOnly="true" autoUpdate="true"
                                         showDetail="true" severity="error,fatal" escape="false">
-                                  <p:autoUpdate/>      
-							</p:messages>	  
-                            <!-- we need two messages because info-messages are hidden by javascript  -->
-                            <p:messages id="info-messages" closable="true" showDetail="true"
+                                <p:autoUpdate/>
+                            </p:messages>
+                            <!-- we need two messages because info-messages are automatically hidden via javascript  -->
+                            <p:messages id="info-messages" closable="true" showDetail="true" autoUpdate="true"
                                         severity="info,warn" escape="false">
-                                  <p:autoUpdate/>                
-                            </p:messages>            
+                                <p:autoUpdate/>
+                            </p:messages>
                             <p:tooltip/> <!-- exception messages with type tooltip -->
                         </div>
                     </div>
@@ -590,11 +590,20 @@
     </ui:fragment>
 
     <ui:fragment rendered="#{adminConfig.renderAsterisks or renderAsterisks}">
-            <style type="text/css">
-                body .ui-outputlabel-rfi {
-                    display: inline;
-                }
-            </style>
+        <style type="text/css">
+            body .ui-outputlabel-rfi {
+                display: inline;
+            }
+        </style>
+    </ui:fragment>
+
+    <ui:fragment rendered="#{adminConfig.closableLoading}">
+        <style type="text/css">
+            #adminStatusDialog .ui-dialog-titlebar {
+                padding: 0;
+                border: 0;
+            }
+        </style>
     </ui:fragment>
 
     <ui:insert name="body-end"/>
