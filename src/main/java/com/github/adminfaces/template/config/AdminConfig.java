@@ -51,8 +51,9 @@ public class AdminConfig implements Serializable {
     private boolean renderControlSidebar;
     private boolean leftMenuTemplate;
     private boolean renderMenuSearch;
-    private boolean renderAsterisks;
+    private boolean renderFormAsterisks;
     private boolean closableLoading;
+    private boolean enableMobileHeader;
     //controlsidebar
     private ControlSidebarConfig controlSidebar;
     private String pageSuffix;
@@ -109,7 +110,8 @@ public class AdminConfig implements Serializable {
         renderControlSidebar =  Boolean.parseBoolean(getProperty("admin.renderControlSidebar"));
         rippleMobileOnly = Boolean.parseBoolean(getProperty("admin.rippleMobileOnly"));
         renderMenuSearch = Boolean.parseBoolean(getProperty("admin.renderMenuSearch"));
-        renderAsterisks = Boolean.parseBoolean(getProperty("admin.renderAsterisks"));
+        renderFormAsterisks = Boolean.parseBoolean(getProperty("admin.renderFormAsterisks"));
+        enableMobileHeader = Boolean.parseBoolean(getProperty("admin.enableMobileHeader"));
         closableLoading = Boolean.parseBoolean(getProperty("admin.closableLoading"));
         messagesHideTimeout = getProperty("admin.messagesHideTimeout");
         leftMenuTemplate = Boolean.parseBoolean(getProperty("admin.controlSidebar.leftMenuTemplate"));
@@ -222,12 +224,12 @@ public class AdminConfig implements Serializable {
         this.autoHideMessages = autoHideMessages;
     }
 
-    public boolean isRenderAsterisks() {
-        return renderAsterisks;
+    public boolean isRenderFormAsterisks() {
+        return renderFormAsterisks;
     }
 
-    public void setRenderAsterisks(boolean renderAsterisks) {
-        this.renderAsterisks = renderAsterisks;
+    public void setRenderFormAsterisks(boolean renderAsterisks) {
+        this.renderFormAsterisks = renderAsterisks;
     }
 
     public String getMessagesHideTimeout() {
@@ -248,6 +250,14 @@ public class AdminConfig implements Serializable {
 
     public void setControlSidebar(ControlSidebarConfig controlSidebarConfig) {
         this.controlSidebar = controlSidebarConfig;
+    }
+
+    public boolean isEnableMobileHeader() {
+        return enableMobileHeader;
+    }
+
+    public void setEnableMobileHeader(boolean enableMobileHeader) {
+        this.enableMobileHeader = enableMobileHeader;
     }
 
     public boolean isRippleMobileOnly() {
