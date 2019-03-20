@@ -219,7 +219,7 @@ body hr.ui-separator.ui-state-default {
     height: 100%;
     margin-top: 15px;
     @media (min-width: (@screen-xm + 1)) {
-       display: none;    
+        display: none;
     }
     i, span {
         font-weight: bold;
@@ -232,6 +232,9 @@ body.layout-top-nav .mobile-header {
 
 body:not(.layout-top-nav) .mobile-header {
     margin-left: 100px;
+    @media (max-width: @screen-xs) {
+        margin-left: 50px;
+    }
 }
 
 //template breadcrumb icon
