@@ -1,19 +1,23 @@
 /* Inputs */
 .ui-inputfield, .ui-widget-content .ui-inputfield, .ui-widget-header .ui-inputfield {
-    line-height: 1.72; /*sets inputs height to 32px*/
+  line-height: 1.72; /*sets inputs height to 32px*/
 }
 
 .ui-inputfield.ui-state-focus, .ui-widget-content .ui-inputfield.ui-state-focus, .ui-widget-header .ui-inputfield.ui-state-focus {
-    .box-shadow(0 0 5px #1f89ce)
+  .box-shadow(0 0 5px #1f89ce)
 }
 
 .ui-inputfield {
-    -webkit-transition: .2s;
-    -moz-transition: .2s;
-    -o-transition: .2s;
-    transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+  -o-transition: .2s;
+  transition: .2s;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px white inset;
+  -webkit-box-shadow: 0 0 0 30px white inset;
+}
+
+body span.ui-inputnumber.ui-widget.ui-state-error {
+    border:none;
 }
