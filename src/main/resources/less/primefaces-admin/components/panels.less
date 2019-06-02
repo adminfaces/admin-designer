@@ -54,6 +54,11 @@ body .ui-panel {
 
   &.ui-widget {
     border-radius: @default-border-radius;
+    overflow: auto;
+
+    .ui-g {
+      overflow: hidden;
+    }
 
     &.box-default {
       border-top: 3px solid @gray-lte;

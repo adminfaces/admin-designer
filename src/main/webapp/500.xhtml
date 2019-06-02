@@ -8,8 +8,8 @@
 
 
     <ui:define name="body">
-        <div class="row">
-            <div class="ui-g-12">
+      <div class="row">
+            <div class="ui-g-12"> 
                 <div class="error-page">
                     <h2 class="headline text-red">#{adm['label.500.header']}</h2>
 
@@ -23,45 +23,45 @@
                                                             escape="false"/> #{adm['label.or-to']} <a href="#{sessionScope.requestedUri}" class="ui-link" style="text-decoration: underline">#{adm['label.previous-page']}</a>.
                         </p>
                     </div>
+                </div>    
+         </div>
+      </div>          
+
+     <div class="row">
+         <div class="ui-g-12"> 
+        <div class="box box-solid box-danger">
+                <div class="box-header with-border" style="padding-top: 1px">
+                    <h3>#{adm['label.500.title']}</h3>
+                </div>
+                <div class="box-body" style="overflow: auto">
+                    <ul>
+                        <li><b>Date/time:</b> #{of:formatDate(now, adminConfig.dateFormat)}</li>
+                        <li><b>User agent:</b> #{sessionScope.userAgent}</li>
+                        <li>
+                            <b>User IP:</b> #{sessionScope.userIp}
+                        </li>
+                        <li><b>Request URI:</b> <a
+                                href="#{sessionScope.requestedUri}">#{sessionScope.requestedUri}</a>
+                        </li>
+                        <li><b>Ajax request:</b> #{facesContext.partialViewContext.ajaxRequest ? 'Yes' : 'No'}</li>
+                        <li><b>Exception type: </b>#{sessionScope.exceptionType}</li>
+                        <li><b>Message:</b> #{sessionScope.errorMessage}</li>
+                    </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="ui-g-12">
-                <div class="box box-solid box-danger">
-                    <div class="box-header with-border" style="padding-top: 1px">
-                        <h3>#{adm['label.500.title']}</h3>
-                    </div>
-                    <div class="box-body" style="overflow: auto">
-                        <ul>
-                            <li><b>Date/time:</b> #{of:formatDate(now, adminConfig.dateFormat)}</li>
-                            <li><b>User agent:</b> #{sessionScope.userAgent}</li>
-                            <li>
-                                <b>User IP:</b> #{sessionScope.userIp}
-                            </li>
-                            <li><b>Request URI:</b> <a
-                                    href="#{sessionScope.requestedUri}">#{sessionScope.requestedUri}</a>
-                            </li>
-                            <li><b>Ajax request:</b> #{facesContext.partialViewContext.ajaxRequest ? 'Yes' : 'No'}</li>
-                            <li><b>Exception type: </b>#{sessionScope.exceptionType}</li>
-                            <li><b>Message:</b> #{sessionScope.errorMessage}</li>
-                        </ul>
-                    </div>
+            <div class="box box-solid box-warning">
+                <div class="box-header with-border" style="padding-top: 1px">
+                    <h3>#{adm['label.500.detail']}</h3>
                 </div>
-                <div class="box box-solid box-warning">
-                    <div class="box-header with-border" style="padding-top: 1px">
-                        <h3>#{adm['label.500.detail']}</h3>
-                    </div>
-                    <div class="box-body" style="overflow: auto">
+                <div class="box-body" style="overflow: auto">
                     <pre>
 #{of:printStackTrace(sessionScope.stacktrace)}
 					</pre>
-                    </div>
-
                 </div>
+
             </div>
         </div>
+      </div>
         <adm:sidebar collapsed="true"/>
     </ui:define>
 

@@ -2,6 +2,8 @@ package com.github.adminfaces.template.bean;
 
 import com.github.adminfaces.template.config.AdminConfig;
 import com.github.adminfaces.template.model.BreadCrumb;
+import com.github.adminfaces.template.util.AdminUtils;
+import org.omnifaces.util.Faces;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -11,10 +13,10 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import static com.github.adminfaces.template.util.Assert.has;
-import java.io.IOException;
-import org.omnifaces.util.Faces;
 
 /**
  * Created by rafael-pestano on 30/11/16.
@@ -56,14 +58,17 @@ public class BreadCrumbMB implements Serializable {
             String pageUrl = FacesContext.getCurrentInstance().getViewRoot().getViewId();
             link = pageUrl.replaceAll(pageUrl.substring(pageUrl.lastIndexOf('.') + 1), adminConfig.getPageSufix());
         }
-        
+
         if(!link.startsWith("/")) {
             link = "/"+link;
         }
 
-        if(link != null && adminConfig.isExtensionLessUrls()) {
-            link = link.substring(0, link.lastIndexOf("."));
-        } else if(link != null && !link.contains(".")) {
+        if(adminConfig.isExtensionLessUrls()) {
+            int idx = link.lastIndexOf(".");
+            if (idx != -1) {
+                link = link.substring(0, idx);
+            }
+        } else if(!link.contains(".")) {
             link = link + "." + adminConfig.getPageSufix();
         }
         breadCrumb.setLink(link);
@@ -77,7 +82,7 @@ public class BreadCrumbMB implements Serializable {
         }
         breadCrumbs.add(breadCrumb);
     }
-    
+
     public void remove(BreadCrumb breadCrumb) {
         breadCrumbs.remove(breadCrumb);
     }
@@ -85,10 +90,15 @@ public class BreadCrumbMB implements Serializable {
     public void clear() {
         breadCrumbs.clear();
     }
-    
-    public void clearAndHome() throws IOException {
+
+    public void clearAndHome() {
         clear();
-        Faces.redirect(Faces.getRequestBaseURL());
+        try {
+            AdminUtils.redirect(Faces.getRequestBaseURL());
+        } catch (Exception e) {
+           //see issue #177
+            Logger.getLogger(getClass().getName()).log(Level.SEVERE,"Could not redirect to Home page.",e);
+        }
     }
 
     public List<BreadCrumb> getBreadCrumbs() {
