@@ -46,9 +46,6 @@ div.ui-panel .ui-panel-title {
   padding: 8px 5px;
 }
 
-div.ui-panel .ui-panel-content {
-  padding: 10px 10px;
-}
 
 body .ui-panel {
 
@@ -56,8 +53,12 @@ body .ui-panel {
     border-radius: @default-border-radius;
     overflow: auto;
 
-    .ui-g {
-      overflow: hidden;
+    .ui-panel-content {
+      padding: 10px 10px;
+
+      .ui-g {
+        overflow: hidden;
+      }
     }
 
     &.box-default {

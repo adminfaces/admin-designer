@@ -23902,14 +23902,14 @@ div.ui-panel .ui-panel-title {
   font-weight: 500;
   padding: 8px 5px;
 }
-div.ui-panel .ui-panel-content {
-  padding: 10px 10px;
-}
 body .ui-panel.ui-widget {
   border-radius: 3px;
   overflow: auto;
 }
-body .ui-panel.ui-widget .ui-g {
+body .ui-panel.ui-widget .ui-panel-content {
+  padding: 10px 10px;
+}
+body .ui-panel.ui-widget .ui-panel-content .ui-g {
   overflow: hidden;
 }
 body .ui-panel.ui-widget.box-default {
