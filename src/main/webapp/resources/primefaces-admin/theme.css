@@ -15869,6 +15869,38 @@ body .ui-splitbutton.btn-fatal > button.ui-state-disabled.ui-state-active {
 body .ui-splitbutton.btn-fatal > button span.ui-icon {
   color: #fff;
 }
+body .ui-splitbutton.btn-teal > button {
+  color: #fff !important;
+  background-color: #009688 !important;
+  border-color: #007d71 !important;
+}
+body .ui-splitbutton.btn-teal > button:hover,
+body .ui-splitbutton.btn-teal > button.ui-state-hover {
+  background-color: #007d71 !important;
+}
+body .ui-splitbutton.btn-teal > button:focus,
+body .ui-splitbutton.btn-teal > button.ui-state-focus {
+  background-color: #006d63 !important;
+}
+body .ui-splitbutton.btn-teal > button:active,
+body .ui-splitbutton.btn-teal > button.ui-state-active {
+  background-color: #004a43 !important;
+}
+body .ui-splitbutton.btn-teal > button.ui-state-disabled:hover,
+body .ui-splitbutton.btn-teal > button.ui-state-disabled.ui-state-hover {
+  background-color: #009688 !important;
+}
+body .ui-splitbutton.btn-teal > button.ui-state-disabled:focus,
+body .ui-splitbutton.btn-teal > button.ui-state-disabled.ui-state-focus {
+  background-color: #009688 !important;
+}
+body .ui-splitbutton.btn-teal > button.ui-state-disabled:active,
+body .ui-splitbutton.btn-teal > button.ui-state-disabled.ui-state-active {
+  background-color: #009688 !important;
+}
+body .ui-splitbutton.btn-teal > button span.ui-icon {
+  color: #fff;
+}
 body .ui-splitbutton.btn-info > button {
   color: #fff;
   background-color: #5bc0de;
@@ -16209,7 +16241,7 @@ body .ui-splitbutton.btn-material.btn-success > button.ui-state-disabled.ui-stat
   background-color: #f4f4f4 !important;
 }
 body .ui-splitbutton.btn-material.btn-success > button span.ui-icon {
-  color: green;
+  color: #00a65a;
 }
 body .ui-splitbutton.btn-material.btn-primary > button {
   color: #3c8dbc !important;
@@ -16240,6 +16272,36 @@ body .ui-splitbutton.btn-material.btn-primary > button.ui-state-disabled.ui-stat
 }
 body .ui-splitbutton.btn-material.btn-primary > button span.ui-icon {
   color: #3c8dbc;
+}
+body .ui-splitbutton.btn-material.btn-teal > button {
+  color: #009688 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button:hover,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-hover {
+  background-color: #e7e7e7 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button:focus,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-focus {
+  background-color: #e0e0e0 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button:active,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-active {
+  background-color: #cecece !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled:hover,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled.ui-state-hover {
+  background-color: #f4f4f4 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled:focus,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled.ui-state-focus {
+  background-color: #f4f4f4 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled:active,
+body .ui-splitbutton.btn-material.btn-teal > button.ui-state-disabled.ui-state-active {
+  background-color: #f4f4f4 !important;
+}
+body .ui-splitbutton.btn-material.btn-teal > button span.ui-icon {
+  color: #009688;
 }
 body .ui-splitbutton.btn-block > button {
   display: block;
@@ -23326,6 +23388,25 @@ body .content-header > .breadcrumb a:hover:not(#link-home) {
 .scroll-top .fa {
   position: relative;
   top: -2px;
+}
+/* content-header customizations */
+body section.content-header h1 {
+  display: inline;
+}
+@media (max-width: 768px) {
+  body section.content-header h1 {
+    display: block;
+  }
+}
+body section.content-header ol.breadcrumb {
+  display: inline;
+  position: initial;
+}
+@media (max-width: 768px) {
+  body section.content-header ol.breadcrumb {
+    position: relative;
+    display: block;
+  }
 }
 ul.nav.navbar-nav li {
   display: block;
