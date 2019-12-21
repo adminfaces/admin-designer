@@ -16370,6 +16370,11 @@ body .ui-flat .ui-splitbutton .ui-button.ui-splitbutton-menubutton {
 .ui-selectbooleanbutton.ui-button.ui-state-active .ui-icon {
   background-image: url("#{resource['primefaces-admin:images/ui-icons_ffffff_256x240.png']}");
 }
+div.ui-selectmanybutton div.ui-button.ui-state-default {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
 /* delimit ripple effect */
 div.ui-selectbooleanbutton {
   overflow: hidden;
@@ -26437,6 +26442,9 @@ div.ui-selectmanymenu .ui-selectlistbox-filter-container .ui-icon-search:before 
   overflow: hidden;
   content: "\f002" !important;
 }
+div.ui-selectmanymenu .ui-selectlistbox-listcontainer .ui-chkbox-box {
+  margin-left: 3px;
+}
 /*sidebar primefaces component*/
 body div.ui-sidebar a.ui-sidebar-close {
   padding: 0;
@@ -26647,27 +26655,177 @@ body .ui-spinner.ui-state-error {
   border: none;
 }
 /* schedule */
-body .fc .fc-event {
+body .fc div.fc-toolbar button.fc-button,
+body .fc-unthemed div.fc-toolbar button.fc-button {
+  color: #444444;
+  background: #f4f4f4 none;
+  border: 1px solid #ddd;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled):hover,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled):hover,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-hover {
+  background-color: #e7e7e7 !important;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled):focus,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled):focus,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-focus {
+  background-color: #e0e0e0 !important;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled):active,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled):active,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-active {
+  background-color: #cecece !important;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:hover,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-hover {
+  background-color: #f4f4f4 !important;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:focus,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-focus {
+  background-color: #f4f4f4 !important;
+}
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:active,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled:active,
+body .fc div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button:not(:disabled).ui-state-disabled.ui-state-active {
+  background-color: #f4f4f4 !important;
+}
+body .fc div.fc-toolbar button.fc-button:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button:hover,
+body .fc div.fc-toolbar button.fc-button:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button:focus,
+body .fc div.fc-toolbar button.fc-button:active,
+body .fc-unthemed div.fc-toolbar button.fc-button:active,
+body .fc div.fc-toolbar button.fc-button:focus:active,
+body .fc-unthemed div.fc-toolbar button.fc-button:focus:active {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 1px solid #ddd;
+  color: #444444;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active {
+  color: #fff;
+  border: 1px solid #ddd;
+  background: #3c8dbc;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-hover {
+  background-color: #367fa9 !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-focus {
+  background-color: #32769d !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled):active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled):active,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-active {
+  background-color: #296282 !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-hover {
+  background-color: #3c8dbc !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-focus {
+  background-color: #3c8dbc !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled:active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled:active,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:not(:disabled).ui-state-disabled.ui-state-active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:not(:disabled).ui-state-disabled.ui-state-active {
+  background-color: #3c8dbc !important;
+}
+body .fc div.fc-toolbar button.fc-button.fc-button-active:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:hover,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:hover,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:focus,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:focus,
+body .fc div.fc-toolbar button.fc-button.fc-button-active:active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-active:active,
+body .fc div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:active,
+body .fc-unthemed div.fc-toolbar button.fc-button.fc-button-primary.fc-button-active:active {
+  color: #fff;
+}
+body .fc .fc-bg,
+body .fc-unthemed .fc-bg {
+  background: #fff;
+}
+body .fc .fc-event,
+body .fc-unthemed .fc-event {
   line-height: 1.4;
   background-color: #3c8dbc;
 }
-body .fc .fc-day-header {
+body .fc .fc-day-header,
+body .fc-unthemed .fc-day-header {
   background-color: #f8f8f8;
 }
 body .fc .ui-state-highlight,
+body .fc-unthemed .ui-state-highlight,
 body .fc .ui-widget-content .ui-state-highlight,
-body .fc .ui-widget-header .ui-state-highlight {
+body .fc-unthemed .ui-widget-content .ui-state-highlight,
+body .fc .ui-widget-header .ui-state-highlight,
+body .fc-unthemed .ui-widget-header .ui-state-highlight {
   background: #08c none;
 }
-body .fc .fc-button-group button {
+body .fc .fc-button-group button,
+body .fc-unthemed .fc-button-group button {
   border-color: #e2e2e2;
 }
-body .fc .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w {
+body .fc .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w,
+body .fc-unthemed .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w {
   position: relative;
   background-image: none;
   display: inline;
 }
-body .fc .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w:before {
+body .fc .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w:before,
+body .fc-unthemed .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w:before {
   font-family: 'Glyphicons Halflings';
   color: #444444;
   font-size: 10px !important;
@@ -26675,12 +26833,14 @@ body .fc .fc-button-group button.fc-prev-button span.ui-icon-circle-triangle-w:b
   font-weight: bold;
   content: "\e257";
 }
-body .fc .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e {
+body .fc .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e,
+body .fc-unthemed .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e {
   position: relative;
   background-image: none;
   display: inline;
 }
-body .fc .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e:before {
+body .fc .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e:before,
+body .fc-unthemed .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e:before {
   font-family: 'Glyphicons Halflings';
   color: #444444;
   font-size: 10px !important;
@@ -26688,7 +26848,8 @@ body .fc .fc-button-group button.fc-next-button span.ui-icon-circle-triangle-e:b
   font-weight: bold;
   content: "\e258";
 }
-body .fc .fc-button-group button.ui-state-active {
+body .fc .fc-button-group button.ui-state-active,
+body .fc-unthemed .fc-button-group button.ui-state-active {
   color: #fff;
   background-color: #337ab7;
   border-color: #2e6da4;
@@ -26697,8 +26858,11 @@ body .fc .fc-button-group button.ui-state-active {
   border-color: #367fa9 !important;
 }
 body .fc .fc-button-group button.ui-state-active:hover,
+body .fc-unthemed .fc-button-group button.ui-state-active:hover,
 body .fc .fc-button-group button.ui-state-active:active,
-body .fc .fc-button-group button.ui-state-active.hover {
+body .fc-unthemed .fc-button-group button.ui-state-active:active,
+body .fc .fc-button-group button.ui-state-active.hover,
+body .fc-unthemed .fc-button-group button.ui-state-active.hover {
   background-color: #367fa9 !important;
 }
 /* TabView */
