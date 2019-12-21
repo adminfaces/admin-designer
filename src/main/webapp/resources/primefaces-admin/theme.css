@@ -23990,7 +23990,7 @@ div.ui-panel .ui-panel-title {
 }
 body .ui-panel.ui-widget {
   border-radius: 3px;
-  overflow: auto;
+  overflow: visible;
 }
 body .ui-panel.ui-widget .ui-panel-content {
   padding: 10px 10px;
