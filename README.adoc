@@ -18,6 +18,9 @@
 
 The aim of this application is to make it easier to customize http://github.com/adminfaces/admin-theme[Admin theme^] and http://github.com/adminfaces/admin-template[Admin Template].
 
+== *This project is deprecated*
+
+Admin Designer is not maintained anymore, the easiest way to customize the theme is making the changes directly in admin-theme project.
 
 == What is it?
 
